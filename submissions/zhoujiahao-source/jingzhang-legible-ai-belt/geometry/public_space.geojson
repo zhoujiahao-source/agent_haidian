@@ -1,0 +1,221 @@
+{
+  "type": "FeatureCollection",
+  "name": "jingzhang_legible_ai_public_space",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "PUBLIC-001",
+      "properties": {
+        "id": "PUBLIC-001",
+        "layer": "PUBLIC_SPACE",
+        "source_type": "agent_generated_design",
+        "confidence": "medium",
+        "geometry_role": "design_proposal",
+        "name_zh": "AI原点0公里 / AI Mile Zero",
+        "component_role": "pilgrimage_landmark",
+        "ai_legibility_level": "L1-L2",
+        "design_note": "节点采用“可见-可理解-可选择-可复盘”信息界面；位置为概念落位，待权属、文保、消防和运营条件核验。",
+        "area_sqm_declared": 8763.19
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.34694999999999,
+              39.988080000000004
+            ],
+            [
+              116.34694999999999,
+              39.98892
+            ],
+            [
+              116.34805,
+              39.98892
+            ],
+            [
+              116.34805,
+              39.988080000000004
+            ],
+            [
+              116.34694999999999,
+              39.988080000000004
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "PUBLIC-002",
+      "properties": {
+        "id": "PUBLIC-002",
+        "layer": "PUBLIC_SPACE",
+        "source_type": "agent_generated_design",
+        "confidence": "medium",
+        "geometry_role": "design_proposal",
+        "name_zh": "开源百年站 / Open Source Century Station",
+        "component_role": "pilgrimage_landmark",
+        "ai_legibility_level": "L2-L3",
+        "design_note": "节点采用“可见-可理解-可选择-可复盘”信息界面；位置为概念落位，待权属、文保、消防和运营条件核验。",
+        "area_sqm_declared": 8759.59
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.34694999999999,
+              40.016580000000005
+            ],
+            [
+              116.34694999999999,
+              40.01742
+            ],
+            [
+              116.34805,
+              40.01742
+            ],
+            [
+              116.34805,
+              40.016580000000005
+            ],
+            [
+              116.34694999999999,
+              40.016580000000005
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "PUBLIC-003",
+      "properties": {
+        "id": "PUBLIC-003",
+        "layer": "PUBLIC_SPACE",
+        "source_type": "agent_generated_design",
+        "confidence": "medium",
+        "geometry_role": "design_proposal",
+        "name_zh": "可读AI观察台 / Legibility Observatory",
+        "component_role": "pilgrimage_landmark",
+        "ai_legibility_level": "L1-L2",
+        "design_note": "节点采用“可见-可理解-可选择-可复盘”信息界面；位置为概念落位，待权属、文保、消防和运营条件核验。",
+        "area_sqm_declared": 8768.44
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.34745,
+              39.94648
+            ],
+            [
+              116.34745,
+              39.94732
+            ],
+            [
+              116.34855,
+              39.94732
+            ],
+            [
+              116.34855,
+              39.94648
+            ],
+            [
+              116.34745,
+              39.94648
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "PUBLIC-004",
+      "properties": {
+        "id": "PUBLIC-004",
+        "layer": "PUBLIC_SPACE",
+        "source_type": "agent_generated_design",
+        "confidence": "medium",
+        "geometry_role": "design_proposal",
+        "name_zh": "贡献者刻度墙 / Contributor Scale Wall",
+        "component_role": "honor_node",
+        "ai_legibility_level": "L1",
+        "design_note": "节点采用“可见-可理解-可选择-可复盘”信息界面；位置为概念落位，待权属、文保、消防和运营条件核验。",
+        "area_sqm_declared": 8766.662
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.34665,
+              39.96058
+            ],
+            [
+              116.34665,
+              39.96142
+            ],
+            [
+              116.34775,
+              39.96142
+            ],
+            [
+              116.34775,
+              39.96058
+            ],
+            [
+              116.34665,
+              39.96058
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "PUBLIC-005",
+      "properties": {
+        "id": "PUBLIC-005",
+        "layer": "PUBLIC_SPACE",
+        "source_type": "agent_generated_design",
+        "confidence": "medium",
+        "geometry_role": "design_proposal",
+        "name_zh": "无感知静默花园 / Sensor-Light Garden",
+        "component_role": "analog_refuge",
+        "ai_legibility_level": "L0",
+        "design_note": "节点采用“可见-可理解-可选择-可复盘”信息界面；位置为概念落位，待权属、文保、消防和运营条件核验。",
+        "area_sqm_declared": 8764.712
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.34344999999999,
+              39.97608
+            ],
+            [
+              116.34344999999999,
+              39.97692
+            ],
+            [
+              116.34455,
+              39.97692
+            ],
+            [
+              116.34455,
+              39.97608
+            ],
+            [
+              116.34344999999999,
+              39.97608
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
