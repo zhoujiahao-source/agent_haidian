@@ -1,6 +1,7 @@
 :root {
   --ink-900: #17212B;
   --ink-700: #34424F;
+  --ink-500: #52616F;
   --paper-000: #FFFFFF;
   --paper-050: #F5F7F8;
   --paper-200: #DCE2E6;
@@ -29,21 +30,51 @@
   --stroke-normal: 1.5px;
   --stroke-primary: 2px;
   --stroke-backbone: 3px;
-  --font-zh: "Noto Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-zh: "Noto Sans CJK SC", "Noto Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   --font-en: Inter, "Noto Sans", "Source Sans 3", Arial, sans-serif;
 }
 
-.evidence-official { border: 3px double var(--ink-900); }
+/* Evidence provenance: O / V / D / A / ? */
+.evidence-official { border: 4px double var(--ink-900); background: var(--paper-000); }
 .evidence-verified { border: 2px solid var(--ink-900); background: var(--paper-050); }
-.evidence-derived { border: 2px solid var(--ink-900); background-image: repeating-linear-gradient(45deg, transparent 0 6px, rgba(23,33,43,.12) 6px 7px); }
-.evidence-assumed { border: 2px dashed var(--ink-700); background-image: radial-gradient(rgba(23,33,43,.18) 1px, transparent 1px); background-size: 8px 8px; }
-.evidence-unknown { border: 2px dotted var(--ink-700); background: transparent; }
+.evidence-derived { border: 2px solid var(--ink-900); background-image: repeating-linear-gradient(45deg, transparent 0 6px, rgba(23,33,43,.14) 6px 7px); }
+.evidence-assumed { border: 2px dashed var(--ink-700); background-image: radial-gradient(rgba(23,33,43,.20) 1px, transparent 1px); background-size: 8px 8px; }
+.evidence-unknown { border: 2px dotted var(--ink-500); background: transparent; }
 
+/* Spatial/design status: K / E / P / ? */
+.design-known { border-top: 3px solid var(--ink-900); }
+.design-estimated { border-top: 3px dashed var(--ink-700); }
+.design-proposed { border-top: 5px solid var(--civic-blue); }
+.design-unknown { border-top: 3px dotted var(--ink-500); }
+
+/* Experiment outcome: TEST / STOP / MODIFY / CONTINUE / SCALE */
+.exp-test { border: 2px dashed var(--exp-test); }
+.exp-stop { border: 5px solid var(--exp-stop); box-shadow: inset 0 -6px 0 -4px var(--exp-stop); }
+.exp-modify { border: 3px dashed var(--exp-modify); }
+.exp-continue { border: 3px solid var(--exp-continue); }
+.exp-scale { border: 4px double var(--exp-scale); }
+
+/* Risk authorization: shape/text should accompany these styles. */
+.risk-r1 { border: 1px solid var(--ink-900); }
+.risk-r2 { border: 4px double var(--ink-900); }
+.risk-r3 { border: 5px solid var(--ink-900); }
+
+/* Map and capability network */
 .provisional-constraint { stroke: var(--ink-700); stroke-dasharray: 14 8; stroke-width: 1.5; fill: none; }
+.locked-existing { stroke: var(--ink-900); stroke-width: 1.5; fill: var(--paper-200); }
 .capability-backbone { stroke: var(--civic-blue); stroke-width: 3; fill: none; }
+.capability-secondary { stroke: var(--civic-teal); stroke-width: 2; stroke-dasharray: 8 5; fill: none; }
+.version-milepost { font-family: var(--font-en); font-variant-numeric: tabular-nums; letter-spacing: .04em; border-left: 4px solid var(--ink-900); padding-left: var(--space-2); }
 
-.risk-r1 { border-style: solid; border-width: 1px; }
-.risk-r2 { border-style: double; border-width: 3px; }
-.risk-r3 { border-style: double; border-width: 5px; }
+/* Accessible defaults */
+.semantic-chip { display: inline-flex; align-items: center; min-height: 28px; gap: var(--space-2); padding: 2px 8px; border-radius: var(--radius-sm); font: 600 13px/1.4 var(--font-en); }
+.semantic-chip::before { content: attr(data-code); font-weight: 800; min-width: 1.8em; }
 
-@media (prefers-reduced-motion: reduce) { * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; } }
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; }
+}
+
+@media print {
+  * { text-shadow: none !important; box-shadow: none !important; }
+  .semantic-chip { color: #000 !important; background: #fff !important; }
+}
