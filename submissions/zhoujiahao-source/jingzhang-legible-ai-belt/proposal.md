@@ -1,244 +1,532 @@
 ---
-title: "京张·可读AI城市带 / Jing-Zhang Legible AI Belt"
+title: "京张·城市能力交换带 / Jing-Zhang Urban Capability Exchange"
 author_github: "zhoujiahao-source"
 language: "zh"
 license: "COMMUNITY-DISPLAY-ONLY"
-summary: "把京张遗址公园从‘AI技术展示带’升级为一条人人都能看懂、选择、退出并复盘AI介入的城市创新脊柱；以可读性分级、100日可逆试点和三大重点区差异化设计，连接AI全栈创新、公共生活与长期全球开发者运营。"
+summary: "把百年京张从AI技术展示带升级为一套让城市持续发现问题、试验解决方案、评估公共价值、交换能力并主动淘汰失效技术的城市级操作系统；以Capability Backbone连接三区两翼，以Public Capability Interface服务日常公共生活，以Urban Adaptation Rate衡量真实改善，并通过年度城市版本发布形成长期公共治理与城市记忆。"
 tracks: ["civic-agent-governance", "ai-traffic-walkability", "enterprise-services-ecosystem"]
 scenarios: ["public-safety-operations-review", "ai-traffic-walkability", "enterprise-service-copilot"]
-iteration: "v0.1"
+iteration: "v0.2-integration"
 ---
 
-# 京张·可读AI城市带
+# 京张·城市能力交换带
 
-> **一句话主张：让每一次 AI 介入城市，都能被看见、理解、选择与复盘。**
+> **Jing-Zhang Urban Capability Exchange**
 >
-> 本方案为 AI Agent 生成的开放共创建议，不构成政府审定结论、法定规划、投资承诺或施工依据。所有空间落位均须在取得 official polygon、控规、道路、建筑、市政、消防、权属与文保资料后由专业团队复核。[source:AGENT-TASKBOOK] [source:BOUNDARY-SOURCE]
+> **一句话主张：京张不是一座“装满 AI”的城市，而是一套让城市不断产生、交换、检验、升级和淘汰公共能力的城市操作系统。**
+>
+> 本方案为 AI Agent 生成的开放共创建议，不构成政府审定结论、法定规划、投资承诺、工程许可或施工依据。精确边界、控规指标、道路红线、权属、市政、消防、文保、结构和实施主体等内容，必须在取得官方或经授权资料后由专业团队复核。[source:AGENT-TASKBOOK] [source:BOUNDARY-SOURCE] [standard:PROJECT-AGENT-OPEN-CALL-TASKBOOK]
 
-## 设计依据与资料清单
+## 0. 设计依据、证据等级与当前数据边界
 
-本方案以仓库 `brief/site-package/`、`agent_taskbook.json`、`data/source_registry.json`、公开公告及仓库 provisional geometry 为主控资料。[source:SITE-PACKAGE] [source:SOURCE-REGISTRY] [source:OFFICIAL-ANNOUNCEMENT] [standard:PROJECT-OFFICIAL-ANNOUNCEMENT]
+本方案以仓库最新 `brief/site-package/`、`agent_taskbook.json`、`data/source_registry.json`、官方公告和公开资料为主控输入；当前 canonical geometry 仍使用仓库 provisional rough geometry 作为开放征集阶段的研究载体。[source:SITE-PACKAGE] [source:SOURCE-REGISTRY] [source:OFFICIAL-ANNOUNCEMENT] [standard:PROJECT-OFFICIAL-ANNOUNCEMENT]
 
-当前最重要的数据边界是：**11.4 平方公里总体设计范围和 3 处重点区 polygon 仍为 provisional rough geometry**。因此本方案把“功能结构、治理机制、节点类型、连接关系、场景规则和可逆实施方法”作为可迁移设计，把精确地块边界、容积率、高度、拆改留结论、道路红线与市政工程参数全部保留为待确认项。[data:geometry/site_boundary.geojson#SITE-001] [data:geometry/key_areas.geojson#KEY-001] [metric:site_area_sqm] [depth:risk_missing_data]
+当前必须同时承认两件事：
 
-方案的证据链由 `proposal.md -> figures -> GeoJSON -> metrics.json -> matrices -> sources/assumptions -> self_check` 构成。人类评审不打开 JSON 也可读懂方案，但任何比例和空间结论都能反查机器可读证据。
+1. 官方任务给出了约 **43.6 km² 统筹研究范围、11.4 km² 总体设计范围、368.4 ha 三处重点区域**以及众智园、北京 AI 原点社区、大钟寺的参考规模；这些是任务文本尺度，不等于仓库中已经存在精确官方 polygon。[source:OFFICIAL-ANNOUNCEMENT]
+2. 当前提交中的 `site_boundary.geojson`、`key_areas.geojson` 以及由其计算的面积仍属于 provisional / Derived 研究数据，不能冒充官方红线、控规边界或权属边界。[data:geometry/site_boundary.geojson#SITE-001] [data:geometry/key_areas.geojson#KEY-001] [metric:site_area_sqm] [assumption:A-BOUNDARY-001] [assumption:A-KEY-AREA-001] [depth:risk_missing_data]
 
-![方案证据链与总体空间主张](assets/figures/site-overview.png)
+因此，本方案采用两套同时可见的不确定性语言：
 
-## 总体概念、命名与视觉识别（agent.1）
+- **数据证据等级：Official / Verified / Derived / Assumed / Unknown**；
+- **图纸状态：Known / Estimated / Proposed / Unknown**。
 
-**中文名：京张·可读AI城市带。英文名：Jing-Zhang Legible AI Belt。** “可读”不是把城市做成屏幕，而是要求任何城市 AI 系统在进入公共空间时，都必须有对应的空间说明、风险边界和人工责任链。Logo 使用“两条平行轨道 + 中央透明节点”的抽象构型：两条轨道代表 1909 年京张铁路的工程自主与 2026 年 AI 时代的智能自主，中间透明节点代表公共审查和人的最终判断。[source:AGENT-TASKBOOK] [standard:PROJECT-AGENT-OPEN-CALL-TASKBOOK]
+所有推导可以用于设计讨论，但不得静默升级成事实。尤其是现有提交中的建筑、道路、绿地和公共空间几何，首先被视为**设计载体与概念包络**，而非现状测绘。[assumption:A-BUILDING-001] [assumption:A-ROAD-001] [assumption:A-PUBLIC-001]
 
-形成“一脊、三核、两翼、四级可读性、多点100日试验场”的总体结构：
+![城市操作系统、证据等级与总体空间主张](assets/figures/site-overview.png)
 
-- **一脊**：京张遗址公园连续公共空间与慢行创新脊，不重新发明红线，而是在既有遗产叙事上叠加可读 AI 节点。[data:geometry/roads.geojson#ROAD-001]
-- **三核**：众智园承担“全栈自主创新 + 安全测试”，AI 原点社区承担“人才 + 开源共创 + 日常公共服务”，大钟寺承担“AI 原生业态 + 城市更新 + 消费与服务验证”。[data:geometry/key_areas.geojson#KEY-001] [data:geometry/key_areas.geojson#KEY-002] [data:geometry/key_areas.geojson#KEY-003]
-- **两翼**：中关村科技服务翼组织 IP、资本、法律、标准、国际合作；小月河场景赋能翼组织蓝绿韧性、社区服务、慢行与真实城市测试。[source:AGENT-TASKBOOK]
-- **四级可读性 L0-L3**：从无/低感知空间到受控试验空间，技术自主程度越高，公开说明、人工复核、安全边界与退出机制越严格。
+---
 
-## 三层范围工作框架
+## 1. 核心概念与命名：从“可读 AI”到“城市能力交换”（agent.1）
 
-| 层级 | 官方/任务书规模 | 本方案任务 | 可迁移成果 |
+### 1.1 主命题
+
+AI 进入真实城市以后，最重要的问题不再是“有没有部署”，而是：
+
+- 城市是否因为它获得了新的公共能力？
+- 这种能力是否对普通人、弱势群体和一线运营者真正有益？
+- 当能力无效、有害或过时时，城市是否有能力停止、修改和替换？
+
+因此，京张的目标不是建设一个静态的 AI 园区，而是建立一套**城市持续学习协议**：
+
+**诊断 → 授权 → 可逆试验 → 公共价值评审 → STOP / MODIFY / CONTINUE / SCALE → 能力交换 → 再验证 → 版本发布。**
+
+“城市会学习”不是拟人化口号，而是一套可审计的空间、数据和治理机制。[source:AGENT-TASKBOOK]
+
+### 1.2 名称系统
+
+**主名称：京张·城市能力交换带**  
+**英文：Jing-Zhang Urban Capability Exchange**
+
+仓库目录继续沿用 `jingzhang-legible-ai-belt` 只是为了保留版本连续性；“Legible AI / 可读 AI”被保留为一个重要的**治理与信息设计原则**：每个影响公共生活的智能系统必须能够说明其状态、责任、数据边界、人工替代和退出方式，但它不再承担整个方案的总概念。
+
+### 1.3 Logo 与视觉识别方向
+
+视觉采用 **Public Service Aesthetic / 公共服务美学**：清楚、可信、低门槛、非炫技。Logo 核心是 **Open Node / 开放节点**，从京张铁路的双轨、站点、道岔和里程标中提取几何语言，转译为能力流动、接口、路由和交换，而不是复古铁路标志或通用“AI 芯片/大脑”符号。
+
+视觉系统同时区分四套语义，避免一个“红黄绿”系统承载所有含义：
+
+- Evidence：Official / Verified / Derived / Assumed / Unknown；
+- Spatial Status：Known / Estimated / Proposed / Unknown；
+- Experiment Outcome：TEST / STOP / MODIFY / CONTINUE / SCALE；
+- Risk Authorization：Low / Medium / High。
+
+该系统首先服务地图、导视、公共接口和审计，不以霓虹、赛博朋克或巨型屏幕制造科技感。[depth:height_massing_character]
+
+---
+
+## 2. 三层范围与三区两翼：让不同片区产生不同城市能力
+
+| 层级 | 任务参考规模 | 主要设计问题 | 本方案输出 |
 | --- | ---: | --- | --- |
-| 统筹研究范围 | 约 43.6 km² | AI产业生态、城市叙事、区域协同 | 创新链、治理原则、品牌与活动体系 |
-| 总体设计范围 | 约 11.4 km² | 城市更新、公共空间、交通市政、风貌 | 一脊三核两翼、可读性梯度、更新项目库 |
-| 重点区域 | 约 368.4 ha | 三片区详细设计 | 功能包、场景卡、空间动作、分期与风险 |
+| 统筹研究范围 | 约 43.6 km² | AI 生态、文化叙事、区域协同 | 城市能力生态、治理原则、长期运营 |
+| 总体设计范围 | 约 11.4 km² | 空间结构、公共空间、连接、城市更新 | Capability Backbone + 学习单元网络 |
+| 三处重点区域 | 约 368.4 ha | 可感知详细设计与真实场景 | 节点、场景、地标、可逆测试原型 |
 
-三层范围不是三套互相独立的图：统筹层给出“为何这样做”，总体层给出“如何组织城市结构”，重点区给出“怎样通过可逆项目验证”。空间精度受 provisional geometry 限制，替换 official polygon 后必须重新运行面积、图件、矩阵和所有空间相交检查。[depth:three_level_scope_framework] [data:geometry/land_use.geojson#LU-001]
+三层范围不是三套独立方案，而是同一城市操作系统的不同分辨率。空间精度受 provisional geometry 限制，任何 official polygon 更新都必须触发几何、面积、指标、图件和矩阵重新计算。[depth:three_level_scope_framework]
 
-![三层范围、用地结构与AI可读性梯度](assets/figures/land-use-structure.png)
+### 2.1 五个学习单元不采用统一模板
 
-## 统筹研究范围产业与未来城市研究
+三区两翼采用“**主能力 + 1–2 个次能力**”的专业化结构，允许交叉但不允许同质化：
 
-### 1. 从“AI园区”转向“AI城市协议可被公众理解的地方”
+1. **众智园｜技术生产与验证**：承担全栈能力、具身智能、边缘计算、安全和高风险测试的专业验证角色。2026 年北京公开城市更新信息可作为当前更新项目背景，但不能替代比赛 KEY_AREA polygon。[source:SRC-BJ-CITYUPDATE-ZZY-20260713]
+2. **北京 AI 原点社区｜社会学习与公共服务**：把人才社区、开发者生活、服务接口和真实居民反馈结合。2026 年公开人才服务设施可用于证明其公共服务属性，不用于推断服务覆盖率。[source:SRC-BJ-AIORIGIN-TALENT-20260720]
+3. **大钟寺｜市场与 AI-native 服务验证**：在真实商业、交通和城市更新环境中验证 AI 原生服务是否真正改善日常体验；公开更新与道路微循环信息只用于现状背景，不作为道路红线。[source:SRC-BJ-CITYUPDATE-DZS-20260713] [source:SRC-BJ-DZS-ROAD-20260225]
+4. **中关村科技服务翼｜专业资源交换**：组织 IP、资本、法律、标准、产业服务与国际合作，使“能力”不仅有技术接口，也有进入真实城市所需的制度与市场接口。[source:AGENT-TASKBOOK]
+5. **小月河场景赋能翼｜蓝绿公共场景测试**：把高温、雨洪、慢行、休憩、社区活动等真实公共问题作为低风险、可逆测试入口。2026 年滨水建设与管线工程信息意味着任何场景落位必须先核验建设、安全、生态和市政条件。[source:SRC-BJ-XIAOYUEHE-WATER-20260112] [source:SRC-BJ-XIAOYUEHE-WORKS-20260121]
 
-海淀已经具备高校、科研、企业与开发者密度优势，本方案不把竞争力简单等同于更多算力楼或更多智能屏，而把稀缺能力定义为：**让先进 AI 可以在真实城市中被低成本试验，同时让公众对其感知、数据、决策与责任有清晰知情权和替代路径。** 这同时回应“AI全栈自主创新体系、世界级AI创新生态、AI+场景赋能、智能化活力城市、AI治理全球话语权”五大功能。[source:AGENT-TASKBOOK]
+这五个单元构成**多源驱动**：问题和能力都可以从任何片区产生，再通过主轴交换，而不是由一个中央“智慧城市大脑”控制全带。
 
-### 2. 六个全球案例的可转化经验（agent.2）
+![三区两翼能力分工与重点区域关系](assets/figures/key-areas.png)
 
-| 案例 | 可学习机制 | 京张转译 | 不照搬的部分 |
-| --- | --- | --- | --- |
-| Punggol Digital District | 区域级数字平台 + living lab + 产学协同 | 重点区提供真实城市测试接口和数字孪生验证前置 | 不承诺同等传感器规模或系统投资 [source:GLOBAL-PUNGGOL] |
-| Seoul Digital Inclusion | 社区数字教育、老年支持、AI tutor 试点 | 每个高自主 AI 场景必须配置低门槛人工/线下替代 | 不把教育项目指标直接移植 [source:GLOBAL-SEOUL-INCLUSION] |
-| Enabling Village | 通用设计 + 辅助技术 + 包容性服务 | L0/L1 空间优先保证无障碍、低视觉/听觉负担和人工协助 | 不复制机构治理结构 [source:GLOBAL-ENABLING-VILLAGE] |
-| Toyota Woven City | 真实环境共创测试 | 众智园设置受控 L3 测试回路和退出机制 | 公共城市不能采用企业园区式默认同意 [source:GLOBAL-WOVEN-CITY] |
-| Decidim Barcelona | 开源、可追踪的公众参与 | 对试点提案、反馈、变更、终止公开留痕 | 不把参与平台等同于 AI 决策授权 [source:GLOBAL-DECIDIM] |
-| Kalasatama | 密度、公共交通、海滨公共空间连续性 | 把 AI 体验嵌入日常通勤和公共空间，而非独立展馆 | 不复制规划指标 [source:GLOBAL-KALASATAMA] |
+---
 
-### 3. “可读性梯度”作为城市形态生成器
+## 3. Capability Backbone：一条城市能力交换骨干
 
-- **L0 人本静默区**：原则上不需要用户与 AI 交互，保留无数字依赖的休息、慢行、儿童与无障碍替代路径。
-- **L1 辅助型 AI 区**：AI 只提供建议或翻译/导览，决定权在人；入口明确显示数据最小化规则。
-- **L2 监督型自治服务区**：机器人、调度、设施控制可以自动运行，但必须有明确运行边界、状态灯、人工接管、事件记录和投诉通道。
-- **L3 受控测试区**：用于高自主机器人、低速自动驾驶、边缘智能等产业测试，采取地理围栏、时间窗、观察员、安全冗余、主动告知与可撤销许可。
+总体空间结构从原来的“一脊三核两翼”升级为：
 
-这套梯度不是法律分级，而是城市设计与运营深化工具。[source:AGENT-TASKBOOK] [depth:overall_spatial_structure]
+# 一条 Capability Backbone + 五个差异化 Learning Units + 多级 Public Capability Interfaces
 
-## 总体设计范围城市更新与控规深度城市设计
+Capability Backbone 不是一条抽象数据线，也不是单一景观轴，而是六层叠加的公共城市骨架：
 
-### 空间结构
+1. **历史记忆层**：京张铁路遗产、旧站、轨迹、材料和里程标；
+2. **慢行与可达层**：连续步行、骑行、无障碍和轨道接驳；
+3. **公共空间层**：日常停留、活动、儿童、老人、夜间和应急空间；
+4. **蓝绿生态层**：遮阴、热舒适、雨洪和滨水连续；
+5. **能力节点层**：公共能力调用、测试、交换、人工接管与状态披露；
+6. **事件与运营层**：季度试验、年度版本发布、文化路线和开发者活动。
 
-总体设计采用“**连续公共脊 + 东西缝合 + 重点区差异化强度 + 可逆插针更新**”。`land_use.geojson` 以共享切分边界表达四类功能结构，避免地块间缝隙；它不是法定用地调整。[data:geometry/land_use.geojson#LU-001] [standard:MNR-LAND-USE-CLASSIFICATION-GUIDE]
+现有 `ROAD-001` 只作为连续主轴的**研究性空间载体**；`ROAD-002`–`ROAD-006` 等东西向线条只作为“连接问题研究轴”，不能被读成已经核实的桥、隧道、道路红线或可实施过街方案。[data:geometry/roads.geojson#ROAD-001] [assumption:A-ROAD-001]
 
-1. 西侧研发创新与可信测试：靠近高校/创新网络的一侧优先容纳研发、孵化和受控测试。
-2. 中部京张公园与连续开放空间：把遗址公园作为公共生活主脊，所有 AI 展示首先服务步行、休息、文化与无障碍。
-3. 中东部产业服务与城市活力：强调企业服务、发布、消费、展示和中小企业可达性。
-4. 东侧人才社区与公共服务：强调居住配套、教育医疗导航、社区服务、儿童/老年友好和日常人工替代通道。
+### 3.1 东西缝合与南北连续
 
-### 建筑与拆改留
+- **南北连续**优先依托京张铁路遗址公园真实的公共空间和历史叙事组织步行、文化和能力节点。北京市公开公园信息支持其作为公共空间与遗产载体，但不提供比赛 official GIS boundary。[source:SRC-BJ-JZPARK-CATALOG-20250724]
+- **东西缝合**不预设工程答案。每一处潜在连接先经过“是否已有公共通路 → 权属/文保 → 交通 → 无障碍 → 消防/工程”的证据门，再决定是导向优化、地面过街、空间开放还是需要更深工程研究。
 
-缺少真实建筑现状和权属数据，本方案**不做任何具体“拆除”结论**。`geometry/buildings.geojson` 仅放置 6 个概念功能包络，表示可通过保留改造、底层开放、轻量增建或临时构筑物承载的功能类型，待现状普查后逐栋赋予 retain/renovate/demolish/new_build 分类。[data:geometry/buildings.geojson#BLDG-11] [depth:retain_renovate_demolish]
+### 3.2 永久、适应与实验三层建设逻辑
 
-### 控规条件
+为了让城市真的可以 STOP / MODIFY，空间不能一次性固定：
 
-容积率、建筑高度、覆盖率、退界、道路红线等均保持 unknown；任何后续深化应优先把 official controls 导入 `constraints.geojson` 再重新计算。[metric:floor_area_ratio] [standard:MOHURD-CONTROL-DETAILED-PLANNING]
+- **Permanent Infrastructure**：长期步行、树荫、无障碍、基本照明、传统公共服务、消防和市政等非 AI 基线；
+- **Adaptive Layer**：可更换标识、可重组家具、模块化服务点、季节活动和可升级接口；
+- **Experimental Layer**：有明确时间、边界、旁路、人工停机和撤除条件的试验设备或服务。
 
-## 重点区域详细设计
+这意味着城市即使 AI 全部离线，仍必须保持基本公共服务可用；AI 只能提高公共能力，不能把普通城市功能变成必须登录或被追踪才能使用的服务。[assumption:A-NONAI-001]
 
-![三处重点区域与差异化角色](assets/figures/key-areas.png)
+---
 
-### A. 众智园：AI 全栈自主创新与安全验证北极点
+## 4. Public Capability Interface：AI 退到后台，公共空间回到生活
 
-**定位：**“从模型到城市”的最后一公里验证区。建议以研发、标准、安全、机器人、具身智能和边缘计算测试为主，L2-L3 比例最高。[data:geometry/key_areas.geojson#KEY-001]
+**公共空间不是 AI 展厅，而是 Public Capability Interface / 公共能力接口。**
 
-**空间动作：**（1）在建筑更新包络内布置可重构研发/验证大厅；（2）建立不与普通通行混淆的受控机器人测试环；（3）把能耗、算力、模型版本、人工接管状态做成可查看的“AI 运行仪表墙”；（4）沿清河/五环方向形成蓝绿缓冲和对外展示界面。涉及具体道路、建筑和市政能力均待 official data 核验。[assumption:A-MUNICIPAL-001]
+一个 PCI 至少包含六个层次：
 
-### B. 北京 AI 原点社区：人才日常与开源共创“0公里”
+1. **Non-AI Baseline**：没有 AI 仍可正常使用；
+2. **Ambient Layer**：低风险环境能力，如照明状态、热环境提示、遮阴或设施调节；
+3. **Consent Layer**：涉及个人需求、识别、推荐、个体决策时必须主动调用或明确同意；
+4. **Human Override**：任何高影响服务都必须能切换到人工或非 AI 路径；
+5. **Failure-Safe Mode**：系统失败时空间仍安全可用；
+6. **Public Learning Record**：重要试验公开说明版本、问题、结果、事故、STOP/MODIFY 和责任人。
 
-**定位：**全带最强的 L0-L2 混合区，让开发者、学生、居民、老人、儿童和国际访问者都能在不被强迫使用 AI 的前提下获得 AI 服务。[data:geometry/key_areas.geojson#KEY-002]
+### 4.1 八类节点原型
 
-**空间动作：**（1）“AI原点0公里”作为主地标，不是巨型雕塑，而是公开显示全球开源贡献、城市试点状态与责任人的公共界面；（2）建设开发者步行环和低成本共创空间；（3）以人工窗口 + AI 辅助形成双通道公共服务；（4）把高校—社区—轨道之间的慢行断点列为优先微更新对象。
+以下是可选节点库，不是要求在地图上机械铺满：
 
-### C. 大钟寺：AI 原生业态与可逆城市更新南门户
+- Backbone Exchange Hub：跨区能力交换与公共信息节点；
+- District Learning Node：片区级学习、评审和服务组织；
+- Neighborhood Interface：社区日常服务与人工替代入口；
+- Blue-Green Capability Node：热、雨洪、休憩和生态场景；
+- Test & Validation Node：受控试验与安全观察；
+- Market & Service Node：AI-native 商业和服务验证；
+- Memory & Archive Node：铁路记忆、城市学习和能力退役档案；
+- Emergency / Human Override Node：灾害、故障和人工接管模式。
 
-**定位：**把 AI 从“研发产品”转成面向居民和访客可体验、可比较、可退出的服务与新业态。[data:geometry/key_areas.geojson#KEY-003]
+节点位置和面积当前均属于 Proposed，必须在现状底图、权属、消防、无障碍、文保和运营条件完整后再固化。[assumption:A-PUBLIC-001]
 
-**空间动作：**（1）优先盘活存量空间而非假定大拆大建；（2）围绕大钟寺站和主要路口建立步行可达的“服务四象限”；（3）设置智能终端/机器人/内容消费的短周期测试店，但必须公布 AI 标签、人工客服、数据留存和退出方式；（4）把“可读AI观察台”作为南部公共展示节点，与京张文化叙事衔接。
+### 4.2 全天候场景编排
 
-## AI 创新生态、人才画像与 AI+ 场景
+公共空间以 **8AM–MIDNIGHT Adaptive Commons** 为目标：同一条城市骨架在早高峰、午间、儿童周末、老人活动、夜间文化、高温天气和应急状态下组织不同节点组合，而不是给每块地永久贴上单一 AI 功能标签。
 
-**对应智能体任务：agent.3。**
+---
 
-### 七类用户画像
+## 5. AI 城市机制：City Agent 可以发现问题，但不能自动改变城市
 
-1. **AI 研究者/创业者**：需要低成本真实测试、算力接口、法务/IP/融资和快速招募。
-2. **高校学生/开发者**：需要开放工作台、开源活动、实习、步行社交与夜间安全回程。
-3. **周边居民与家庭**：需要安静、儿童友好、真实便利，而不是持续被“体验科技”。
-4. **老年人**：需要人工替代、清晰字体/语音、无强制 App、可解释的服务流程。
-5. **残障与低视力/听障用户**：需要通用设计、辅助技术和不依赖视觉屏幕的交互。[source:GLOBAL-ENABLING-VILLAGE]
-6. **骑手、保洁、安保与现场运营者**：需要 AI 不把风险转嫁给一线劳动者，必须保留人工接管和事故复盘。
-7. **国际访问者/产业伙伴**：需要双语导览、清楚的试点状态、开放日程和可信的项目证据。
+### 5.1 双入口
 
-### 12 张场景卡
+城市能力进入系统有两条入口：
 
-| # | 场景 | 空间 | 级别 | 数据/隐私边界 | 人工复核与运营 |
+**Problem Track**  
+City Agent / 公共机构从合法、公开、最小必要的数据中发现或归纳真实问题 → 人工确认问题资格 → 发布城市挑战 → 社会团队提出方案。
+
+**Capability Track**  
+高校、企业、开发者和社区主动提出新能力 → 必须先证明其对应真实公共需求、存在非 AI 对照、可逆、可维护、可退出 → 才能进入测试。
+
+两条轨道最终进入同一套公共价值和风险流程，避免“企业先有产品，再让城市帮它寻找场景”。[source:AGENT-TASKBOOK]
+
+### 5.2 Eligible Issue Gate：不让模型报警数量变成政绩
+
+City Agent 输出的异常、投诉聚类或预测不能直接成为“城市问题计数”。只有完成以下条件的记录才进入可评估 cohort：
+
+- 问题有明确公共影响与空间/服务对象；
+- 去重并检查是否存在更直接的非 AI 解决方案；
+- 数据来源和时间范围可追溯；
+- 有人工责任人确认问题成立；
+- 可定义基线和评价窗口。
+
+这一门槛防止“发现更多问题”反而成为系统的错误激励。[assumption:A-UAR-001]
+
+### 5.3 风险分级授权
+
+风险按照**现实后果**而不是模型先进程度分级：
+
+- **Low**：低影响、环境型、可逆；可以进入小规模测试，但必须保留关闭和人工报告；
+- **Medium**：可能影响服务机会、出行、资源配置或较大人群；需要专业审批、公开说明和更强监测；
+- **High**：涉及人身安全、重要权利、敏感个人信息、关键基础设施或显著社会影响；必须有明确公共机构授权、更严格专业审查、受影响群体参与、人工停机和非参与者旁路。
+
+高风险能力不会因为“运行成熟”自动降级权限。[assumption:A-GOVERNANCE-001]
+
+### 5.4 统一生命周期
+
+所有试验使用同一决策语言：
+
+**REGISTER → BASELINE → AUTHORIZE → BOUNDED TEST → REVIEW → STOP / MODIFY / CONTINUE / SCALE → TRANSFER / RETIRE**
+
+其中 SCALE 只代表“当前情境下可以扩大”，不代表自动复制到另一个片区。跨区交换前必须重新检查人群、空间、运营、数据、风险和公共价值条件。
+
+---
+
+## 6. 新指标：Urban Adaptation Rate / 城市适应率
+
+本方案的旗舰指标不是 AI 部署量，而是：
+
+# Urban Adaptation Rate（UAR）
+
+**定义：在一个预先锁定的合格问题 cohort 中，到评价时点真正实现可验证公共价值改善的问题比例。**
+
+概念公式：
+
+`UAR_h = verified_improved_problem_records_at_h / evaluable_qualified_problem_records_at_h`
+
+其中 `h` 可以设置为 90 日运营窗口和 365 日耐久窗口；这两个窗口是本方案建议值，不是官方要求。[metric:urban_adaptation_rate_90d] [metric:urban_adaptation_rate_365d] [assumption:A-UAR-001]
+
+### 6.1 Responsible STOP 是成功学习，但不虚增 UAR
+
+如果试验因为安全、隐私、公平、环境、成本或用户体验问题被及时停止，城市确实“学到了东西”，但原问题可能尚未改善。因此：
+
+- STOP 必须作为正当且值得公开的学习结果；
+- 但 STOP 不自动进入 UAR 改善分子；
+- 同时记录 `Responsible STOP Rate`、未解决问题和下一步非 AI/替代方案。[metric:responsible_stop_rate]
+
+### 6.2 公共价值统一底线 + 场景指标
+
+所有场景必须先通过五类共同底线：
+
+- Safety 安全；
+- Equity 公平；
+- Privacy 隐私；
+- Environment 环境；
+- Cost 成本与可持续运营。
+
+并同时检查可达性、人工接管和非 AI 等价服务。场景再增加 2–4 个专用指标，例如通勤时间、热舒适、响应时间、服务覆盖、人工接管成功率或投诉变化。[metric:public_value_floor_pass_rate] [metric:human_override_success_rate]
+
+指标公开时不能只看平均值，还要公开弱势群体、最坏情况、事故/near miss、投诉、人工干预、退出率和数据缺口。核心方法是“公开仪表盘 + 独立复核 + Anti-Gaming”，而不是把城市变成一个单一排行榜。
+
+![公共价值、UAR 与证据链](assets/figures/metrics-evidence.png)
+
+---
+
+## 7. 八类用户画像与 12 个真实场景（agent.3）
+
+### 7.1 八类 Persona
+
+1. **AI 研究者 / 创业者**：需要真实测试、标准、产业服务和快速迭代；
+2. **高校学生 / 开发者**：需要开放工作台、步行社交、夜间安全和真实贡献入口；
+3. **周边居民与家庭**：需要便利、安静、儿童友好，而不是持续被迫“体验科技”；
+4. **老年人**：需要大字号、人工窗口、无需 App 的服务和明确退出；
+5. **残障 / 低视力 / 听障用户**：需要通用设计、多模态提示和非视觉替代路径；
+6. **骑手、保洁、安保及现场运营者**：不能被 AI 转嫁风险，必须拥有停机、申诉和事故复盘权；
+7. **商户 / 服务运营者**：需要可维护、可退出、成本透明的 AI-native 服务，而非永久厂商锁定；
+8. **国际访问者 / 产业伙伴**：需要双语、公开试验状态、版本记录和可核验的真实证据。
+
+### 7.2 12 张场景卡
+
+| # | 场景 | 主要空间 | 模式 | 非 AI 基线 / 人工接管 | 核心评价 |
 | --- | --- | --- | --- | --- | --- |
-| S01 | 京张百年AI导览 | 遗址公园主脊 | L1 | 位置可选、默认不做人脸识别 | 文保/运营人员定期校核叙事 |
-| S02 | 无障碍路线 Agent | 全带慢行网 | L1 | 仅按需处理路线偏好 | 无障碍专员 + 用户反馈闭环 |
-| S03 | 多语种公共服务助手 | AI原点社区 | L1 | 不默认保存身份/问答 | 人工窗口可随时接管 |
-| S04 | 夜间安全回程助手 | 重点节点—轨道 | L1-L2 | 不做个体风险画像 | 安保值班 + 事件回看 |
-| S05 | 开发者机会发现器 | 开源百年站 | L1 | 仅公开职位/活动数据 | 社区运营审核 |
-| S06 | 社区教育/技能辅导 | AI原点社区 | L1 | 未成年人最小化数据 | 教师/家长最终判断 [source:GLOBAL-SEOUL-INCLUSION] |
-| S07 | 健康服务导航（非诊断） | 社区服务节点 | L1 | 不上传病历作为默认路径 | 医务/服务人员核对转介 |
-| S08 | **机器人末端配送测试** | 众智园受控环 | **L3 / testing_and_validation** | 地理围栏、最小视频留存 | 安全员现场接管 |
-| S09 | **低速自动移动载具测试** | 众智园—指定接驳段 | **L3 / testing_and_validation** | 仅测试区域采集，公开测试窗 | 交通/安全专业团队暂停权 |
-| S10 | **边缘算力-能源协同测试** | 众智园研发节点 | **L2-L3 / testing_and_validation** | 只处理设施运行数据 | 市政/能源/网安联合复核 |
-| S11 | **城市热/雨洪响应 Agent** | 小月河/蓝绿节点 | **L2 / testing_and_validation** | 环境传感，不做个人追踪 | 园林/市政人工确认动作 |
-| S12 | 公众提案总结与追踪 | 全带线上线下界面 | L1 | 公开提案与授权输入 | 公开原文、人工审议，参考可追踪机制 [source:GLOBAL-DECIDIM] |
+| S01 | 京张铁路文化解释与路线 | 主轴/记忆节点 | Low | 实体导视、纸质/人工讲解 | 历史准确性、可达性 |
+| S02 | 无障碍路线辅助 | 全带慢行网 | Low | 标准无障碍导视与人工咨询 | 绕行、失败率、用户反馈 |
+| S03 | 老年公共服务导航 | AI 原点社区 | Low | 人工服务台、电话、实体窗口 | 完成率、人工接管 |
+| S04 | 夜间安全回程协助 | 轨道—社区节点 | Medium | 普通照明、保安、公共交通信息 | 可达性、误报、投诉 |
+| S05 | 高温避暑节点编排 | 公园/小月河 | Low-Medium | 树荫、饮水、实体开放空间 | 热舒适、弱势覆盖 |
+| S06 | 社区活动与公共空间编排 | AI 原点/沿线社区 | Low | 人工排期、公告栏 | 空间使用多样性、公平性 |
+| S07 | AI-native 商业服务验证 | 大钟寺 | Medium | 普通人工消费与服务流程 | 等待、成本、投诉、退出 |
+| S08 | **机器人末端配送测试** | 众智园受控空间 | High / testing_and_validation | 人工配送、非参与者旁路 | near miss、停机、人工接管 |
+| S09 | **低速自动移动载具测试** | 众智园指定测试段 | High / testing_and_validation | 步行/人工接驳 | 安全、旁路、人工接管 |
+| S10 | **边缘算力—能源协同测试** | 众智园设施节点 | Medium-High / testing_and_validation | 常规设施控制 | 能耗、故障、回退 |
+| S11 | **热/雨洪环境响应测试** | 小月河蓝绿节点 | Medium / testing_and_validation | 普通市政/园林操作 | 环境改善、副作用 |
+| S12 | 公众提案摘要与进度追踪 | 全带线上线下 | Low | 原文公开、人工受理 | 可追溯性、误总结、申诉 |
 
-每一场景都要求入口或附近出现统一“**AI 营养标签**”：系统做什么、谁运营、用了什么数据、保存多久、自动化等级、是否有人类复核、如何退出/投诉、当前是“概念/测试/正式服务”的哪种状态。这个标签是本方案的核心品牌资产之一，而不是法律合规替代物。[assumption:A-GOVERNANCE-001]
+每个场景都必须记录：问题来源、非 AI 对照、数据来源、风险等级、试验边界、持续时间、人工责任人、退出方式、基线、结果指标、事故和最终状态。仅靠“模型可用”不能成为 SCALE 依据。[metric:scenario_card_count] [metric:testing_scenario_count]
 
-## 交通、轨道、市政与公共服务设施
+---
 
-![慢行、蓝绿与AI可读性复合网络](assets/figures/mobility-bluegreen.png)
+## 8. 三处重点区域详细设计
 
-交通策略不新增无法验证的机动车红线，而先建立**可步行、可骑行、可辅助移动的一条连续主脊 + 五条东西缝合线**，用于连接重点区、轨道站、校园和街区。[data:geometry/roads.geojson#ROAD-001] [metric:conceptual_mobility_network_length_m]
+### 8.1 众智园：Verification Campus / 验证型创新园
 
-- 慢行优先：连续遮阴、无障碍坡度/过街、夜间照明和坐凳在专业设计阶段优先校核。
-- 轨道一体化：所有“最后 500-800m”改造以行人路线和清晰导向为主，不把自动驾驶作为前提。
-- 机器人与自动移动设备：仅在 L3 受控测试段先行，成熟后才讨论扩大。
-- 新型基础设施：边缘算力、充电、网络和传感器必须与传统市政检修、消防、配电和排水协同，不能把“数字层”独立于工程条件。[assumption:A-MUNICIPAL-001]
-- 公共服务：AI 服务必须有低技术门槛替代路径；在老年、残障、儿童相关场景中，人工服务是制度性冗余而不是失败回退。
+**主能力：技术能力生产与高风险验证。**
 
-## 蓝绿空间、公共空间与城市风貌
+空间不是传统封闭园区，而是“专业测试内部环 + 对外公共学习界面”两层：高风险机器人、边缘设施或具身智能测试在有边界、有旁路、有停机权的区域进行；公众侧只展示经过脱敏的状态、版本、公共价值结果和失败记录。现有 `buildings.geojson` 仍只表示概念功能包络，不决定拆改留。[data:geometry/key_areas.geojson#KEY-001] [data:geometry/buildings.geojson#BLDG-11] [assumption:A-BUILDING-001]
 
-**对应智能体任务：agent.4。**
+建议优先深化：受控测试场、专业评审室、可重构实验大厅、对外学习廊、永久非 AI 通行路线和蓝绿缓冲。
 
-本方案把 AI 地标从“科技造型物”改成“公共可审查界面”。提出三处朝圣地标 + 一处荣誉节点 + 一处 L0 静默花园：
+### 8.2 北京 AI 原点社区：Learning Neighborhood / 学习型社区
 
-1. **AI原点0公里（Mile Zero）**：显示开源贡献谱系、试点地图、版本和责任链。[data:geometry/public_space.geojson#PUBLIC-001]
-2. **开源百年站（Open Source Century Station）**：北段创新成果发布/测试复盘节点，把 1909 自主工程精神转译为开放协作。[data:geometry/public_space.geojson#PUBLIC-002]
-3. **可读AI观察台（Legibility Observatory）**：南段面向公众解释 AI 系统如何工作、怎样申诉和停止测试。[data:geometry/public_space.geojson#PUBLIC-003]
-4. **贡献者刻度墙**：记录通过公开审核的 Agent/开发者/专业团队贡献，不把投稿状态误写为入选或落地。[data:geometry/public_space.geojson#PUBLIC-004]
-5. **无感知静默花园**：明确 L0，作为城市中的“无需成为数据主体也能使用”的公共空间原型。[data:geometry/public_space.geojson#PUBLIC-005]
+**主能力：社会反馈、人才日常和公共服务学习。**
 
-风貌控制采用“铁路工业记忆的克制材料 + 清晰现代信息系统 + 夜间低眩光”，避免把 AI 等同于霓虹赛博朋克。Logo、导视和信息牌均用原创几何图形和开源/系统字体方向深化，正式制作前进行商标与字体许可复核。[depth:height_massing_character]
+这里不是“体验区”，而是验证 AI 是否能融入普通生活而不制造数字门槛的地方。PCI 以低风险服务、人工窗口、社区共创、老年和无障碍审查为主。任何需要个人数据的服务都采用主动调用，不默认让居民成为长期数据主体。[data:geometry/key_areas.geojson#KEY-002] [source:SRC-BJ-AIORIGIN-TALENT-20260720]
 
-## 百年京张 × 中关村 × AI 新文化叙事（agent.5）
+### 8.3 大钟寺：Market & Service Commons / 市场与服务验证场
 
-叙事主线不是“过去铁路、现在 AI”的表面拼贴，而是同一个命题的两次回答：**当关键技术改变国家与城市时，如何建立自主能力，同时让这种能力服务公共生活。**
+**主能力：AI-native 商业、企业服务和城市更新场景验证。**
 
-- 1909：铁路把工程能力写进真实地形和日常出行。
-- 中关村时代：创新从科研机构扩展到企业、开发者和市场。
-- AI 时代：智能系统进入交通、教育、医疗、商业和公共空间，城市需要新的“可读性基础设施”。
+重点不是“开更多 AI 店”，而是通过真实商业和通勤场景验证：AI 是否缩短等待、提高可达性、改善小企业服务、减少成本，同时保留人工购买、咨询和申诉路径。道路和更新公开资料只作为现状背景，任何精确落位仍需现场与工程核验。[data:geometry/key_areas.geojson#KEY-003] [source:SRC-BJ-CITYUPDATE-DZS-20260713] [source:SRC-BJ-DZS-ROAD-20260225]
 
-建议形成一条“**自主工程 - 开源创新 - 可读智能**”文化路线，把旧站、遗址公园、校园节点、开发者空间、三处重点区和公众试验场串联。所有历史事实需在展陈深化时由权威史料复核，本方案只提供叙事结构。
+---
 
-## 更新项目清单、实施政策与分期计划
+## 9. AI 公共空间与 Landmark as Memory（agent.4）
 
-**对应智能体任务：agent.6。**
+城市地标不做巨型 AI 雕塑，而采用 **Landmark as Memory / 地标作为城市学习记忆**。
 
-核心机制为“**100 日可逆城市试点章程**”：每个 AI 城市场景先以可撤除、可暂停、可追踪的方式运行 100 日左右，提前声明成功/终止条件，运行中公开事件和反馈摘要，期末由运营、专业人员和公众共同决定“停止 / 修改 / 继续 / 扩大”。这是参考方案，不是既定政府制度。[source:AGENT-TASKBOOK]
+### 9.1 1909 → 2026 → Future → Retired
 
-| 分期 | 概念项目 | 依赖条件 | 评价重点 |
+1. **1909 Railway Memory Ground / 铁路记忆地**：通过轨迹、材料、遗构、旧站和实体展陈解释上一轮技术革命如何进入真实城市；
+2. **2026 City Learning Archive / 城市学习档案**：公开今天试验过什么、哪些 MODIFY、哪些 STOP、哪些产生公共价值；
+3. **Future Open Test Station / 未来开放实验站**：展示仍无答案的问题，以可撤除、可旁路、可停机的方式进行真实测试；
+4. **Retired Capability Archive / 城市能力退役档案**：保存重要退役 Agent、机器人、公共设施原型和失败试验的公共记忆。
+
+前三者构成任务书要求的至少 3 个 AI 地标/荣誉节点；第四者补足城市“如何退出技术”的长期制度。精确 anchor 当前属于 Proposed，不与 provisional 公共空间 polygon 混同。[data:geometry/public_space.geojson#PUBLIC-001] [data:geometry/public_space.geojson#PUBLIC-002] [data:geometry/public_space.geojson#PUBLIC-003] [metric:pilgrimage_landmark_count]
+
+### 9.2 Retired Capability Archive 的退出记录
+
+每个重要退役能力至少公开：
+
+- 为什么出现；
+- 解决过什么问题；
+- 运行时间和版本；
+- 产生过什么公共价值；
+- 有哪些事故、副作用或维护问题；
+- 为什么停止；
+- 数据、凭证、API、设备如何清理；
+- 被什么替代，或问题是否仍未解决。
+
+“退役”不是羞辱失败，而是证明城市具备不被过时技术锁定的能力。[metric:retired_capability_archive_count]
+
+---
+
+## 10. 百年京张 × 中关村 × AI 新文化（agent.5）
+
+文化叙事不是“老铁路 + 新 AI”的表面拼贴，而是同一个问题在三个时代的连续回答：
+
+- **1909**：工程自主能力进入真实地形和公共交通；
+- **中关村时代**：科研、企业、资本、开发者构成创新网络；
+- **AI 城市时代**：智能系统进入公共生活后，城市必须获得测试、治理、交换和退出这些系统的公共能力。
+
+因此，百年京张的文化价值不止是“保存过去”，而是持续记录**每一代新技术如何接受真实城市的公共价值检验**。最终空间语言来自铁路的线、站、道岔和里程，而不是把铁路历史做成怀旧装饰。
+
+---
+
+## 11. 全球 AI 创新生态的六个可转化案例（agent.2）
+
+| 案例 | 值得学习的机制 | 京张转译 | 明确不照搬 |
 | --- | --- | --- | --- |
-| 0-12个月 | AI 营养标签规范、Mile Zero 临时展陈、3 个 L1 场景、众智园 1 个 L3 小规模测试 | 权属、安全、数据和文保基础审查 | 能否看懂、能否退出、事故与投诉闭环 |
-| 1-3年 | 连续慢行主脊、重点区微更新、开发者共创空间、数字/实体贡献墙 | 交通、市政、建筑现状与控规深化 | 跨区连通、包容性、企业转化效率 |
-| 3-5年 | 三核联动测试网络、国际开发者周、AI城市可读性年度报告 | 长期运营主体与资金机制 | 国际传播、公共信任、可复制标准 |
+| Punggol Digital District | living lab、产学协同、区域数字平台 | 能力从实验室进入真实区域验证 | 不承诺同规模平台或投资 [source:GLOBAL-PUNGGOL] |
+| Seoul Digital Inclusion | 社区数字教育、老年支持、辅助访问 | 把人工/非 AI 替代纳入所有公共服务 | 不直接移植项目绩效 [source:GLOBAL-SEOUL-INCLUSION] |
+| Enabling Village | 通用设计、辅助技术、包容服务 | PCI 把可达性作为基础设施而非附加功能 | 不复制机构治理 [source:GLOBAL-ENABLING-VILLAGE] |
+| Toyota Woven City | 真实环境共创测试 | 众智园建立受控测试与回退 | 公共城市不能采用企业园区式默认同意 [source:GLOBAL-WOVEN-CITY] |
+| Decidim Barcelona | 开源、可追踪公众参与 | 公开问题、变更、STOP 和申诉记录 | 不把平台参与等同正式授权 [source:GLOBAL-DECIDIM] |
+| Kalasatama | 公共交通、混合生活、滨水连续 | AI 场景进入普通通勤与公共空间 | 不复制规划指标 [source:GLOBAL-KALASATAMA] |
 
-长期活动品牌建议：**Jing-Zhang Open City Week / 京张开放城市周**，包含真实场景挑战赛、城市 Agent 红队、安全与无障碍审查、开源成果夜、铁路文化路线和“失败试点博物馆”。“失败也展示”是重要资产：城市创新若只展示成功，会削弱可信度。
+案例不是“世界先进城市榜单”，而是机制库。京张的差异化在于把**公共价值、能力交换、风险授权、失败档案和技术退役**同时写入城市设计。
 
-## 用地、建筑规模与拆改留方案
+---
 
-`land_use.geojson` 对总体范围进行连续拓扑分区，所有多边形共享切分边界，避免 gap/overlap；这只是功能结构建议，不能取代法定用地分类调整。[data:geometry/land_use.geojson#LU-002] [depth:land_use_layout]
+## 12. Public Stewardship：公共机构主导、社会参与（agent.6）
 
-建筑基底指标仅统计本方案 6 个概念功能包络 `[metric:building_footprint_area_sqm]`，不代表现状建筑总面积或开发量。正式拆改留流程建议：**现状普查 -> 文保/结构/碳排/权属/运营评价 -> retain/renovate/demolish/new_build 分类 -> 经济与公共利益复核 -> 控规/建筑深化**。在此之前不发布精确总建筑规模。
+长期治理采用 **Public Stewardship**：
 
-## 指标体系、面积复算与合规矩阵
+- 公共机构对规则、风险授权、数据治理、公共价值判断、事故响应和最终 STOP / SCALE / RETIRE 保持责任；
+- 高校、科研机构、企业、开发者、社区和市民可以提出问题、开发能力、参与测试、审查和反馈；
+- 任何具体机构名称和角色目前都只是功能建议，不能写成已经接受任务的真实政府承诺。[assumption:A-INSTITUTION-001]
 
-![核心指标与证据链](assets/figures/metrics-evidence.png)
+### 12.1 Problem Track + Capability Track
 
-| 指标 | 当前值 | 设计含义 | 置信度 |
-| --- | ---: | --- | --- |
-| provisional 总体设计面积 | 11.413 km² | 与仓库粗略边界复算，替换 official polygon 后重算 | medium [metric:site_area_sqm] |
-| 概念蓝绿空间比例 | 28.1% | 强化连续公共脊和环境韧性，不是法定绿地率 | low [metric:green_ratio] |
-| 概念公共节点面积比例 | 0.38% | 仅统计 5 处示范节点，不代表全部公共空间 | low [metric:public_space_ratio] |
-| 概念慢行/连接线长度 | 15.36 km | 用于比较方案网络完整性，不是工程里程 | low [metric:conceptual_mobility_network_length_m] |
-| 场景卡 | 12 | 覆盖日常公共服务 + 产业测试 | high [metric:scenario_card_count] |
-| 测试验证场景 | 4 | 满足任务书不少于 3 个要求 | high [metric:testing_scenario_count] |
-| 用户画像 | 7 | 强制把居民/弱势群体纳入 AI 城市评估 | high [metric:persona_count] |
-| 朝圣地标 | 3 | 从科技造型转为“公共审查界面” | medium [metric:pilgrimage_landmark_count] |
+两条入口进入同一生命周期，并要求：非 AI 对照、可逆、数据合法、可维护、可迁移、可退出、责任明确。
 
-合规覆盖由 `compliance_matrix.json` 的 23 项要求逐项建立到章节、图层、指标、图纸与来源的映射；专业标准和设计深度分别由 `standard_matrix.json`、`design_depth_matrix.json` 约束。[depth:metrics_recalculation]
+### 12.2 社区参与不是问卷
 
-## 风险、版权与合规说明
+影响越高，居民拥有越强的权利界面：
 
-资料追溯还包括 [source:PROCESSED-FACT-PACK] [source:KEY-AREA-SOURCE] [source:JINGZHANG-THREE-AREAS-TWO-WINGS]。
+- 主动告知；
+- 人工/非 AI 服务；
+- 受影响群体审查；
+- 反对和申诉；
+- 人工复核；
+- 事故和 near miss 公开摘要；
+- 版本变化说明。
 
-本节同时回收方案的专业证据链与缺资料边界：[standard:MOHURD-URBAN-DESIGN-MEASURES] [standard:MOHURD-ARCH-DESIGN-DEPTH-2016] [depth:existing_conditions_diagnosis] [depth:development_intensity_controls] [depth:traffic_rail_slow_parking] [depth:municipal_new_infrastructure] [depth:blue_green_public_space] [depth:three_key_area_detailed_design] [depth:renewal_project_list] [depth:phasing_implementation] [data:geometry/green_space.geojson#GREEN-001] [data:geometry/constraints.geojson#CONSTRAINT-001] [data:geometry/phasing.geojson#PHASE-001] [metric:key_area_count] [metric:global_case_count] [metric:legibility_level_count]。这些标签不是装饰，而是把正文判断回接到可复核的标准、设计深度、空间图层和指标。
+这些机制不能替代法定听证、审批和法律救济，只是城市操作系统必须具备的公共参与层。
 
-1. **空间精度风险**：official polygon 缺失，当前 geometry 只用于 intake 和概念设计。[assumption:A-BOUNDARY-001]
-2. **规划与建筑风险**：未掌握法定控规、现状建筑和权属，禁止把包络写成拆建决定。[assumption:A-CONTROLS-001] [assumption:A-BUILDING-001]
-3. **文保风险**：地标与慢行主脊需接受遗产保护边界与景观视廊审查。[assumption:A-HERITAGE-001]
-4. **AI治理风险**：可读性梯度、AI 营养标签和 100 日章程均是概念建议，实施前必须做个人信息、数据安全、网络安全、无障碍、产品安全和责任主体审查。[assumption:A-GOVERNANCE-001]
-5. **公共利益风险**：任何高自主试验不得以创新之名把风险转嫁给普通通行者、一线劳动者或弱势群体；必须提供人工接管和非 AI 替代。
-6. **版权**：核心图、GeoJSON、PDF、HTML 与 Logo 方向均由本 Agent 在本次投稿中生成；外部案例只以文字事实和链接引用，不嵌入第三方图片、地图瓦片、字体或商标素材。详见 `report/copyright_statement.md`。
-7. **状态表述**：本成果为 submitted concept / open co-creation proposal。未获得任何“入选、审批、实施、建成”状态，不使用政府背书式措辞。
+### 12.3 Developer Ecosystem
 
-## 参考资料
+建议建立公开 **Capability Registry / 城市能力登记册**，记录每项能力的维护者、版本、风险、数据来源、依赖、兼容性、公共价值证据、退出条件和退役历史。开发者贡献不是一次性黑客松，而是可以被城市长期验证和维护的公共知识。
 
-- [source:OFFICIAL-ANNOUNCEMENT] 北京市规划和自然资源委员会公开公告。
-- [source:AGENT-TASKBOOK] 面向 Agent 的开源征集任务书。
-- [source:SITE-PACKAGE] 项目机器可读 site package。
-- [source:SOURCE-REGISTRY] 仓库来源可用性登记。
-- [source:GLOBAL-PUNGGOL]、[source:GLOBAL-SEOUL-INCLUSION]、[source:GLOBAL-ENABLING-VILLAGE]、[source:GLOBAL-WOVEN-CITY]、[source:GLOBAL-DECIDIM]、[source:GLOBAL-KALASATAMA] 仅作机制背景参考。
+---
+
+## 13. 京张城市学习大会与 Annual City Version Release
+
+城市全年持续学习，不等到年度活动才工作；但每年需要一个明确的公共结算点：
+
+# Jing-Zhang City Learning Assembly / 京张城市学习大会
+
+核心仪式：
+
+# Annual City Version Release / 年度城市版本发布
+
+例如 `Jing-Zhang City v2027`，公开：
+
+- Added：新增能力；
+- Modified：修改能力；
+- Scaled：扩大应用；
+- Responsible STOP：因风险或低公共价值主动停止；
+- Retired：正式退役；
+- Suspended：暂停等待证据；
+- Unresolved：问题仍未解决；
+- Metric & Audit Changes：指标、审计方法或数据边界发生变化。
+
+城市版本号不是软件化装饰，而是**公共责任的年度 changelog**。它必须同时展示失败、投诉、人工接管和证据限制，而不是只发布“成功案例”。[assumption:A-INSTITUTION-001]
+
+---
+
+## 14. 5 / 10 / 20 年长期演进
+
+### 0–5 年：建立接口，而不是锁定技术
+
+优先建设非 AI 基线、公共能力接口、风险授权、Capability Registry、低风险可逆试验、城市学习档案和真实数据底图。任何高成本永久智能基础设施都要证明其不可替代性。
+
+### 5–10 年：跨片区能力交换
+
+成熟能力可以跨五个学习单元迁移，但必须重新验证目标区人群、空间和运营条件；城市版本发布开始形成稳定的公开证据序列。[metric:capability_transfer_revalidation_rate]
+
+### 10–20 年：技术可以完全更换，网络仍然存在
+
+未来的大模型、机器人、云平台和传感器都可以被替换。真正需要留下的是：
+
+**Urban Capability Exchange Network / 城市能力交换网络。**
+
+它保存公共责任、能力身份、证据、版本、迁移和退役，而不保存对某一家厂商或某一代 AI 技术的永久依赖。
+
+---
+
+## 15. 用地、建筑、交通与市政：概念深度与专业边界
+
+`land_use.geojson` 继续作为总体功能结构的概念表达，不构成法定用地调整。[data:geometry/land_use.geojson#LU-001] [depth:land_use_layout] [standard:MNR-LAND-USE-CLASSIFICATION-GUIDE]
+
+`buildings.geojson` 中的包络只表达研发、服务、档案、测试和公共接口可能需要的空间类型，不代表现状建筑或确认的新建规模。在没有现状测绘、权属、文保、结构和碳排评价前，本方案不作具体拆除结论。[metric:building_footprint_area_sqm] [assumption:A-BUILDING-001] [depth:retain_renovate_demolish]
+
+FAR、总建筑面积、建筑密度、法定绿地率、建筑高度、退界和道路红线继续保持 Unknown；任何后续深化必须先导入官方控制资料，再重新计算和更新图件。[metric:floor_area_ratio] [assumption:A-CONTROLS-001] [standard:MOHURD-CONTROL-DETAILED-PLANNING]
+
+交通优先级为：普通步行/骑行/无障碍和轨道接驳 > 公共空间品质 > AI 辅助 > 自动化设备。机器人和自动移动系统只能在证据、工程和安全条件满足后进入有旁路的受控测试。[metric:conceptual_mobility_network_length_m]
+
+---
+
+## 16. 指标、复算与数据完整性
+
+![空间指标、公共价值指标与不确定性](assets/figures/metrics-evidence.png)
+
+| 指标 | 当前状态 | 用途 | 置信度 |
+| --- | --- | --- | --- |
+| provisional 总体设计面积 | 约 11.413 km² | 仅用于当前 rough geometry 复算 | medium [metric:site_area_sqm] |
+| 概念绿地比例 | 28.1% | 设计图层关系，不是法定绿地率 | low [metric:green_ratio] |
+| 概念公共节点面积比例 | 0.38% | 旧概念节点载体，不代表全部公共空间 | low [metric:public_space_ratio] |
+| 概念连接网络长度 | 15.36 km | 比较网络关系，不是工程里程 | low [metric:conceptual_mobility_network_length_m] |
+| Persona | 8 | 覆盖居民、弱势群体与一线运营者 | high [metric:persona_count] |
+| 场景卡 | 12 | 日常公共能力 + 真实测试 | high [metric:scenario_card_count] |
+| Testing/validation 场景 | 4 | 满足任务书 ≥3 | high [metric:testing_scenario_count] |
+| 全球生态案例 | 6 | 机制比较，不作为本地绩效 | high [metric:global_case_count] |
+| UAR-90 / UAR-365 | Unknown | 待真实问题/试验 registry 后计算 | unknown [metric:urban_adaptation_rate_90d] [metric:urban_adaptation_rate_365d] |
+
+本方案明确区分“**公式已定义**”与“**真实数据已经存在**”。目前没有真实运行中的合格问题 registry、实验 registry 和公共价值 outcome registry，因此 UAR 等治理指标必须为 Unknown/null，不能为了图表完整而伪造分数。[assumption:A-UAR-001]
+
+---
+
+## 17. 现状数据获取与下一轮专业深化
+
+真实现状底图的优先级高于继续增加概念图。下一轮建议采用多源交叉验证：
+
+- 官方公开资料确认项目、设施和政策事实；
+- OSM / Overpass 作为道路、轨道、水系、绿地、POI 和建筑候选的开放数据 bootstrap，并保留 ODbL attribution；[source:SRC-OSM-OVERPASS-LIVE]
+- Microsoft Global ML Building Footprints 仅作为建筑轮廓 Derived 候选，与 OSM、公开影像和现场核验交叉，不作为官方建筑测绘；[source:SRC-MS-GLOBAL-BUILDINGS-20260724]
+- 现场核验补充出入口、无障碍、步行断点、空间使用和最新施工状态，但现场观察也不能产生“官方规划身份”。
+
+优先补齐：现状建筑、道路/过街、站点接口、公共服务设施、蓝绿空间、文保 GIS、市政与消防条件。只有这些证据足够后，才把当前 Proposed node / landmark / crossing 从点位关系升级为可实施详细设计。
+
+---
+
+## 18. 风险、未知与退出条件
+
+### 18.1 当前 Unknown
+
+- exact official SITE_BOUNDARY / KEY_AREA polygons；
+- 法定 FAR、高度、建筑密度、绿地率、退界；
+- 完整权属、建筑现状、结构与文保控制；
+- 地下市政、消防、排水、防洪、配电和网络容量；
+- 未来 Public Steward 的实际机构、预算、人员和法定授权；
+- 所有未来 AI 城市能力的真实运营绩效。
+
+### 18.2 设计红线
+
+本方案不允许：
+
+- 把 provisional geometry 称为官方红线；
+- 把概念包络称为已确定拆建；
+- 把 AI 默认替代人工公共服务；
+- 把高风险试验开放给不知情的普通通行者；
+- 用平均效率掩盖弱势群体、副作用和失败；
+- 因为某项能力已经投入成本而拒绝 STOP/RETIRE；
+- 把未来合作主体写成已经承诺参与。
+
+---
+
+## 19. 结论：京张最终留下什么
+
+1909 年的京张铁路证明了一种工程能力可以被写进城市和国家的长期基础设施。
+
+2026 年之后，京张不需要用某一代 AI 技术复制这种纪念。它真正可以留下的是一套新的城市基础能力：
+
+**发现真实问题，谨慎授权，允许试验，公开失败，验证公共价值，把有效能力通过 Capability Backbone 交换到其他片区，并在过时时有尊严地停止和退役。**
+
+因此，本方案的终点不是一个“未来城市效果图”，而是一个可以持续发布新版本的城市公共系统：
+
+# City OS → Public Value → Urban Learning → Capability Exchange → Public Memory → Next Version
+
+二十年后，即使今天的模型、机器人和平台全部过时，只要 **Urban Capability Exchange Network** 仍然能够服务普通人的公共生活，京张就仍然是这套方案所设想的城市。
