@@ -2,127 +2,171 @@
 
 ## 1. Repository state
 
-- upstream ref: `open-city-ai/haidian@b3d6fdaa2331fdc60a3e618019fd8e6596532fff` observed on 2026-08-08
-- fork base ref: `submission/zhoujiahao-source/jingzhang-legible-ai-belt@796d29a69774f4722fd7b5012505a3f20bb2e35d`
+- latest upstream ref re-audited: `open-city-ai/haidian@e533da38c89c2766aee202b19b9d053057385ef6` on 2026-08-08
+- fork proposal base ref: `submission/zhoujiahao-source/jingzhang-legible-ai-belt@796d29a69774f4722fd7b5012505a3f20bb2e35d`
 - branch: `agent/evidence-basemap`
-- final content/QA commit before this handoff file: `e6552d473700fad3efbca03bf1e6c6104f4f37f9`
-- final branch HEAD including this handoff file: self-referential; exact SHA is returned by the executing Agent in the final chat response.
+- final branch HEAD: returned by the executing Agent after this handoff update and final compare
 
 ## 2. What I completed
 
-- Re-read latest upstream Skill, brief, taskbook, allowed design space, source registry, planning limits, standards/reference index, visual guidance, schema inventory, data workflow, review rubric and geometry availability.
-- Audited the user's latest prior submission as reusable prior work without treating its conceptual geometry as present-state truth.
+### Rule / repository baseline
+- Re-read the latest upstream Skill and required brief/data/geometry inputs again after upstream advanced during this session.
+- Confirmed latest upstream `brief/site-package/geometry/` still has only provisional boundaries/basis and study bbox; no official coordinate-bearing SITE_BOUNDARY / KEY_AREA file is present.
+- Audited the user's prior submission as reusable design work without treating conceptual geometry as present-state truth.
+- Kept all work isolated under `workstreams/evidence_basemap/`; canonical submission remains untouched.
+
+### Evidence inventory and uncertainty
 - Built a source inventory with explicit formal/background/provisional/review-needed status and limitations.
-- Built source-conflict and missing-data registers rather than silently reconciling mismatched scopes.
+- Built source-conflict and missing-data registers instead of silently reconciling incompatible scopes.
+- Defined Official / Verified / Derived / Assumed / Unknown and Known / Estimated / Proposed / Unknown protocols.
+- Preserved official reference area values separately from provisional calculated geometry.
+
+### Three areas / two wings and spatial diagnosis
 - Built source-addressable evidence profiles for all three areas and two wings, each with at least five verifiable characteristics.
 - Identified 12 spatial findings and prioritized the 10 most design-critical opportunities/constraints.
 - Re-verified six global AI/urban-innovation ecosystem cases and extracted transferable mechanisms plus non-transferable limits.
-- Defined Official / Verified / Derived / Assumed / Unknown and Known / Estimated / Proposed / Unknown protocols.
-- Added an integration-facing field dictionary, official reference-area table, spatial evidence register and building proxy method.
-- Added six uncertainty-safe evidence schematics without commercial map tiles or invented official geometry.
-- Added a deterministic workstream validator and documented connector-level QA.
-- Did not modify canonical submission geometry, proposal, metrics or locked upstream layers.
+
+### Existing-condition basemap executable closure
+- Added `data/basemap_config.json` with provisional discovery extent, EPSG:4326 exchange CRS, EPSG:4548 analysis CRS, source/license policy and `official_boundary=false`.
+- Added `scripts/fetch_osm_basemap.py` to acquire OSM roads, rail, water, green, POI and optional buildings through Overpass with ODbL attribution and timestamped provenance.
+- Added `scripts/fetch_microsoft_buildings.py` to acquire Microsoft Global ML Building Footprints under CDLA Permissive 2.0, compute required L9 tiles and bbox-filter candidate building footprints.
+- The provisional overall-design discovery bbox resolves to Bing L9 quadkey `132100103`.
+- Added `scripts/validate_basemap_outputs.py` for generated GeoJSON/provenance validation.
+- Added `scripts/test_basemap_helpers.py` and executed its exact helper logic offline; bbox→quadkey and Overpass query composition passed.
+- Added `basemap_acquisition.md` with run sequence, source promotion thresholds and cross-validation rules.
+
+### Building evidence
+- Kept old proposal buildings classified as conceptual program envelopes, not Existing.
+- Added Microsoft Global ML Building Footprints as an independent **Derived** footprint candidate, not an official/current building survey.
+- Kept height/floor/use/ownership and demolition/retention conclusions Unknown where unsupported.
+
+### Source-registry handoff
+- Added `data/source_registry_promotion_candidate.json` containing review-ready candidate source records for current official Beijing/Haidian evidence, OSM and Microsoft footprints.
+- Did not modify project-wide `data/source_registry.json`; candidate records explicitly state allowed/prohibited uses.
+
+### Field verification closure
+- Added `data/field_audit_targets.csv` with 15 bounded targets across 众智园、AI原点、大钟寺、中关村服务翼、小月河 and the Jing-Zhang corridor.
+- Added `field_audit_protocol.md` with privacy-safe capture fields, evidence promotion rules, repeatability and completion gates.
+- No on-site observation is fabricated; all targets remain `pending_field` until physically observed.
+
+### Upstream collaboration
+- Searched upstream open Issues for official boundary / SITE_BOUNDARY / KEY_AREA missing-data discussion and found no matching open issue.
+- Attempted to create a scoped Issue in `open-city-ai/haidian`; GitHub returned HTTP 403 `Resource not accessible by integration`.
+- Preserved the complete ready-to-post issue at `upstream_issue_draft.md`.
+
+### QA / handoff
+- Expanded `scripts/validate_evidence_workstream.py` so Definition-of-Done covers original evidence files plus basemap acquisition, field targets, source-promotion candidate and blocked issue draft.
+- Updated `qa_report.md`, `audit_log.md`, `README.md` and this handoff to reflect the continuation pass.
+- Did not modify canonical submission geometry, proposal, metrics, sources, assumptions, figures, HTML/PDF or locked upstream layers.
 
 ## 3. Key decisions / findings
 
-- **Finding:** exact official SITE_BOUNDARY and KEY_AREA polygons remain unavailable in latest upstream geometry.  
-  **evidence:** upstream `brief/site-package/geometry/` contains provisional boundaries/basis and study bbox only; source registry marks provisional geometry `provisional_only`.  
+- **Finding:** exact official SITE_BOUNDARY and KEY_AREA polygons remain unavailable at the latest upstream ref.  
+  **evidence:** latest upstream `brief/site-package/geometry/` inventory contains provisional boundaries/basis and study bbox only.  
   **confidence:** High.  
   **why it matters:** all boundary-derived current metrics remain intake-grade; do not present as statutory precision.
 
 - **Finding:** competition official scales (43.6 km² / 11.4 km² / 368.4 ha; 192.1 / 104.3 / 72.0 ha key-area references) are different scopes from the ~37 km² public “三区两翼” industrial-layout narrative.  
   **evidence:** SRC-REG-OFFICIAL-ANNOUNCEMENT vs SRC-BJ-KW-THREE-WINGS-20260403.  
   **confidence:** High.  
-  **why it matters:** do not merge these numbers or use one as the other's polygon.
+  **why it matters:** never merge these numbers or use one as the other's polygon.
 
 - **Finding:** AI Origin Community's public ~3 km² operational/innovation context is broader than the 104.3 ha competition reference area.  
   **evidence:** SRC-BJ-AIORIGIN-20260105 / SRC-BJ-AIORIGIN-20260324 vs competition brief.  
   **confidence:** High.  
   **why it matters:** ecosystem statistics cannot be spatially assigned to the 104.3 ha key area without new evidence.
 
-- **Finding:** 众智园 and 大钟寺 both have 2026 official urban-renewal evidence, but the renewal extents are not competition KEY_AREA polygons.  
+- **Finding:** 众智园 and 大钟寺 both have 2026 official urban-renewal evidence, but renewal extents are not competition KEY_AREA polygons.  
   **evidence:** SRC-BJ-CITYUPDATE-ZZY-20260713 / SRC-BJ-CITYUPDATE-DZS-20260713.  
   **confidence:** High.  
-  **why it matters:** these are strong real-world implementation contexts, not boundary replacements.
+  **why it matters:** use as implementation/current-context evidence, never boundary replacement.
 
-- **Finding:** Jing-Zhang Park provides a real north-south public-space framework and the historic railway's east-west barrier/stitching problem is explicitly documented.  
+- **Finding:** Jing-Zhang Park provides a real north-south public-space framework while the historic railway east-west barrier/stitching problem is documented.  
   **evidence:** SRC-BJ-JZPARK-20240920 / SRC-BJ-JZPARK-20211216.  
   **confidence:** High for framework/history; full 2026 phase-II as-built continuity remains Unknown.  
-  **why it matters:** Capability Backbone can attach to a real spatial/public-memory structure while crossing-level design still needs survey.
+  **why it matters:** Capability Backbone can attach to a real spatial/public-memory structure, but exact crossings need GIS/field audit.
 
-- **Finding:** Xiaoyuehe has active 2026 public waterfront/water-engineering evidence; treatment segment is about 6.41 km and water-bureau construction content includes greening/path improvements.  
+- **Finding:** Xiaoyuehe has active 2026 waterfront/water-engineering evidence; construction/ecology/water safety must precede scenario siting.  
   **evidence:** SRC-BJ-XIAOYUEHE-WATER-20260112 / SRC-BJ-XIAOYUEHE-WORKS-20260121.  
-  **confidence:** High for project scope/status, not for final as-built completion.  
-  **why it matters:** it is the strongest real linear public-space test context, but construction/ecology/water safety must precede AI scene siting.
+  **confidence:** High for project scope/status, not final as-built completion.
 
 - **Finding:** old submission building/road/green/public-space values are conceptual/provisional and must not be reused as Existing.  
   **evidence:** prior submission `metrics.json` and `assumptions.json`.  
-  **confidence:** High.  
-  **why it matters:** replace those layers before claiming current building footprint, green ratio, public-space ratio or mobility length.
+  **confidence:** High.
+
+- **Finding:** an open, legal, reproducible current-basemap path exists without commercial map tiles: OSM for multi-layer bootstrap + Microsoft Global ML Building Footprints as an independent footprint candidate + official public pages/field audit for validation.  
+  **confidence:** High for source/license workflow; actual local currentness remains feature-by-feature after retrieval.
 
 - **Finding:** the five learning units should remain differentiated: 众智园=technology production/validation; AI Origin=social feedback/talent/public-service learning; 大钟寺=market/AI-native service validation; 中关村翼=professional-resource exchange; 小月河翼=public-space/real-city testing.  
   **evidence:** taskbook + current differentiated resource profiles.  
-  **confidence:** High for task roles; variable for exact geography/resource density.  
-  **why it matters:** avoid five identical AI districts.
+  **confidence:** High for task roles; variable for exact geography/resource density.
 
 ## 4. Files added or modified
 
 | file | purpose | status |
 |---|---|---|
-| `README.md` | workstream boundary/readme | complete |
-| `audit_log.md` | phase 0–10 checkpoints and rule audit | complete |
-| `source_inventory.csv` | source provenance/use/licence/confidence table | complete for this pass |
-| `source_conflicts.md` | conflicting scopes/evidence reconciliation | complete for this pass |
+| `README.md` | workstream boundary / execution guide | complete |
+| `audit_log.md` | Phase 0–10 audit + continuation | complete |
+| `source_inventory.csv` | provenance/use/licence/confidence inventory | complete for this pass |
+| `source_conflicts.md` | conflict register | complete for this pass |
 | `confidence_framework.md` | evidence/drawing uncertainty protocol | complete |
 | `area_profiles.md` | three areas/two wings evidence profiles | complete |
 | `global_ai_ecosystem_cases.md` | six global cases | complete |
 | `spatial_findings.md` | 12 findings + top 10 | complete |
-| `missing_data.md` | 18 missing-data items | complete |
+| `missing_data.md` | 18 missing-data items | complete; unresolved items remain Unknown |
 | `field_dictionary.md` | downstream evidence interface | complete |
-| `building_proxy_method.md` | reproducible future building proxy hierarchy | complete |
-| `data/area_reference_values.csv` | official area values separated from geometry | complete |
-| `data/spatial_evidence_register.csv` | evidence-layer feature register | complete |
-| `maps/README.md` | evidence-map caveats | complete |
-| `maps/01_existing_structure_evidence.svg` | current structure evidence schematic | complete schematic |
-| `maps/02_mobility_breaks.svg` | mobility/seam audit schematic | complete schematic |
-| `maps/03_blue_green_public_space.svg` | blue-green/public-space schematic | complete schematic |
-| `maps/04_innovation_service_resources.svg` | innovation/service evidence schematic | complete schematic |
-| `maps/05_three_areas_two_wings_profiles.svg` | differentiated-unit schematic | complete schematic |
-| `maps/06_confidence_status.svg` | uncertainty legend schematic | complete |
-| `scripts/validate_evidence_workstream.py` | deterministic local QA | committed; shell execution pending |
-| `qa_report.md` | QA evidence/caveat | complete |
+| `building_proxy_method.md` | building fact/proxy hierarchy | complete |
+| `basemap_acquisition.md` | executable real-basemap acquisition workflow | complete |
+| `field_audit_protocol.md` | public-space field audit protocol | complete protocol; physical execution pending |
+| `upstream_issue_draft.md` | blocked upstream official-geometry issue | complete draft; posting blocked by 403 |
+| `qa_report.md` | QA evidence/runtime caveats | complete |
+| `data/area_reference_values.csv` | official area values separate from geometry | complete |
+| `data/spatial_evidence_register.csv` | evidence feature register | complete |
+| `data/basemap_config.json` | acquisition extent/CRS/source policy | complete |
+| `data/field_audit_targets.csv` | 15 on-site verification targets | complete register; all pending_field |
+| `data/source_registry_promotion_candidate.json` | maintainer-review source candidates | complete candidate package |
+| `maps/01...06_*.svg` | uncertainty-safe evidence schematics | complete schematic |
+| `scripts/fetch_osm_basemap.py` | OSM existing-condition acquisition | complete executable; live fetch pending networked checkout |
+| `scripts/fetch_microsoft_buildings.py` | Microsoft footprint candidate acquisition | complete executable; live fetch pending networked checkout |
+| `scripts/validate_basemap_outputs.py` | generated GeoJSON/provenance QA | complete executable |
+| `scripts/test_basemap_helpers.py` | offline bbox/quadkey/query test | complete; helper logic passed |
+| `scripts/validate_evidence_workstream.py` | whole-workstream deterministic QA | complete; checkout execution pending |
 | `handoff.md` | this integration handoff | complete |
 
 ## 5. Sources and licenses
 
-Primary source classes used:
+Primary source classes:
 - competition official announcement / Beijing planning authority — formal-ready only within recorded scope;
 - cleared Agent taskbook — formal task alignment, not statutory geometry;
-- repository provisional geometry — `provisional_only`, never official redline/control;
-- Beijing/Haidian official public pages and public procurement records — present-state/program evidence, entered as `needs_registry_review` for project-wide promotion;
-- OSM license reference is recognized, but no new OSM extract was committed in this pass;
-- global city/government/primary institutional case sources — `background_only`;
-- no commercial map tiles, private maps, sensitive personal data or non-redistributable GIS added.
+- repository provisional geometry — `provisional_only`;
+- Beijing/Haidian official public pages and procurement records — current/program evidence, candidate for maintainer source-registry review;
+- OpenStreetMap / Overpass — ODbL 1.0, explicit `© OpenStreetMap contributors` attribution, bootstrap existing-condition data only;
+- Microsoft Global ML Building Footprints — CDLA Permissive 2.0, ML-derived footprint candidate only;
+- global city/government/primary institutional cases — `background_only`;
+- no commercial map tiles, private maps, sensitive personal data or non-redistributable GIS.
 
-Full source IDs, URLs, dates, reuse status and limitations: `source_inventory.csv`.
+Full source IDs/use limits: `source_inventory.csv` and `data/source_registry_promotion_candidate.json`.
 
 ## 6. Data / design status
 
-- **Official:** project/competition names and task requirements; official approximate scope/reference-area values; three-area/two-wing roles where defined by task materials.
-- **Verified:** current urban-renewal projects, selected public-service/road/waterfront program facts, Jing-Zhang public-space/history facts, primary-source global-case mechanisms.
-- **Derived:** repository provisional geometry and any schematic relationship representation; must remain labelled.
-- **Assumed:** no new present-state Assumed statistic is used; future design assumptions belong in design/integration layers.
-- **Unknown:** exact official boundaries/key areas/two-wing polygons, formal FAR/height/density/green/setback controls, ownership, full building facts, complete current transport/POI/capacity data, heritage GIS, underground infrastructure, fine-grained legal mobility/activity data, full 2026 park as-built status.
+- **Official:** competition/project task facts and official approximate reference areas within their documented scope.
+- **Verified:** current urban-renewal projects, selected public-service/road/waterfront facts, Jing-Zhang public-space/history facts, primary-source global-case mechanisms.
+- **Derived:** repository provisional geometry; evidence schematics; future OSM candidate layers; Microsoft building footprints; calculated discovery tile/quadkey.
+- **Assumed:** no new present-state Assumed statistic is used.
+- **Unknown:** exact official SITE_BOUNDARY / KEY_AREA / two-wing polygons; statutory FAR/height/density/green/setback controls; ownership; complete current building use/floors/heights; complete transport/facility capacities; heritage GIS; underground infrastructure; legal fine-grained mobility/activity data; full 2026 park as-built continuity.
+- **Pending external execution:** live OSM/Microsoft materialization; field audit; organizer/authority official geometry/control acquisition.
 
 ## 7. Conflicts or risks
 
-- Scope-number collision is the largest presentation risk: 37 km² industrial narrative must not be confused with 43.6/11.4/3.684 km² competition scopes.
-- AI Origin 3 km² operational context must not become a fake 104.3 ha evidence boundary.
-- Urban-renewal textual extents are valuable but cannot overwrite competition provisional/official geometry.
-- Historic planned completion dates must not be upgraded to current as-built status.
-- Public ecosystem statistics are not parcel-level POI data and cannot support fabricated heat maps.
-- Current branch adds schematics, not survey-grade GIS; they must not be presented as formal basemap drawings.
-- New official public sources require maintainer review before project-wide source-registry promotion.
+- 37 km² industrial narrative vs 43.6/11.4/3.684 km² competition scopes.
+- AI Origin ~3 km² program context vs 104.3 ha competition reference area.
+- Urban-renewal extents vs competition key-area extents.
+- Historic/planned completion dates vs verified current as-built status.
+- Public ecosystem statistics vs parcel-level POI/heat-map claims.
+- OSM/Microsoft physical geometry vs statutory geometry/current authoritative survey.
+- Microsoft imagery vintage/model error can create stale/missing/false building footprints.
+- Field observation can verify a condition at a time/place but cannot create Official planning status.
+- Upstream issue write is blocked by connector permission; issue text is preserved locally.
 
 ## 8. What the Final Integration Agent should adopt
 
@@ -130,47 +174,63 @@ Full source IDs, URLs, dates, reuse status and limitations: `source_inventory.cs
 - uncertainty classes and visible boundary-status language;
 - scope conflict separation;
 - official area-reference table separated from provisional geometry metrics;
-- the differentiated evidence profiles of the five learning units;
-- explicit Unknowns for statutory controls/ownership/heritage/utilities;
-- source IDs and limitations for any current-state claim;
-- rule that old conceptual building/road/green/public-space layers are not Existing evidence.
+- differentiated evidence profiles for all five learning units;
+- explicit Unknowns for controls/ownership/heritage/utilities;
+- source IDs and limitations for current-state claims;
+- rule that old conceptual building/road/green/public-space layers are not Existing evidence;
+- basemap promotion rule: successful download ≠ Verified ≠ Official.
 
 ### Strong candidate
 - use Jing-Zhang public-space continuity as the spatial host for Capability Backbone while preserving heritage/daily-life priority;
 - use Xiaoyuehe as a low-risk public-space testing interface only after construction/ecology/safety checks;
 - use current 众智园/大钟寺 urban-renewal programs as implementation-context evidence;
-- use the six-case portfolio rather than copying one global smart-city model;
-- reuse the six schematic figure stories after replacing schematic alignment with verified GIS.
+- use OSM + Microsoft footprint disagreement as a targeted field/imagery verification queue;
+- promote approved records from `source_registry_promotion_candidate.json` through maintainer review;
+- reuse the six schematic figure stories after replacing schematic alignment with validated GIS.
 
 ### Exploratory only
-- precise crossing locations, service catchments, building-retain/renovate decisions, population heat maps, wing extents and any detailed scenario siting until new data arrives.
+- precise crossing locations, service catchments, building retain/renovate decisions, population heat maps, wing extents and detailed scenario siting until new data arrives.
 
 ## 9. What I intentionally did NOT modify
 
 - `submissions/zhoujiahao-source/jingzhang-legible-ai-belt/**`
-- canonical `geometry/**`, `metrics.json`, proposal, sources, assumptions, figures, HTML/PDF
-- locked SITE_BOUNDARY / EXISTING_PRIMARY_ROAD / EXISTING_RAIL / EXISTING_WATER / HERITAGE_PROTECTION / REGULATORY_CONTROL layers
+- canonical geometry / metrics / proposal / sources / assumptions / figures / HTML/PDF
+- upstream `data/source_registry.json`
+- locked SITE_BOUNDARY / EXISTING_PRIMARY_ROAD / EXISTING_RAIL / EXISTING_WATER / HERITAGE_PROTECTION / REGULATORY_CONTROL
 - final project name/brand/Logo/landmark design
-- statutory FAR/height/road redline/ownership/demolition conclusions
+- statutory FAR/height/road-redline/ownership/demolition conclusions
 
 ## 10. Validation performed
 
-- command/check: GitHub compare base submission → work branch.  
-  result: branch ahead, no behind; all changed paths confined to `workstreams/evidence_basemap/` at QA checkpoint.
-- command/check: current upstream geometry directory + provisional metadata read.  
-  result: official exact polygons still unavailable; provisional status preserved.
-- command/check: current source inventory and spatial register re-read after source-ID repair.  
-  result: key current claims source-addressable; provisional boundary records retain `official_boundary=false`.
-- command/check: source/license/use-status review.  
-  result: no commercial map tile/private spatial source; new public evidence is not silently promoted to formal-ready.
-- command/check: deterministic script `python3 workstreams/evidence_basemap/scripts/validate_evidence_workstream.py`.  
-  result: **not executed in this connector-only repository runtime**; script is committed and exact execution caveat is recorded in `qa_report.md`. Do not report a fabricated local PASS.
+- check: latest upstream main / latest Skill / geometry inventory.  
+  result: rules re-read at `e533da38...`; official exact polygons remain unavailable.
+- check: source/license/use-status review.  
+  result: OSM and Microsoft candidates have explicit open licenses/use limits; no commercial/private GIS.
+- check: exact helper logic for `scripts/test_basemap_helpers.py` in isolated Python runtime.  
+  result: `PASS: basemap helper tests; L9 quadkey=132100103; Overpass layer query composition valid`.
+- check: upstream duplicate Issue search.  
+  result: no matching open issue found.
+- action: upstream issue creation.  
+  result: blocked by HTTP 403 `Resource not accessible by integration`; full issue saved in `upstream_issue_draft.md`.
+- check: network access for repository/container execution.  
+  result: public DNS unavailable in execution container; live OSM/Microsoft download cannot be truthfully claimed.
+- pending command in a networked checkout:
 
-## Integration next actions
+```bash
+python3 workstreams/evidence_basemap/scripts/test_basemap_helpers.py
+python3 workstreams/evidence_basemap/scripts/fetch_osm_basemap.py
+python3 workstreams/evidence_basemap/scripts/fetch_microsoft_buildings.py
+python3 workstreams/evidence_basemap/scripts/validate_basemap_outputs.py workstreams/evidence_basemap/data/generated
+python3 workstreams/evidence_basemap/scripts/validate_evidence_workstream.py
+```
 
-1. Re-fetch upstream `main` and latest Skill before integration.
-2. Run the committed validator in a real checkout.
-3. Promote newly discovered public sources into repository `data/source_registry.json` only after maintainer review.
-4. Acquire/verify official SITE_BOUNDARY / KEY_AREA and statutory controls; rerun all spatial metrics/figures.
-5. Build the actual existing-condition GIS from licensed/open/official roads, buildings, blue-green and facility data with timestamps/CRS/provenance.
-6. Conduct field audit for crossings, entrances, accessibility, ground-floor uses, construction closures and public-space use.
+## 11. Remaining dependencies, not remaining design work
+
+The remaining items cannot be completed by a remote text/GitHub Agent without fabricating evidence:
+
+1. **Organizer/authority dependency:** official SITE_BOUNDARY / KEY_AREA, statutory controls, heritage/utilities/ownership if not publicly cleared.
+2. **Network execution dependency:** materialize current OSM/Microsoft candidate geometry and run the committed validators in a real networked checkout.
+3. **Physical observation dependency:** execute the 15-target public-space field audit.
+4. **Permission dependency:** post the prepared upstream data-gap Issue using an account/integration with upstream Issue write permission.
+
+Everything else within the Evidence & Basemap Agent's role has been completed or converted into an executable/reviewable interface.
