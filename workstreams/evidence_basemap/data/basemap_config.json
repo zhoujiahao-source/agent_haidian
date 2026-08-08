@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-08-08",
+  "purpose": "Reproducible acquisition configuration for existing-condition candidate layers. This is not an official survey boundary.",
+  "boundary_source_id": "SRC-REG-PROVISIONAL-BOUNDARY",
+  "boundary_status": "provisional_constraint",
+  "official_boundary": false,
+  "bbox_wgs84": [116.3397, 39.938, 116.3553, 40.0265],
+  "exchange_crs": "EPSG:4326",
+  "analysis_crs": "EPSG:4548",
+  "osm": {
+    "source_id": "SRC-OSM-OVERPASS-LIVE",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "endpoints": [
+      "https://overpass-api.de/api/interpreter",
+      "https://overpass.kumi.systems/api/interpreter"
+    ],
+    "layers": ["roads", "rail", "water", "green", "poi"],
+    "buildings_default": false,
+    "note": "OSM is permitted for bootstrap existing-condition layers, with attribution and source/version timestamps. It must not be promoted to statutory boundary/control evidence."
+  },
+  "microsoft_buildings": {
+    "source_id": "SRC-MS-GLOBAL-BUILDINGS-20260724",
+    "license": "CDLA-Permissive-2.0",
+    "dataset_links_url": "https://bfppub.blob.core.windows.net/$web/2026-07-24/dataset-links.csv",
+    "location": "China",
+    "lod": 9,
+    "quadkeys": ["132100103"],
+    "note": "Model-derived building footprints from imagery of varying vintage; candidate geometry only. Cross-check against OSM/official/field evidence before use as Verified current state."
+  },
+  "output_policy": {
+    "all_generated_features_require_source_id": true,
+    "all_generated_features_require_retrieved_at": true,
+    "default_evidence_class": "Derived",
+    "default_drawing_class": "Estimated",
+    "commercial_tiles_forbidden": true,
+    "private_or_sensitive_data_forbidden": true
+  }
+}
