@@ -2,6 +2,7 @@
 """Deterministic QA for workstreams/evidence_basemap using Python stdlib only."""
 from __future__ import annotations
 import csv
+import json
 from pathlib import Path
 import sys
 
@@ -10,7 +11,13 @@ REQUIRED = [
     "README.md", "audit_log.md", "source_inventory.csv", "source_conflicts.md",
     "confidence_framework.md", "area_profiles.md", "global_ai_ecosystem_cases.md",
     "spatial_findings.md", "missing_data.md", "field_dictionary.md", "handoff.md",
+    "building_proxy_method.md", "qa_report.md", "basemap_acquisition.md",
+    "field_audit_protocol.md", "upstream_issue_draft.md",
     "data/area_reference_values.csv", "data/spatial_evidence_register.csv",
+    "data/basemap_config.json", "data/field_audit_targets.csv",
+    "data/source_registry_promotion_candidate.json",
+    "scripts/fetch_osm_basemap.py", "scripts/fetch_microsoft_buildings.py",
+    "scripts/validate_basemap_outputs.py", "scripts/test_basemap_helpers.py",
 ]
 MAPS = [
     "maps/01_existing_structure_evidence.svg",
@@ -68,6 +75,30 @@ def main() -> int:
     got = {r.get("metric_id") for r in areas}
     if not expected <= got: errors.append(f"area reference values missing {sorted(expected-got)}")
 
+    field = read_csv("data/field_audit_targets.csv")
+    if len(field) < 15:
+        errors.append(f"field_audit_targets expected >=15 records, got {len(field)}")
+    if any(r.get("status") != "pending_field" for r in field):
+        errors.append("field audit targets must remain pending_field until real observation exists")
+
+    try:
+        cfg=json.loads((ROOT/"data/basemap_config.json").read_text(encoding="utf-8"))
+        if cfg.get("official_boundary") is not False: errors.append("basemap_config official_boundary must be false")
+        if cfg.get("boundary_status") != "provisional_constraint": errors.append("basemap_config boundary_status must be provisional_constraint")
+        bbox=cfg.get("bbox_wgs84")
+        if not isinstance(bbox,list) or len(bbox)!=4: errors.append("basemap_config bbox_wgs84 invalid")
+        qks=cfg.get("microsoft_buildings",{}).get("quadkeys",[])
+        if "132100103" not in qks: errors.append("basemap_config missing expected Microsoft L9 quadkey 132100103")
+    except Exception as exc:
+        errors.append(f"basemap_config invalid JSON: {exc}")
+
+    try:
+        cand=json.loads((ROOT/"data/source_registry_promotion_candidate.json").read_text(encoding="utf-8"))
+        if cand.get("status") != "candidate_only_not_project_registry": errors.append("source promotion file must remain candidate_only")
+        if len(cand.get("candidates",[])) < 8: errors.append("source promotion candidate list unexpectedly small")
+    except Exception as exc:
+        errors.append(f"source_registry_promotion_candidate invalid JSON: {exc}")
+
     for rel in MAPS:
         text = (ROOT/rel).read_text(encoding="utf-8")
         if "<svg" not in text or "</svg>" not in text: errors.append(f"invalid SVG wrapper: {rel}")
@@ -76,7 +107,7 @@ def main() -> int:
         print("FAIL")
         for e in errors: print("-", e)
         return 1
-    print(f"PASS: {len(src)} sources, {len(spatial)} spatial evidence records, {len(MAPS)} evidence maps")
+    print(f"PASS: {len(src)} sources, {len(spatial)} spatial evidence records, {len(field)} field targets, {len(MAPS)} evidence maps")
     return 0
 
 if __name__ == "__main__":
