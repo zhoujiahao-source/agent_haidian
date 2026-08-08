@@ -1,15 +1,15 @@
 # QA Checklist — Visual Identity Workstream
 
-Observed against branch `agent/visual-identity`.
+Observed against branch `agent/visual-identity` during the completion pass.
 
 ## Scope checks
 
-- [x] Branch is isolated from canonical final-integration work.
-- [x] Compare against working base `796d29a69774f4722fd7b5012505a3f20bb2e35d` shows workstream changes only.
-- [x] No `submissions/...` file changed by Window 5.
-- [x] No other Agent workstream changed.
+- [x] Branch remains isolated from canonical final-integration work.
+- [x] No Window 5 change targets `submissions/...`.
+- [x] No other Agent workstream is modified.
+- [x] Work remains under `workstreams/visual_identity/` only.
 
-## Minimum deliverable checks
+## Minimum deliverables
 
 - [x] `visual_principles.md`
 - [x] `visual_audit.md`
@@ -25,40 +25,66 @@ Observed against branch `agent/visual-identity`.
 - [x] `layout_system.md`
 - [x] `figure_style_guide.md`
 - [x] `assets_drafts/`
-- [x] `handoff.md` prepared in final QA commit.
+- [x] `handoff.md`
 
 ## Definition-of-Done checks
 
 - [x] Open Node is structurally distinct from generic AI/brain/chip marks.
-- [x] Three logo geometry families documented; Family A recommended.
-- [x] Evidence status and design status are visually separable.
-- [x] Experiment status and risk level are independent systems.
-- [x] All critical status families have non-color redundancy.
+- [x] Three geometry families documented; Family A remains recommended primary.
+- [x] Small-size optical master created after actual 16/20/24 px testing.
+- [x] 16 px micro identity remains legible in grayscale.
+- [x] 24 px micro identity remains legible in grayscale.
+- [x] 48 px primary identity (≈4.06 mm at 300 dpi) passes a grayscale proxy check.
+- [x] Evidence provenance and design status are visually separable.
+- [x] Experiment outcome and risk authorization are independent systems.
+- [x] Critical states have text + non-color redundancy.
+- [x] Complete state legend covers O/V/D/A/?, K/E/P/?, TEST/STOP/MODIFY/CONTINUE/SCALE, R1/R2/R3.
 - [x] Known / Estimated / Proposed / Unknown map grammar defined.
+- [x] Provisional geometry cannot visually masquerade as an official redline under the proposed grammar.
 - [x] A3 / A0 / HTML / figures / scenario cards / dashboard share one layout logic.
 - [x] Exact HEX, line width, font stack, type scale and spacing tokens provided.
 - [x] Annual City Version Release and Retired Capability Archive have visual rules.
-- [x] Provisional geometry cannot visually masquerade as official redline under the proposed map grammar.
 
 ## Asset checks
 
-- [x] Open Node Family A SVG present.
-- [x] Open Node Family B SVG present.
-- [x] Open Node Family C SVG present.
-- [x] Semantic state legend SVG present.
-- [x] Offline-safe CSS design tokens present; no remote font/script import.
+- [x] Family A SVG present.
+- [x] Family A Micro SVG present.
+- [x] Family B and C SVGs present.
+- [x] 16/24/48/256 px PNG QA exports present.
+- [x] Single-ink 256 px PNG present.
+- [x] Grayscale optical proof PNG present.
+- [x] Complete semantic legend SVG present.
+- [x] `asset_manifest.json` present and valid JSON in local pre-commit validation.
+- [x] `design_tokens.css` has no remote imports/resources in local pre-commit validation.
+- [x] `specimen.html` uses local relative assets and no remote URL in local pre-commit validation.
+- [x] Micro and legend SVG source passed XML parsing in local pre-commit validation.
+- [x] Raster QA exports opened with expected dimensions in local pre-commit validation.
 
-## Repository-rule checks
+## Legacy five-figure inspection
 
-- [x] Latest upstream Skill was read at observed upstream head `b3d6fdaa2331fdc60a3e618019fd8e6596532fff`.
-- [x] `design_brief.json`, `agent_taskbook.json`, `allowed_design_space.json` and `visual_style_recommendations.json` were read.
-- [x] Upstream geometry directory was checked: only provisional geometry + bbox were observed; no official polygon file present.
-- [x] Existing candidate proposal and five required core figure filenames were audited.
-- [x] Current Skill vs brief/allowed-design provisional-boundary scoring conflict recorded rather than silently resolved.
+- [x] `site-overview.png` decoded and visually inspected at native 400×225.
+- [x] `land-use-structure.png` decoded and visually inspected at native 400×225.
+- [x] `key-areas.png` decoded and visually inspected at native 400×225.
+- [x] `mobility-bluegreen.png` decoded and visually inspected at native 400×225.
+- [x] `metrics-evidence.png` decoded and visually inspected at native 400×225.
+- [x] All five are confirmed minimal schematic placeholders and marked **REBUILD** rather than merely “suspected”.
 
-## Remaining non-blocking QA
+## Repository-rule / collaboration checks
 
-- [ ] Pixel-level inspection of the old five PNG figures was not completed in this connector-only pass; their tiny file sizes are flagged as rebuild candidates, not asserted as conclusive visual failure.
-- [ ] Final print proof / ICC / paper-stock test requires the eventual production environment.
-- [ ] Optical correction of logo SVGs at final 16 px / 4 mm output should be performed during Integration.
-- [ ] Full submission self-check is intentionally not run because Window 5 did not modify canonical submission and must not claim final package validation.
+- [x] Initial upstream Skill/brief audit completed at `b3d6fdaa...`.
+- [x] Upstream re-check completed at `a3c14da8431f6ca63ff2059c90733132c2d4e8eb`.
+- [x] Delta from initial audit showed 107 newer commits; returned changed paths were participant submissions, with no observed core-rule/geometry path in the compare response.
+- [x] Current provisional-boundary scoring conflict remains documented.
+- [x] Searched open upstream Issues before attempting a new one; no connector result matched.
+- [x] Upstream Issue creation attempted and blocked by connector permission (`403`).
+- [x] Fork tracking Issue attempted and blocked because Issues are disabled (`410`).
+- [x] Collaboration failure/next action recorded in `collaboration_log.md` and handoff.
+
+## Remaining non-blocking / external items
+
+- [ ] **Physical print proof / ICC / paper-stock / final output-device test.** This requires the eventual production environment and cannot be truthfully completed inside this repository-only Agent runtime.
+- [ ] **Full formal submission self-check.** Intentionally not run because Window 5 has no canonical submission modification authority. Running it here would not validate the Integration Agent's future merged package.
+- [ ] **Final project master name.** Explicitly Integration-owned; Window 5 only supplies candidates.
+- [ ] **Official organizer polygons.** Not observed in the audited upstream geometry package; Window 5 cannot manufacture them.
+
+All remaining unchecked items are outside Window 5's executable authority/environment and are explicitly handed off rather than silently marked complete.

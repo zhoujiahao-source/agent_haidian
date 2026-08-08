@@ -1,14 +1,16 @@
 # Visual Audit — WINDOW 5
 
-Status: working document for Final Integration Agent; **not** a canonical submission change.
+Status: working evidence/design audit for Final Integration Agent; **not** a canonical submission change.
 
-## 0. Audit baseline
+## 0. Audit baseline and latest re-check
 
 - Upstream repository: `open-city-ai/haidian`
-- Upstream `main` observed at: `b3d6fdaa2331fdc60a3e618019fd8e6596532fff` (2026-08-08 13:17:04Z)
+- Initial observed upstream `main`: `b3d6fdaa2331fdc60a3e618019fd8e6596532fff` (2026-08-08 13:17:04Z)
+- Continuation observed upstream `main`: `a3c14da8431f6ca63ff2059c90733132c2d4e8eb` (2026-08-08 14:17:02Z)
+- Upstream delta since initial audit: 107 commits; returned changed paths were under participant `submissions/...`, with no observed Skill/brief/allowed-design/visual-recommendation/organizer-geometry path in that compare.
 - User fork: `zhoujiahao-source/agent_haidian`
 - Working branch: `agent/visual-identity`
-- Working base: `submission/zhoujiahao-source/jingzhang-legible-ai-belt`
+- Working base: `796d29a69774f4722fd7b5012505a3f20bb2e35d`
 - Owned path: `workstreams/visual_identity/`
 - Canonical submission modified by this Agent: **No**
 
@@ -16,123 +18,118 @@ Status: working document for Final Integration Agent; **not** a canonical submis
 
 ### 1.1 Must preserve
 
-The current upstream package still requires a professional, machine-readable, spatially reviewable and visually inspectable submission. The visual layer cannot overrule GeoJSON, metrics, matrices, sources or assumptions. Visuals must remain an explanatory and verification interface.
+The upstream package requires a professional, machine-readable, spatially reviewable and visually inspectable submission. Visual expression is a verification/readability interface; it cannot overrule GeoJSON, metrics, matrices, sources or assumptions.
 
-The current upstream brief fixes three positioning statements and five functional requirements, and requires agent.1–agent.6 coverage. For this workstream the visual system must therefore support, rather than replace:
+The current brief fixes three positioning statements and five functional requirements and requires agent.1–agent.6 coverage. The visual system must therefore support, not replace:
 
-- 百年京张文化带
-- 都市 AI 生活体验带
-- AI 融合创新带
-- AI 全栈自主创新体系
-- 世界级 AI 创新生态
-- AI+ 场景赋能新范式
-- 智能化 AI 活力城市
-- AI 治理全球话语权
+- 百年京张文化带;
+- 都市 AI 生活体验带;
+- AI 融合创新带;
+- AI 全栈自主创新体系;
+- 世界级 AI 创新生态;
+- AI+ 场景赋能新范式;
+- 智能化 AI 活力城市;
+- AI 治理全球话语权.
 
 ### 1.2 Geometry status
 
-At the observed upstream snapshot, `brief/site-package/geometry/` contains only:
+At the audited upstream geometry listing, only these organizer geometry helpers were present:
 
-- `provisional_boundaries.geojson`
-- `provisional_boundaries_basis.md`
-- `study_area_bbox.geojson`
+- `provisional_boundaries.geojson`;
+- `provisional_boundaries_basis.md`;
+- `study_area_bbox.geojson`.
 
-No official `SITE_BOUNDARY` or `KEY_AREA` polygon file was present in the directory listing. Therefore every visual treatment of the current site/key-area extent must remain explicitly provisional.
+No organizer-supplied official `SITE_BOUNDARY` / `KEY_AREA` polygon was observed. Therefore all current visual treatment of those extents must remain explicitly provisional, low-contrast and non-statutory.
 
-### 1.3 Rule conflict to preserve, not silently resolve
+### 1.3 Rule conflict — preserve and escalate, do not silently resolve
 
-There is a current repository-level tension:
+A repository-level tension remains:
 
-- the current Skill text says missing organizer-supplied official polygons do not by themselves block content scoring;
-- `design_brief.json` and `allowed_design_space.json` still contain fields that say exact official boundary is required for professional scoring / provisional boundary blocks formal professional scoring.
+- Skill language says organizer missing official polygons do not by themselves block content scoring;
+- `design_brief.json` / `allowed_design_space.json` retain policy fields saying exact official boundary is required for professional scoring / provisional geometry blocks formal professional scoring.
 
-This Agent must not pick one interpretation and hide the other. Integration should flag the mismatch and keep all provisional geometry visually de-emphasized and labeled until the repository resolves it.
+Window 5 searched upstream Issues for a matching clarification and found no connector result. It attempted to open an upstream Issue and received `403 Resource not accessible by integration`; a fallback fork Issue failed because Issues are disabled (`410`). See `collaboration_log.md`.
+
+Until upstream resolves the mismatch, Integration should preserve the disclaimer and avoid claiming either interpretation is authoritative.
 
 ## 2. Existing submission visual audit
 
 ### 2.1 Existing brand narrative
 
-The current candidate submission is titled `京张·可读AI城市带 / Jing-Zhang Legible AI Belt` and defines its old logo as “two parallel tracks + a central transparent node.” That is useful railway-derived DNA, but it is not yet the locked new visual constitution. The newer design constitution elevates `City OS / Capability Backbone / Public Capability Interface / Open Node / Annual City Version Release` above “Legible AI” as the total concept.
+The current candidate is `京张·可读AI城市带 / Jing-Zhang Legible AI Belt` and describes an old logo as “two parallel tracks + a central transparent node.” Railway abstraction and public legibility remain useful assets, but the locked newer constitution elevates `City OS / Capability Backbone / Public Capability Interface / Open Node / Annual City Version Release` above “Legible AI” as the total concept.
 
-**Keep:**
+**Retain:** railway abstraction; public readability and human responsibility; bilingual communication; explicit provisional-boundary disclosure.
 
-- railway abstraction rather than literal train nostalgia;
-- parallel-track logic;
-- public readability / human responsibility as a governance sub-principle;
-- bilingual structure;
-- explicit provisional-boundary disclaimer.
+**Reframe:** central transparent node → Open Node; Legible AI → governance/visual sub-principle or naming candidate; old L0–L3 logic → scenario-governance content rather than a universal status palette.
 
-**Reframe:**
+### 2.2 Five required core figures — pixel-level inspection completed
 
-- “central transparent node” → `Open Node`: a node with a visible opening, connection or route continuation;
-- “Legible AI” → governance/visual sub-principle, not necessarily final master name;
-- old four-level legibility gradient → may remain as scenario-governance content but must not become the universal color system for evidence, design status, experiment state and risk.
+The existing candidate branch contains all five required files. Window 5 fetched and decoded every PNG and inspected them at native resolution. All are **400 × 225 px indexed-palette PNGs**.
 
-### 2.2 Existing required figures
+| figure | bytes | direct observation | decision |
+|---|---:|---|---|
+| `site-overview.png` | 1406 | header + vertical line + 3 nodes + empty callout frames; no geographic basemap/boundary/legend | **REBUILD** |
+| `land-use-structure.png` | 1251 | empty cards + line/nodes; no land-use polygons/categories | **REBUILD** |
+| `key-areas.png` | 1247 | three framed boxes; no map/key-area geometry/names | **REBUILD** |
+| `mobility-bluegreen.png` | 1297 | horizontal blue lines + vertical green band + empty boxes; no actual mobility/blue-green geography | **REBUILD** |
+| `metrics-evidence.png` | 1198 | empty metric-card frames + bottom bar; no metrics/formulas/source/confidence | **REBUILD** |
 
-The branch contains the five required core figure filenames:
+This replaces the earlier file-size-only warning. The figures are now directly confirmed as minimal schematic placeholders rather than professional evidence-dense urban-design figures.
 
-- `site-overview.png` — 1406 bytes
-- `land-use-structure.png` — 1251 bytes
-- `key-areas.png` — 1247 bytes
-- `mobility-bluegreen.png` — 1297 bytes
-- `metrics-evidence.png` — 1198 bytes
-
-These extremely small file sizes are a strong warning that the current figures are likely minimal/generated placeholders rather than information-dense professional boards. File size alone is not proof of visual failure, but they should be treated as **REBUILD CANDIDATES** until visually inspected and verified.
-
-**Action for Integration:** regenerate all five figures under one visual grammar; do not simply recolor the existing PNGs.
+See `legacy_figure_inspection.md` for the inspection record.
 
 ### 2.3 Existing proposal strengths to preserve
 
-- It already distinguishes provisional geometry from official planning.
-- It already links narrative to `[data:]`, `[metric:]`, `[source:]`, `[standard:]`, `[depth:]` references.
-- It already frames AI interventions as reviewable, reversible and human-accountable.
-- It already differentiates the three key areas rather than making all districts identical.
+- distinguishes provisional geometry from official planning;
+- links narrative to `[data:]`, `[metric:]`, `[source:]`, `[standard:]`, `[depth:]` references;
+- frames AI interventions as reviewable, reversible and human-accountable;
+- differentiates the three key areas rather than making all districts identical.
 
-These are good foundations for evidence-led graphics.
+These are sound foundations for the rebuilt figures.
 
-### 2.4 Existing visual weaknesses / risks
+### 2.4 Visual-system gaps that Window 5 has now closed
 
-1. The old identity is conceptually closer to a “closed badge with central point” than a fully developed `Open Node` interface language.
-2. There is no documented four-system separation for evidence status, design status, experiment status and risk.
-3. There is no documented black-and-white fallback grammar.
-4. There is no explicit shared grid/token system for A3, A0, HTML, figures, scenario cards and dashboards.
-5. There is no visible version-release identity linking `v2027`, release notes, node labels and archive status.
-6. There is no reusable icon family tying node, route, consent, human override, archive and capability exchange together.
-7. Current core PNGs are suspiciously tiny and should not be assumed to satisfy the professional-expression bar.
+- Open Node has three geometry families plus a tested small-size micro master;
+- evidence, design, experiment and risk semantics are four independent systems;
+- black/white fallback grammar is explicit;
+- A3/A0/HTML/figures/scenario cards/dashboard share grid/token rules;
+- Annual City Version Release links version, release note, node label and archive;
+- reusable civic icon grammar exists;
+- complete semantic legend includes all O/V/D/A/?, K/E/P/?, TEST/STOP/MODIFY/CONTINUE/SCALE and R1/R2/R3 states;
+- SVG, CSS, PNG QA exports, asset manifest and offline specimen are available in `assets_drafts/`.
 
-## 3. Retain / delete / rebuild matrix
+## 3. Retain / replace matrix
 
 | Existing asset/idea | Decision | Reason |
 |---|---|---|
-| Railway double-track abstraction | RETAIN | Strong project-specific DNA; non-nostalgic and extensible |
-| “Transparent central node” | REBUILD | Upgrade to explicitly open, routable, exchangeable node |
-| “Legible AI” as total master concept | DEMOTE / CANDIDATE | New constitution prioritizes City OS and capability exchange |
-| Evidence-linked proposal annotations | RETAIN | Supports auditability |
-| Provisional-boundary disclaimers | RETAIN + STRENGTHEN | Current official polygon still absent |
-| One color system for all states | REJECT | Semantically unsafe; four status families must remain separate |
-| Cyberpunk / neon / robot-face / chip motifs | REJECT | Conflicts with Public Service Aesthetic |
-| Literal steam-train / ticket nostalgia | REJECT | Railway DNA must be structural, not decorative |
-| Five current core PNGs | REBUILD CANDIDATES | Need unified, evidence-dense professional information design |
-| Bilingual labels | RETAIN | Required for international communication |
+| railway double-track abstraction | RETAIN | project-specific DNA; structural rather than nostalgic |
+| transparent central node | REBUILD | needs explicit opening/routing/exchange semantics |
+| Legible AI as total master concept | DEMOTE / CANDIDATE | new constitution prioritizes City OS/capability exchange |
+| evidence-linked proposal annotations | RETAIN | supports auditability |
+| provisional-boundary disclaimers | RETAIN + STRENGTHEN | official organizer polygon still not observed |
+| one traffic-light system for all states | REJECT | unsafe semantic collapse |
+| cyberpunk/neon/robot-face/chip motifs | REJECT | conflicts with Public Service Aesthetic |
+| literal steam-train/ticket nostalgia | REJECT | railway DNA is structural |
+| five legacy core PNGs | **REBUILD CONFIRMED** | pixel-level inspection proves they are schematic placeholders |
+| bilingual labels | RETAIN | international communication |
 
-## 4. Phase 0 checkpoint
+## 4. Phase 0 + continuation checkpoint
 
 Completed:
 
-- checked latest upstream Skill and key brief files;
-- checked geometry directory for official polygons;
-- checked current visual recommendations;
-- checked existing user candidate proposal and required figure set;
-- established retain/rebuild/reject decisions.
+- latest upstream rule re-check;
+- geometry availability re-check through upstream delta analysis;
+- existing proposal/brand audit;
+- native-pixel inspection of all five required legacy figures;
+- retain/rebuild/reject decisions;
+- Open Node optical QA and micro master;
+- complete semantic legend + reusable tokens + offline specimen;
+- attempted rules-conflict collaboration escalation.
 
-Unknown:
+Remaining Unknown / external dependency:
 
-- exact visual content of each tiny PNG has not been pixel-inspected in this connector-only pass;
-- official `SITE_BOUNDARY` / `KEY_AREA` polygons remain absent in the observed upstream geometry directory;
-- final project master name remains Integration-owned;
-- final print vendor ICC profile, exact paper stock and final board printing process are unknown.
+- organizer-supplied official `SITE_BOUNDARY` / `KEY_AREA` polygons;
+- final project master name, owned by Integration;
+- final print vendor device, paper/stock, ink/toner and ICC workflow.
 
-Next dependency:
-
-- define an executable public-service visual grammar, then develop Open Node, state systems, map language, version identity and cross-format layout tokens.
+There is no longer an Unknown about the visual content of the legacy five PNGs: they have been directly inspected and are confirmed rebuild targets.
