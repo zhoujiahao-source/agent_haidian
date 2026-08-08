@@ -1,0 +1,8 @@
+metric_id,scope,value,unit,evidence_class,source_id,geometry_available,formal_use,notes
+coordinated_research_area,统筹研究范围,43600000,sqm,Official,SRC-REG-OFFICIAL-ANNOUNCEMENT,false,yes,"Official approximate area value; exact polygon missing"
+overall_design_area,总体设计范围,11400000,sqm,Official,SRC-REG-OFFICIAL-ANNOUNCEMENT,false,yes,"Official approximate area value; exact polygon missing"
+key_detailed_design_area,重点详细设计范围,3684000,sqm,Official,SRC-REG-OFFICIAL-ANNOUNCEMENT,false,yes,"Sum/reference scale; exact official polygons missing"
+zhongzhiyuan_key_area,众智园重点区,1921000,sqm,Official,SRC-REG-OFFICIAL-ANNOUNCEMENT,false,yes,"Reference area only; do not reverse-engineer polygon"
+ai_origin_key_area,AI原点社区重点区,1043000,sqm,Official,SRC-REG-OFFICIAL-ANNOUNCEMENT,false,yes,"Reference area only; broader public program also uses approx 3 km2"
+dazhongsi_key_area,大钟寺重点区,720000,sqm,Official,SRC-REG-OFFICIAL-ANNOUNCEMENT,false,yes,"Reference area only; current update-area extent is a different scope"
+industrial_three_areas_two_wings_context,三区两翼产业布局公开叙事,37000000,sqm,Verified,SRC-BJ-KW-THREE-WINGS-20260403,false,background_only,"Different scope; never substitute for competition 11.4 km2 or 43.6 km2"

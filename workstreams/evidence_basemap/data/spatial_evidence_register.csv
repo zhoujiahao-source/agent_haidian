@@ -1,0 +1,12 @@
+feature_id,feature_class,name_zh,area_role,evidence_class,drawing_class,confidence,source_id,geometry_status,official_boundary,crs,temporal_coverage,limitations,conflict_ids
+EB-001,boundary,总体设计范围临时粗略边界,context,Derived,Estimated,medium,SRC-REG-PROVISIONAL-BOUNDARY,provisional_constraint,false,EPSG:4326,2026,"Not official redline or precise area basis",C-01
+EB-002,boundary,众智园赛事重点区临时粗略范围,zhongzhiyuan,Derived,Estimated,medium,SRC-REG-PROVISIONAL-BOUNDARY,provisional_constraint,false,EPSG:4326,2026,"Not official competition polygon",C-03;C-04
+EB-003,boundary,AI原点社区赛事重点区临时粗略范围,ai_origin,Derived,Estimated,medium,SRC-REG-PROVISIONAL-BOUNDARY,provisional_constraint,false,EPSG:4326,2026,"Not broader 3 km2 program extent and not official polygon",C-02
+EB-004,boundary,大钟寺赛事重点区临时粗略范围,dazhongsi,Derived,Estimated,medium,SRC-REG-PROVISIONAL-BOUNDARY,provisional_constraint,false,EPSG:4326,2026,"Not current update-area polygon and not official competition polygon",C-04
+EB-005,public_space,京张铁路遗址公园约9公里公共空间框架,corridor,Verified,Known,high,SRC-BJ-JZPARK-20240920,none,, ,2024-2026 context,"Exact 2026 as-built continuous geometry/status still requires verification",C-05
+EB-006,constraint,京张旧铁路线东西分割与缝合需求,corridor,Verified,Known,high,SRC-BJ-JZPARK-20211216,none,, ,planning history,"Needs current crossing-level field/GIS survey", 
+EB-007,update_area,众智园2026综合城市更新片区,zhongzhiyuan,Verified,Known,high,SRC-BJ-CITYUPDATE-ZZY-20260713,none,, ,2026,"Text extent is an urban-renewal project area not competition KEY_AREA",C-04
+EB-008,update_area,大钟寺2026综合城市更新片区,dazhongsi,Verified,Known,high,SRC-BJ-CITYUPDATE-DZS-20260713,none,, ,2026,"Text extent is an urban-renewal project area not competition KEY_AREA",C-04
+EB-009,innovation_context,AI原点社区约3平方公里公共项目语境,ai_origin,Verified,Known,high,SRC-BJ-AIORIGIN-20260105,none,, ,2026,"Not competition 104.3 ha polygon",C-02
+EB-010,water_public_space,小月河2026滨水空间建设,xiaoyuehe_scene_wing,Verified,Known,high,SRC-BJ-XIAOYUEHE-2026,none,, ,2026,"Project/water corridor extent not equal exact wing boundary", 
+EB-011,service_network,中关村科技服务翼角色,zhongguancun_service_wing,Official,Known,high,SRC-REG-TASKBOOK,none,, ,2026,"Role is official task; exact wing geometry and institution inventory Unknown", 
