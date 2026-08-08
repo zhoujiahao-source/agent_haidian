@@ -1,0 +1,90 @@
+{
+  "type": "FeatureCollection",
+  "name": "jingzhang_legible_ai_green_space",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "GREEN-001",
+      "properties": {
+        "id": "GREEN-001",
+        "layer": "GREEN_SPACE",
+        "source_type": "agent_generated_design",
+        "confidence": "medium",
+        "geometry_role": "design_proposal",
+        "land_use_code": "1401",
+        "name_zh": "京张可读AI公园主脊",
+        "design_note": "概念性蓝绿公共廊道；具体园界、植被与文保控制待专业深化。",
+        "area_sqm_declared": 2738722.992
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.34585,
+              39.939
+            ],
+            [
+              116.34585,
+              40.0265
+            ],
+            [
+              116.34915,
+              40.0265
+            ],
+            [
+              116.34915,
+              39.939
+            ],
+            [
+              116.34585,
+              39.939
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "GREEN-002",
+      "properties": {
+        "id": "GREEN-002",
+        "layer": "GREEN_SPACE",
+        "source_type": "agent_generated_design",
+        "confidence": "medium",
+        "geometry_role": "design_proposal",
+        "land_use_code": "1401",
+        "name_zh": "小月河方向生态缝合带",
+        "design_note": "概念性东西向生态与慢行缝合带。",
+        "area_sqm_declared": 599874.558
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.35506,
+              39.968
+            ],
+            [
+              116.33989444444444,
+              39.968
+            ],
+            [
+              116.33977777777777,
+              39.9722
+            ],
+            [
+              116.354724,
+              39.9722
+            ],
+            [
+              116.35506,
+              39.968
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
