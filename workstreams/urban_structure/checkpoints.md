@@ -49,3 +49,9 @@ This log records the required end-of-phase checkpoints. It is intentionally conc
 - Finding: each key area now has a distinct urban type and dominant risk/public-value question.
 - Unknown: surveyed sections, host buildings, ownership and engineering constraints.
 - Next: convert the framework into candidate geometry and figure briefs.
+
+## Phase 8 — Recommended geometry and drawing grammar
+- Completed: integration recommendations, five core figure briefs, one Backbone candidate line, five east-west study axes and five capability-node point anchors.
+- Finding: candidate points/lines can communicate structure without inventing footprints; old four-stripe land-use and coarse phase polygons should be demoted to working diagrams rather than treated as final planning geometry.
+- Unknown: evidence-backed node hosts, exact route/crossing geometry and verified existing public/green-space base layers.
+- Next: spatial feasibility / compliance / completeness QA and handoff.

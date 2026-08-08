@@ -1,0 +1,116 @@
+{
+  "type": "FeatureCollection",
+  "name": "urban_structure_candidate_capability_node_anchors",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "US-N-DZS-01",
+      "properties": {
+        "id": "US-N-DZS-01",
+        "layer": "SCENARIO_NODE",
+        "source_type": "agent_derived_from_existing_design_anchor",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "大钟寺市场—服务学习节点候选锚点",
+        "node_type": "N2_District_Learning_Node",
+        "host_area": "dazhongsi_ai_industry_cluster",
+        "main_capability": "market_and_ai_native_service_validation",
+        "source_feature": "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/public_space.geojson#PUBLIC-003",
+        "evidence_status": "Derived",
+        "drawing_status": "Proposed",
+        "host_verification_required": true,
+        "implementation_layer": "adaptive_experimental",
+        "design_note": "Point is the center of an old conceptual public-space anchor and does not represent an approved footprint or host parcel."
+      },
+      "geometry": {"type": "Point", "coordinates": [116.348, 39.9469]}
+    },
+    {
+      "type": "Feature",
+      "id": "US-N-MEM-01",
+      "properties": {
+        "id": "US-N-MEM-01",
+        "layer": "SCENARIO_NODE",
+        "source_type": "agent_derived_from_existing_design_anchor",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "城市学习记忆—退役档案节点候选锚点",
+        "node_type": "N5_Memory_Retirement_Node",
+        "host_area": "central_backbone_context_unverified",
+        "main_capability": "city_learning_memory_and_retirement_archive",
+        "source_feature": "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/public_space.geojson#PUBLIC-004",
+        "evidence_status": "Derived",
+        "drawing_status": "Proposed",
+        "host_verification_required": true,
+        "implementation_layer": "permanent_adaptive",
+        "design_note": "Derived center point only. Heritage/site suitability remains Unknown."
+      },
+      "geometry": {"type": "Point", "coordinates": [116.3472, 39.961]}
+    },
+    {
+      "type": "Feature",
+      "id": "US-N-BG-01",
+      "properties": {
+        "id": "US-N-BG-01",
+        "layer": "SCENARIO_NODE",
+        "source_type": "agent_derived_from_existing_design_anchor",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "蓝绿公共能力—低感知避难节点候选锚点",
+        "node_type": "N7_Blue_Green_Capability_Interface",
+        "host_area": "xiaoyuehe_relationship_unverified",
+        "main_capability": "blue_green_public_life_and_low_risk_resilience_testing",
+        "source_feature": "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/public_space.geojson#PUBLIC-005",
+        "evidence_status": "Derived",
+        "drawing_status": "Proposed",
+        "host_verification_required": true,
+        "implementation_layer": "permanent_adaptive_experimental",
+        "design_note": "The point comes from an old sensor-light garden anchor. Its actual relationship to Xiaoyuehe water/park space must be verified before siting."
+      },
+      "geometry": {"type": "Point", "coordinates": [116.344, 39.9765]}
+    },
+    {
+      "type": "Feature",
+      "id": "US-N-ORIGIN-01",
+      "properties": {
+        "id": "US-N-ORIGIN-01",
+        "layer": "SCENARIO_NODE",
+        "source_type": "agent_derived_from_existing_design_anchor",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "AI原点社区学习—记忆接口候选锚点",
+        "node_type": "N3_Neighborhood_Interface_plus_N5_Memory",
+        "host_area": "beijing_ai_origin_community",
+        "main_capability": "social_feedback_public_service_learning_and_memory",
+        "source_feature": "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/public_space.geojson#PUBLIC-001",
+        "evidence_status": "Derived",
+        "drawing_status": "Proposed",
+        "host_verification_required": true,
+        "implementation_layer": "permanent_adaptive",
+        "design_note": "Reinterprets old AI Mile Zero as a learning/memory interface. Point is not an approved plaza or building location."
+      },
+      "geometry": {"type": "Point", "coordinates": [116.3475, 39.9885]}
+    },
+    {
+      "type": "Feature",
+      "id": "US-N-ZZY-01",
+      "properties": {
+        "id": "US-N-ZZY-01",
+        "layer": "SCENARIO_NODE",
+        "source_type": "agent_derived_from_existing_design_anchor",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "众智园验证—城市学习记忆节点候选锚点",
+        "node_type": "N2_District_Learning_Node_plus_N5_Memory",
+        "host_area": "zhongzhiyuan_ai_acceleration_area",
+        "main_capability": "technical_validation_and_public_learning_memory",
+        "source_feature": "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/public_space.geojson#PUBLIC-002",
+        "evidence_status": "Derived",
+        "drawing_status": "Proposed",
+        "host_verification_required": true,
+        "implementation_layer": "permanent_adaptive_experimental",
+        "design_note": "Reinterprets old Open Source Century Station as a verification/memory relation. Exact host requires building/site/safety review."
+      },
+      "geometry": {"type": "Point", "coordinates": [116.3475, 40.017]}
+    }
+  ]
+}

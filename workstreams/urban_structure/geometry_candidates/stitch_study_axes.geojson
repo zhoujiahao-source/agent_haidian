@@ -1,0 +1,106 @@
+{
+  "type": "FeatureCollection",
+  "name": "urban_structure_east_west_stitch_study_axes",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "US-STITCH-002",
+      "properties": {
+        "id": "US-STITCH-002",
+        "layer": "ROAD_CENTERLINE",
+        "source_type": "agent_reuse_design_from_existing_submission",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "大钟寺方向东西缝合研究轴",
+        "source_feature": "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/roads.geojson#ROAD-002",
+        "stitch_class": "C_concept_study_only",
+        "study_priority": "high",
+        "evidence_status": "Unknown",
+        "drawing_status": "Proposed",
+        "host_verification_required": true,
+        "design_note": "Not a confirmed crossing, bridge, tunnel, road or public right-of-way. Verify physical/legal crossing, accessibility, ownership, heritage, municipal and safety conditions before promotion."
+      },
+      "geometry": {"type": "LineString", "coordinates": [[116.34047777777778, 39.947], [116.3553, 39.947]]}
+    },
+    {
+      "type": "Feature",
+      "id": "US-STITCH-003",
+      "properties": {
+        "id": "US-STITCH-003",
+        "layer": "ROAD_CENTERLINE",
+        "source_type": "agent_reuse_design_from_existing_submission",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "南中段东西缝合研究轴",
+        "source_feature": "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/roads.geojson#ROAD-003",
+        "stitch_class": "C_concept_study_only",
+        "study_priority": "medium",
+        "evidence_status": "Unknown",
+        "drawing_status": "Proposed",
+        "host_verification_required": true,
+        "design_note": "Not a confirmed crossing. Use only as a gap-audit axis until evidence is supplied."
+      },
+      "geometry": {"type": "LineString", "coordinates": [[116.34008888888889, 39.961], [116.3553, 39.961]]}
+    },
+    {
+      "type": "Feature",
+      "id": "US-STITCH-004",
+      "properties": {
+        "id": "US-STITCH-004",
+        "layer": "ROAD_CENTERLINE",
+        "source_type": "agent_reuse_design_from_existing_submission",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "中段东西缝合研究轴",
+        "source_feature": "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/roads.geojson#ROAD-004",
+        "stitch_class": "C_concept_study_only",
+        "study_priority": "medium",
+        "evidence_status": "Unknown",
+        "drawing_status": "Proposed",
+        "host_verification_required": true,
+        "design_note": "Investigate public-space and neighborhood route redundancy; not a construction proposal."
+      },
+      "geometry": {"type": "LineString", "coordinates": [[116.3397, 39.975], [116.3545, 39.975]]}
+    },
+    {
+      "type": "Feature",
+      "id": "US-STITCH-005",
+      "properties": {
+        "id": "US-STITCH-005",
+        "layer": "ROAD_CENTERLINE",
+        "source_type": "agent_reuse_design_from_existing_submission",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "AI原点社区方向东西缝合研究轴",
+        "source_feature": "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/roads.geojson#ROAD-005",
+        "stitch_class": "C_concept_study_only",
+        "study_priority": "high",
+        "evidence_status": "Unknown",
+        "drawing_status": "Proposed",
+        "host_verification_required": true,
+        "design_note": "Prioritize future universal-access evidence audit between neighborhood services and the Backbone."
+      },
+      "geometry": {"type": "LineString", "coordinates": [[116.34060322580645, 39.989], [116.35338, 39.989]]}
+    },
+    {
+      "type": "Feature",
+      "id": "US-STITCH-006",
+      "properties": {
+        "id": "US-STITCH-006",
+        "layer": "ROAD_CENTERLINE",
+        "source_type": "agent_reuse_design_from_existing_submission",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "众智园方向东西缝合研究轴",
+        "source_feature": "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/roads.geojson#ROAD-006",
+        "stitch_class": "C_concept_study_only",
+        "study_priority": "high",
+        "evidence_status": "Unknown",
+        "drawing_status": "Proposed",
+        "host_verification_required": true,
+        "design_note": "Study connection between a future porous verification-campus edge and wider public realm; not a confirmed crossing."
+      },
+      "geometry": {"type": "LineString", "coordinates": [[116.34218780487805, 40.016], [116.35472465753425, 40.016]]}
+    }
+  ]
+}

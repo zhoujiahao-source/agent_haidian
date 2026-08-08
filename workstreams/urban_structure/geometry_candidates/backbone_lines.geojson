@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "name": "urban_structure_candidate_backbone",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "US-BB-001",
+      "properties": {
+        "id": "US-BB-001",
+        "layer": "ROAD_CENTERLINE",
+        "source_type": "agent_reuse_design_from_existing_submission",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "城市能力交换骨干候选连续轴",
+        "name_en": "Candidate Capability Backbone Continuity Axis",
+        "candidate_status": "study_axis_not_verified_route",
+        "source_feature": "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/roads.geojson#ROAD-001",
+        "evidence_status": "Derived",
+        "drawing_status": "Proposed",
+        "official_boundary": false,
+        "host_verification_required": true,
+        "implementation_layer": "mixed",
+        "design_note": "Reuse of the old conceptual north-south line only as a continuity study axis. Final integration must snap/rebuild it against verified accessible public routes, railway/road/water constraints and heritage data."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [116.3473, 39.9405],
+          [116.3478, 39.949],
+          [116.3472, 39.962],
+          [116.3474, 39.9745],
+          [116.3473, 39.9885],
+          [116.3476, 40.004],
+          [116.3473, 40.0248]
+        ]
+      }
+    }
+  ]
+}
