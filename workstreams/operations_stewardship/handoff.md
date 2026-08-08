@@ -2,182 +2,334 @@
 
 ## 1. Repository state
 
-- upstream ref: `open-city-ai/haidian@b3d6fdaa2331fdc60a3e618019fd8e6596532fff` inspected 2026-08-08
-- fork base ref: `zhoujiahao-source/agent_haidian@5481e2d1be4cba7ec45b3b5a97fb9c38e2a6f5f1` (`main` at branch creation)
+- latest upstream observed at final audit refresh: `open-city-ai/haidian@d67795f2b72f074c491e2a1e9d21e21ba82f56dc` (2026-08-08T14:21:00Z)
+- fork base at branch creation: `zhoujiahao-source/agent_haidian@5481e2d1be4cba7ec45b3b5a97fb9c38e2a6f5f1`
 - branch: `agent/operations-stewardship`
-- pre-handoff branch head: `806cfb0b09f6efaaf61d54f0bc64d61114e236d2`
-- final commit SHA: **use the branch HEAD containing this file / final Agent report**. A Git commit cannot reliably contain its own SHA because the file contents participate in the hash; the exact post-handoff SHA is therefore intentionally reported outside this self-referential field.
+- branch scope: `workstreams/operations_stewardship/**` only
+- canonical `submissions/**`: intentionally untouched
+- exact final branch HEAD: report externally after the final handoff commit/readback; a file cannot reliably embed the SHA of the commit that contains itself.
+
+The upstream repository moved several times during this workstream (`b3d6fdaa…` → `e533da38…` → `d67795f2…`). The continuation pass therefore re-read mandatory current inputs rather than freezing the first snapshot.
 
 ## 2. What I completed
 
-- Audited current upstream Skill/rules, geometry status, source policy, review rubric and historical user proposal operations assets.
-- Defined a Public Stewardship accountability model and RACI matrix.
-- Defined independent Problem Track and Capability Track admission/exit/decision logic.
-- Defined durable developer ecosystem: Capability Registry, sandbox, attribution, interoperability, maintenance and deprecation.
-- Defined community rights: notice, human route, objection, contestability, accessibility, collective representation, vulnerable-group review and observer interfaces.
-- Defined participation beyond surveys with traceable response-to-feedback.
-- Defined continuous + Q1–Q4 annual operating calendar.
-- Reframed the annual gathering as Jing-Zhang City Learning Assembly centered on accountability and City Version Release, not an AI expo.
-- Defined Annual City Version Release with Added / Modified / Scaled / Responsible STOP / Retired / Suspended classes.
-- Defined Retired Capability Governance from sunset-at-admission through credential/data/device cleanup, registry tombstone and public learning archive.
-- Defined 5/10/20-year roadmap toward a technology-neutral Urban Capability Exchange Network.
-- Added institutional risk register covering deployment treadmill, vendor capture, accountability dilution, participation theater, metric gaming, maintenance debt, unsafe retirement, lock-in and event capture.
+### Core required Window 6 deliverables
+
+- Public Stewardship accountability model.
+- RACI / role-responsibility matrix.
+- independent Problem Track.
+- independent Capability Track.
+- developer ecosystem: Capability Registry, sandbox, interoperability, provenance, maintenance and deprecation.
+- community rights and participation beyond surveys.
+- continuous + Q1–Q4 annual operating calendar.
+- annual City Learning Assembly centered on accountability rather than product exhibition.
+- City Version Release with Added / Modified / Scaled / Responsible STOP / Retired / Suspended classes.
+- Retired Capability Governance and public learning archive.
+- 5/10/20-year technology-neutral roadmap.
+- institutional risk register.
+- phase checkpoints and final handoff.
+
+### Additional closure work completed in the continuation pass
+
+- completed the original Word manual's mandatory pre-read set at role-relevant depth: Skill, taskbook, allowed design space, site sources, source registry, planning limits, standards/index/reference snapshots, schemas, data workflow, review rubric, current geometry status and historical candidate evidence/validation assets;
+- defined anti-gaming governance for the proposed `Urban Adaptation Rate` without inventing a present score;
+- added current 2026 public-governance legal/regulatory screening boundary, explicitly not a legal opinion;
+- audited the historical submission asset-by-asset for safe reuse;
+- added a source/evidence register;
+- mapped Window 6 into agent.1–agent.6, the three positioning themes, five functions and three-areas/two-wings operating logic;
+- added five machine-readable integration templates;
+- added explicit machine-readable workstream self-check and validation report;
+- searched for an upstream duplicate Issue about the geometry-scoring wording problem and attempted Issue creation; GitHub returned 403 because the integration lacks upstream Issue-write access;
+- attempted a blobless sparse local clone for runtime QA; the container could not resolve `github.com`, so connector readback + independent JSON parsing was used and the environment blocker is recorded.
 
 ## 3. Key decisions / findings
 
-### Finding A — final accountability stays public
-- decision/finding: Public institutions must remain Accountable for rule-setting, authorization, data governance, public-value judgment, incidents and final SCALE/STOP/RETIRE decisions. Experts/researchers/vendors/community contribute evidence and review but do not erase final public responsibility.
-- evidence: project locked decision `Public Stewardship`; current taskbook/brief public-interest requirements; comparative NIST/OECD accountability patterns.
-- confidence: high as a design principle; actual competent institution Unknown.
-- why it matters: prevents responsibility being outsourced to a vendor, model supplier or advisory committee.
+### A. Final accountability stays public
 
-### Finding B — dual intake must converge on one public-value/risk lifecycle
-- decision/finding: Problem Track is problem-first and solution-neutral; Capability Track allows unsolicited innovation but requires proof of need, non-AI comparison, reversibility, data legitimacy, maintenance and sunset. Both converge on STOP/MODIFY/CONTINUE/SCALE.
-- evidence: locked two-track decision plus role-specific prompt requirements.
-- confidence: high as proposed design.
-- why it matters: preserves innovation without creating a vendor bypass around public need.
+**Decision/finding:** public institutions must remain Accountable for rule-setting, authorization, data governance, public-value judgment, incident response and final `STOP / MODIFY / CONTINUE / SCALE / RETIRE` decisions. Experts, researchers, vendors, developers and community actors may supply evidence, review or maintenance but do not erase final public responsibility.
 
-### Finding C — community participation is a rights interface
-- decision/finding: higher-impact capabilities need objection/appeal/human alternative/affected-group review, not only feedback forms.
-- evidence: prompt public-interest/governance requirements; OECD transparency/challenge/override principles as comparative background.
-- confidence: high as design direction; exact legal remedy route Unknown.
-- why it matters: makes Human Override and public accountability operational.
+- confidence: high as a proposed design principle;
+- Unknown: actual competent institution/legal delegation;
+- consequence: never convert functional placeholder names into claims that a real organization has accepted a role.
 
-### Finding D — annual assembly must publish failures and unresolved problems
-- decision/finding: City Learning Assembly centers on City Version Release. Responsible STOPs, incidents, retirements, objections and unresolved problems are first-class outputs.
-- evidence: locked Annual City Version Release + Retired Capability Archive decisions.
-- confidence: high.
-- why it matters: avoids AI-summit/product-expo drift and creates durable civic memory.
+### B. Two intake tracks converge on one public-value lifecycle
 
-### Finding E — retirement is part of architecture, not cleanup after abandonment
-- decision/finding: sunset conditions are recorded at admission; retirement includes service continuity, authorization/notice, shutdown, credential/data/device disposition, registry tombstone and post-retirement verification.
-- evidence: locked retirement mechanism plus OECD safe decommissioning principle as comparative background.
-- confidence: high as operational design; exact retention/security procedures Unknown.
-- why it matters: prevents orphaned infrastructure, lingering access and institutional amnesia.
+**Problem Track:** problem-first, baseline-first, solution-neutral and explicitly compares non-AI alternatives.
 
-### Finding F — 20-year target is technology-neutral
-- decision/finding: preserve public accountability, rights, capability identity/history, evidence and retirement; intentionally replace models, vendors, sensors, interfaces and software stacks.
-- evidence: locked Urban Capability Exchange Network decision.
-- confidence: high.
-- why it matters: protects the concept from being frozen around 2026 AI technology.
+**Capability Track:** enables unsolicited social/technical innovation but requires proof of need, reversibility, data legitimacy, accessibility, interoperability, maintenance, vendor exit and sunset.
 
-### Finding G — current repository has a rule wording conflict
-- decision/finding: current Skill and `docs/review-rubric.md` state that organizer-missing official geometry itself does not block content scoring; `design_brief.json` still contains `provisional_boundary_blocks_formal_professional_scoring=true`.
-- evidence: latest inspected upstream files.
-- confidence: high that wording differs; repository maintainers/Integration should decide canonical interpretation.
-- why it matters: avoid silently turning a data gap into a participant content failure.
+Both converge on evidence-based decisions rather than a permanent AI deployment pipeline.
+
+### C. Community participation is a rights interface, not a survey program
+
+Higher-impact capabilities require stronger notice, accessible/human alternatives, affected-group participation, objection/contestability and accountable human review. Window 6 participation mechanisms are supplementary governance interfaces and must not be described as substitutes for statutory hearings, planning approval or legal remedies.
+
+### D. Annual operation must publish failure as well as success
+
+City Version Release includes Responsible STOPs, incidents, retirements, unresolved problems, objections and evidence limitations as first-class outputs. The annual assembly is an accountability/release ritual, not an AI summit or product expo.
+
+### E. Retirement is part of the architecture
+
+Sunset conditions begin at admission. Retirement includes service continuity, authorization/notice, shutdown, credential/API cleanup, data disposition, physical-asset handling, registry tombstone and post-retirement verification, followed by a public learning archive.
+
+### F. Long-term inheritance is technology-neutral
+
+Preserve public accountability, rights, provenance, evidence, capability identity/history, migration and retirement. Intentionally allow models, vendors, clouds, sensors, robots, interfaces and software stacks to be replaced.
+
+### G. UAR must not become an AI-deployment counter
+
+Candidate governance formula:
+
+`verified_improved_problem_records / evaluable_qualified_problem_records`
+
+but the exact official formula/window/threshold is **not** decided by Window 6. Cohorts must be locked before outcomes; failures cannot disappear from the denominator; common safety/privacy/fairness/accessibility/environment/cost/override floors constrain every scenario. Responsible STOP is an important learning outcome but is not automatically counted as verified public-value improvement.
+
+### H. Current repository wording requires maintainer clarification
+
+Current Skill / review rubric / data workflow say organizer-missing official geometry itself must not block or penalize **content scoring**. `design_brief.json` still contains `provisional_boundary_blocks_formal_professional_scoring=true`, while site sources say provisional geometry is not usable for formal professional scoring.
+
+This may intentionally distinguish:
+
+1. content evaluation that should not punish organizer data gaps; and
+2. precise geometry-dependent professional evidence that provisional polygons cannot support.
+
+No matching Issue was found in targeted searches. An Issue was prepared and creation attempted, but GitHub returned `403 Resource not accessible by integration`. A contributor/maintainer with upstream Issue-write access should resolve the wording.
+
+### I. Historical candidate is concept heritage, not current readiness proof
+
+Safe to reuse after current integration: reversible trial logic, legibility/human alternative, public failure learning, developer/open-city concepts, provisional-data disclosures.
+
+Do not reuse as proof: old manifest hashes, old self-check, old PR status, old visual/PDF readiness, or optimistic design-depth statuses.
+
+Concrete reasons:
+
+- old manifest `package_state=ready_for_review` but `validation_claim.self_checked=false`;
+- old self-check has only five hand-authored checks;
+- inspected old PR head has no recorded successful workflow/status contexts;
+- required PNGs were anomalously tiny;
+- A3/A0 PDFs were about 1.1 KB each and could not be visually page-inspected in the current connector environment;
+- many design-depth items are `complete` while underlying official controls remain Unknown.
 
 ## 4. Files added or modified
 
+### Required Window 6 set
+
 | file | purpose | status |
 |---|---|---|
-| `audit/checkpoints.md` | rule/data audit and Phase 0–9 checkpoints | complete |
-| `public_stewardship.md` | institutional accountability and authorization model | complete |
+| `public_stewardship.md` | institutional accountability / authorization model | complete |
 | `role_responsibility_matrix.csv` | RACI / responsibility matrix | complete |
-| `problem_track.md` | city problem intake and decision gates | complete |
-| `capability_track.md` | social capability proposal intake and lifecycle | complete |
-| `developer_ecosystem.md` | registry/sandbox/version/maintenance/IP ecosystem | complete |
-| `community_rights.md` | rights, objection, appeal, human alternatives | complete |
+| `problem_track.md` | city problem intake / decision gates | complete |
+| `capability_track.md` | social capability intake / lifecycle | complete |
+| `developer_ecosystem.md` | registry / sandbox / version / maintenance / IP | complete |
+| `community_rights.md` | notice / objection / contestability / human alternatives | complete |
 | `participation_model.md` | participation beyond surveys | complete |
-| `annual_calendar.md` | continuous + quarterly operating rhythm | complete |
+| `annual_calendar.md` | continuous + quarterly rhythm | complete |
 | `annual_learning_assembly.md` | annual accountability/release assembly | complete |
-| `city_version_release.md` | annual version-release schema/process | complete |
-| `retired_capability_governance.md` | sunset/decommission/archive governance | complete |
+| `city_version_release.md` | annual version-release process | complete |
+| `retired_capability_governance.md` | sunset / decommission / archive | complete |
 | `five_ten_twenty_years.md` | long-term institutional/technical evolution | complete |
-| `institutional_risks.md` | institutional risk register and mitigations | complete |
+| `institutional_risks.md` | institutional risk register | complete |
+| `audit/checkpoints.md` | current rule/data audit + phases 0–9 | complete |
 | `handoff.md` | integration handoff | complete |
 
-All writes are confined to `workstreams/operations_stewardship/` on the role branch. No canonical `submissions/**` file was modified.
+### Additional closure / integration assets
 
-## 5. Sources and licenses
+| file | purpose | status |
+|---|---|---|
+| `metrics_governance.md` | UAR/common-floor/anti-gaming contract | complete |
+| `public_governance_legal_boundary.md` | current legal/regulatory screening boundary | complete |
+| `integration_crosswalk.md` | Window 6 → agent.1–6 / positioning / areas / proposal sections | complete |
+| `audit/legacy_submission_audit.md` | safe/unsafe historical asset reuse | complete |
+| `audit/source_evidence_register.csv` | source/status/use/license/limitation ledger | complete |
+| `audit/workstream_self_check.json` | explicit role completion / blockers / N/A checks | complete |
+| `audit/validation_report.md` | QA evidence and environment limitations | complete |
+| `templates/problem_challenge.template.json` | problem record integration aid | complete |
+| `templates/capability_proposal.template.json` | capability proposal integration aid | complete |
+| `templates/capability_registry_record.template.json` | public capability registry integration aid | complete |
+| `templates/city_version_release.template.json` | annual release integration aid | complete |
+| `templates/retired_capability_record.template.json` | retirement/archive integration aid | complete |
 
-### Repository sources / rule inputs
-- Current upstream Skill: `skills/urban-design-ai-submission/SKILL.md`, blob `0b6a9b1b7360f4d112f48fa4c54a9f137420c763` — project operating rule, latest inspected upstream.
-- `brief/site-package/design_brief.json`, blob `f30f7f855c093f81252cb82c624c0d8b4466683c` — project/site/task structure; contains the noted geometry-scoring wording conflict.
-- `brief/site-package/allowed_design_space.json`, blob `b2aec48767766b2b233a0c11c37f16127dc667f2` — real/public data, provisional geometry, locked/editable layer and forbidden-claim policy.
-- `brief/site-package/ranges/planning_limits.json`, blob `1daf654ff6c0c74ddfaf6e56cc994d8b3c47f1c4` — official area text values and missing planning controls.
-- `brief/site-package/standards/standards.json`, blob `06cd221a1ce76c51d8260dbab2c9e9f34fc64149` — standard/source-status registry.
-- `data/source_registry.json`, blob `faa574fb801e26009690c7bc54389c257ada3e3a` — formal/background/provisional source-use boundaries.
-- `docs/review-rubric.md`, blob `30e6f6fa88fd3f2d22558330b5ef387749d340b8` — review dimensions, public-interest/long-term-operation criteria and geometry-content-scoring language.
-- `brief/site-package/visual_style_recommendations.json`, blob `00b63a30a3bf61ecd9d502de115566d32c5efc9d` — visual evidence/anti-pattern context.
-- `brief/site-package/geometry/` — only provisional geometry assets were found in latest inspection; no new official `SITE_BOUNDARY`/`KEY_AREA` files.
-- Historical user proposal: `submission/zhoujiahao-source/jingzhang-legible-ai-belt/submissions/zhoujiahao-source/jingzhang-legible-ai-belt/proposal.md`, blob `62a5095ed3f5d248745a77d8097c186bf73cbd09` — reused only as audited concept heritage, not as current authority.
+All writes remain under `workstreams/operations_stewardship/`.
 
-### External comparative governance sources — background only
-- NIST, AI Risk Management Framework 1.0 / Playbook — https://www.nist.gov/itl/ai-risk-management-framework — voluntary, cross-sector risk-management reference; used for lifecycle/govern-map-measure-manage patterns, not local law.
-- OECD AI Principles, updated 2024 — https://www.oecd.org/en/topics/ai-principles.html — intergovernmental principles; used for human oversight, transparency, challenge, safe decommissioning and accountability patterns.
-- UK Government, Algorithmic Transparency Recording Standard guidance/hub — https://www.gov.uk/government/collections/algorithmic-transparency-recording-standard-hub — public-sector disclosure pattern; used only as comparative design inspiration.
+## 5. Sources / evidence status
 
-Licensing/reuse: no third-party images, code, map tiles or datasets were added by this workstream. External sources are referenced as public background links and paraphrased at principle level.
+Detailed ledger: `audit/source_evidence_register.csv`.
+
+### Repository authority / mandatory context
+
+- current upstream Skill;
+- `design_brief.json`;
+- `agent_taskbook.json` and local taskbook reference;
+- `allowed_design_space.json`;
+- site-package `sources.json`;
+- `planning_limits.json`;
+- standards registry + reference index + local reference snapshots;
+- current schemas;
+- `data/source_registry.json`;
+- `docs/data-workflow.md`;
+- `docs/review-rubric.md`;
+- current provisional geometry directory.
+
+### Official planning/standard context
+
+- official competition announcement;
+- MOHURD Urban Design Measures;
+- MOHURD control-detailed-planning rules;
+- MNR land-use classification guide.
+
+The repository's architecture design-depth reference remains `missing_source_url`; it is a data gap.
+
+### Current legal/regulatory screening — not project-specific conclusions
+
+Recorded as of 2026-08-08:
+
+- PRC Personal Information Protection Law;
+- PRC Data Security Law;
+- current Cybersecurity Law context (amendment effective 2026-01-01);
+- algorithmic recommendation rules;
+- interim generative-AI service measures;
+- AI-generated/synthetic content labeling measures effective 2025-09-01;
+- interim anthropomorphic AI interaction measures effective 2026-07-15;
+- Accessible Environment Construction Law.
+
+Applicability must be mapped to the actual future operator, service, user/data flow and sector. Window 6 does not issue a legal opinion, filing conclusion or deployment authorization.
+
+### Comparative background only
+
+- NIST AI RMF;
+- OECD AI Principles;
+- UK Algorithmic Transparency Recording Standard.
+
+No third-party images, map tiles, models, proprietary datasets or copied external code were added by this workstream.
 
 ## 6. Data / design status
 
-- Official: project/task texts and area values only to the extent supported by repository official/cleared sources; no new official geometry discovered.
-- Verified: latest inspected repository states, branch existence, historical proposal path/content, current workstream files.
-- Derived: this Agent's governance architecture, RACI, lifecycle gates, calendar, release/retirement schema and long-term roadmap.
-- Assumed: functional placeholder institutions such as `Public Stewardship Office`, review pools, observer mechanisms and future registry operations are proposed organizational interfaces.
-- Unknown: actual competent public institution(s), legal authority, staffing, budget, procurement route, formal risk classes/thresholds, appeal deadlines, data-retention periods, SLA, community representation/recruitment method, official geometry and missing statutory planning controls.
+### Official
 
-## 7. Conflicts or risks
+- project/task facts and area text values only to the extent supported by official/cleared repository sources.
 
-- Current Skill/rubric vs `design_brief.json` wording on the effect of missing official geometry on content/professional scoring.
-- Fork `main` was behind the latest upstream commit at work start; this branch intentionally preserves the user's `main` base while auditing the newer upstream rules instead of silently rewriting unrelated fork content.
-- Historical `Jing-Zhang Legible AI Belt` proposal is reusable but its operations layer is event/pilot-heavy relative to the new City OS/Public Stewardship constitution.
-- The proposed PSO/review-pool names must not be converted into claims that real institutions already exist or agreed to participate.
-- Exact numeric risk/incident/appeal/retention thresholds must not be invented during integration.
-- City Version Release and Learning Assembly will lose their differentiating value if failures, STOPs, retirements and unresolved objections are removed for promotional reasons.
+### Verified
 
-## 8. What the Final Integration Agent should adopt
+- inspected repository refs/files/statuses;
+- required Window 6 files exist by branch readback;
+- five JSON integration templates exist and their intended structures independently parse as JSON;
+- historical validation/asset limitations stated above.
 
-### Must adopt
-- final public accountability remains with public institutions;
-- Problem Track + Capability Track converge on one risk/public-value lifecycle;
-- non-AI alternatives and sunset/rollback are required fields;
-- community objection/appeal/human-alternative and vulnerable-group mechanisms scale with impact;
-- Capability Registry records owner, maintainer, risk, provenance, evidence, version, dependency, interoperability and sunset;
-- Annual City Version Release includes Responsible STOPs, incidents, retirements and unresolved problems;
-- retirement includes data/credential/device cleanup + continuity + archive;
-- 20-year target is technology-neutral Urban Capability Exchange Network.
+### Derived / Proposed
 
-### Strong candidate
-- the proposed PSO / Professional Review Pool / Research & Evaluation Network functional decomposition;
-- Q1 diagnose → Q2 sandbox/authorize → Q3 trial/transfer → Q4 evidence/release calendar;
-- physical-first Retired Capability Archive tied to Landmark as Memory;
+- Public Stewardship functional architecture;
+- RACI;
+- Problem/Capability Track gates;
+- registry/sandbox/maintenance model;
+- community-rights interfaces;
+- annual calendar/assembly/release;
+- UAR governance contract;
+- retirement/archive;
+- 5/10/20 roadmap;
+- conceptual operating-role anchors for the three areas/two wings.
+
+### Unknown
+
+- actual competent institution(s);
+- legal delegation/authorization route;
+- real budget/staffing/procurement;
+- final risk classes/thresholds;
+- incident/appeal/retention SLAs;
+- real community representation mechanism;
+- actual future data categories;
+- capability-specific legal filing/registration/security obligations;
+- official exact SITE_BOUNDARY / KEY_AREA;
+- missing statutory planning controls;
+- whether any future capability will actually be deployed.
+
+## 7. Conflicts / blockers / limitations
+
+1. upstream wording distinction/conflict on provisional geometry and formal/content scoring;
+2. upstream Issue creation blocked by connector permission (403);
+3. local sparse clone blocked by container DNS (`Could not resolve host: github.com`);
+4. historical A3/A0 visual inspection unavailable; metadata/file size warrants regeneration;
+5. canonical submission formal preflight intentionally not run until all workstreams are integrated;
+6. living upstream continues moving, so Final Integration must re-fetch `main` immediately before canonical work.
+
+These are disclosed limitations, not hidden PASS claims.
+
+## 8. Must adopt in Final Integration
+
+- public institution retains final accountability;
+- Problem Track + Capability Track converge on one public-value/risk lifecycle;
+- non-AI comparator, reversibility, rollback and sunset are first-class fields;
+- public notice, human/non-AI alternative, objection/contestability and affected-group review scale with impact;
+- Capability Registry records owner/maintainer/risk/provenance/evidence/version/dependencies/interoperability/sunset;
+- scenario metrics sit below common safety/privacy/fairness/accessibility/environment/cost/override floors;
+- UAR measures verified public-value improvement, not deployments;
+- Annual City Version Release publishes Responsible STOPs, incidents, objections, unresolved problems and retirements;
+- retirement includes continuity + credential/data/device cleanup + registry tombstone + archive;
+- 20-year inheritance is technology-neutral, allowing current AI stacks to be replaced;
+- all unresolved authority/budget/legal/planning facts remain Proposed/Unknown.
+
+## 9. Strong candidates
+
+- proposed PSO / Professional Review Pool / Research & Evaluation Network functional decomposition;
+- Q1 Diagnose → Q2 Sandbox/Authorize → Q3 Trial/Transfer → Q4 Evidence/Release rhythm;
+- physical/digital Retired Capability Archive linked to Landmark-as-Memory;
+- conceptual operating anchors: higher-risk testing at Zhongzhiyuan, community/developer co-design at AI Origin Community, public-facing service validation at Dazhongsi, ecosystem/interoperability support in Zhongguancun service wing, reversible scenario testing in Xiaoyuehe scenario wing;
 - migration/replacement stress tests at 5/10/20-year milestones.
 
-### Exploratory only
-- exact name of annual event/version;
-- exact organizational names;
-- exact participation formats, recruitment/compensation rules;
-- any future international city-learning network until real partners are verified.
+All area anchors remain conceptual, not parcel/property/operator commitments.
 
-## 9. What I intentionally did NOT modify
+## 10. Exploratory only / Integration decides
 
-- any canonical `submissions/**` path;
-- historical user submission branch contents;
-- geometry, metrics, figures, PDF/HTML deliverables;
-- official/locked layers;
-- repository validation scripts or schemas;
-- any other Agent workstream;
-- upstream repository files;
-- actual government policy, procurement or legal documents.
+- final overall proposal name;
+- final institutional names;
+- exact annual event/version name;
+- exact risk categories/thresholds;
+- exact UAR formula/window/effect threshold;
+- community recruitment/compensation methods;
+- future international learning network or named partners;
+- specific software/API/vendor stack.
 
-## 10. Validation performed
+## 11. What I intentionally did NOT modify
 
-- command/check: GitHub branch readback of `workstreams/operations_stewardship/` on `agent/operations-stewardship`.
-- result: expected role files/directories returned with Git blob SHAs; no canonical submission writes observed in this workstream.
-- command/check: direct readback of `role_responsibility_matrix.csv` from the role branch.
-- result: header and all responsibility rows returned as UTF-8 CSV; public institution is consistently Accountable for core public decisions while other actors retain R/C roles.
-- command/check: rule cross-check against latest Skill, allowed design space, planning limits, source registry, review rubric and geometry directory.
-- result: workstream wording keeps official/verified/derived/assumed/unknown distinctions, avoids official-approval claims, preserves provisional-geometry limitations and records the identified rule conflict.
-- formal submission preflight: **not run / not claimed**, because this Agent intentionally did not modify the canonical formal submission package.
+- canonical or historical `submissions/**` files;
+- official/locked geometry;
+- repository validation scripts/schemas;
+- another Agent's workstream;
+- upstream source/rule files;
+- government policy/procurement/legal documents.
 
-## 11. Non-blocking next actions for Integration
+## 12. Validation performed
 
-1. Re-fetch upstream `main` immediately before integration; it is a living repository.
-2. Decide how to document or escalate the geometry-scoring wording conflict.
-3. Map proposed functional public-stewardship roles to real competent institutions only if authoritative evidence becomes available.
-4. Integrate governance diagrams/summary into the final proposal without turning concepts into claimed government commitments.
-5. Coordinate with metrics workstream on the exact Urban Adaptation Rate formula and anti-gaming denominator.
-6. Coordinate with spatial/visual workstreams so Capability Backbone, Public Capability Interface, Landmark as Memory and Retired Capability Archive have legible spatial counterparts.
-7. After canonical integration, run the full latest Skill render/finalize/self-check/participant-preflight sequence.
+- connector readback: Window 6 root/audit/templates exist;
+- required original file set: complete;
+- five intended JSON templates: independently parsed PASS;
+- RACI core public-accountability mapping: inspected;
+- mandatory pre-read: completed at role-relevant depth;
+- historical package: audited for manifest/self-check/metrics/sources/geometry/presentation/matrices/PR status;
+- latest upstream refreshed repeatedly during the session;
+- current law/regulation sources screened and status-bounded;
+- explicit self-check: `audit/workstream_self_check.json`;
+- detailed QA: `audit/validation_report.md`.
+
+**Formal canonical render/finalize/self-check/participant-preflight is not claimed.** It must be executed against the exact integrated submission head by Final Integration.
+
+## 13. Final Integration sequence
+
+1. fetch latest upstream `main` again;
+2. install/read latest submission Skill and changed mandatory inputs;
+3. resolve/document upstream geometry-scoring wording ambiguity;
+4. integrate all Window workstreams into one canonical proposal architecture;
+5. use `integration_crosswalk.md` to thread Window 6 through agent.1–agent.6 rather than appending it as an isolated chapter;
+6. convert useful templates into the canonical package's existing schemas/records without pretending the templates are upstream schemas;
+7. recalculate all geometry-dependent metrics from the actual integrated geometry;
+8. regenerate figures/HTML/A3/A0 and bilingual companion assets required by current rules;
+9. re-audit compliance/standard/design-depth matrix statuses row by row;
+10. refresh manifest hashes using the current repository-supported method;
+11. run current render → finalize → self-check → participant preflight `--check-push` and the current four review gate families;
+12. fix every participant-controlled blocker before the real submission PR is opened/updated;
+13. keep official/provisional/derived/proposed/assumed/unknown status visible in both human-readable and machine-readable outputs.
+
+## 14. Window 6 completion verdict
+
+**ROLE WORKSTREAM COMPLETE FOR FINAL INTEGRATION.**
+
+This means the required Window 6 operations/public-governance research, design, machine-readable aids, audits and handoff are complete to the level supported by current repository/source access. It does **not** mean the overall urban-design submission is formally review-ready; that status belongs only to the exact canonical integrated package after current repository-native validation.
