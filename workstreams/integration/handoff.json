@@ -1,0 +1,71 @@
+{
+  "workstream": "final-city-os-integration",
+  "status": "phase-2-content-modules-ready-canonical-migration-pending",
+  "repository": "zhoujiahao-source/agent_haidian",
+  "integration_branch": "integration/final-city-os",
+  "baseline_branch": "submission/zhoujiahao-source/jingzhang-legible-ai-belt",
+  "canonical_submission": "submissions/zhoujiahao-source/jingzhang-legible-ai-belt",
+  "rule": "Re-read root README.md and latest upstream skills/urban-design-ai-submission/SKILL.md at the start of every continuation session.",
+  "design_headline": "City as an urban operating system that converts AI into tested public capability",
+  "spatial_headline": "Capability Backbone plus distributed learning units",
+  "flagship_metric": "Urban Adaptation Rate",
+  "long_term_legacy": "Urban Capability Exchange Network",
+  "completed_workstream_files": [
+    "workstreams/integration/MASTER_DESIGN_CONSTITUTION.md",
+    "workstreams/integration/README.md",
+    "workstreams/integration/official_task_coverage.md",
+    "workstreams/integration/submission_upgrade_map.md",
+    "workstreams/integration/baseline_audit.md",
+    "workstreams/integration/integration_conflict_matrix.md",
+    "workstreams/integration/source_gap_register.md",
+    "workstreams/integration/spatial_system_spec.md",
+    "workstreams/integration/urban_learning_protocol.md",
+    "workstreams/integration/city_learning_metrics.md",
+    "workstreams/integration/scenario_catalog.md",
+    "workstreams/integration/persona_catalog.md",
+    "workstreams/integration/global_ai_ecosystem_cases.md",
+    "workstreams/integration/public_space_landmark_spec.md",
+    "workstreams/integration/operations_stewardship_spec.md",
+    "workstreams/integration/visual_identity_spec.md",
+    "workstreams/integration/proposal_vnext_draft.md"
+  ],
+  "structured_minimums_prepared": {
+    "scenario_cards": 12,
+    "explicit_test_validation_scenarios": 4,
+    "personas": 8,
+    "global_ai_ecosystem_cases": 6,
+    "landmark_system": [
+      "1909 Railway Memory",
+      "2026 City Learning Archive",
+      "Future Experimental Station"
+    ],
+    "retired_capability_archive": true,
+    "annual_city_version_release": true
+  },
+  "canonical_files_modified": false,
+  "reason_canonical_files_not_modified_yet": "The previous validated package is preserved until current upstream rules, source registry, organizer geometry, schema IDs, baseline geometry, metrics and matrices are revalidated. The new narrative must not silently break a validated machine-readable package.",
+  "next_required_actions": [
+    "Record latest upstream commit and current baseline commit used for audit.",
+    "Re-read current organizer geometry and determine official vs provisional status.",
+    "Re-read current schema / compliance / standard / design-depth IDs.",
+    "Run the untouched baseline through the latest self-check / preflight workflow if possible.",
+    "Convert the spatial_system_spec into permitted geometry changes only after the evidence gate passes.",
+    "Add custom metric definitions to canonical metrics using exact current schema; do not invent current UAR value.",
+    "Migrate 12 scenarios, 8 personas and 6 ecosystem cases into the formal proposal / matrices / sources as required.",
+    "Insert valid source / standard / depth / data / metric references into proposal_vnext_draft.",
+    "Decide one final Chinese and English project name after spatial / VI integration.",
+    "Regenerate the five required figures from final machine-readable data.",
+    "Regenerate proposal HTML, visual HTML, A3 and A0 outputs.",
+    "Run finalize, self-check, participant preflight and CI; repair until PASS or only documented non-blocking organizer data gaps remain.",
+    "For any upstream PR, ensure the final branch modifies only the allowed submissions/<login>/<slug>/ path according to the latest Skill. Do not send workstreams/ to upstream as part of the formal submission PR."
+  ],
+  "do_not": [
+    "Do not overwrite the historical validated baseline before audit.",
+    "Do not call provisional geometry an official redline.",
+    "Do not invent statutory FAR, height, density, green ratio, road redline, ownership or heritage controls.",
+    "Do not claim a named institution has committed to Public Stewardship unless a formal source supports it.",
+    "Do not present illustrative city version years as committed implementation schedules.",
+    "Do not treat Legible AI as a competing main concept; retain it only as a transparency / information-design layer if useful.",
+    "Do not optimize visuals before geometry, metrics and matrices are consistent."
+  ]
+}
