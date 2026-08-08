@@ -1,0 +1,65 @@
+{
+  "contract_version": "0.1.0",
+  "status": "proposed_not_operational",
+  "principles": [
+    "public legibility without exposing personal or sensitive raw data",
+    "professional auditability with provenance and version history",
+    "failures, complaints, overrides and manual intervention remain visible",
+    "metric corrections create new versions rather than silent rewrites"
+  ],
+  "public_layer": {
+    "required_fields": [
+      "issue_id",
+      "public_problem_statement",
+      "experiment_status",
+      "risk_tier",
+      "human_owner_role",
+      "data_category_summary",
+      "public_value_target",
+      "public_value_result_summary",
+      "subgroup_or_equity_summary",
+      "incidents_count",
+      "human_overrides_count",
+      "decision",
+      "feedback_or_exit_route",
+      "last_updated"
+    ],
+    "prohibited_fields": [
+      "raw_personal_data",
+      "sensitive_personal_data",
+      "secret_credentials",
+      "security_sensitive_control_details",
+      "unredacted_complaint_identity"
+    ]
+  },
+  "professional_audit_layer": {
+    "required_fields": [
+      "source_and_provenance_refs",
+      "data_version",
+      "model_or_rule_version",
+      "metric_formula_version",
+      "eligible_issue_cohort_id",
+      "coverage",
+      "confidence",
+      "baseline_refs",
+      "experiment_version",
+      "authorization_refs",
+      "incident_log_ref",
+      "override_log_ref",
+      "rollback_log_ref",
+      "complaint_summary_ref",
+      "transfer_revalidation_ref",
+      "correction_history"
+    ],
+    "access_note": "Audit access must be role-based and fact-specific; this proposal does not define a production identity or retention architecture."
+  },
+  "privacy_boundary": {
+    "rule": "Only aggregated, redacted or otherwise lawful public summaries cross from protected operational records to the public layer.",
+    "unknowns": [
+      "production access-control model",
+      "retention schedule",
+      "controller/processor allocation",
+      "scenario-specific lawful basis"
+    ]
+  }
+}
