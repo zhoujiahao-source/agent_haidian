@@ -11,7 +11,7 @@
       "id": "A-KEY-AREA-001",
       "status": "provisional_constraint",
       "statement": "All three key-area polygons are rough placeholders derived from public task materials.",
-      "impact": "Detailed-design moves are transferable concepts, not parcel or road-boundary conclusions."
+      "impact": "Detailed-design moves are transferable concepts, not parcel, ownership or road-boundary conclusions."
     },
     {
       "id": "A-CONTROLS-001",
@@ -22,38 +22,62 @@
     {
       "id": "A-BUILDING-001",
       "status": "conceptual_only",
-      "statement": "Existing building footprints, uses, heights, ages, condition and ownership are unavailable.",
+      "statement": "Complete existing building footprints, uses, heights, ages, condition and ownership are unavailable in authoritative current form.",
       "impact": "Submitted building polygons are program envelopes only and do not decide demolition, retention or construction."
     },
     {
       "id": "A-ROAD-001",
       "status": "conceptual_only",
-      "statement": "Road redlines, sections, traffic volumes, station interfaces, utilities and fire access are unavailable.",
-      "impact": "Mobility lines express desired connections only and require transport and engineering verification."
+      "statement": "Road redlines, sections, verified crossing feasibility, traffic volumes, station interfaces, utilities and fire access are incomplete or unavailable.",
+      "impact": "Mobility and stitch lines express desired relationships or study axes only and require transport and engineering verification."
     },
     {
       "id": "A-HERITAGE-001",
       "status": "pending_official_data",
-      "statement": "Heritage protection boundaries for the Jing-Zhang Railway Heritage Park and related sites are unavailable.",
-      "impact": "Public-space and landmark concepts require heritage review before siting."
+      "statement": "Detailed heritage protection GIS and intervention permissions for Jing-Zhang Railway Heritage Park and related sites are unavailable.",
+      "impact": "Public-space, crossing and landmark concepts require heritage review before siting or material intervention."
     },
     {
       "id": "A-PUBLIC-001",
       "status": "conceptual_only",
-      "statement": "Public-space ownership, operating permissions, universal-design audit and maintenance responsibilities are unavailable.",
-      "impact": "Legibility nodes and landmarks are reference components, not approved projects."
+      "statement": "Public-space ownership, operating permissions, universal-design audit, fire/egress conditions and maintenance responsibilities are incomplete.",
+      "impact": "Capability nodes and landmarks are reference components, not approved projects or fixed footprints."
     },
     {
       "id": "A-MUNICIPAL-001",
       "status": "pending_official_data",
-      "statement": "Utilities, drainage, flood, energy, fire and municipal capacity data are unavailable.",
-      "impact": "Edge-compute, robotics and adaptive public-space services require later infrastructure and safety review."
+      "statement": "Utilities, drainage, flood, energy, fire, structural and municipal capacity data are unavailable at sufficient design depth.",
+      "impact": "Edge-compute, robotics, active environmental systems and adaptive public-space services require later infrastructure and safety review."
     },
     {
       "id": "A-GOVERNANCE-001",
       "status": "conceptual_only",
-      "statement": "The AI Legibility Gradient and 100-day pilot charter are design-governance proposals, not enacted regulation.",
-      "impact": "Implementation needs legal, privacy, accessibility, cybersecurity and public-participation review."
+      "statement": "Risk-tier authorization, Public Capability Interface, STOP/MODIFY/CONTINUE/SCALE and capability-transfer rules are design-governance proposals, not enacted regulation.",
+      "impact": "Implementation requires fact-specific legal, privacy, accessibility, cybersecurity, sector, public-participation and institutional review."
+    },
+    {
+      "id": "A-UAR-001",
+      "status": "conceptual_only",
+      "statement": "Urban Adaptation Rate and companion governance metrics are formula-ready proposals, but no adopted live eligible-issue, experiment or public-value outcome registry currently exists.",
+      "impact": "UAR-90, UAR-365, Responsible STOP Rate and related operational metric values remain unknown/null until real governed records exist."
+    },
+    {
+      "id": "A-INSTITUTION-001",
+      "status": "conceptual_only",
+      "statement": "Public Stewardship describes functional accountability; no named government institution, university, company, community body or operator is asserted to have accepted these roles.",
+      "impact": "All institutional names, budgets, staffing, procurement, authorization and service-level commitments remain future implementation decisions."
+    },
+    {
+      "id": "A-NONAI-001",
+      "status": "design_principle",
+      "statement": "AI-enhanced public services must retain a safe, usable non-AI or human alternative appropriate to the service and affected population.",
+      "impact": "AI capability failure, refusal, lack of device/account access or withdrawal of consent must not remove the basic public service or ordinary public-space function."
+    },
+    {
+      "id": "A-EVIDENCE-001",
+      "status": "methodological",
+      "statement": "Open-data basemap candidates and public project sources are cross-validation inputs with different authority; successful retrieval does not make a feature Verified or Official.",
+      "impact": "OSM, ML building footprints, public pages, imagery and field audit must retain provenance, date, license and uncertainty; conflicts remain visible rather than silently overwritten."
     }
   ]
 }
