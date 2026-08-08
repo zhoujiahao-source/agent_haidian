@@ -1,0 +1,59 @@
+name: Build Legible AI submission
+
+on:
+  push:
+    branches:
+      - tmp/legible-ai-build
+    paths:
+      - '.tmp/jingzhang_payload/**'
+      - '.github/workflows/build-legible-submission.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  restore-submission:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore exact submission payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          target='submissions/zhoujiahao-source/jingzhang-legible-ai-belt'
+          cat .tmp/jingzhang_payload/part-* > /tmp/jingzhang_payload.b64
+          base64 --decode /tmp/jingzhang_payload.b64 > /tmp/jingzhang_payload.tar.xz
+          test "$(wc -c < /tmp/jingzhang_payload.tar.xz)" -eq 26200
+          rm -rf "$target"
+          mkdir -p "$target"
+          tar -xJf /tmp/jingzhang_payload.tar.xz -C "$target"
+          test -f "$target/manifest.json"
+          test -f "$target/proposal.md"
+          test -f "$target/visual/index.html"
+          test -f "$target/drawings/a3-booklet.pdf"
+          test -f "$target/drawings/a0-boards.pdf"
+          test "$(find "$target" -type f | wc -l)" -eq 29
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          root = Path('submissions/zhoujiahao-source/jingzhang-legible-ai-belt')
+          m = json.loads((root/'manifest.json').read_text(encoding='utf-8'))
+          assert m['project_id'] == 'centennial-jingzhang-ai-belt'
+          assert m['package_state'] == 'ready_for_review'
+          assert len(m['files']) == 29
+          assert len((root/'proposal.md').read_text(encoding='utf-8')) > 20000
+          print('payload restored:', len(list(root.rglob('*'))), 'entries')
+          PY
+      - name: Commit restored package
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+          git diff --cached --quiet && exit 0
+          git commit -m 'build: restore Jing-Zhang Legible AI Belt submission'
+          git push origin HEAD:tmp/legible-ai-build
