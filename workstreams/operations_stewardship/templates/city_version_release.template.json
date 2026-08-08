@@ -1,0 +1,46 @@
+{
+  "schema_version": "0.1.0",
+  "template_status": "proposed_integration_aid_not_upstream_schema",
+  "record_type": "city_version_release",
+  "release_id": "CITY-YYYY.VN",
+  "release_date": null,
+  "period": "",
+  "status": "draft",
+  "summary": "",
+  "changes": {
+    "added": [],
+    "modified": [],
+    "scaled": [],
+    "responsible_stop": [],
+    "retired": [],
+    "suspended": []
+  },
+  "incidents_and_lessons": [],
+  "urban_adaptation_rate": {
+    "status": "unknown",
+    "value": null,
+    "numerator": null,
+    "denominator": null,
+    "cohort_definition": "unknown",
+    "formula_version": "candidate_only",
+    "confidence": "unknown",
+    "limitations": [],
+    "evidence_refs": []
+  },
+  "distributional_findings": [],
+  "outliers": [],
+  "public_objections_and_responses": [],
+  "unresolved_problems": [],
+  "next_year_challenges": [],
+  "owner_or_maintainer_changes": [],
+  "dependencies_and_migrations": [],
+  "data_and_geometry_status": [],
+  "unknowns": [],
+  "source_refs": [],
+  "evidence_refs": [],
+  "human_review": {
+    "status": "unknown",
+    "accountable_owner_status": "unknown",
+    "notes": []
+  }
+}
