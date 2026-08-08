@@ -1,1 +1,1 @@
-restore submission payload
+restore submission payload after byte-size assertion fix
