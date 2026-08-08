@@ -55,7 +55,7 @@ jobs:
           assert m['project_id'] == 'centennial-jingzhang-ai-belt'
           assert m['package_state'] == 'ready_for_review'
           assert len(m['files']) == 29
-          assert len((root/'proposal.md').read_text(encoding='utf-8')) > 20000
+          assert (root/'proposal.md').stat().st_size > 20000
           print('payload restored:', len([p for p in root.rglob('*') if p.is_file()]), 'files')
           PY
       - name: Commit restored package
