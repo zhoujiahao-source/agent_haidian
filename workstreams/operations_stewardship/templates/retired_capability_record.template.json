@@ -1,0 +1,60 @@
+{
+  "schema_version": "0.1.0",
+  "template_status": "proposed_integration_aid_not_upstream_schema",
+  "record_type": "retired_capability_record",
+  "retirement_id": "RET-YYYY-NNN",
+  "capability_id": "CAP-YYYY-NNN",
+  "capability_version": "",
+  "retirement_status": "planned",
+  "sunset_trigger": "",
+  "retirement_reason": "",
+  "service_continuity": {
+    "replacement_or_fallback": [],
+    "human_or_non_ai_route": [],
+    "status": "unknown"
+  },
+  "authorization_and_notice": {
+    "accountable_owner_status": "unknown",
+    "authorization_refs": [],
+    "public_notice_status": "unknown",
+    "affected_group_notice_status": "unknown"
+  },
+  "shutdown": {
+    "operational_shutdown_status": "unknown",
+    "credential_revocation_status": "unknown",
+    "api_key_or_secret_cleanup_status": "unknown",
+    "dependency_disconnect_status": "unknown"
+  },
+  "data_disposition": {
+    "retention_rule_status": "unknown",
+    "deletion_or_archive_status": "unknown",
+    "legal_review_status": "unknown",
+    "evidence_refs": []
+  },
+  "physical_assets": {
+    "devices_or_installations": [],
+    "remove_reuse_or_repurpose_status": "unknown",
+    "accessibility_safety_waste_notes": []
+  },
+  "registry_tombstone": {
+    "required": true,
+    "status": "unknown",
+    "replacement_refs": []
+  },
+  "retired_capability_archive": {
+    "public_learning_summary": "",
+    "what_worked": [],
+    "what_failed": [],
+    "known_harms_or_incidents": [],
+    "objections_or_contestability_lessons": [],
+    "what_should_not_be_repeated": [],
+    "source_refs": []
+  },
+  "post_retirement_verification": {
+    "status": "not_run",
+    "checks": [],
+    "evidence_refs": []
+  },
+  "assumptions": [],
+  "unknowns": []
+}
