@@ -1,0 +1,13 @@
+{
+  "schema_version":"0.1.0",
+  "workstream":"urban_structure",
+  "metric_candidates":[
+    {"metric_id":"backbone_layer_coverage","name":"Backbone Six-Layer Coverage","status":"formula_ready_data_pending","formula":"count(backbone_segments_with_all_required_layers_or_documented_light_touch_exception) / count(backbone_segments)","unit":"ratio","target":"expose gaps rather than game target","confidence":"conceptual"},
+    {"metric_id":"verified_east_west_crossing_share","name":"Verified East-West Crossing Share","status":"unknown","formula":"count(stitch_candidates_promoted_to_A_or_B_after_evidence_review) / count(all_stitch_candidates)","unit":"ratio","evidence_required":["right-of-way","physical crossing","accessibility","heritage","engineering"],"confidence":"unknown"},
+    {"metric_id":"non_digital_access_share","name":"Non-Digital Public Access Share","status":"formula_ready_data_pending","formula":"count(public_capability_interfaces_with_analog_or_human_fallback) / count(public_capability_interfaces)","unit":"ratio","target":"1.0 for essential public-service interfaces","confidence":"conceptual"},
+    {"metric_id":"reversible_experiment_share","name":"Reversible Experiment Share","status":"formula_ready_data_pending","formula":"count(experimental_components_with_stop_restore_owner_and_time_window) / count(experimental_components)","unit":"ratio","target":"1.0","confidence":"conceptual"},
+    {"metric_id":"host_verification_completion","name":"Host Verification Completion","status":"formula_ready_data_pending","formula":"count(candidate_nodes_with_verified_host) / count(candidate_nodes_selected_for_integration)","unit":"ratio","target":"1.0 before footprint promotion","confidence":"conceptual"},
+    {"metric_id":"section_family_coverage","name":"Backbone Section Family Coverage","status":"known_for_workstream","formula":"count(documented_section_families)","unit":"count","value":5,"confidence":"high_for_design_framework"}
+  ],
+  "anti_gaming_note":"Unknown evidence stays Unknown; metrics must not incentivize proliferating nodes, crossings or sensors."
+}
