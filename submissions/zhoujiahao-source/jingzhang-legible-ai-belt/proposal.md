@@ -15,7 +15,7 @@ iteration: "v0.2-integration"
 >
 > **一句话主张：京张不是一座“装满 AI”的城市，而是一套让城市不断产生、交换、检验、升级和淘汰公共能力的城市操作系统。**
 >
-> 本方案为 AI Agent 生成的开放共创建议，不构成政府审定结论、法定规划、投资承诺、工程许可或施工依据。精确边界、控规指标、道路红线、权属、市政、消防、文保、结构和实施主体必须在取得官方或经授权资料后由专业团队复核。[source:AGENT-TASKBOOK] [standard:PROJECT-AGENT-OPEN-CALL-TASKBOOK]
+> 本方案为 AI Agent 生成的开放共创建议，不构成政府审定结论、法定规划、投资承诺、工程许可或施工依据。精确边界、控规指标、道路红线、权属、市政、消防、文保、结构和实施主体必须在取得官方或经授权资料后由专业团队复核。[source:AGENT-TASKBOOK] [standard:PROJECT-AGENT-OPEN-CALL-TASKBOOK] [standard:PROJECT-OFFICIAL-ANNOUNCEMENT]
 
 ## 设计依据与资料清单
 
@@ -25,7 +25,7 @@ iteration: "v0.2-integration"
 
 本方案采用两套同时可见的不确定性语言：数据证据等级为 **Official / Verified / Derived / Assumed / Unknown**；图纸状态为 **Known / Estimated / Proposed / Unknown**。成功找到一条公开数据并不自动使其成为 Verified，更不使其成为 Official。[assumption:A-EVIDENCE-001]
 
-![](assets/figures/site-overview.png)
+![总体设计范围、Capability Backbone、三区两翼与证据等级总览](assets/figures/site-overview.png)
 
 ## 三层范围工作框架
 
@@ -39,7 +39,7 @@ iteration: "v0.2-integration"
 
 官方固定的三条定位——**百年京张文化带、都市 AI 生活体验带、AI 融合创新带**——以及五项功能——**AI 全栈自主创新体系、世界级 AI 创新生态、AI+ 场景赋能新范式、智能化 AI 活力城市、AI 治理全球话语权**——均作为方案必须闭环回应的目标，不被新概念替换。[source:AGENT-TASKBOOK]
 
-![](assets/figures/land-use-structure.png)
+![三层范围、概念用地结构与城市能力交换骨干关系](assets/figures/land-use-structure.png)
 
 ## 统筹研究范围产业与未来城市研究
 
@@ -97,7 +97,7 @@ Capability Backbone 由六层叠加：
 
 即使 AI 离线，基本公共服务与普通公共空间仍必须可用。[assumption:A-NONAI-001]
 
-![](assets/figures/key-areas.png)
+![众智园、北京AI原点社区与大钟寺三处重点区域差异化能力分工](assets/figures/key-areas.png)
 
 ## AI 创新生态、人才画像与 AI+ 场景
 
@@ -137,6 +137,22 @@ Capability Backbone 由六层叠加：
 
 每个场景记录问题来源、非 AI 对照、数据来源、风险等级、试验边界、持续时间、人工责任人、退出方式、基线、指标、事故和最终状态。[metric:scenario_card_count] [metric:testing_scenario_count] [assumption:A-GOVERNANCE-001]
 
+## 重点区域详细设计
+
+三处重点区不采用同一种“AI 园区模板”，而以不同主能力参与同一城市学习循环。[depth:three_key_area_detailed_design]
+
+### A. 众智园：Verification Campus / 验证型创新园
+
+**主能力：技术能力生产与高风险验证。** 建议形成“专业测试内部环 + 对外公共学习界面”两层：机器人、具身智能、边缘设施等高风险测试在有地理边界、非参与者旁路、人工停机和事故记录的区域进行；公众侧只展示经过脱敏的版本、状态、公共价值与失败记录。现有建筑 polygon 仍是概念功能包络，不决定拆改留。[data:geometry/key_areas.geojson#KEY-001] [assumption:A-BUILDING-001]
+
+### B. 北京 AI 原点社区：Learning Neighborhood / 学习型社区
+
+**主能力：社会反馈、人才日常与公共服务学习。** PCI 以低风险服务、人工窗口、社区共创、老年与无障碍审查为主；涉及个人数据的服务使用主动调用，不默认把居民变成长期数据主体。公开人才服务事实只作为现状服务属性证据。[data:geometry/key_areas.geojson#KEY-002] [source:SRC-BJ-AIORIGIN-TALENT-20260720]
+
+### C. 大钟寺：Market & Service Commons / 市场与服务验证场
+
+**主能力：AI-native 商业与企业服务验证。** 重点不是增加“AI 店”，而是在真实商业、通勤与更新环境中比较 AI 与普通服务路径：是否减少等待、提高可达性、降低小企业服务成本，同时保留人工购买、咨询与申诉。道路和更新公开资料不被升级为精确落位依据。[data:geometry/key_areas.geojson#KEY-003] [source:SRC-BJ-CITYUPDATE-DZS-20260713] [source:SRC-BJ-DZS-ROAD-20260225]
+
 ## 用地、建筑规模与拆改留方案
 
 `land_use.geojson` 是总体功能结构的概念表达，不构成法定用地调整。[data:geometry/land_use.geojson#LU-001] [depth:land_use_layout] [standard:MNR-LAND-USE-CLASSIFICATION-GUIDE]
@@ -155,7 +171,7 @@ Capability Backbone 由六层叠加：
 
 公共服务必须提供与服务性质相匹配的人工或非 AI 路径；缺少智能手机、账号、语言能力，或退出数据处理，不应导致失去基本公共服务。[assumption:A-NONAI-001]
 
-![](assets/figures/mobility-bluegreen.png)
+![南北Capability Backbone、东西向研究连接与蓝绿公共空间网络](assets/figures/mobility-bluegreen.png)
 
 ## 蓝绿空间、公共空间与城市风貌
 
@@ -235,7 +251,7 @@ Added / Modified / Scaled / Responsible STOP / Retired / Suspended / Unresolved 
 
 每一次 official geometry / controls 更新，都必须从 geometry 重新计算 metrics，并同步 proposal、figures、matrices、manifest、HTML 和 PDF，不允许手工只改一个表格。[depth:metrics_recalculation]
 
-![](assets/figures/metrics-evidence.png)
+![Urban Adaptation Rate、公共价值底线与数据不确定性指标体系](assets/figures/metrics-evidence.png)
 
 ## 风险、版权与合规说明
 
