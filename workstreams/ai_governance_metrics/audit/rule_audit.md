@@ -2,13 +2,14 @@
 
 Status: **workstream evidence only; not canonical submission**
 Audit date: 2026-08-08
-Upstream main inspected: `b3d6fdaa2331fdc60a3e618019fd8e6596532fff`
+Original upstream baseline: `b3d6fdaa2331fdc60a3e618019fd8e6596532fff`
+Latest upstream re-check: `a3c14da8431f6ca63ff2059c90733132c2d4e8eb`
 Fork main base: `5481e2d1be4cba7ec45b3b5a97fb9c38e2a6f5f1`
 Branch: `agent/ai-governance-metrics`
 
 ## 1. Files inspected
 
-The audit checked the current upstream versions of:
+The audit checked the upstream versions of:
 
 - `skills/urban-design-ai-submission/SKILL.md`
 - `brief/site-package/design_brief.json`
@@ -26,54 +27,58 @@ The audit checked the current upstream versions of:
 - `brief/site-package/geometry/`
 - the user's existing `submission/zhoujiahao-source/jingzhang-legible-ai-belt` proposal and `metrics.json`.
 
-## 2. Rule changes / live-state findings
+A continuation pass then compared the original upstream baseline with `a3c14da8431f6ca63ff2059c90733132c2d4e8eb`. That interval is 107 commits ahead, but the changed files are submission content rather than the rule/schema/data-workflow inputs above. See `audit/upstream_increment_2026-08-08.md`.
 
-1. **Upstream is newer than the fork base.** Upstream `main` was `b3d6fdaa2331fdc60a3e618019fd8e6596532fff` while the fork `main` used to create this branch was `5481e2d1be4cba7ec45b3b5a97fb9c38e2a6f5f1`. This workstream therefore treats upstream rules as normative reading context while keeping changes isolated on the writable fork branch.
-2. **Official precise geometry is still absent.** `brief/site-package/geometry/` contains provisional boundaries and a study-area bbox, but no organizer-supplied exact `SITE_BOUNDARY` / `KEY_AREA` polygon.
-3. **There is a rule-text conflict about geometry and scoring.**
-   - `design_brief.json`, `allowed_design_space.json`, and `data/source_registry.json` retain wording that exact official geometry is required for formal professional scoring / that provisional geometry is not usable for formal professional scoring.
-   - the latest `SKILL.md`, `docs/data-workflow.md`, and `docs/review-rubric.md` state that organizer-supplied geometry gaps do **not** block content scoring or justify a content-score penalty.
-   - **Workstream treatment:** do not resolve this silently. Treat provisional geometry as non-statutory and unusable for precise legal/planning claims; flag the scoring-language conflict for the Integration Agent / maintainers.
-4. The latest `metrics.schema.json` permits custom metrics through `additionalProperties` under `metrics`, but every metric still needs `status`, `value`, `unit`, `source_files`, `formula`, `confidence`, and `assumptions`.
-5. The existing user proposal already has a mature **Legibility / L0–L3** governance idea and clearly discloses provisional geometry. It does **not** yet contain the complete City OS governance protocol or an operational Urban Adaptation Rate. Its current `metrics.json` mainly reports geometry, counts, and legibility-level metrics.
+## 2. Rule / live-state findings
+
+1. **Upstream is newer than the fork base.** The writable workstream remains on the user's fork, while upstream rules are treated as the normative reading context.
+2. **No relevant rule-path change occurred during the continuation interval.** The current SKILL and metrics schema preserve the semantics used by this workstream.
+3. **Official precise geometry is still not established by this workstream.** No organizer-supplied exact `SITE_BOUNDARY` / `KEY_AREA` polygon has been promoted into this Agent's facts. Provisional geometry must stay non-statutory.
+4. **There is a repository wording tension about geometry and scoring.**
+   - some brief/data wording retains stronger language around official geometry and formal professional scoring;
+   - the current `SKILL.md`, data-workflow and review-rubric treatment states that organizer-supplied geometry gaps do not block content scoring or justify a score penalty;
+   - workstream treatment: do not silently turn provisional geometry into official redlines and do not use missing organizer geometry as a reason to erase content evaluation.
+5. **Custom metrics remain schema-compatible.** `metrics.schema.json` allows custom metric IDs under `metrics`, while each metric still requires `status`, `value`, `unit`, `source_files`, `formula`, `confidence`, and `assumptions`; `unknown` requires `value:null` plus a reason.
+6. The existing user proposal has reusable **Legibility / L0–L3** governance and disclosure assets, but it does not by itself provide the complete City OS learning protocol, risk authorization model or operational UAR registry.
 
 ## 3. Existing assets worth reusing
 
-- Existing proposal's disclosure language around provisional geometry and non-statutory status.
-- Existing L0–L3 legibility gradient as a **communication / interface layer**, not as the new master governance logic.
-- Existing scenario, persona and landmark structure for future experiment-card attachment.
-- Existing evidence-chain idea (`proposal -> figures -> GeoJSON -> metrics -> matrices -> sources/assumptions -> self_check`).
+- disclosure language around provisional geometry and non-statutory status;
+- L0–L3 legibility as a communication/interface layer, not the master governance logic;
+- scenario, persona and landmark structure for experiment-card attachment;
+- evidence chain linking proposal, figures, GeoJSON, metrics, matrices, sources/assumptions and self-check.
 
 ## 4. Required conceptual upgrade
 
 The workstream keeps the locked City OS logic:
 
-`city problem -> diagnosis -> risk authorization -> bounded experiment -> public-value review -> STOP/MODIFY/CONTINUE/SCALE -> capability exchange -> revalidation -> public metrics -> memory / retirement`
+`city problem -> diagnosis -> eligibility -> risk authorization -> bounded experiment -> public-value review -> STOP/MODIFY/CONTINUE/SCALE -> capability exchange -> target-context revalidation -> public metrics -> memory / retirement`
 
-Governance must not collapse back into an “Issue -> PR -> Merge” metaphor. “Legible AI” remains useful as a governance/visual sub-principle, while the governing mechanism is **Urban Learning Protocol + Capability Backbone + Public Value + Urban Adaptation Rate**.
+Governance must not collapse into an `Issue -> PR -> Merge` master metaphor. “Legible AI” remains useful as a governance/visual sub-principle while the governing mechanism is **Urban Learning Protocol + Capability Backbone + Public Value + Urban Adaptation Rate**.
 
 ## 5. Data / claim status
 
-### Official / verified
-- Project name, three positioning statements, five functions, three areas/two wings, and official text/area figures listed in the repository taskbook / official announcement snapshots.
-- Current repository rules and schemas at the upstream SHA above.
+### Official / Verified
+- project taskbook/brief language, the three fixed positioning statements, five functions and area-reference text as present in the reviewed repository sources;
+- repository rules and metrics schema at the refs recorded above.
 
-### Derived
-- This workstream's governance framework, risk tiers, formulas, metric definitions, dashboard architecture, transfer tests, anti-gaming controls.
+### Derived / Proposed
+- governance framework, risk tiers, formulas, metric definitions, dashboard architecture, transfer tests, anti-gaming controls;
+- governance object schemas and dashboard data contract added by this continuation pass.
 
 ### Assumed
-- Pilot owners, SLAs, thresholds and operational time windows are design proposals until adopted by a real public steward.
-- A 90-day operational and 365-day durable UAR reporting horizon are proposed standard horizons, not official project requirements.
+- pilot owners, SLAs, thresholds and operational time windows are design proposals until adopted by a real Public Steward;
+- 90-day operational and 365-day durable UAR reporting horizons are proposed defaults, not official competition requirements.
 
 ### Unknown
-- Exact official polygons/redlines.
-- Approved FAR, building height, building density, green ratio and setbacks.
-- Future operating entity, legal controller/processor roles, staffing, procurement and vendor architecture.
-- Any actual operational values for the proposed AI-city metrics.
+- exact official polygons/redlines;
+- approved FAR, building height, building density, green ratio and setbacks;
+- future operating entity, legal controller/processor roles, staffing, procurement and vendor architecture;
+- any actual operational values for the proposed AI-city metrics.
 
-## 6. Checkpoint — Phase 0
+## 6. Phase 0 checkpoint
 
-Completed: latest-rule audit, geometry status, schema check, existing proposal/metrics review.
-Key finding: the current proposal has useful legibility assets but lacks the full learning-and-governance operating protocol required by the new design constitution.
+Completed: rule audit, geometry status, metrics-schema check, existing proposal/metrics review and incremental upstream re-check.
+Key finding: the rule inputs relevant to this Agent did not change between the two upstream refs, so the completed governance model remains valid.
 Unknown: official geometry and actual operating governance institution.
-Next dependency: define City Agent diagnosis boundaries and eligibility gate without inventing operational data.
+Next dependency: Final Integration should adopt selectively, then run the then-current canonical submission pipeline.
