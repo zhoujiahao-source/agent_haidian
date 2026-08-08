@@ -1,0 +1,188 @@
+{
+  "type": "FeatureCollection",
+  "name": "jingzhang_legible_ai_mobility",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "ROAD-001",
+      "properties": {
+        "id": "ROAD-001",
+        "layer": "ROAD_CENTERLINE",
+        "source_type": "agent_generated_design",
+        "confidence": "medium",
+        "geometry_role": "design_proposal",
+        "name_zh": "京张连续无障碍慢行与AI透明主脊",
+        "road_class": "greenway",
+        "design_note": "概念性步行/骑行/辅助移动主线，与遗址公园关系须经文保和工程复核。"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            116.3473,
+            39.9405
+          ],
+          [
+            116.3478,
+            39.949
+          ],
+          [
+            116.3472,
+            39.962
+          ],
+          [
+            116.3474,
+            39.9745
+          ],
+          [
+            116.3473,
+            39.9885
+          ],
+          [
+            116.3476,
+            40.004
+          ],
+          [
+            116.3473,
+            40.0248
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ROAD-002",
+      "properties": {
+        "id": "ROAD-002",
+        "layer": "ROAD_CENTERLINE",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "东西向可达性缝合支线 1",
+        "road_class": "pedestrian",
+        "design_note": "概念性慢行与轨道/街区联系，待道路红线、交通量、市政、消防及权属验证。"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            116.34047777777778,
+            39.947
+          ],
+          [
+            116.3553,
+            39.947
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ROAD-003",
+      "properties": {
+        "id": "ROAD-003",
+        "layer": "ROAD_CENTERLINE",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "东西向可达性缝合支线 2",
+        "road_class": "transit_connection",
+        "design_note": "概念性慢行与轨道/街区联系，待道路红线、交通量、市政、消防及权属验证。"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            116.34008888888889,
+            39.961
+          ],
+          [
+            116.3553,
+            39.961
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ROAD-004",
+      "properties": {
+        "id": "ROAD-004",
+        "layer": "ROAD_CENTERLINE",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "东西向可达性缝合支线 3",
+        "road_class": "pedestrian",
+        "design_note": "概念性慢行与轨道/街区联系，待道路红线、交通量、市政、消防及权属验证。"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            116.3397,
+            39.975
+          ],
+          [
+            116.3545,
+            39.975
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ROAD-005",
+      "properties": {
+        "id": "ROAD-005",
+        "layer": "ROAD_CENTERLINE",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "东西向可达性缝合支线 4",
+        "road_class": "transit_connection",
+        "design_note": "概念性慢行与轨道/街区联系，待道路红线、交通量、市政、消防及权属验证。"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            116.34060322580645,
+            39.989
+          ],
+          [
+            116.35338,
+            39.989
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ROAD-006",
+      "properties": {
+        "id": "ROAD-006",
+        "layer": "ROAD_CENTERLINE",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "东西向可达性缝合支线 5",
+        "road_class": "pedestrian",
+        "design_note": "概念性慢行与轨道/街区联系，待道路红线、交通量、市政、消防及权属验证。"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            116.34218780487805,
+            40.016
+          ],
+          [
+            116.35472465753425,
+            40.016
+          ]
+        ]
+      }
+    }
+  ]
+}
