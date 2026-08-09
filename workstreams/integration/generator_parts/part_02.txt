@@ -1,0 +1,51 @@
+ 'total_floor_area_sqm':dict(status='unknown',value=None,unit='sqm',source_files=['geometry/buildings.geojson'],formula='requires verified building floors or adopted design intensity',confidence='unknown',assumptions=['A-CONTROLS-001'],reason='Official planning controls and existing building floors/heights remain unavailable; proposed pavilion footprints do not establish floor area.'),
+ 'far':dict(status='unknown',value=None,unit='ratio',source_files=['geometry/buildings.geojson'],formula='total_floor_area/site_area',confidence='unknown',assumptions=['A-CONTROLS-001'],reason='No adopted FAR or verified total floor area.'),
+ 'building_footprint_area_sqm':dict(status='known',value=round(area_sqm(build_union),3),unit='sqm',source_files=['geometry/buildings.geojson'],formula='union area of proposed reversible pavilions only',confidence='low',assumptions=['A-DESIGN-GEOMETRY-001']),
+ 'building_density':dict(status='known',value=round(area_sqm(build_union)/site_area,8),unit='ratio',source_files=['geometry/buildings.geojson','geometry/site_boundary.geojson'],formula='proposed pavilion footprint union/site area',confidence='low',assumptions=['A-DESIGN-GEOMETRY-001']),
+ 'green_area_sqm':dict(status='known',value=round(area_sqm(green_union),3),unit='sqm',source_files=['geometry/green_space.geojson'],formula='union proposed GREEN_SPACE',confidence='low',assumptions=['A-DESIGN-GEOMETRY-001']),
+ 'green_ratio':dict(status='known',value=round(area_sqm(green_union)/site_area,8),unit='ratio',source_files=['geometry/green_space.geojson','geometry/site_boundary.geojson'],formula='proposed green union/site area',confidence='low',assumptions=['A-DESIGN-GEOMETRY-001']),
+ 'public_space_area_sqm':dict(status='known',value=round(area_sqm(public_union),3),unit='sqm',source_files=['geometry/public_space.geojson'],formula='union proposed PCI/landmark envelopes',confidence='low',assumptions=['A-DESIGN-GEOMETRY-001']),
+ 'public_space_ratio':dict(status='known',value=round(area_sqm(public_union)/site_area,8),unit='ratio',source_files=['geometry/public_space.geojson','geometry/site_boundary.geojson'],formula='proposed public-space union/site area',confidence='low',assumptions=['A-DESIGN-GEOMETRY-001']),
+ 'road_centerline_length_m':dict(status='known',value=round(road_len,3),unit='m',source_files=['geometry/roads.geojson'],formula='sum study-axis line lengths',confidence='low',assumptions=['A-ROAD-001']),
+ 'road_area_sqm':dict(status='unknown',value=None,unit='sqm',source_files=['geometry/roads.geojson'],formula='requires verified road widths/redlines',confidence='unknown',assumptions=['A-ROAD-001'],reason='Study axes do not establish road redlines or widths.'),
+ 'road_ratio':dict(status='unknown',value=None,unit='ratio',source_files=['geometry/roads.geojson'],formula='road_area/site_area',confidence='unknown',assumptions=['A-ROAD-001'],reason='Road area is unknown because widths/redlines are not verified.'),
+ 'phase_area_sqm':dict(status='known',value=round(sum(area_sqm(Polygon(f['geometry']['coordinates'][0])) for f in phase_feats),3),unit='sqm',source_files=['geometry/phasing.geojson'],formula='sum component-level phase envelopes; overlaps possible',confidence='low',assumptions=['A-DESIGN-GEOMETRY-001']),
+ 'key_area_count':dict(status='known',value=3,unit='count',source_files=['geometry/key_areas.geojson'],formula='count(KEY_AREA)',confidence='high',assumptions=['A-KEY-AREA-001']),
+ 'key_area_reference_total_sqm':dict(status='known',value=3684000,unit='sqm',source_files=['brief/site-package/design_brief.json'],formula='task-text reference: 192.1+104.3+72.0 ha',confidence='high',assumptions=['A-KEY-AREA-001']),
+ 'scenario_card_count':dict(status='known',value=12,unit='count',source_files=['proposal.md'],formula='count governed scenario cards',confidence='high',assumptions=[]),
+ 'test_validation_scenario_count':dict(status='known',value=4,unit='count',source_files=['proposal.md'],formula='count scenarios explicitly marked bounded test/validation',confidence='high',assumptions=[]),
+ 'persona_count':dict(status='known',value=8,unit='count',source_files=['proposal.md'],formula='count evaluation personas',confidence='high',assumptions=[]),
+ 'public_capability_node_type_count':dict(status='known',value=8,unit='count',source_files=['geometry/public_space.geojson','proposal.md'],formula='count node families in PCI library',confidence='high',assumptions=[]),
+ 'capability_backbone_layer_count':dict(status='known',value=6,unit='count',source_files=['proposal.md'],formula='memory+mobility+public realm+blue-green+capability nodes+event operations',confidence='high',assumptions=[]),
+ 'urban_adaptation_rate':dict(status='unknown',value=None,unit='ratio',source_files=['proposal.md'],formula='verified_improved_eligible_issue_records / evaluable_qualified_issue_records',confidence='unknown',assumptions=['A-GOV-OPS-001'],reason='No live eligible-issue / experiment / outcome registry exists; formula readiness is not measured city performance.'),
+ 'responsible_stop_rate':dict(status='unknown',value=None,unit='ratio',source_files=['proposal.md'],formula='responsible_stop_records / evaluable_experiment_records',confidence='unknown',assumptions=['A-GOV-OPS-001'],reason='Requires real operating records.'),
+ 'human_override_success_rate':dict(status='unknown',value=None,unit='ratio',source_files=['proposal.md'],formula='successful_manual_takeovers / attempted_manual_takeovers',confidence='unknown',assumptions=['A-GOV-OPS-001'],reason='Requires live operation/incident data.'),
+ 'capability_transfer_revalidation_rate':dict(status='unknown',value=None,unit='ratio',source_files=['proposal.md'],formula='target-context_revalidated_transfers / transfer_attempts',confidence='unknown',assumptions=['A-GOV-OPS-001'],reason='Requires Capability Registry and transfer logs.'),
+ 'non_ai_service_parity':dict(status='unknown',value=None,unit='index',source_files=['proposal.md'],formula='scenario-defined parity check of essential service when AI unavailable/declined',confidence='unknown',assumptions=['A-NONAI-001'],reason='Requires service-specific baseline and field measurement.')
+}
+dumpj(OUT/'metrics.json',{'schema_version':'0.1.0','units':{'length':'m','area':'sqm'},'metrics':metrics})
+
+# ---------- assumptions ----------
+assumptions={'schema_version':'0.1.0','assumptions':[
+ {'id':'A-BOUNDARY-001','status':'active','statement_zh':'总体 SITE_BOUNDARY 仍为仓库 provisional rough geometry；非官方红线，官方坐标到位后全部 geometry→metrics→figures 必须重算。','trigger':'official SITE_BOUNDARY received'},
+ {'id':'A-KEY-AREA-001','status':'active','statement_zh':'三处 KEY_AREA polygon 为临时约束；比赛参考面积与 polygon 复算值分开。','trigger':'official KEY_AREA polygons received'},
+ {'id':'A-CONTROLS-001','status':'active','statement_zh':'FAR、建筑高度、密度、绿地率、退界、道路红线、权属、文保、市政消防等法定/工程条件缺失，不以 schema sanity bounds 代替。','trigger':'official planning/control/engineering data received'},
+ {'id':'A-ROAD-001','status':'active','statement_zh':'ROAD-001~006 仅为连续性/缝合研究轴；不代表已核验道路、桥、隧、通道或红线。','trigger':'verified mobility/ROW/crossing evidence received'},
+ {'id':'A-DESIGN-GEOMETRY-001','status':'active','statement_zh':'LAND_USE、GREEN_SPACE、PUBLIC_SPACE、BUILDING_FOOTPRINT、PHASE 为概念设计图层，面积可复算但不是法定规划指标。','trigger':'professional design deepening / official controls'},
+ {'id':'A-GOV-OPS-001','status':'active','statement_zh':'UAR 与治理指标只有定义，没有真实运营记录；数值保持 unknown/null。','trigger':'live eligible issue / experiment / outcome registry exists'},
+ {'id':'A-NONAI-001','status':'active','statement_zh':'所有公共服务保持非AI/人工等价路径；AI离线、拒绝授权或试验停止时普通城市功能仍可使用。','trigger':'scenario implementation design'},
+ {'id':'A-BASEMAP-001','status':'active','statement_zh':'OSM/Microsoft 现状底图脚本已完成且数据源许可已登记；本次执行环境无法访问公网进行 materialization，因此未把未下载数据伪装成 Verified existing conditions。','trigger':'networked checkout executes acquisition + validation + cross-check'},
+ {'id':'A-INSTITUTION-001','status':'active','statement_zh':'Public Stewardship 是功能性制度设计，不声称某个现实机构已接受预算、法律授权或运营责任。','trigger':'formal operator/authorization source exists'}
+]}
+dumpj(OUT/'assumptions.json',assumptions)
+
+# ---------- sources ----------
+sources={'schema_version':'0.1.0','sources':[
+ {'id':'SITE-PACKAGE','path':'brief/site-package/','source_type':'official_public','usage':'Project brief, rules, enums, standards, schemas and provisional geometry.'},
+ {'id':'SOURCE-REGISTRY','path':'data/source_registry.json','source_type':'repository_public_registry','usage':'Authority for formal/background/provisional source use.'},
+ {'id':'PROCESSED-FACT-PACK','path':'data/processed/agent_fact_pack.md','source_type':'repository_processed_reference','usage':'Navigation for scope/tasks/source gaps; does not replace original sources.'},
+ {'id':'BOUNDARY-SOURCE','path':'brief/site-package/geometry/provisional_boundaries.geojson','source_type':'agent_inferred_from_public_data','usage':'Temporary overall design constraint only.','limitation':'Not official redline or precision scoring geometry.'},
+ {'id':'KEY-AREA-SOURCE','path':'brief/site-package/geometry/provisional_boundaries.geojson','source_type':'agent_inferred_from_public_data','usage':'Temporary three key-area constraints only.','limitation':'Not official key-area polygons.'},
+ {'id':'OFFICIAL-ANNOUNCEMENT','publisher':'北京市规划和自然资源委员会海淀分局','url':'https://ghzrzyw.beijing.gov.cn/zhengwuxinxi/tzgg/hd/202605/t20260509_4643047.html','retrieved_date':'2026-08-09','source_type':'official_public','usage':'Project scope/goals/reference areas/design tasks.','limitation':'No exact coordinate-bearing polygons/statutory controls.'},
+ {'id':'AGENT-TASKBOOK','path':'brief/site-package/agent_taskbook.json','source_type':'user_provided_cleared','usage':'Three positions, five functions, three areas/two wings, six Agent tasks, co-creation rules.'},
+ {'id':'JINGZHANG-THREE-AREAS-TWO-WINGS','publisher':'北京市人民政府','url':'https://www.beijing.gov.cn/ywdt/gzdt/202604/t20260403_4049515.html','retrieved_date':'2026-08-09','source_type':'official_public_background','usage':'Three-areas/two-wings development context.','limitation':'Broader narrative, not competition polygon.'},
