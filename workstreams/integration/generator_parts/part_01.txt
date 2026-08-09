@@ -1,0 +1,154 @@
+import os, json, math, hashlib, textwrap, re
+from pathlib import Path
+from datetime import datetime, timezone
+from shapely.geometry import Polygon, box, Point, LineString, mapping
+from shapely.ops import transform as shp_transform, unary_union
+from pyproj import Transformer
+import matplotlib.pyplot as plt
+from matplotlib.patches import Polygon as MplPolygon, Rectangle, Circle, FancyArrowPatch
+from matplotlib.font_manager import FontProperties
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import landscape, A3, A0
+from reportlab.lib.units import mm
+from reportlab.pdfbase.cidfonts import UnicodeCIDFont
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.lib.utils import ImageReader
+from reportlab.lib.colors import HexColor, black, white
+import mistune
+
+OUT = Path(os.environ.get('JZ_OUT','submissions/zhoujiahao-source/jingzhang-legible-ai-belt'))
+if OUT.exists():
+    import shutil; shutil.rmtree(OUT)
+for d in ['assets/figures','geometry','report','drawings','visual']:
+    (OUT/d).mkdir(parents=True, exist_ok=True)
+
+ZH_FONT_PATH = next((p for p in ['/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc','/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.otf','/usr/share/fonts/truetype/arphic-gbsn00lp/gbsn00lp.ttf'] if Path(p).exists()), '/usr/share/fonts/truetype/arphic-gbsn00lp/gbsn00lp.ttf')
+ZH_BOLD_PATH = next((p for p in ['/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc','/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.otf',ZH_FONT_PATH] if Path(p).exists()), ZH_FONT_PATH)
+FP = FontProperties(fname=ZH_FONT_PATH)
+FPB = FontProperties(fname=ZH_BOLD_PATH)
+plt.rcParams['axes.unicode_minus'] = False
+plt.rcParams['font.family'] = FP.get_name()
+pdfmetrics.registerFont(TTFont('GBSong','/usr/share/fonts/truetype/arphic-gbsn00lp/gbsn00lp.ttf'))
+
+# ---------- geometry ----------
+site_coords = [(116.3407,39.939),(116.3553,39.939),(116.3553,39.965),(116.3533,39.99),(116.3553,40.0265),(116.3427,40.0265),(116.3417,40.006),(116.3397,39.975),(116.3407,39.939)]
+site = Polygon(site_coords)
+key_specs = [
+    ('KEY-001','zhongzhiyuan_ai_acceleration_area','众智园AI自主创新加速区','Zhongzhiyuan AI Acceleration Area', box(116.343,40.0075,116.354,40.026),1921000),
+    ('KEY-002','beijing_ai_origin_community','北京AI原点社区','Beijing AI Origin Community', box(116.342,39.9835,116.353,39.9935),1043000),
+    ('KEY-003','dazhongsi_ai_industry_cluster','大钟寺AI产业集聚区','Dazhongsi AI Industry Cluster', box(116.342,39.944,116.355,39.94984),720000),
+]
+key_polys = [(a,b,c,d,p.intersection(site),ref) for a,b,c,d,p,ref in key_specs]
+
+tr = Transformer.from_crs(4326,4548,always_xy=True)
+tr_back = Transformer.from_crs(4548,4326,always_xy=True)
+def area_sqm(g): return shp_transform(tr.transform,g).area
+def length_m(g): return shp_transform(tr.transform,g).length
+def buffer_m(g,m): return shp_transform(tr_back.transform, shp_transform(tr.transform,g).buffer(m))
+def feature(fid, layer, geom, source_type='agent_design_proposal', confidence='low', role='design_proposal', **props):
+    p={'id':fid,'layer':layer,'source_type':source_type,'confidence':confidence,'geometry_role':role}
+    p.update(props)
+    if geom.geom_type in ('Polygon','MultiPolygon'): p['area_sqm_declared']=round(area_sqm(geom),3)
+    return {'type':'Feature','id':fid,'properties':p,'geometry':mapping(geom)}
+def fc(name, feats): return {'type':'FeatureCollection','name':name,'features':feats}
+def dumpj(path,obj):
+    Path(path).write_text(json.dumps(obj,ensure_ascii=False,indent=2),encoding='utf-8')
+
+site_feat = feature('SITE-001','SITE_BOUNDARY',site,'agent_inferred_from_public_data','medium','provisional_constraint',scope_id='overall_design_area',name_zh='总体设计范围临时约束',name_en='Overall Design Area Provisional Constraint',official_boundary=False,boundary_precision='provisional_rough',source_id='DATA-SRC-PROVISIONAL-BOUNDARIES-20260605',usage_note='仅用于开放征集、临时生成与讨论；非官方红线、审批依据或精确控规边界。')
+dumpj(OUT/'geometry/site_boundary.geojson',fc('jingzhang_city_os_site_boundary',[site_feat]))
+
+key_feats=[]
+for fid,aid,zh,en,p,ref in key_polys:
+    key_feats.append(feature(fid,'KEY_AREA',p,'agent_inferred_from_public_data','medium','provisional_constraint',area_id=aid,name_zh=zh+'临时约束',name_en=en+' Provisional Constraint',official_boundary=False,boundary_precision='provisional_rough',source_id='DATA-SRC-PROVISIONAL-BOUNDARIES-20260605',reference_area_sqm=ref,usage_note='比赛参考面积与临时 polygon 复算值分开表达；非官方重点区边界。'))
+dumpj(OUT/'geometry/key_areas.geojson',fc('jingzhang_city_os_key_areas',key_feats))
+
+# Proposed land-use mosaic: full cover of site through irregular y/x cells.
+ycuts=[39.939,39.953,39.975,39.996,40.008,40.0265]
+assign = {
+  (0,0):('05','商业服务业用地','AI-native market/service'),(0,1):('0702','城镇社区服务设施用地','public-service interface'),
+  (1,0):('0803','文化用地','railway culture + learning archive'),(1,1):('1401','公园绿地','heritage/blue-green public realm'),
+  (2,0):('0701','城镇住宅用地','learning neighborhood'),(2,1):('0702','城镇社区服务设施用地','community capability interface'),
+  (3,0):('0804','教育用地','education/developer exchange'),(3,1):('0802','科研用地','research/professional services'),
+  (4,0):('0802','科研用地','verification and R&D'),(4,1):('16','留白用地','reversible test reserve')
+}
+land_feats=[]; lu_i=1
+for i in range(len(ycuts)-1):
+    for j,(x0,x1) in enumerate([(116.339,116.3475),(116.3475,116.356)]):
+        g=site.intersection(box(x0,ycuts[i],x1,ycuts[i+1]))
+        if g.is_empty: continue
+        code,label,role=assign[(i,j)]
+        land_feats.append(feature(f'LU-{lu_i:03d}','LAND_USE',g,'agent_design_proposal','low','design_proposal',land_use_code=code,name_zh=label,design_role=role,drawing_status='Proposed',evidence_status='Derived',usage_note='概念城市设计用途，不替代法定用地分类或控规。'))
+        lu_i+=1
+dumpj(OUT/'geometry/land_use.geojson',fc('jingzhang_city_os_land_use',land_feats))
+
+# Capability backbone and evidence-gated stitch axes
+backbone = LineString([(116.3473,39.9405),(116.3478,39.949),(116.3472,39.962),(116.3474,39.9745),(116.3473,39.9885),(116.3476,40.004),(116.3473,40.0248)])
+stitches=[
+ ('ROAD-002',39.9468,'大钟寺市场服务横向联调轴'),('ROAD-003',39.9620,'城市学习档案横向联调轴'),
+ ('ROAD-004',39.9750,'小月河蓝绿能力横向联调轴'),('ROAD-005',39.9885,'AI原点社区横向联调轴'),('ROAD-006',40.0170,'众智园验证横向联调轴')]
+road_feats=[feature('ROAD-001','ROAD_CENTERLINE',backbone,'agent_reuse_design_from_existing_submission','low','design_proposal',name_zh='Capability Backbone 城市能力交换骨干候选连续轴',candidate_status='study_axis_not_verified_route',evidence_status='Derived',drawing_status='Proposed',host_verification_required=True,implementation_layer='mixed',usage_note='不是已核验道路、桥隧或法定通道；最终需依真实道路/铁路/水系/文保/无障碍条件重建。')]
+for fid,y,name in stitches:
+    g=LineString([(116.3405,y),(116.3545,y)]).intersection(site)
+    road_feats.append(feature(fid,'ROAD_CENTERLINE',g,'agent_design_proposal','low','design_proposal',name_zh=name,candidate_status='Class_C_concept_study_axis',evidence_status='Derived',drawing_status='Proposed',host_verification_required=True,usage_note='仅表示需要核验的东西向连接关系，不代表新建道路或工程 crossing。'))
+dumpj(OUT/'geometry/roads.geojson',fc('jingzhang_city_os_mobility_study_axes',road_feats))
+
+# Blue-green public realm: design proposal only.
+green_geoms=[]
+spine_green=buffer_m(backbone,55).intersection(site)
+green_geoms.append(('GREEN-001',spine_green,'京张记忆-慢行-树荫公共绿脊'))
+for idx,y in enumerate([39.9745,40.003],2):
+    g=buffer_m(LineString([(116.3405,y),(116.354,y)]),35).intersection(site)
+    green_geoms.append((f'GREEN-{idx:03d}',g,'蓝绿能力横向连接带'))
+green_feats=[feature(fid,'GREEN_SPACE',g,'agent_design_proposal','low','design_proposal',name_zh=name,land_use_code='1401',evidence_status='Derived',drawing_status='Proposed',usage_note='概念绿地/开放空间结构，需在真实现状绿地、水务和权属条件下复核。') for fid,g,name in green_geoms]
+dumpj(OUT/'geometry/green_space.geojson',fc('jingzhang_city_os_green_space',green_feats))
+
+# PCI nodes + landmarks; modest footprints from derived points.
+node_specs=[
+ ('PUBLIC-001',(116.3475,39.9885),'N3 Neighborhood Interface','AI原点社区学习接口','social_feedback_public_service'),
+ ('PUBLIC-002',(116.3475,40.0170),'N6 Test & Validation Node','众智园验证接口','technical_validation'),
+ ('PUBLIC-003',(116.3480,39.9469),'N4 Market & Service Node','大钟寺市场服务接口','market_service_validation'),
+ ('PUBLIC-004',(116.3472,39.9610),'N7 Memory & Archive Node','2026 城市学习档案','city_learning_memory'),
+ ('PUBLIC-005',(116.3440,39.9765),'N5 Blue-Green Capability Node','小月河蓝绿公共能力接口','blue_green_resilience'),
+ ('PUBLIC-006',(116.3470,39.9540),'N8 Railway Memory Ground','1909 铁路记忆地景','railway_memory'),
+ ('PUBLIC-007',(116.3480,40.0040),'N6 Future Open Test Station','未来开放试验站','future_reversible_test'),
+ ('PUBLIC-008',(116.3468,39.9675),'N7 Retired Capability Archive','退役能力档案','retirement_archive')]
+public_feats=[]
+for fid,xy,typ,zh,cap in node_specs:
+    g=buffer_m(Point(xy),45).intersection(site)
+    public_feats.append(feature(fid,'PUBLIC_SPACE',g,'agent_derived_from_existing_design_anchor','low','design_proposal',name_zh=zh,node_type=typ,main_capability=cap,evidence_status='Derived',drawing_status='Proposed',host_verification_required=True,non_ai_baseline=True,ambient_layer=True,consent_layer=True,human_override=True,failure_safe_mode=True,public_learning_record=True,usage_note='候选空间锚点/包络，不是已批准广场、建筑或权属范围。'))
+dumpj(OUT/'geometry/public_space.geojson',fc('jingzhang_public_capability_interfaces',public_feats))
+
+# Proposed small pavilion footprints only; no existing building claims.
+build_feats=[]
+for i,(fid,xy,_,zh,_) in enumerate(node_specs[:7],1):
+    p=Point(xy)
+    # 24m x 14m envelope in projected CRS
+    pp=shp_transform(tr.transform,p); x,y=pp.x,pp.y
+    rect=box(x-12,y-7,x+12,y+7)
+    g=shp_transform(tr_back.transform,rect).intersection(site)
+    build_feats.append(feature(f'BLDG-{i:03d}','BUILDING_FOOTPRINT',g,'agent_design_proposal','low','design_proposal',name_zh=zh+'可逆服务构筑物包络',building_type='adaptive_public_pavilion',evidence_status='Derived',drawing_status='Proposed',retain_renovate_demolish='not_applicable_to_existing_stock',usage_note='仅为可逆公共服务构筑物概念包络；不表示现状建筑、拆改留或建设许可。'))
+dumpj(OUT/'geometry/buildings.geojson',fc('jingzhang_city_os_proposed_pavilions',build_feats))
+
+# Constraints: only restate the repository provisional site constraint. Do not invent locked regulatory-control geometry.
+constraint_feats=[feature('CONSTRAINT-PROV-SITE','SITE_BOUNDARY',site,'agent_inferred_from_public_data','medium','provisional_constraint',scope_id='overall_design_area',name_zh='总体设计范围临时约束',name_en='Overall Design Area Provisional Constraint',official_boundary=False,boundary_precision='provisional_rough',source_id='DATA-SRC-PROVISIONAL-BOUNDARIES-20260605',usage_note='Repository provisional SITE_BOUNDARY restated only as a submission constraint. No new REGULATORY_CONTROL / heritage / road-redline geometry is invented.')]
+dumpj(OUT/'geometry/constraints.geojson',fc('jingzhang_city_os_constraints',constraint_feats))
+
+# Phasing by component-level reversibility, not blanket zones.
+phase_feats=[]
+phase_roles=[('permanent','P1_BASELINE','非AI公共空间与基础设施底线'),('adaptive','P2_INTERFACE','可更换接口/家具/标识'),('experimental','P3_BOUNDED_TEST','有时间/空间边界的可逆试验')]
+for idx,pf in enumerate(public_feats):
+    g=Polygon(pf['geometry']['coordinates'][0])
+    layer,phase,label=phase_roles[idx%3]
+    phase_feats.append(feature(f'PHASE-{idx+1:03d}','PHASE',g,'agent_design_proposal','low','design_proposal',implementation_layer=layer,delivery_phase=phase,name_zh=label,reversibility='high' if layer!='permanent' else 'low',stop_modify_continue_scale=True,usage_note='组件级实施与退出逻辑；不是承诺的政府建设时序。'))
+dumpj(OUT/'geometry/phasing.geojson',fc('jingzhang_city_os_component_phasing',phase_feats))
+
+# ---------- metrics ----------
+site_area=area_sqm(site)
+green_union=unary_union([g for _,g,_ in green_geoms]).intersection(site)
+public_union=unary_union([Polygon(f['geometry']['coordinates'][0]) for f in public_feats]).intersection(site)
+build_union=unary_union([Polygon(f['geometry']['coordinates'][0]) for f in build_feats])
+road_len=sum(length_m(LineString(f['geometry']['coordinates'])) for f in road_feats if f['geometry']['type']=='LineString')
+metrics={
+ 'site_area_sqm':dict(status='known',value=round(site_area,3),unit='sqm',source_files=['geometry/site_boundary.geojson'],formula='Area(SITE-001) in EPSG:4548',confidence='medium',assumptions=['A-BOUNDARY-001']),
+ 'land_use_area_sqm':dict(status='known',value=round(sum(area_sqm(Polygon(f['geometry']['coordinates'][0])) for f in land_feats),3),unit='sqm',source_files=['geometry/land_use.geojson'],formula='sum proposed LAND_USE polygon areas',confidence='low',assumptions=['A-DESIGN-GEOMETRY-001']),
