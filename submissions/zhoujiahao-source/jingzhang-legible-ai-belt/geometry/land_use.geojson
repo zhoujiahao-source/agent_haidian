@@ -8,7 +8,7 @@
       "properties": {
         "id": "LU-001",
         "layer": "LAND_USE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "land_use_code": "05",
@@ -53,7 +53,7 @@
       "properties": {
         "id": "LU-002",
         "layer": "LAND_USE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "land_use_code": "0702",
@@ -98,7 +98,7 @@
       "properties": {
         "id": "LU-003",
         "layer": "LAND_USE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "land_use_code": "0803",
@@ -143,7 +143,7 @@
       "properties": {
         "id": "LU-004",
         "layer": "LAND_USE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "land_use_code": "1401",
@@ -192,7 +192,7 @@
       "properties": {
         "id": "LU-005",
         "layer": "LAND_USE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "land_use_code": "0701",
@@ -237,7 +237,7 @@
       "properties": {
         "id": "LU-006",
         "layer": "LAND_USE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "land_use_code": "0702",
@@ -286,7 +286,7 @@
       "properties": {
         "id": "LU-007",
         "layer": "LAND_USE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "land_use_code": "0804",
@@ -335,7 +335,7 @@
       "properties": {
         "id": "LU-008",
         "layer": "LAND_USE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "land_use_code": "0802",
@@ -380,7 +380,7 @@
       "properties": {
         "id": "LU-009",
         "layer": "LAND_USE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "land_use_code": "0802",
@@ -425,7 +425,7 @@
       "properties": {
         "id": "LU-010",
         "layer": "LAND_USE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "land_use_code": "16",

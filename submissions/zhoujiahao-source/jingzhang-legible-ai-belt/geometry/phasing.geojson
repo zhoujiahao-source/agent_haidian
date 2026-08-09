@@ -8,7 +8,7 @@
       "properties": {
         "id": "PHASE-001",
         "layer": "PHASE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "implementation_layer": "permanent",
@@ -293,7 +293,7 @@
       "properties": {
         "id": "PHASE-002",
         "layer": "PHASE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "implementation_layer": "adaptive",
@@ -578,7 +578,7 @@
       "properties": {
         "id": "PHASE-003",
         "layer": "PHASE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "implementation_layer": "experimental",
@@ -863,7 +863,7 @@
       "properties": {
         "id": "PHASE-004",
         "layer": "PHASE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "implementation_layer": "permanent",
@@ -1148,7 +1148,7 @@
       "properties": {
         "id": "PHASE-005",
         "layer": "PHASE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "implementation_layer": "adaptive",
@@ -1433,7 +1433,7 @@
       "properties": {
         "id": "PHASE-006",
         "layer": "PHASE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "implementation_layer": "experimental",
@@ -1718,7 +1718,7 @@
       "properties": {
         "id": "PHASE-007",
         "layer": "PHASE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "implementation_layer": "permanent",
@@ -2003,7 +2003,7 @@
       "properties": {
         "id": "PHASE-008",
         "layer": "PHASE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "implementation_layer": "adaptive",

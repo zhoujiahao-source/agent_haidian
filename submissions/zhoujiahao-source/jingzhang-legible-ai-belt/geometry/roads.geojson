@@ -8,7 +8,7 @@
       "properties": {
         "id": "ROAD-001",
         "layer": "ROAD_CENTERLINE",
-        "source_type": "agent_reuse_design_from_existing_submission",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "Capability Backbone 城市能力交换骨干候选连续轴",
@@ -59,7 +59,7 @@
       "properties": {
         "id": "ROAD-002",
         "layer": "ROAD_CENTERLINE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "大钟寺市场服务横向联调轴",
@@ -89,7 +89,7 @@
       "properties": {
         "id": "ROAD-003",
         "layer": "ROAD_CENTERLINE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "城市学习档案横向联调轴",
@@ -119,7 +119,7 @@
       "properties": {
         "id": "ROAD-004",
         "layer": "ROAD_CENTERLINE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "小月河蓝绿能力横向联调轴",
@@ -149,7 +149,7 @@
       "properties": {
         "id": "ROAD-005",
         "layer": "ROAD_CENTERLINE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "AI原点社区横向联调轴",
@@ -179,7 +179,7 @@
       "properties": {
         "id": "ROAD-006",
         "layer": "ROAD_CENTERLINE",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "众智园验证横向联调轴",

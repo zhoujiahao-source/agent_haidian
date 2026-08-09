@@ -8,7 +8,7 @@
       "properties": {
         "id": "PUBLIC-001",
         "layer": "PUBLIC_SPACE",
-        "source_type": "agent_derived_from_existing_design_anchor",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "AI原点社区学习接口",
@@ -300,7 +300,7 @@
       "properties": {
         "id": "PUBLIC-002",
         "layer": "PUBLIC_SPACE",
-        "source_type": "agent_derived_from_existing_design_anchor",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "众智园验证接口",
@@ -592,7 +592,7 @@
       "properties": {
         "id": "PUBLIC-003",
         "layer": "PUBLIC_SPACE",
-        "source_type": "agent_derived_from_existing_design_anchor",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "大钟寺市场服务接口",
@@ -884,7 +884,7 @@
       "properties": {
         "id": "PUBLIC-004",
         "layer": "PUBLIC_SPACE",
-        "source_type": "agent_derived_from_existing_design_anchor",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "2026 城市学习档案",
@@ -1176,7 +1176,7 @@
       "properties": {
         "id": "PUBLIC-005",
         "layer": "PUBLIC_SPACE",
-        "source_type": "agent_derived_from_existing_design_anchor",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "小月河蓝绿公共能力接口",
@@ -1468,7 +1468,7 @@
       "properties": {
         "id": "PUBLIC-006",
         "layer": "PUBLIC_SPACE",
-        "source_type": "agent_derived_from_existing_design_anchor",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "1909 铁路记忆地景",
@@ -1760,7 +1760,7 @@
       "properties": {
         "id": "PUBLIC-007",
         "layer": "PUBLIC_SPACE",
-        "source_type": "agent_derived_from_existing_design_anchor",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "未来开放试验站",
@@ -2052,7 +2052,7 @@
       "properties": {
         "id": "PUBLIC-008",
         "layer": "PUBLIC_SPACE",
-        "source_type": "agent_derived_from_existing_design_anchor",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "退役能力档案",

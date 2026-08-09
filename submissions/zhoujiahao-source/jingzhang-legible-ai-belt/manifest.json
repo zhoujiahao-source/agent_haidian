@@ -12,7 +12,7 @@
     "agent_name": "ChatGPT (GPT-5.6 Sol)",
     "model": "GPT-5.6 Sol"
   },
-  "generated_at": "2026-08-09T11:10:39.182820Z",
+  "generated_at": "2026-08-09T11:19:19.663103Z",
   "files": [
     {
       "path": "manifest.json",
@@ -23,14 +23,14 @@
       "path": "proposal.md",
       "role": "narrative",
       "required": true,
-      "sha256": "e9d0db4e5e94c8ec834e623732922b3538a0fb6f0129e2821f126be4a3a6ddc3",
+      "sha256": "1175f9463f21221637ceeacf70abaa782872319b07a2e2053f0260da5a41fd8f",
       "language": "zh"
     },
     {
       "path": "proposal.en.md",
       "role": "narrative",
       "required": true,
-      "sha256": "046322da7a0a7cadca0f3024c2c906c94edd799d962cd5e3b786e46e50301aa1",
+      "sha256": "9e960cc7983b2d8c534e6cc55477d7c6b7a017be5313f80f5741d4c9c76781e5",
       "language": "en",
       "translation_of": "proposal.md"
     },
@@ -74,13 +74,13 @@
       "path": "standard_matrix.json",
       "role": "standard_matrix",
       "required": true,
-      "sha256": "87324e8659600482db16f16ef6223c093ed156f24bae604f909ca340bacaaca3"
+      "sha256": "3b665ed5eb37c833d751cd589e7ff13f8c64391c8617587a434030519358556a"
     },
     {
       "path": "design_depth_matrix.json",
       "role": "design_depth_matrix",
       "required": true,
-      "sha256": "e2a3ff201125964ce36a972586d003d31057d6b6eaf989b9c12aebc20f5890a0"
+      "sha256": "2d6285b33cb99ca256924bbb7b8f27926e549bae6cb550115ad0e32e26f4a58e"
     },
     {
       "path": "geometry/site_boundary.geojson",
@@ -98,31 +98,31 @@
       "path": "geometry/land_use.geojson",
       "role": "geometry",
       "required": true,
-      "sha256": "235900d11bd4276f9245e4cdb561d53de083b7a3e42e996718834b6018e9a382"
+      "sha256": "aefad496acc5d1e63bb8600ae6f6ab3e48d278273a2d37f72107b6c9a0584dd1"
     },
     {
       "path": "geometry/buildings.geojson",
       "role": "geometry",
       "required": true,
-      "sha256": "660d90b38f0513bfccdd664fe4e99a4cbe2197a43a4bba40f93b34d0e04eb1b8"
+      "sha256": "2610cee0b98777394c24da7168ea4e90e0ecd40e910c2fa058dca7c310395cb7"
     },
     {
       "path": "geometry/roads.geojson",
       "role": "geometry",
       "required": true,
-      "sha256": "7a6c4c9bd0b3490d23c5acf28e441a0bf577401498dd224ecac35fe39e5c2d97"
+      "sha256": "4d1f1357483bd54c4e76955e411e0a12c1a6f01f9878d5c818846a791cffe35f"
     },
     {
       "path": "geometry/green_space.geojson",
       "role": "geometry",
       "required": true,
-      "sha256": "4a2096e1cbee4715c5a3200d133510a3a525f395f743bbc907cc0c717b1f6734"
+      "sha256": "f995608e7060840b9615bd324b2f50461c9458797f17c0675ac41072f37b9855"
     },
     {
       "path": "geometry/public_space.geojson",
       "role": "geometry",
       "required": true,
-      "sha256": "1ec2d6b17fd23e557f0a94ed34f76ab8a6cfa5d05581af4be10b332858149088"
+      "sha256": "0813de907d66ca867b4f63d976ad8b74d158095052cc5e7170594dd717f0eed6"
     },
     {
       "path": "geometry/constraints.geojson",
@@ -134,7 +134,7 @@
       "path": "geometry/phasing.geojson",
       "role": "geometry",
       "required": true,
-      "sha256": "39d5dcff2ee541e6a20997a732399d425756ec71016b605310a0e05cda31a692"
+      "sha256": "036a6753008b2c7bb004c39475a66551f7439c55362d4a078bfa16b4f29795df"
     },
     {
       "path": "assets/figures/site-overview.png",
@@ -305,14 +305,14 @@
       "path": "report/proposal.html",
       "role": "rendered_proposal_html",
       "required": true,
-      "sha256": "4e05ef9b9b0958ee6d3ba9f00617670cf30e9f61e6c739290a0c0a0452f679b6",
+      "sha256": "6fa9064777a48361c7d60caba538a3600237a26a28ca5f3962097e5bc9c24e2b",
       "language": "zh"
     },
     {
       "path": "report/proposal.en.html",
       "role": "rendered_proposal_html",
       "required": true,
-      "sha256": "bcc5fbac4a767d5e10623246a17ab6208f8fba0e3e33fb1e905222198f841e4d",
+      "sha256": "6910097dd73acab860d46856a1424ec78e20d39b0324598ab04eb33235b798b2",
       "language": "en",
       "translation_of": "report/proposal.html"
     },
@@ -336,13 +336,41 @@
       "sha256": "717ad9768217ba54c6e228856192feaa7f9ca8df8f8889770b9691cdbcb1d28b",
       "language": "en",
       "translation_of": "visual/index.html"
+    },
+    {
+      "path": "assets/figures/regional-capability-network.png",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "zh",
+      "sha256": "2ce56028908e2fd8f00ce091b3d4b6a758911f876fdb40fd268fb9ff5d32087f"
+    },
+    {
+      "path": "assets/figures/regional-capability-network.en.png",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "en",
+      "translation_of": "assets/figures/regional-capability-network.png",
+      "sha256": "a3cb004c2d2c0af84eb5a81d23b17238639aad7f24551798d504b5b9b11b7470"
+    },
+    {
+      "path": "assets/figures/spatial-sections.png",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "zh",
+      "sha256": "dcd76bc18c6b5dcfbc3969f782aa1b962f1b84b2621c76feebfac2cac0565b16"
+    },
+    {
+      "path": "assets/figures/spatial-sections.en.png",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "en",
+      "translation_of": "assets/figures/spatial-sections.png",
+      "sha256": "4f0301aa28672a299db42a14f9a01df844ca6955a7fcb5587a68c7a4188e1b43"
     }
   ],
   "validation_claim": {
     "self_checked": true,
-    "known_blockers": [
-      "Live OSM/Microsoft basemap materialization could not run in the current no-network execution container; candidate sources remain unpromoted and explicit."
-    ],
+    "known_blockers": [],
     "data_confidence": "medium"
   }
 }

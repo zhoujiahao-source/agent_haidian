@@ -8,16 +8,17 @@
       "properties": {
         "id": "BLDG-001",
         "layer": "BUILDING_FOOTPRINT",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "AI原点社区学习接口可逆服务构筑物包络",
-        "building_type": "adaptive_public_pavilion",
+        "building_type": "community_service",
         "evidence_status": "Derived",
         "drawing_status": "Proposed",
         "retain_renovate_demolish": "not_applicable_to_existing_stock",
         "usage_note": "仅为可逆公共服务构筑物概念包络；不表示现状建筑、拆改留或建设许可。",
-        "area_sqm_declared": 336.0
+        "area_sqm_declared": 336.0,
+        "prototype_type": "adaptive_public_pavilion"
       },
       "geometry": {
         "type": "Polygon",
@@ -53,16 +54,17 @@
       "properties": {
         "id": "BLDG-002",
         "layer": "BUILDING_FOOTPRINT",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "众智园验证接口可逆服务构筑物包络",
-        "building_type": "adaptive_public_pavilion",
+        "building_type": "community_service",
         "evidence_status": "Derived",
         "drawing_status": "Proposed",
         "retain_renovate_demolish": "not_applicable_to_existing_stock",
         "usage_note": "仅为可逆公共服务构筑物概念包络；不表示现状建筑、拆改留或建设许可。",
-        "area_sqm_declared": 336.0
+        "area_sqm_declared": 336.0,
+        "prototype_type": "adaptive_public_pavilion"
       },
       "geometry": {
         "type": "Polygon",
@@ -98,16 +100,17 @@
       "properties": {
         "id": "BLDG-003",
         "layer": "BUILDING_FOOTPRINT",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "大钟寺市场服务接口可逆服务构筑物包络",
-        "building_type": "adaptive_public_pavilion",
+        "building_type": "community_service",
         "evidence_status": "Derived",
         "drawing_status": "Proposed",
         "retain_renovate_demolish": "not_applicable_to_existing_stock",
         "usage_note": "仅为可逆公共服务构筑物概念包络；不表示现状建筑、拆改留或建设许可。",
-        "area_sqm_declared": 336.0
+        "area_sqm_declared": 336.0,
+        "prototype_type": "adaptive_public_pavilion"
       },
       "geometry": {
         "type": "Polygon",
@@ -143,16 +146,17 @@
       "properties": {
         "id": "BLDG-004",
         "layer": "BUILDING_FOOTPRINT",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "2026 城市学习档案可逆服务构筑物包络",
-        "building_type": "adaptive_public_pavilion",
+        "building_type": "community_service",
         "evidence_status": "Derived",
         "drawing_status": "Proposed",
         "retain_renovate_demolish": "not_applicable_to_existing_stock",
         "usage_note": "仅为可逆公共服务构筑物概念包络；不表示现状建筑、拆改留或建设许可。",
-        "area_sqm_declared": 336.0
+        "area_sqm_declared": 336.0,
+        "prototype_type": "adaptive_public_pavilion"
       },
       "geometry": {
         "type": "Polygon",
@@ -188,16 +192,17 @@
       "properties": {
         "id": "BLDG-005",
         "layer": "BUILDING_FOOTPRINT",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "小月河蓝绿公共能力接口可逆服务构筑物包络",
-        "building_type": "adaptive_public_pavilion",
+        "building_type": "community_service",
         "evidence_status": "Derived",
         "drawing_status": "Proposed",
         "retain_renovate_demolish": "not_applicable_to_existing_stock",
         "usage_note": "仅为可逆公共服务构筑物概念包络；不表示现状建筑、拆改留或建设许可。",
-        "area_sqm_declared": 336.0
+        "area_sqm_declared": 336.0,
+        "prototype_type": "adaptive_public_pavilion"
       },
       "geometry": {
         "type": "Polygon",
@@ -233,16 +238,17 @@
       "properties": {
         "id": "BLDG-006",
         "layer": "BUILDING_FOOTPRINT",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "1909 铁路记忆地景可逆服务构筑物包络",
-        "building_type": "adaptive_public_pavilion",
+        "building_type": "community_service",
         "evidence_status": "Derived",
         "drawing_status": "Proposed",
         "retain_renovate_demolish": "not_applicable_to_existing_stock",
         "usage_note": "仅为可逆公共服务构筑物概念包络；不表示现状建筑、拆改留或建设许可。",
-        "area_sqm_declared": 336.0
+        "area_sqm_declared": 336.0,
+        "prototype_type": "adaptive_public_pavilion"
       },
       "geometry": {
         "type": "Polygon",
@@ -278,16 +284,17 @@
       "properties": {
         "id": "BLDG-007",
         "layer": "BUILDING_FOOTPRINT",
-        "source_type": "agent_design_proposal",
+        "source_type": "agent_generated_design",
         "confidence": "low",
         "geometry_role": "design_proposal",
         "name_zh": "未来开放试验站可逆服务构筑物包络",
-        "building_type": "adaptive_public_pavilion",
+        "building_type": "community_service",
         "evidence_status": "Derived",
         "drawing_status": "Proposed",
         "retain_renovate_demolish": "not_applicable_to_existing_stock",
         "usage_note": "仅为可逆公共服务构筑物概念包络；不表示现状建筑、拆改留或建设许可。",
-        "area_sqm_declared": 336.0
+        "area_sqm_declared": 336.0,
+        "prototype_type": "adaptive_public_pavilion"
       },
       "geometry": {
         "type": "Polygon",
