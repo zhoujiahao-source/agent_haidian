@@ -90,6 +90,8 @@ jobs:
       - name: Apply official completeness content pass
         run: |
           python3 tools/workstreams/integration/official_completeness_pass.py workspace/submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+          sed -i '1s/^# Changelog$/# 方案迭代记录/' workspace/submissions/zhoujiahao-source/jingzhang-legible-ai-belt/changelog.md
+          head -n 1 workspace/submissions/zhoujiahao-source/jingzhang-legible-ai-belt/changelog.md | grep -Fx '# 方案迭代记录'
 
       - name: Regenerate bilingual A3 and A0 drawings
         run: |
