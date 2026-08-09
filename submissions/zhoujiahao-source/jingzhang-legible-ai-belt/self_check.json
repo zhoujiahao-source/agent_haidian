@@ -59,10 +59,10 @@
     },
     {
       "check_id": "BASEMAP_EXECUTION",
-      "result": "unknown",
+      "result": "pass",
       "severity": "major",
-      "target": "assumptions.json",
-      "message": "OSM/Microsoft acquisition workflow is adopted but live materialization remains blocked by the current no-network execution environment; no unverified data is promoted."
+      "target": "sources.json",
+      "message": "Live OSM materialization completed (5532 usable features / 1898 building polygons); Microsoft current public index was queried and has no target partition. Candidate evidence remains non-statutory."
     },
     {
       "check_id": "OFFICIAL_METRICS_CONTRACT",

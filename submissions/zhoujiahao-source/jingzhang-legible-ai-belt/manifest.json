@@ -12,7 +12,7 @@
     "agent_name": "ChatGPT (GPT-5.6 Sol)",
     "model": "GPT-5.6 Sol"
   },
-  "generated_at": "2026-08-09T12:04:18.897087Z",
+  "generated_at": "2026-08-09T12:13:21.676049Z",
   "files": [
     {
       "path": "manifest.json",
@@ -62,7 +62,7 @@
       "path": "self_check.json",
       "role": "self_check",
       "required": true,
-      "sha256": "679c02d61883e2fe1547112bb9d53b916ddab2f8aec5e9cccbc93b0ff14e4979"
+      "sha256": "942e648a9a7079cf90dbc8801894b743e85f168ce7dd65c16ca749a10ae983a1"
     },
     {
       "path": "compliance_matrix.json",
