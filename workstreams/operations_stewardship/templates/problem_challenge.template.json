@@ -1,0 +1,60 @@
+{
+  "schema_version": "0.1.0",
+  "template_status": "proposed_integration_aid_not_upstream_schema",
+  "record_type": "problem_challenge",
+  "challenge_id": "PROBLEM-YYYY-NNN",
+  "status": "draft",
+  "problem_statement": "",
+  "affected_groups": [],
+  "place_context": {
+    "scope_type": "non_statutory_concept",
+    "refs": [],
+    "geometry_status": "unknown"
+  },
+  "baseline": {
+    "status": "unknown",
+    "evidence_refs": [],
+    "reason": ""
+  },
+  "public_value_objective": "",
+  "non_ai_alternatives": [],
+  "candidate_capabilities": [],
+  "data_required": [],
+  "risk_notes": [],
+  "predeclared_risk_ceiling": [],
+  "trial_design": {
+    "reversible": true,
+    "duration_status": "unknown",
+    "bounded_population_or_area": "unknown",
+    "human_override": true,
+    "public_notice_required": true,
+    "observer_or_affected_group_role": []
+  },
+  "success_metrics": [],
+  "common_safeguard_floors": {
+    "safety": "unknown",
+    "privacy_data": "unknown",
+    "fairness_distribution": "unknown",
+    "accessibility_human_alternative": "unknown",
+    "environment_energy": "unknown",
+    "cost_maintainability": "unknown",
+    "human_override_contestability": "unknown"
+  },
+  "rollback_or_stop_conditions": [],
+  "maintenance_owner_status": "unknown",
+  "sunset_triggers": [],
+  "decision": {
+    "state": "undecided",
+    "allowed_states": [
+      "STOP",
+      "MODIFY",
+      "CONTINUE",
+      "SCALE"
+    ],
+    "reason": "",
+    "evidence_refs": []
+  },
+  "source_refs": [],
+  "assumptions": [],
+  "unknowns": []
+}

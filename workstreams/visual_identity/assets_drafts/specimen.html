@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jing-Zhang Visual Identity Specimen</title>
+<link rel="stylesheet" href="design_tokens.css">
+<style>
+  html,body{margin:0;background:var(--paper-050);color:var(--ink-900);}
+  body{font-family:var(--font-zh);padding:32px;}
+  main{max-width:1180px;margin:auto;display:grid;gap:24px;}
+  section{background:#fff;border:1px solid var(--paper-200);padding:24px;}
+  h1,h2,p{margin-top:0}
+  h1{font-size:34px;line-height:1.15;margin-bottom:8px}
+  h2{font-size:22px;margin-bottom:16px}
+  .eyebrow{font:700 12px/1.4 var(--font-en);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-500)}
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+  .logo{grid-column:span 4;display:flex;align-items:center;gap:18px;border:1px solid var(--paper-200);padding:18px;min-height:120px}
+  .logo img{width:72px;height:72px}.logo.micro img{width:24px;height:24px;image-rendering:auto}
+  .chips{display:flex;flex-wrap:wrap;gap:10px}.chip{padding:10px 12px;min-width:130px;background:#fff}
+  .map-wrap{display:grid;grid-template-columns:2fr 1fr;gap:18px}
+  .note{border-left:4px solid var(--civic-blue);padding:10px 12px;background:var(--paper-050)}
+  .version{display:flex;gap:18px;align-items:flex-start}.version strong{font:800 28px/1 var(--font-en)}
+  .small{font-size:13px;color:var(--ink-500)}
+  @media(max-width:800px){body{padding:12px}.logo{grid-column:span 12}.map-wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+  <section>
+    <div class="eyebrow">WINDOW 5 · PUBLIC SERVICE AESTHETIC</div>
+    <h1>Open Node / 开放节点</h1>
+    <p>视觉系统把“铁路双轨—站点—道岔—里程标”转译为能力流、公共接口、风险授权与年度城市版本，而不是复古铁路或赛博朋克 AI 图像。</p>
+    <div class="grid">
+      <div class="logo"><img src="open-node-family-a.svg" alt="Open Node Family A"><div><b>Primary / 主标</b><br><span class="small">Family A · Open Ring Switch<br>≥32 px / ≥4 mm</span></div></div>
+      <div class="logo micro"><img src="open-node-family-a-micro.svg" alt="Open Node micro"><div><b>Micro / 小尺寸</b><br><span class="small">≤24 px；去除对角 switch，增加线重</span></div></div>
+      <div class="logo"><img src="open-node-family-c.svg" alt="Version device"><div><b>Version device</b><br><span class="small">Family C · milepost / archive secondary</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">FOUR INDEPENDENT SEMANTICS</div>
+    <h2>状态不是一套红黄绿</h2>
+    <div class="chips">
+      <span class="chip evidence-official"><b>O · OFFICIAL</b><br><small>官方来源</small></span>
+      <span class="chip evidence-verified"><b>V · VERIFIED</b><br><small>交叉核验</small></span>
+      <span class="chip evidence-derived"><b>D · DERIVED</b><br><small>推导/计算</small></span>
+      <span class="chip evidence-assumed"><b>A · ASSUMED</b><br><small>设计假设</small></span>
+      <span class="chip evidence-unknown"><b>? · UNKNOWN</b><br><small>未知</small></span>
+    </div>
+    <br>
+    <div class="chips">
+      <span class="chip exp-test"><b>TEST</b></span><span class="chip exp-stop"><b>STOP</b></span><span class="chip exp-modify"><b>MODIFY</b></span><span class="chip exp-continue"><b>CONTINUE</b></span><span class="chip exp-scale"><b>SCALE</b></span>
+    </div>
+    <p class="small" style="margin-top:14px">证据、图纸、实验结论、风险等级必须同时带文字/代码/线型或形状；颜色只作辅助。</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">MAP LANGUAGE</div><h2>Known / Estimated / Proposed / Unknown</h2>
+    <div class="map-wrap">
+      <svg viewBox="0 0 760 310" role="img" aria-label="Example map grammar">
+        <rect width="760" height="310" fill="#F5F7F8"/>
+        <path d="M40 245 C180 210 250 230 340 180 S540 90 720 130" fill="none" stroke="#DCE2E6" stroke-width="34"/>
+        <path d="M60 80H700" class="provisional-constraint"/>
+        <text x="64" y="68" font-family="Arial,sans-serif" font-size="13" fill="#52616F">PROVISIONAL CONSTRAINT — NOT OFFICIAL REDLINE</text>
+        <path d="M100 238 C240 185 360 225 470 150 S610 105 680 118" class="capability-backbone"/>
+        <circle cx="235" cy="198" r="13" fill="#fff" stroke="#17212B" stroke-width="4"/>
+        <circle cx="470" cy="150" r="13" fill="#fff" stroke="#17212B" stroke-width="4" stroke-dasharray="5 4"/>
+        <path d="M610 108h34" stroke="#2463A6" stroke-width="7"/><path d="M640 101l13 7-13 7z" fill="#2463A6"/>
+        <text x="210" y="226" font-size="14" font-family="Arial,sans-serif">K · KNOWN</text><text x="445" y="178" font-size="14" font-family="Arial,sans-serif">E · ESTIMATED</text><text x="590" y="92" font-size="14" font-family="Arial,sans-serif">P · PROPOSED</text>
+      </svg>
+      <div><div class="note"><b>规则</b><br>现状/锁定信息保持稳定；设计提议清楚但不冒充 official；Unknown 必须可见。</div><p class="small" style="margin-top:14px">Capability Backbone 使用更高层级线宽，但不覆盖现状约束与证据标签。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">ANNUAL CITY VERSION RELEASE</div><h2>版本号是公共问责标签，不是软件噱头</h2>
+    <div class="version version-milepost"><strong>JING-ZHANG CITY v2027</strong><div><b>V27·014</b><br><span class="small">Capability change: MODIFY → CONTINUE<br>Evidence: D / Derived · Risk: R2<br>Release note + archive link required</span></div></div>
+  </section>
+
+  <section>
+    <div class="eyebrow">COMPLETE LEGEND</div><h2>完整语义图例</h2>
+    <img src="state-legend.svg" alt="Complete semantic legend" style="width:100%;height:auto;border:1px solid var(--paper-200)">
+    <p class="small">该图例在灰度转换后仍以双边框、实线/虚线/点线、纹理、箭头、盾牌/三角形和文字保持差异。</p>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/jingzhang/ai-governance/eligible_issue.schema.json",
+  "title": "Eligible Issue Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "issue_id",
+    "intake_track",
+    "title",
+    "public_problem_statement",
+    "evidence_refs",
+    "deduplication_key",
+    "affected_population_or_space",
+    "baseline_status",
+    "human_owner",
+    "risk_pre_screen",
+    "eligibility_decision",
+    "decision_rationale"
+  ],
+  "properties": {
+    "issue_id": {"type": "string", "minLength": 1},
+    "intake_track": {"type": "string", "enum": ["problem_track", "capability_track"]},
+    "title": {"type": "string", "minLength": 1},
+    "public_problem_statement": {"type": "string", "minLength": 1},
+    "evidence_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "deduplication_key": {"type": "string", "minLength": 1},
+    "affected_population_or_space": {"type": "string", "minLength": 1},
+    "baseline_status": {"type": "string", "enum": ["known", "unknown"]},
+    "baseline_ref": {"type": ["string", "null"]},
+    "human_owner": {"type": "string", "minLength": 1},
+    "risk_pre_screen": {"type": "string", "enum": ["low", "medium", "high", "not_eligible"]},
+    "eligibility_decision": {"type": "string", "enum": ["accepted", "rejected", "needs_more_evidence"]},
+    "decision_rationale": {"type": "string", "minLength": 1},
+    "accepted_at": {"type": ["string", "null"], "format": "date-time"},
+    "rejection_reason_code": {"type": ["string", "null"]},
+    "provenance_refs": {"type": "array", "items": {"type": "string"}},
+    "personal_data_required": {"type": "boolean", "default": false}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"eligibility_decision": {"const": "accepted"}}},
+      "then": {"required": ["accepted_at"]}
+    }
+  ]
+}

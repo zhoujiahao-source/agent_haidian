@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.1.0",
+  "workstream": "visual_identity",
+  "status": "integration_candidate_assets",
+  "authoring_scope": "workstreams/visual_identity only; not canonical submission",
+  "assets": [
+    {"path": "open-node-family-a.svg", "role": "primary logo source", "format": "svg", "status": "candidate", "min_use": "32px digital / 4mm print proxy-tested"},
+    {"path": "open-node-family-a-micro.svg", "role": "small-size logo source", "format": "svg", "status": "candidate", "min_use": "16px digital"},
+    {"path": "open-node-family-a-micro-16.png", "role": "raster micro export", "format": "png", "width_px": 16, "height_px": 16, "status": "qa_export"},
+    {"path": "open-node-family-a-micro-24.png", "role": "raster micro export", "format": "png", "width_px": 24, "height_px": 24, "status": "qa_export"},
+    {"path": "open-node-family-a-primary-48.png", "role": "4mm-at-300dpi proxy export", "format": "png", "width_px": 48, "height_px": 48, "status": "qa_export"},
+    {"path": "open-node-family-a-primary-256.png", "role": "raster primary export", "format": "png", "width_px": 256, "height_px": 256, "status": "qa_export"},
+    {"path": "open-node-family-a-mono-256.png", "role": "single-ink proof export", "format": "png", "width_px": 256, "height_px": 256, "status": "qa_export"},
+    {"path": "open-node-optical-proof-grayscale.png", "role": "grayscale optical QA sheet", "format": "png", "status": "qa_evidence"},
+    {"path": "state-legend.svg", "role": "complete four-system semantic legend", "format": "svg", "status": "integration_candidate"},
+    {"path": "design_tokens.css", "role": "offline-safe reusable tokens and semantic classes", "format": "css", "status": "integration_candidate"},
+    {"path": "specimen.html", "role": "offline visual system specimen", "format": "html", "status": "integration_candidate"}
+  ],
+  "license_note": "Original workstream design drafts; preserve repository attribution/licensing requirements. No third-party brand artwork embedded.",
+  "external_dependencies": [],
+  "remote_resources": false
+}

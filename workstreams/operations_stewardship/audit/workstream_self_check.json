@@ -1,0 +1,141 @@
+{
+  "schema_version": "0.1.0",
+  "checks": [
+    {
+      "check_id": "ROLE_MISSION_COMPLETE",
+      "result": "pass",
+      "severity": "blocking",
+      "target": "workstreams/operations_stewardship",
+      "message": "Window 6 role mission, required outputs and completion-gate topics are covered."
+    },
+    {
+      "check_id": "MANDATORY_SOURCE_PREREAD",
+      "result": "pass",
+      "severity": "blocking",
+      "target": "latest upstream rule/source/schema/reference set",
+      "message": "Skill, design brief, taskbook, allowed design space, site sources, source registry, planning limits, standards/index/reference snapshots, schemas, review rubric, data workflow and current geometry status were inspected."
+    },
+    {
+      "check_id": "PUBLIC_ACCOUNTABILITY",
+      "result": "pass",
+      "severity": "blocking",
+      "target": "public_stewardship.md + role_responsibility_matrix.csv",
+      "message": "Final public accountability is not delegated to vendor/model/developer actors; real competent institution remains Unknown."
+    },
+    {
+      "check_id": "PROBLEM_TRACK_REQUIRED_FIELDS",
+      "result": "pass",
+      "severity": "blocking",
+      "target": "problem_track.md + templates/problem_challenge.template.json",
+      "message": "Problem statement, affected groups, baseline, public value, non-AI alternative, data, risk ceiling, pilot, metrics, rollback, maintenance and sunset are represented."
+    },
+    {
+      "check_id": "CAPABILITY_TRACK_REQUIRED_FIELDS",
+      "result": "pass",
+      "severity": "blocking",
+      "target": "capability_track.md + templates/capability_proposal.template.json",
+      "message": "Capability, target people, spatial/data/privacy/accessibility/interoperability/lock-in/maintenance/sunset/pilot/rollback/IP/public-value fields are represented."
+    },
+    {
+      "check_id": "COMMUNITY_RIGHTS_AND_PARTICIPATION",
+      "result": "pass",
+      "severity": "blocking",
+      "target": "community_rights.md + participation_model.md",
+      "message": "Participation includes notice, accessible/human alternatives, objection, review, observers, affected-group input and response-to-feedback; it is not reduced to a survey."
+    },
+    {
+      "check_id": "ANNUAL_OPERATION",
+      "result": "pass",
+      "severity": "blocking",
+      "target": "annual_calendar.md + annual_learning_assembly.md + city_version_release.md",
+      "message": "Continuous/quarterly rhythm, learning assembly and annual public version release are defined."
+    },
+    {
+      "check_id": "RETIREMENT_GOVERNANCE",
+      "result": "pass",
+      "severity": "blocking",
+      "target": "retired_capability_governance.md + templates/retired_capability_record.template.json",
+      "message": "Sunset-at-admission, continuity, shutdown, credentials/data/assets, registry tombstone, archive and post-retirement verification are covered."
+    },
+    {
+      "check_id": "FIVE_TEN_TWENTY_YEARS",
+      "result": "pass",
+      "severity": "major",
+      "target": "five_ten_twenty_years.md",
+      "message": "Technology-neutral 5/10/20-year evolution is defined without freezing the concept around 2026 vendors/models."
+    },
+    {
+      "check_id": "METRIC_ANTI_GAMING",
+      "result": "pass",
+      "severity": "major",
+      "target": "metrics_governance.md",
+      "message": "UAR is problem/public-value based, cohort-governed, constrained by safeguard floors and separated from Responsible STOP learning counts."
+    },
+    {
+      "check_id": "LEGAL_BOUNDARY",
+      "result": "pass",
+      "severity": "major",
+      "target": "public_governance_legal_boundary.md",
+      "message": "Current national-level legal/regulatory screening is separated from project governance concepts; no legal opinion or fake approval is asserted."
+    },
+    {
+      "check_id": "PROVISIONAL_GEOMETRY_DISCLOSURE",
+      "result": "pass",
+      "severity": "blocking",
+      "target": "audit + handoff + integration crosswalk",
+      "message": "No new official exact SITE_BOUNDARY/KEY_AREA was found; provisional geometry is not promoted to official redline/statutory control."
+    },
+    {
+      "check_id": "NO_FAKE_COMMITMENTS",
+      "result": "pass",
+      "severity": "blocking",
+      "target": "all Window 6 outputs",
+      "message": "Institution, budget, SLA, procurement, developer/vendor/university commitments and approvals remain Proposed/Unknown unless source-supported."
+    },
+    {
+      "check_id": "LEGACY_REUSE_AUDIT",
+      "result": "pass",
+      "severity": "major",
+      "target": "audit/legacy_submission_audit.md",
+      "message": "Historical concept assets are separated from current validation proof; old ready_for_review/self-check/manifest/PDF/figure states are not trusted as current proof."
+    },
+    {
+      "check_id": "JSON_TEMPLATE_SYNTAX",
+      "result": "pass",
+      "severity": "major",
+      "target": "templates/*.template.json",
+      "message": "Five intended template structures were independently parsed as valid JSON; repository directory readback confirms all five files exist."
+    },
+    {
+      "check_id": "UPSTREAM_CONFLICT_ISSUE",
+      "result": "unknown",
+      "severity": "info",
+      "target": "open-city-ai/haidian issue collaboration",
+      "message": "No duplicate issue was found for the provisional-geometry scoring wording conflict. Issue creation was attempted but GitHub returned 403 Resource not accessible by integration.",
+      "suggested_fix": "A contributor with upstream issue-write permission should file or otherwise resolve the documented wording conflict."
+    },
+    {
+      "check_id": "LOCAL_GIT_VALIDATOR",
+      "result": "unknown",
+      "severity": "info",
+      "target": "container sparse clone",
+      "message": "A blobless sparse clone was attempted but the container could not resolve github.com; connector readback was used instead.",
+      "suggested_fix": "Final Integration should run repository-native validation in a networked local workspace."
+    },
+    {
+      "check_id": "LEGACY_PDF_VISUAL_INSPECTION",
+      "result": "unknown",
+      "severity": "major",
+      "target": "historical drawings/a3-booklet.pdf + drawings/a0-boards.pdf",
+      "message": "Historical PDFs are anomalously small and page-image inspection could not be completed in the current connector environment.",
+      "suggested_fix": "Regenerate and visually inspect current A3/A0 PDFs during Final Integration."
+    },
+    {
+      "check_id": "CANONICAL_SUBMISSION_PREFLIGHT",
+      "result": "not_applicable",
+      "severity": "info",
+      "target": "submissions/<login>/<slug>",
+      "message": "Window 6 intentionally did not modify the canonical submission; formal render/finalize/self-check/participant_preflight belongs to Final Integration after all workstreams are merged."
+    }
+  ]
+}

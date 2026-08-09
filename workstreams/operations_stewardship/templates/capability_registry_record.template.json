@@ -1,0 +1,81 @@
+{
+  "schema_version": "0.1.0",
+  "template_status": "proposed_integration_aid_not_upstream_schema",
+  "record_type": "capability_registry_record",
+  "capability_id": "CAP-YYYY-NNN",
+  "name": "",
+  "current_state": "proposed",
+  "allowed_states": [
+    "proposed",
+    "sandbox",
+    "trial",
+    "active",
+    "modified",
+    "paused",
+    "retired"
+  ],
+  "version": "0.0.0",
+  "public_value_statement": "",
+  "problem_refs": [],
+  "affected_groups": [],
+  "spatial_refs": [],
+  "operator_accountability": {
+    "public_accountable_owner_status": "unknown",
+    "technical_operator_status": "unknown",
+    "maintainer_status": "unknown"
+  },
+  "provenance": {
+    "proposer": "unknown",
+    "source_refs": [],
+    "component_refs": [],
+    "license_status": "unknown"
+  },
+  "dependencies": {
+    "models": [],
+    "apis": [],
+    "datasets": [],
+    "devices": [],
+    "infrastructure": []
+  },
+  "interfaces": {
+    "api_or_service_contracts": [],
+    "data_formats": [],
+    "compatibility_notes": [],
+    "migration_path": []
+  },
+  "risk": {
+    "proposed_class": "unknown",
+    "risk_refs": [],
+    "human_override": true,
+    "public_notice": true,
+    "legal_screening_status": "unknown",
+    "security_screening_status": "unknown"
+  },
+  "authorization": {
+    "status": "unknown",
+    "authority_status": "unknown",
+    "evidence_refs": []
+  },
+  "evaluation": {
+    "metric_refs": [],
+    "baseline_refs": [],
+    "latest_evidence_refs": [],
+    "public_value_verification_status": "unknown"
+  },
+  "operations": {
+    "maintenance_plan_refs": [],
+    "incident_refs": [],
+    "objection_or_complaint_refs": [],
+    "accessibility_status": "unknown",
+    "human_or_non_ai_alternative_status": "unknown"
+  },
+  "version_history": [],
+  "sunset_triggers": [],
+  "retirement": {
+    "status": "not_started",
+    "retired_record_ref": null,
+    "tombstone_required": true
+  },
+  "assumptions": [],
+  "unknowns": []
+}

@@ -1,0 +1,16 @@
+target_id,area_role,target_name,address_or_extent_hint,source_ids,priority,questions_to_verify,required_capture,status
+FA-01,zhongzhiyuan,学知园站四象限及学清路/月泉路接口,学清路与月泉路交叉口,SRC-BJ-KW-THREE-WINGS-20260403,high,"出入口开放状态;无障碍路径;人行过街等待;骑行停放;站城界面;夜间照明","4方向照片;出入口清单;5分钟步行轨迹;障碍点",pending_field
+FA-02,zhongzhiyuan,学北园/众智园北部创新载体界面,学知园站周边至学北园,SRC-BJ-KW-THREE-WINGS-20260403;SRC-BJ-CITYUPDATE-ZZY-20260713,high,"园区入口;首层开放性;公共服务;施工围挡;步行连续;与京张/小月河连接","入口照片;首层用途;围挡;步行断点",pending_field
+FA-03,zhongzhiyuan,清河—小月河生态资源接口,众智园更新片区北/东侧,SRC-BJ-CITYUPDATE-ZZY-20260713,high,"滨水可达;防护栏/水安全;桥下空间;慢行连续;施工状态","连续照片;桥/入口点;安全设施",pending_field
+FA-04,ai_origin,京张铁路遗址公园清华园/五道口段,成府路—知春路一线,SRC-BJ-JZPARK-20211216;SRC-BJ-JZPARK-20240920,high,"公园连续性;东西穿越;遗产要素;日常活动;无障碍;夜间使用","每500m节点照片;穿越点;活动类型;无障碍障碍",pending_field
+FA-05,ai_origin,清华园站遗址/铁路记忆节点,成府路附近京张遗址公园,SRC-BJ-JZPARK-20211216,medium,"遗产说明系统;实体记忆;停留空间;公共可达;与现有博物展示关系","全景;铭牌;路径;停留行为",pending_field
+FA-06,ai_origin,AI原点社区人才服务流动站及周边公共服务接口,AI原点社区,SRC-BJ-AIORIGIN-TALENT-20260720,high,"真实地址;开放时间;17项服务可达性;线下替代;智能问答可用性;隐私告知","门头/导视;服务清单;无障碍;隐私提示",pending_field
+FA-07,ai_origin,知春路/京张线东西缝合典型断点,知春路与京张遗址公园附近,SRC-BJ-JZPARK-20211216,high,"过街距离;等候;桥下/铁路边界;骑行冲突;导视","过街视频计时;照片;障碍点",pending_field
+FA-08,dazhongsi,大钟寺站四象限,北三环西路/大钟寺站,SRC-REG-OFFICIAL-ANNOUNCEMENT;SRC-BJ-CITYUPDATE-DZS-20260713,critical,"四象限步行连通;地铁换乘;非机动车停放;无障碍;重点地块界面","四象限照片;步行计时;停车计数;障碍点",pending_field
+FA-09,dazhongsi,大钟寺南小街道路工程,大钟寺地区,SRC-BJ-DZS-ROAD-20260225,high,"已通车状态;人行/骑行设施;路口安全;与周边更新项目连通","起终点照片;断面;路口;高峰观察",pending_field
+FA-10,dazhongsi,转河—更新片区南缘公共空间,转河沿线,SRC-BJ-CITYUPDATE-DZS-20260713,medium,"滨水/绿地可达;老旧社区界面;商业/公共服务;连续性","入口;岸线;界面;活动记录",pending_field
+FA-11,zhongguancun_service_wing,科技服务机构样本与公共接入界面,中关村西侧科技服务资源集聚区域,SRC-BJ-ZGC-IP-PRECHECK-20251110;SRC-BJ-KW-THREE-WINGS-20260403,high,"机构是否位于候选翼;公众/企业服务门槛;开放时间;无障碍;线下服务","机构地址;入口;服务清单;预约规则",pending_field
+FA-12,xiaoyuehe_scene_wing,小月河祁家豁子闸起点段,祁家豁子闸附近,SRC-BJ-XIAOYUEHE-WORKS-20260121;SRC-BJ-XIAOYUEHE-WATER-20260112,high,"施工状态;滨水开放;水安全;慢行绕行;绿化完成度","施工标牌;连续照片;开放/封闭点",pending_field
+FA-13,xiaoyuehe_scene_wing,小月河学院路中段,学院路街道小月河沿线,SRC-BJ-XIAOYUEHE-WORKS-20260121,high,"校园/社区入口;步行骑行;照明;亲水距离;生态缓冲","入口点;断面;活动观察;安全设施",pending_field
+FA-14,xiaoyuehe_scene_wing,小月河清河入河口末端,清河入河口附近,SRC-BJ-XIAOYUEHE-WORKS-20260121,high,"汇水口工程;连续绿道;生态敏感;公共可达;场景测试可逆性","节点全景;岸线;设施;封闭范围",pending_field
+FA-15,corridor,京张遗址公园全线典型500m样段复核,清河—西直门方向选取代表样段,SRC-BJ-JZPARK-20240920,critical,"9km连续是否现实成立;已建/在建/未建分段;东西连接;服务设施;遗产可读性","GPS轨迹;每500m照片;分段状态;穿越表",pending_field

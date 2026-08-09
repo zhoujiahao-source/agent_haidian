@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1.0-candidate",
+  "generated_at": "2026-08-08",
+  "status": "candidate_only_not_project_registry",
+  "note": "Integration/maintainer review is required before any record is copied into repository data/source_registry.json. These records must not be treated as formal-ready merely because they appear here.",
+  "candidates": [
+    {
+      "source_id": "SRC-BJ-CITYUPDATE-ZZY-20260713",
+      "publisher": "北京市城市更新服务平台 / 北京市人民政府门户网站",
+      "title": "众智园AI自主创新加速区更新片区综合化城市更新组团市级重点项目谋划",
+      "url": "https://www.beijing.gov.cn/fuwu/lqfw/ztzl/bjchshgx/xmgsh/202607/t20260714_4762585.html",
+      "published_date": "2026-07-13",
+      "review_recommendation": "background_or_verified_current_program",
+      "allowed_uses": ["current urban-renewal program context", "text extent for survey planning", "named anchor discovery"],
+      "prohibited_uses": ["competition KEY_AREA polygon", "official redline", "ownership", "statutory controls"]
+    },
+    {
+      "source_id": "SRC-BJ-CITYUPDATE-DZS-20260713",
+      "publisher": "北京市城市更新服务平台 / 北京市人民政府门户网站",
+      "title": "百年京张AI创新带-南部大钟寺AI产业集聚区更新片区",
+      "url": "https://www.beijing.gov.cn/fuwu/lqfw/ztzl/bjchshgx/xmgsh/202607/t20260714_4762615.html",
+      "published_date": "2026-07-13",
+      "review_recommendation": "background_or_verified_current_program",
+      "allowed_uses": ["current urban-renewal program context", "text extent for survey planning", "implementation-context evidence"],
+      "prohibited_uses": ["competition KEY_AREA polygon", "official redline", "parcel rights", "statutory controls"]
+    },
+    {
+      "source_id": "SRC-BJ-AIORIGIN-TALENT-20260720",
+      "publisher": "海淀区人力资源和社会保障局",
+      "title": "全市首家人才服务流动站落地海淀区AI原点社区",
+      "url": "https://zyk.bjhd.gov.cn/jbdt/auto4496_51791/auto4496_52699/auto4496/auto4496/202607/t20260722_4822818_hd.shtml",
+      "published_date": "2026-07-20",
+      "review_recommendation": "verified_current_public_service",
+      "allowed_uses": ["public-service interface evidence", "service-category evidence"],
+      "prohibited_uses": ["usage-rate claims", "catchment claims without survey"]
+    },
+    {
+      "source_id": "SRC-BJ-DZS-ROAD-20260225",
+      "publisher": "北京市海淀区推进世界领先科技园区建设办公室",
+      "title": "打通道路区域微循环——大钟寺南小街道路工程实现通车",
+      "url": "https://zyk.bjhd.gov.cn/jbdt/auto4512_51818/auto4512_54872/auto4512/auto4512/202602/t20260225_4806108.shtml",
+      "published_date": "2026-02-25",
+      "review_recommendation": "verified_current_mobility",
+      "allowed_uses": ["named road opening status", "micro-circulation evidence"],
+      "prohibited_uses": ["area-wide traffic-performance conclusion", "competition road redline"]
+    },
+    {
+      "source_id": "SRC-BJ-XIAOYUEHE-WATER-20260112",
+      "publisher": "海淀区水务局",
+      "title": "海淀区水务局今年将开展清河、小月河、永定河引水渠滨水空间建设",
+      "url": "https://zyk.bjhd.gov.cn/jbdt/auto4508_51796/auto4508_53101/auto4508/auto4508/202601/t20260112_4801412.shtml",
+      "published_date": "2026-01-12",
+      "review_recommendation": "verified_current_project",
+      "allowed_uses": ["waterfront construction program", "planned greening/path content"],
+      "prohibited_uses": ["completed as-built claim", "exact AI wing polygon"]
+    },
+    {
+      "source_id": "SRC-BJ-XIAOYUEHE-WORKS-20260121",
+      "publisher": "北京市公共资源交易服务平台",
+      "title": "小月河滨水空间建设工程区级配套工程项目（管线改移）施工招标公告",
+      "url": "https://ggzyfw.beijing.gov.cn/jyxxggjtbyqs/20260121/5412587.html",
+      "published_date": "2026-01-21",
+      "review_recommendation": "verified_current_engineering_scope",
+      "allowed_uses": ["named treatment segment", "construction-context evidence"],
+      "prohibited_uses": ["full Xiaoyuehe boundary", "AI wing polygon", "as-built completion"]
+    },
+    {
+      "source_id": "SRC-BJ-JZPARK-CATALOG-20250724",
+      "publisher": "北京市园林绿化局",
+      "title": "京张铁路遗址公园",
+      "url": "https://yllhj.beijing.gov.cn/ggfw/bjsggml/zhgy/hdq/202507/t20250724_4156668.shtml",
+      "published_date": "2025-07-24",
+      "review_recommendation": "verified_public_space_operations",
+      "allowed_uses": ["park category", "public opening/accessibility service information", "heritage/public-space description"],
+      "prohibited_uses": ["exact park GIS boundary", "2026 phase completion"]
+    },
+    {
+      "source_id": "SRC-BJ-JZPARK-EMERGENCY-C-20250327",
+      "publisher": "北京市应急管理局",
+      "title": "海淀区-京张铁路遗址公园（一期C段）",
+      "url": "https://yjglj.beijing.gov.cn/art/2025/3/27/art_8716_685886.html",
+      "published_date": "2025-03-27",
+      "review_recommendation": "verified_phase_attribute",
+      "allowed_uses": ["一期C段 public-address evidence", "11.83 ha emergency-shelter record context"],
+      "prohibited_uses": ["entire park area", "competition boundary"]
+    },
+    {
+      "source_id": "SRC-OSM-OVERPASS-LIVE",
+      "publisher": "OpenStreetMap contributors / OpenStreetMap Foundation ecosystem",
+      "title": "OpenStreetMap data retrieved through Overpass API",
+      "url": "https://www.openstreetmap.org/copyright",
+      "published_date": null,
+      "license": "ODbL-1.0",
+      "review_recommendation": "bootstrap_open_data",
+      "allowed_uses": ["candidate roads", "rail", "water", "green", "POI", "building cross-check with attribution"],
+      "prohibited_uses": ["official redline", "statutory control", "silent commercial-tile substitution"]
+    },
+    {
+      "source_id": "SRC-MS-GLOBAL-BUILDINGS-20260724",
+      "publisher": "Microsoft / Bing Maps",
+      "title": "Global ML Building Footprints",
+      "url": "https://github.com/microsoft/GlobalMLBuildingFootprints",
+      "published_date": "2026-07-24",
+      "license": "CDLA-Permissive-2.0",
+      "review_recommendation": "derived_building_candidate",
+      "allowed_uses": ["candidate building footprints", "independent cross-check of OSM/field footprints"],
+      "prohibited_uses": ["official building survey", "current height fact without validation", "statutory demolition/retention conclusion"]
+    }
+  ]
+}

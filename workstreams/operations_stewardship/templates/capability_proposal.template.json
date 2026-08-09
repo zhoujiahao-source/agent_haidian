@@ -1,0 +1,82 @@
+{
+  "schema_version": "0.1.0",
+  "template_status": "proposed_integration_aid_not_upstream_schema",
+  "record_type": "capability_proposal",
+  "proposal_id": "CAP-PROP-YYYY-NNN",
+  "status": "draft",
+  "capability_name": "",
+  "capability_summary": "",
+  "proposer_type": "unknown",
+  "target_people_or_public_value": [],
+  "problem_refs": [],
+  "spatial_dependence": {
+    "required": "unknown",
+    "place_refs": [],
+    "geometry_status": "unknown"
+  },
+  "data_requirements": [],
+  "privacy_and_data_risks": [],
+  "accessibility": {
+    "requirements": [],
+    "human_or_non_ai_alternative": "required_if_applicable",
+    "status": "unknown"
+  },
+  "interoperability": {
+    "interfaces": [],
+    "data_formats": [],
+    "migration_path": [],
+    "status": "unknown"
+  },
+  "vendor_lock_in_risks": [],
+  "maintenance": {
+    "maintainer_status": "unknown",
+    "lifecycle_support_plan": [],
+    "dependency_update_plan": [],
+    "failure_response_plan": []
+  },
+  "sunset": {
+    "triggers": [],
+    "retirement_plan_status": "unknown"
+  },
+  "pilot_plan": {
+    "reversible": true,
+    "scope_status": "unknown",
+    "duration_status": "unknown",
+    "risk_ceiling": [],
+    "human_override": true,
+    "public_notice": true
+  },
+  "rollback_conditions": [],
+  "ip_and_open_source": {
+    "license_status": "unknown",
+    "attribution_requirements": [],
+    "redistribution_limits": [],
+    "source_or_component_provenance": []
+  },
+  "expected_public_value": [],
+  "non_ai_comparator": [],
+  "legal_screening": {
+    "status": "not_run",
+    "possible_triggers": [],
+    "professional_review_required": true
+  },
+  "security_screening": {
+    "status": "not_run",
+    "professional_review_required": true
+  },
+  "evaluation_metrics": [],
+  "source_refs": [],
+  "assumptions": [],
+  "unknowns": [],
+  "admission_decision": {
+    "state": "undecided",
+    "allowed_states": [
+      "REJECT",
+      "NEEDS_EVIDENCE",
+      "SANDBOX",
+      "AUTHORIZED_TRIAL"
+    ],
+    "reason": "",
+    "evidence_refs": []
+  }
+}

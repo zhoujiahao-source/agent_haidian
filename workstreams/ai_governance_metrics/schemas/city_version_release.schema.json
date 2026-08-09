@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/jingzhang/ai-governance/city_version_release.schema.json",
+  "title": "Annual City Version Release",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "release_id",
+    "release_year",
+    "reporting_window",
+    "evidence_freeze_at",
+    "added",
+    "modified",
+    "scaled",
+    "stopped_or_retired",
+    "unresolved",
+    "metric_version_changes",
+    "public_note"
+  ],
+  "properties": {
+    "release_id": {"type": "string", "minLength": 1},
+    "release_year": {"type": "integer", "minimum": 2026},
+    "reporting_window": {
+      "type": "object",
+      "required": ["start", "end"],
+      "additionalProperties": false,
+      "properties": {
+        "start": {"type": "string", "format": "date"},
+        "end": {"type": "string", "format": "date"}
+      }
+    },
+    "evidence_freeze_at": {"type": "string", "format": "date-time"},
+    "added": {"type": "array", "items": {"type": "string"}},
+    "modified": {"type": "array", "items": {"type": "string"}},
+    "scaled": {"type": "array", "items": {"type": "string"}},
+    "stopped_or_retired": {"type": "array", "items": {"type": "string"}},
+    "unresolved": {"type": "array", "items": {"type": "string"}},
+    "metric_version_changes": {"type": "array", "items": {"type": "string"}},
+    "corrections_since_prior_release": {"type": "array", "items": {"type": "string"}},
+    "public_note": {"type": "string", "minLength": 1}
+  }
+}
