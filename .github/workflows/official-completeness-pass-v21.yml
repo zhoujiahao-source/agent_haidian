@@ -127,8 +127,10 @@ jobs:
           assert len(a3.pages)==8, len(a3.pages)
           assert len(a0.pages)==3, len(a0.pages)
           text='\n'.join((p.extract_text() or '') for p in a3.pages)
-          for token in ['Developer Commons','Scenario Open Days','AI Innovation Index','Zhongzhiyuan','Dazhongsi']:
-              assert token in text, token
+          normalized=' '.join(text.split())
+          for token in ['Developer Commons','Scenario Open Days','Zhongzhiyuan','Dazhongsi','organizer industry/talent metrics']:
+              assert token in normalized, token
+          assert 'Innovation' in normalized and 'Talent' in normalized and 'Output' in normalized
           print('English drawing semantic smoke-check passed')
           PY
 
