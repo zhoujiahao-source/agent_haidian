@@ -1,0 +1,287 @@
+{
+  "schema_version": "0.1.0",
+  "units": {
+    "length": "m",
+    "area": "sqm"
+  },
+  "metrics": {
+    "site_area_sqm": {
+      "status": "known",
+      "value": 11412825.386,
+      "unit": "sqm",
+      "source_files": ["geometry/site_boundary.geojson"],
+      "formula": "polygon_area(submitted_provisional_site_boundary in EPSG:4548)",
+      "confidence": "medium",
+      "assumptions": ["A-BOUNDARY-001"],
+      "note": "Derived from provisional rough geometry; not an official redline area."
+    },
+    "key_area_count": {
+      "status": "known",
+      "value": 3,
+      "unit": "count",
+      "source_files": ["geometry/key_areas.geojson", "proposal.md"],
+      "formula": "count(required competition key areas)",
+      "confidence": "high",
+      "assumptions": ["A-KEY-AREA-001"]
+    },
+    "key_area_reference_total_sqm": {
+      "status": "known",
+      "value": 3684000,
+      "unit": "sqm",
+      "source_files": ["sources.json", "proposal.md"],
+      "formula": "368.4 ha competition reference total * 10000",
+      "confidence": "high",
+      "assumptions": ["A-KEY-AREA-001"],
+      "note": "Official textual reference scale, deliberately separate from provisional submitted polygons."
+    },
+    "key_area_zhongzhiyuan_reference_sqm": {
+      "status": "known",
+      "value": 1921000,
+      "unit": "sqm",
+      "source_files": ["sources.json", "proposal.md"],
+      "formula": "192.1 ha competition reference * 10000",
+      "confidence": "high",
+      "assumptions": ["A-KEY-AREA-001"]
+    },
+    "key_area_ai_origin_reference_sqm": {
+      "status": "known",
+      "value": 1043000,
+      "unit": "sqm",
+      "source_files": ["sources.json", "proposal.md"],
+      "formula": "104.3 ha competition reference * 10000",
+      "confidence": "high",
+      "assumptions": ["A-KEY-AREA-001"]
+    },
+    "key_area_dazhongsi_reference_sqm": {
+      "status": "known",
+      "value": 720000,
+      "unit": "sqm",
+      "source_files": ["sources.json", "proposal.md"],
+      "formula": "72.0 ha competition reference * 10000",
+      "confidence": "high",
+      "assumptions": ["A-KEY-AREA-001"]
+    },
+    "building_footprint_area_sqm": {
+      "status": "known",
+      "value": 97492.376,
+      "unit": "sqm",
+      "source_files": ["geometry/buildings.geojson"],
+      "formula": "area(union(conceptual_program_envelopes) in EPSG:4548)",
+      "confidence": "low",
+      "assumptions": ["A-BUILDING-001"],
+      "note": "Conceptual program envelopes only; not existing building stock."
+    },
+    "building_density_ratio": {
+      "status": "known",
+      "value": 0.0085423524,
+      "unit": "ratio",
+      "source_files": ["geometry/buildings.geojson", "geometry/site_boundary.geojson"],
+      "formula": "conceptual_building_footprint_area_sqm / provisional_site_area_sqm",
+      "confidence": "low",
+      "assumptions": ["A-BUILDING-001", "A-BOUNDARY-001"],
+      "note": "Concept-design density of submitted envelopes; not statutory or existing building density."
+    },
+    "total_floor_area_sqm": {
+      "status": "unknown",
+      "value": null,
+      "unit": "sqm",
+      "source_files": ["geometry/buildings.geojson", "brief/site-package/ranges/planning_limits.json"],
+      "formula": "sum(building_footprint_area * verified_floor_count_or_height_conversion)",
+      "confidence": "unknown",
+      "assumptions": ["A-BUILDING-001", "A-CONTROLS-001"],
+      "reason": "Verified existing/proposed floor counts, heights and approved development capacity are unavailable."
+    },
+    "floor_area_ratio": {
+      "status": "unknown",
+      "value": null,
+      "unit": "ratio",
+      "source_files": ["brief/site-package/ranges/planning_limits.json", "geometry/site_boundary.geojson"],
+      "formula": "total_floor_area_sqm / official_site_area_sqm",
+      "confidence": "unknown",
+      "assumptions": ["A-CONTROLS-001", "A-BOUNDARY-001"],
+      "reason": "Approved FAR controls, verified total floor area and official site boundary are not present."
+    },
+    "green_ratio": {
+      "status": "known",
+      "value": 0.28101,
+      "unit": "ratio",
+      "source_files": ["geometry/green_space.geojson", "geometry/site_boundary.geojson"],
+      "formula": "union(conceptual_green_space)_area / provisional_site_area",
+      "confidence": "low",
+      "assumptions": ["A-BOUNDARY-001", "A-HERITAGE-001"],
+      "note": "Conceptual design-layer ratio; not statutory green ratio or verified current condition."
+    },
+    "public_space_ratio": {
+      "status": "known",
+      "value": 0.00384,
+      "unit": "ratio",
+      "source_files": ["geometry/public_space.geojson", "geometry/site_boundary.geojson"],
+      "formula": "union(conceptual_public_space_nodes)_area / provisional_site_area",
+      "confidence": "low",
+      "assumptions": ["A-BOUNDARY-001", "A-PUBLIC-001"],
+      "note": "Only current conceptual node polygons are counted; this is not total public-space supply."
+    },
+    "road_area_ratio": {
+      "status": "unknown",
+      "value": null,
+      "unit": "ratio",
+      "source_files": ["geometry/roads.geojson", "geometry/site_boundary.geojson"],
+      "formula": "verified_road_area_sqm / official_site_area_sqm",
+      "confidence": "unknown",
+      "assumptions": ["A-ROAD-001", "A-BOUNDARY-001"],
+      "reason": "Current submission expresses study connections as centerlines and lacks verified road-area/redline geometry."
+    },
+    "conceptual_mobility_network_length_m": {
+      "status": "known",
+      "value": 15355.339,
+      "unit": "m",
+      "source_files": ["geometry/roads.geojson"],
+      "formula": "sum(length(conceptual_mobility_and_study_lines in EPSG:4548))",
+      "confidence": "low",
+      "assumptions": ["A-ROAD-001"],
+      "note": "Design-study network length, not verified engineering mileage."
+    },
+    "phase_area_sqm": {
+      "status": "unknown",
+      "value": null,
+      "unit": "sqm",
+      "source_files": ["geometry/phasing.geojson"],
+      "formula": "area(verified implementation components by phase)",
+      "confidence": "unknown",
+      "assumptions": ["A-PUBLIC-001", "A-MUNICIPAL-001"],
+      "reason": "Legacy phase polygons are conceptual and the integrated City OS uses component-level Permanent/Adaptive/Experimental phasing pending verified hosts."
+    },
+    "scenario_card_count": {
+      "status": "known",
+      "value": 12,
+      "unit": "count",
+      "source_files": ["proposal.md"],
+      "formula": "count(numbered integrated scenario cards S01-S12)",
+      "confidence": "high",
+      "assumptions": []
+    },
+    "testing_scenario_count": {
+      "status": "known",
+      "value": 4,
+      "unit": "count",
+      "source_files": ["proposal.md"],
+      "formula": "count(scenarios S08-S11 explicitly marked testing_and_validation)",
+      "confidence": "high",
+      "assumptions": []
+    },
+    "persona_count": {
+      "status": "known",
+      "value": 8,
+      "unit": "count",
+      "source_files": ["proposal.md"],
+      "formula": "count(distinct integrated user personas)",
+      "confidence": "high",
+      "assumptions": []
+    },
+    "pilgrimage_landmark_count": {
+      "status": "known",
+      "value": 3,
+      "unit": "count",
+      "source_files": ["geometry/public_space.geojson", "proposal.md"],
+      "formula": "count(primary 1909, 2026 and Future Landmark-as-Memory nodes)",
+      "confidence": "medium",
+      "assumptions": ["A-PUBLIC-001"]
+    },
+    "retired_capability_archive_count": {
+      "status": "known",
+      "value": 1,
+      "unit": "count",
+      "source_files": ["proposal.md"],
+      "formula": "count(proposed Retired Capability Archive system)",
+      "confidence": "high",
+      "assumptions": ["A-GOVERNANCE-001", "A-INSTITUTION-001"]
+    },
+    "global_case_count": {
+      "status": "known",
+      "value": 6,
+      "unit": "count",
+      "source_files": ["proposal.md", "sources.json"],
+      "formula": "count(documented global reference cases)",
+      "confidence": "high",
+      "assumptions": []
+    },
+    "capability_backbone_layer_count": {
+      "status": "known",
+      "value": 6,
+      "unit": "count",
+      "source_files": ["proposal.md"],
+      "formula": "count(memory, access, public realm, blue-green, capability-node, operations layers)",
+      "confidence": "high",
+      "assumptions": []
+    },
+    "public_capability_node_type_count": {
+      "status": "known",
+      "value": 8,
+      "unit": "count",
+      "source_files": ["proposal.md"],
+      "formula": "count(Public Capability Interface node typologies)",
+      "confidence": "high",
+      "assumptions": []
+    },
+    "urban_adaptation_rate_90d": {
+      "status": "unknown",
+      "value": null,
+      "unit": "ratio",
+      "source_files": ["proposal.md"],
+      "formula": "verified_improved_problem_records_at_90d / evaluable_qualified_problem_records_at_90d",
+      "confidence": "unknown",
+      "assumptions": ["A-UAR-001"],
+      "reason": "No adopted live eligible-issue, experiment and public-value outcome registry exists yet."
+    },
+    "urban_adaptation_rate_365d": {
+      "status": "unknown",
+      "value": null,
+      "unit": "ratio",
+      "source_files": ["proposal.md"],
+      "formula": "verified_improved_problem_records_at_365d / evaluable_qualified_problem_records_at_365d",
+      "confidence": "unknown",
+      "assumptions": ["A-UAR-001"],
+      "reason": "No adopted live eligible-issue, experiment and durable public-value outcome registry exists yet."
+    },
+    "responsible_stop_rate": {
+      "status": "unknown",
+      "value": null,
+      "unit": "ratio",
+      "source_files": ["proposal.md"],
+      "formula": "responsible_stop_experiments / evaluable_experiments",
+      "confidence": "unknown",
+      "assumptions": ["A-UAR-001", "A-GOVERNANCE-001"],
+      "reason": "No live governed experiment registry exists; Responsible STOP is defined as a learning/safety outcome and does not inflate UAR."
+    },
+    "public_value_floor_pass_rate": {
+      "status": "unknown",
+      "value": null,
+      "unit": "ratio",
+      "source_files": ["proposal.md"],
+      "formula": "experiments_passing_all_common_public_value_floors / evaluated_experiments",
+      "confidence": "unknown",
+      "assumptions": ["A-UAR-001", "A-GOVERNANCE-001"],
+      "reason": "Safety/equity/privacy/environment/cost floor results require real experiment records."
+    },
+    "human_override_success_rate": {
+      "status": "unknown",
+      "value": null,
+      "unit": "ratio",
+      "source_files": ["proposal.md"],
+      "formula": "successful_required_human_or_non_ai_takeovers / required_takeover_events",
+      "confidence": "unknown",
+      "assumptions": ["A-GOVERNANCE-001", "A-NONAI-001"],
+      "reason": "No operational service or incident records exist yet."
+    },
+    "capability_transfer_revalidation_rate": {
+      "status": "unknown",
+      "value": null,
+      "unit": "ratio",
+      "source_files": ["proposal.md"],
+      "formula": "cross_unit_transfers_with_target_context_revalidation / attempted_cross_unit_transfers",
+      "confidence": "unknown",
+      "assumptions": ["A-GOVERNANCE-001", "A-INSTITUTION-001"],
+      "reason": "Capability Backbone transfer protocol is proposed; no live transfer registry exists."
+    }
+  }
+}

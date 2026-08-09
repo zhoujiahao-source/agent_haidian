@@ -1,0 +1,210 @@
+{
+  "schema_version": "0.1.0",
+  "sources": [
+    {
+      "id": "SITE-PACKAGE",
+      "path": "brief/site-package/",
+      "source_type": "official_public",
+      "usage": "Project brief, enums, allowed design space, ranges and schemas."
+    },
+    {
+      "id": "SOURCE-REGISTRY",
+      "path": "data/source_registry.json",
+      "source_type": "repository_public_registry",
+      "usage": "Source usability registry for formal/background/provisional materials."
+    },
+    {
+      "id": "PROCESSED-FACT-PACK",
+      "path": "data/processed/agent_fact_pack.md",
+      "source_type": "repository_processed_reference",
+      "usage": "Agent-readable navigation for scopes, tasks, source boundaries and missing data."
+    },
+    {
+      "id": "BOUNDARY-SOURCE",
+      "path": "brief/site-package/geometry/provisional_boundaries.geojson",
+      "source_type": "agent_inferred_from_public_data",
+      "usage": "Submitted overall design boundary geometry source; provisional constraint only.",
+      "limitation": "Not an official redline; all boundary-derived metrics must be recalculated when organizer official geometry becomes available."
+    },
+    {
+      "id": "KEY-AREA-SOURCE",
+      "path": "brief/site-package/geometry/provisional_boundaries.geojson",
+      "source_type": "agent_inferred_from_public_data",
+      "usage": "Three required key-area geometry sources; provisional constraint only.",
+      "limitation": "Not official KEY_AREA polygons or parcel boundaries."
+    },
+    {
+      "id": "OFFICIAL-ANNOUNCEMENT",
+      "url": "https://ghzrzyw.beijing.gov.cn/zhengwuxinxi/tzgg/hd/202605/t20260509_4643047.html",
+      "source_type": "official_public",
+      "retrieved_date": "2026-08-08",
+      "usage": "Official project announcement: scope, goals, key areas and design tasks.",
+      "limitation": "Supports textual scope and reference areas; not exact coordinate-bearing polygons or statutory controls."
+    },
+    {
+      "id": "AGENT-TASKBOOK",
+      "path": "brief/site-package/agent_taskbook.json",
+      "source_type": "user_provided_cleared",
+      "usage": "Agent open-call principles, six required tasks, scenario/branding/operation requirements and boundary clause."
+    },
+    {
+      "id": "JINGZHANG-THREE-AREAS-TWO-WINGS",
+      "url": "https://www.beijing.gov.cn/ywdt/gzdt/202604/t20260403_4049515.html",
+      "source_type": "official_public",
+      "retrieved_date": "2026-08-08",
+      "usage": "Background for the three-areas-two-wings development narrative and Jing-Zhang heritage park innovation link.",
+      "limitation": "The broader public industrial narrative must not be substituted for competition design polygons."
+    },
+    {
+      "id": "SRC-BJ-CITYUPDATE-ZZY-20260713",
+      "publisher": "北京市城市更新服务平台 / 北京市人民政府门户网站",
+      "title": "众智园AI自主创新加速区更新片区综合化城市更新组团市级重点项目谋划",
+      "url": "https://www.beijing.gov.cn/fuwu/lqfw/ztzl/bjchshgx/xmgsh/202607/t20260714_4762585.html",
+      "retrieved_date": "2026-08-08",
+      "source_type": "official_public_background",
+      "usage": "Current urban-renewal program context for Zhongzhiyuan, named-anchor discovery and survey planning.",
+      "limitation": "Not the competition KEY_AREA polygon, official redline, ownership record or statutory planning control."
+    },
+    {
+      "id": "SRC-BJ-CITYUPDATE-DZS-20260713",
+      "publisher": "北京市城市更新服务平台 / 北京市人民政府门户网站",
+      "title": "百年京张AI创新带-南部大钟寺AI产业集聚区更新片区",
+      "url": "https://www.beijing.gov.cn/fuwu/lqfw/ztzl/bjchshgx/xmgsh/202607/t20260714_4762615.html",
+      "retrieved_date": "2026-08-08",
+      "source_type": "official_public_background",
+      "usage": "Current Dazhongsi urban-renewal program and implementation-context evidence.",
+      "limitation": "Not the competition KEY_AREA polygon, parcel rights, statutory controls or construction commitment."
+    },
+    {
+      "id": "SRC-BJ-AIORIGIN-TALENT-20260720",
+      "publisher": "海淀区人力资源和社会保障局",
+      "title": "全市首家人才服务流动站落地海淀区AI原点社区",
+      "url": "https://zyk.bjhd.gov.cn/jbdt/auto4496_51791/auto4496_52699/auto4496/auto4496/202607/t20260722_4822818_hd.shtml",
+      "retrieved_date": "2026-08-08",
+      "source_type": "official_public_background",
+      "usage": "Current public-service interface evidence for AI Origin Community.",
+      "limitation": "Does not support usage-rate, catchment, population or exact competition-area claims."
+    },
+    {
+      "id": "SRC-BJ-DZS-ROAD-20260225",
+      "publisher": "北京市海淀区推进世界领先科技园区建设办公室",
+      "title": "打通道路区域微循环——大钟寺南小街道路工程实现通车",
+      "url": "https://zyk.bjhd.gov.cn/jbdt/auto4512_51818/auto4512_54872/auto4512/auto4512/202602/t20260225_4806108.shtml",
+      "retrieved_date": "2026-08-08",
+      "source_type": "official_public_background",
+      "usage": "Named road opening and micro-circulation context in Dazhongsi.",
+      "limitation": "Not an area-wide traffic-performance claim or competition road redline."
+    },
+    {
+      "id": "SRC-BJ-XIAOYUEHE-WATER-20260112",
+      "publisher": "海淀区水务局",
+      "title": "海淀区水务局今年将开展清河、小月河、永定河引水渠滨水空间建设",
+      "url": "https://zyk.bjhd.gov.cn/jbdt/auto4508_51796/auto4508_53101/auto4508/auto4508/202601/t20260112_4801412.shtml",
+      "retrieved_date": "2026-08-08",
+      "source_type": "official_public_background",
+      "usage": "Waterfront construction program, planned greening and path context for Xiaoyuehe.",
+      "limitation": "Not an as-built completion claim or exact AI scenario-wing polygon."
+    },
+    {
+      "id": "SRC-BJ-XIAOYUEHE-WORKS-20260121",
+      "publisher": "北京市公共资源交易服务平台",
+      "title": "小月河滨水空间建设工程区级配套工程项目（管线改移）施工招标公告",
+      "url": "https://ggzyfw.beijing.gov.cn/jyxxggjtbyqs/20260121/5412587.html",
+      "retrieved_date": "2026-08-08",
+      "source_type": "official_public_background",
+      "usage": "Construction and utility-relocation context for Xiaoyuehe scenario siting.",
+      "limitation": "Not the full Xiaoyuehe boundary, AI wing polygon or completion evidence."
+    },
+    {
+      "id": "SRC-BJ-JZPARK-CATALOG-20250724",
+      "publisher": "北京市园林绿化局",
+      "title": "京张铁路遗址公园",
+      "url": "https://yllhj.beijing.gov.cn/ggfw/bjsggml/zhgy/hdq/202507/t20250724_4156668.shtml",
+      "retrieved_date": "2026-08-08",
+      "source_type": "official_public_background",
+      "usage": "Public-space operation, accessibility and heritage/public-space description for Jing-Zhang Railway Heritage Park.",
+      "limitation": "Not exact park GIS geometry or a statement that all 2026 phases are fully as-built."
+    },
+    {
+      "id": "SRC-OSM-OVERPASS-LIVE",
+      "publisher": "OpenStreetMap contributors",
+      "title": "OpenStreetMap data retrieved through Overpass API",
+      "url": "https://www.openstreetmap.org/copyright",
+      "source_type": "open_data_candidate",
+      "license": "ODbL-1.0",
+      "usage": "Candidate roads, rail, water, green, POI and building cross-check with attribution.",
+      "limitation": "Bootstrap existing-condition evidence only; not official redlines, statutory controls or authoritative current survey."
+    },
+    {
+      "id": "SRC-MS-GLOBAL-BUILDINGS-20260724",
+      "publisher": "Microsoft / Bing Maps",
+      "title": "Global ML Building Footprints",
+      "url": "https://github.com/microsoft/GlobalMLBuildingFootprints",
+      "retrieved_date": "2026-08-08",
+      "source_type": "open_data_candidate",
+      "license": "CDLA-Permissive-2.0",
+      "usage": "Derived candidate building footprints for independent cross-check against OSM, imagery and field audit.",
+      "limitation": "Not an official building survey; does not establish current height, use, ownership or demolition/retention status."
+    },
+    {
+      "id": "GLOBAL-PUNGGOL",
+      "title": "Punggol Digital District",
+      "publisher": "JTC Singapore",
+      "url": "https://www.jtc.gov.sg/find-space/punggol-digital-district",
+      "retrieved_date": "2026-08-08",
+      "source_type": "official_public",
+      "usage": "Background case: district digital platform, living lab, academia-industry-community collaboration and real-world testbed.",
+      "limitation": "Transfer governance/testing mechanisms only; not a project-specific control or performance promise."
+    },
+    {
+      "id": "GLOBAL-SEOUL-INCLUSION",
+      "title": "Digital Inclusion",
+      "publisher": "Seoul Metropolitan Government",
+      "url": "https://english.seoul.go.kr/policy/smart-city/digital-inclusion/",
+      "retrieved_date": "2026-08-08",
+      "source_type": "official_public",
+      "usage": "Background case: neighborhood digital education, assisted access, senior support and AI tutor pilots.",
+      "limitation": "Program facts are not local service capacity commitments."
+    },
+    {
+      "id": "GLOBAL-ENABLING-VILLAGE",
+      "title": "Enabling Village / Accessibility & Assistive Technology",
+      "publisher": "SG Enable",
+      "url": "https://www.sgenable.sg/your-first-stop/community-integration",
+      "retrieved_date": "2026-08-08",
+      "source_type": "official_public",
+      "usage": "Background case: universal design, assistive technology, inclusive community services and social innovation.",
+      "limitation": "Adapt inclusion principles only; no institutional model is copied as a local mandate."
+    },
+    {
+      "id": "GLOBAL-WOVEN-CITY",
+      "title": "Toyota Woven City",
+      "publisher": "Woven by Toyota",
+      "url": "https://woven-city.global/",
+      "retrieved_date": "2026-08-08",
+      "source_type": "official_public",
+      "usage": "Background case: a real-world mobility test course for people, goods, information and energy.",
+      "limitation": "Corporate test-course model requires stronger public-interest, transparency and opt-out safeguards in public city space."
+    },
+    {
+      "id": "GLOBAL-DECIDIM",
+      "title": "Decidim Barcelona",
+      "publisher": "Barcelona City Council",
+      "url": "https://ajuntament.barcelona.cat/digital/en/digital-empowerment/democracy-and-digital-rights/decidim-barcelona",
+      "retrieved_date": "2026-08-08",
+      "source_type": "official_public",
+      "usage": "Background case: open-source, traceable public participation and proposal follow-up.",
+      "limitation": "Used as a governance-interface precedent, not evidence of AI performance."
+    },
+    {
+      "id": "GLOBAL-KALASATAMA",
+      "title": "Kalasatama urban district",
+      "publisher": "City of Helsinki",
+      "url": "https://www.hel.fi/en/urban-environment-and-traffic/urban-planning-and-construction/urban-development/kalasatama",
+      "retrieved_date": "2026-08-08",
+      "source_type": "official_public",
+      "usage": "Background case: mixed urban district, public transport accessibility and waterfront public-realm continuity.",
+      "limitation": "Used for urban-form and everyday-accessibility reference; not copied as a smart-city benchmark."
+    }
+  ]
+}

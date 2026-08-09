@@ -1,0 +1,40 @@
+{
+  "schema_version": "0.1.0",
+  "checks": [
+    {
+      "check_id": "BOUNDARY_TRUST",
+      "result": "pass",
+      "severity": "major",
+      "target": "geometry/site_boundary.geojson",
+      "message": "Provisional boundary is explicitly marked; replace with official redline before precision-dependent professional use."
+    },
+    {
+      "check_id": "KEY_AREAS_TRUST",
+      "result": "pass",
+      "severity": "major",
+      "target": "geometry/key_areas.geojson",
+      "message": "All three required key areas are explicitly provisional and non-statutory."
+    },
+    {
+      "check_id": "LAND_USE_TOPOLOGY",
+      "result": "pass",
+      "severity": "major",
+      "target": "geometry/land_use.geojson",
+      "message": "Land-use polygons are clipped from a shared vertical partition; union equals site boundary and overlaps are zero within numerical tolerance."
+    },
+    {
+      "check_id": "VISUAL_STATIC",
+      "result": "pass",
+      "severity": "info",
+      "target": "visual/index.html",
+      "message": "Static HTML uses local assets only; no remote scripts, fonts, map tiles, iframes, APIs, forms or tracking."
+    },
+    {
+      "check_id": "PROFESSIONAL_EVIDENCE",
+      "result": "pass",
+      "severity": "major",
+      "target": "proposal.md",
+      "message": "Proposal contains required human-readable sections, 12 scenario cards, 7 personas, 4 testing scenarios, 3 pilgrimage landmarks, implementation logic, evidence tags and explicit data gaps."
+    }
+  ]
+}
