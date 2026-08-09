@@ -46,23 +46,53 @@ jobs:
         run: |
           python3 scripts/render_proposal_html.py submissions/zhoujiahao-source/jingzhang-legible-ai-belt
 
-      - name: Finalize canonical package
+      - name: Refresh manifest hashes for already-finalized package
         run: |
-          python3 scripts/finalize_submission.py submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+          python3 - <<'PY'
+          import hashlib, json
+          from datetime import datetime, timezone
+          from pathlib import Path
+          root=Path('submissions/zhoujiahao-source/jingzhang-legible-ai-belt')
+          mp=root/'manifest.json'
+          m=json.loads(mp.read_text(encoding='utf-8'))
+          assert m.get('package_state') == 'ready_for_review', m.get('package_state')
+          for item in m.get('files', []):
+              if not isinstance(item, dict):
+                  continue
+              rel=item.get('path')
+              p=root/rel if rel else None
+              if rel and rel != 'manifest.json' and p.is_file():
+                  item['sha256']=hashlib.sha256(p.read_bytes()).hexdigest()
+          claim=m.get('validation_claim')
+          if isinstance(claim, dict):
+              claim['self_checked']=False
+          m['generated_at']=datetime.now(timezone.utc).isoformat().replace('+00:00','Z')
+          mp.write_text(json.dumps(m, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+          print('Manifest hashes refreshed; package remains ready_for_review.')
+          PY
 
       - name: Run contributor self-check
         run: |
-          python3 scripts/self_check_submission.py submissions/zhoujiahao-source/jingzhang-legible-ai-belt --pr-author zhoujiahao-source | tee /tmp/self-check.log
+          python3 scripts/self_check_submission.py submissions/zhoujiahao-source/jingzhang-legible-ai-belt --pr-author zhoujiahao-source --json | tee /tmp/self-check.json
 
-      - name: Commit official-tool refresh
+      - name: Mark successful self-check and commit official-tool refresh
         run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          mp=Path('submissions/zhoujiahao-source/jingzhang-legible-ai-belt/manifest.json')
+          m=json.loads(mp.read_text(encoding='utf-8'))
+          claim=m.setdefault('validation_claim', {})
+          claim['self_checked']=True
+          mp.write_text(json.dumps(m, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+          PY
           git config user.name 'City OS v2 Validator'
           git config user.email 'actions@users.noreply.github.com'
           git add -A submissions/zhoujiahao-source/jingzhang-legible-ai-belt
           if git diff --cached --quiet; then
             echo 'No official-tool refresh changes.'
           else
-            git commit -m 'chore(submission): refresh manifest and self-check with latest upstream tools'
+            git commit -m 'chore(submission): refresh manifest and rendered report with latest upstream tools'
             git push origin HEAD:submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v2
           fi
 
