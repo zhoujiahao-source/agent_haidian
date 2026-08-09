@@ -6,6 +6,7 @@ on:
       - integration/final-city-os-v2
     paths:
       - 'workstreams/evidence_basemap/run_live_crosscheck.py'
+      - 'workstreams/evidence_basemap/probe_ms_index.py'
       - '.github/workflows/live-basemap-crosscheck-v2.yml'
 
 permissions:
@@ -36,20 +37,24 @@ jobs:
       - name: Execute live retrieval and cross-check
         env:
           JZ_BASEMAP_OUT: workstreams/evidence_basemap/live_2026-08-09
-        run: python3 workstreams/evidence_basemap/run_live_crosscheck.py
+        run: |
+          python3 workstreams/evidence_basemap/run_live_crosscheck.py
+          python3 workstreams/evidence_basemap/probe_ms_index.py
 
       - name: Sanity check evidence outputs
         run: |
           python3 - <<'PY'
           import json
           from pathlib import Path
-          p=Path('workstreams/evidence_basemap/live_2026-08-09/crosscheck_summary.json')
-          d=json.loads(p.read_text())
+          root=Path('workstreams/evidence_basemap/live_2026-08-09')
+          d=json.loads((root/'crosscheck_summary.json').read_text())
+          p=json.loads((root/'ms_index_probe.json').read_text())
           assert d['status']=='live_executed'
           assert d['osm']['http_status']==200
-          assert Path('workstreams/evidence_basemap/live_2026-08-09/osm_buildings.geojson').is_file()
-          assert Path('workstreams/evidence_basemap/live_2026-08-09/microsoft_buildings.geojson').is_file()
-          print(json.dumps(d,ensure_ascii=False,indent=2))
+          assert p['http_status']==200
+          assert root.joinpath('osm_buildings.geojson').is_file()
+          assert root.joinpath('microsoft_buildings.geojson').is_file()
+          print(json.dumps({'crosscheck':d,'ms_index_probe':p},ensure_ascii=False,indent=2))
           PY
 
       - name: Commit live evidence snapshot
@@ -57,5 +62,5 @@ jobs:
           git config user.name 'City OS v2 Basemap Auditor'
           git config user.email 'actions@users.noreply.github.com'
           git add workstreams/evidence_basemap/live_2026-08-09
-          git commit -m 'data(v2): materialize live OSM Microsoft basemap cross-check'
+          git commit -m 'data(v2): verify live OSM and Microsoft partition evidence'
           git push origin HEAD:integration/final-city-os-v2
