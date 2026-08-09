@@ -36,6 +36,9 @@ iteration: "v2.0.0"
 
 六个全球案例用于机制转译而非形式复制：Punggol 的 living lab、Seoul 的数字包容、Enabling Village 的通用设计、Woven City 的真实测试、Decidim 的可追踪参与、Kalasatama 的日常混合城市。京张的差异不是“更智能”，而是把失败公开、人工替代、风险授权、能力迁移与退役同时写入城市设计。[source:GLOBAL-PUNGGOL] [source:GLOBAL-DECIDIM] [source:GLOBAL-KALASATAMA]
 
+
+区域协同不是“机构名单”，而是一套**能力交换接口**：京张可以与中关村、未来科学城、怀柔科学城、经开区及更广义京津冀高校/科研/产业网络交换经过验证的城市能力、测试协议、证据与人才服务，但每一次跨区迁移都必须重新做目标情境验证；本方案不声称任何外部机构已经签署合作或资源承诺。[source:AGENT-TASKBOOK]
+
 ## 总体设计范围城市更新与控规深度城市设计
 
 Capability Backbone 沿百年京张的连续公共空间关系组织，但所有 crossing 与连接先进入 evidence gate：真实道路/铁路/水系/文保/权属未核验时，只画“需要连接的关系”，不画成已确定桥隧或法定通道。[data:geometry/roads.geojson#ROAD-002] [assumption:A-ROAD-001]
@@ -81,6 +84,9 @@ ROAD-001 是连续性研究轴，ROAD-002~006 是东西向 stitch study axes。�
 实施不再用三块大 polygon 表示“0–12 月/1–3 年/3–5 年”，而是把每个组件标注为 Permanent / Adaptive / Experimental，并绑定 reversibility。推荐节奏：Q1 Diagnose → Q2 Sandbox/Authorize → Q3 Trial/Transfer → Q4 Evidence/Release；年度公开 **City Version Release** 同时发布新增、修改、扩展、Responsible STOP、退役、未解决问题和证据变化。[data:geometry/phasing.geojson#PHASE-001] [assumption:A-INSTITUTION-001]
 
 Public Stewardship 保留最终公共责任：规则、风险授权、数据治理、公共价值判断、事故响应和 STOP/MODIFY/CONTINUE/SCALE/RETIRE 的最终责任不外包给平台或供应商。高校、企业、开发者与市民通过 Problem Track 与 Capability Track 贡献能力。
+
+
+长期运营至少维护四本资源台账：①非 AI 基线公共服务与普通公共空间；② challenge / sandbox / 小规模试验资源；③维护、人工替代、迁移与退出储备；④独立审计、受影响群体参与和年度版本发布资源。这些都是机制建议，不代表已经存在的政府预算、采购或运营主体。[assumption:A-INSTITUTION-001]
 
 ## 指标体系、面积复算与合规矩阵
 

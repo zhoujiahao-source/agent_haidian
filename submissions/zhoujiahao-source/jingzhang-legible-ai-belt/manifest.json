@@ -12,7 +12,7 @@
     "agent_name": "ChatGPT (GPT-5.6 Sol)",
     "model": "GPT-5.6 Sol"
   },
-  "generated_at": "2026-08-09T09:01:02Z",
+  "generated_at": "2026-08-09T09:14:15Z",
   "files": [
     {
       "path": "manifest.json",
@@ -275,14 +275,14 @@
       "path": "drawings/a3-booklet.pdf",
       "role": "drawing",
       "required": true,
-      "sha256": "bee5febc52e6898e8c12addcaaa0ee64bd9ffbe7da6ac84a6a3b949ee52a79da",
+      "sha256": "4ce17f7f24e587ad60d0548ab8e880a3c0aca73c38bba87ec35bdaed1505bcd6",
       "language": "zh"
     },
     {
       "path": "drawings/a3-booklet.en.pdf",
       "role": "drawing",
       "required": true,
-      "sha256": "d29468dfad682bdaa946aaa959857bcf8ddb5e2c02b745f13ccca42516b2e30b",
+      "sha256": "98adda9790b6ae294e0d896b378dc6421ab665c28f7414f919b05817d9bd579e",
       "language": "en",
       "translation_of": "drawings/a3-booklet.pdf"
     },
@@ -290,14 +290,14 @@
       "path": "drawings/a0-boards.pdf",
       "role": "drawing",
       "required": true,
-      "sha256": "177189af586d0346d71570639c192109059178b9d3f2f0cfae38e219b7ea9d3d",
+      "sha256": "0adc7f91de821ed7d7c437aad2567664d46dee9b1e11aad2f6f74c3c6678d64c",
       "language": "zh"
     },
     {
       "path": "drawings/a0-boards.en.pdf",
       "role": "drawing",
       "required": true,
-      "sha256": "7eb22df59264e071c3c0e596985059469f42c749454236676854928284034485",
+      "sha256": "3dc7b62d8ae3d7b8b2e84d3a2c83f01b197d3b09978c089b26fe49fad08a6be1",
       "language": "en",
       "translation_of": "drawings/a0-boards.pdf"
     },

@@ -36,6 +36,9 @@ The five units specialize by actual resource logic: Zhongzhiyuan for technical p
 
 Six global cases are translated as mechanisms rather than copied forms: Punggol living labs, Seoul digital inclusion, Enabling Village universal design, Woven City real-world testing, Decidim traceable participation and Kalasatama everyday mixed urbanism. Jing-Zhang adds public value, failure disclosure, human alternatives, transfer revalidation and retirement. [source:GLOBAL-PUNGGOL] [source:GLOBAL-DECIDIM] [source:GLOBAL-KALASATAMA]
 
+
+Regional coordination is a **capability-exchange interface**, not an institution list. Jing-Zhang may exchange validated urban capabilities, test protocols, evidence and talent/service mechanisms with Zhongguancun, Future Science City, Huairou Science City, Beijing E-Town and the wider Beijing-Tianjin-Hebei university/research/industry network, but every transfer requires target-context revalidation. No signed partnership or resource commitment is claimed. [source:AGENT-TASKBOOK]
+
 ## Overall Design Area: Urban Renewal and Regulatory-Plan-Level Urban Design
 
 The Capability Backbone uses the real public-space relationship of the historic Jing-Zhang corridor, but every crossing passes an evidence gate. Until roads, rail, water, heritage and rights-of-way are verified, drawings show a required connection relationship rather than an invented bridge, tunnel or statutory route. [data:geometry/roads.geojson#ROAD-002] [assumption:A-ROAD-001]
@@ -81,6 +84,9 @@ The same spaces operate as an 8AM–MIDNIGHT Adaptive Commons for commuting, mid
 Implementation is no longer three blanket time polygons. Every component is tagged Permanent / Adaptive / Experimental and given a reversibility field. A proposed annual rhythm is Q1 Diagnose → Q2 Sandbox/Authorize → Q3 Trial/Transfer → Q4 Evidence/Release. The annual **City Version Release** discloses Added, Modified, Scaled, Responsible STOP, Retired, unresolved problems and evidence changes. [data:geometry/phasing.geojson#PHASE-001] [assumption:A-INSTITUTION-001]
 
 Public Stewardship retains final accountability for rules, authorization, data governance, public-value judgment, incidents and STOP/MODIFY/CONTINUE/SCALE/RETIRE decisions. Universities, companies, developers and citizens contribute through separate Problem and Capability Tracks.
+
+
+Long-term operation should maintain four resource ledgers: (1) non-AI baseline services and ordinary public realm; (2) challenge, sandbox and small-pilot resources; (3) maintenance, human alternative, migration and exit reserve; and (4) independent audit, affected-group participation and annual version-release resources. These are governance proposals, not claims of existing budgets, procurement or operators. [assumption:A-INSTITUTION-001]
 
 ## Metrics, Area Recalculation, and Compliance Matrix
 
