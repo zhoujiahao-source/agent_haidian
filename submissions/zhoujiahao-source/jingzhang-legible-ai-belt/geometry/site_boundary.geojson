@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "name": "jingzhang_legible_ai_site_boundary",
+  "name": "jingzhang_city_os_site_boundary",
   "features": [
     {
       "type": "Feature",
@@ -8,16 +8,17 @@
       "properties": {
         "id": "SITE-001",
         "layer": "SITE_BOUNDARY",
-        "scope_id": "overall_design_area",
-        "name_zh": "总体设计范围粗略替代边界",
         "source_type": "agent_inferred_from_public_data",
         "confidence": "medium",
         "geometry_role": "provisional_constraint",
+        "scope_id": "overall_design_area",
+        "name_zh": "总体设计范围临时约束",
+        "name_en": "Overall Design Area Provisional Constraint",
         "official_boundary": false,
         "boundary_precision": "provisional_rough",
         "source_id": "DATA-SRC-PROVISIONAL-BOUNDARIES-20260605",
-        "area_sqm_declared": 11412825.386,
-        "usage_note": "仅用于开放征集、设计讨论与临时自检；不得作为官方红线、审批依据或精确控规边界。"
+        "usage_note": "仅用于开放征集、临时生成与讨论；非官方红线、审批依据或精确控规边界。",
+        "area_sqm_declared": 11412825.386
       },
       "geometry": {
         "type": "Polygon",

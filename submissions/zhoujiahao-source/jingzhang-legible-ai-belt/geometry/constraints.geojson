@@ -1,20 +1,24 @@
 {
   "type": "FeatureCollection",
-  "name": "jingzhang_legible_ai_constraints",
+  "name": "jingzhang_city_os_constraints",
   "features": [
     {
       "type": "Feature",
       "id": "CONSTRAINT-PROV-SITE",
       "properties": {
         "id": "CONSTRAINT-PROV-SITE",
-        "layer": "REGULATORY_CONTROL",
-        "name_zh": "临时边界与正式控规数据缺口约束",
+        "layer": "SITE_BOUNDARY",
         "source_type": "agent_inferred_from_public_data",
         "confidence": "medium",
         "geometry_role": "provisional_constraint",
+        "scope_id": "overall_design_area",
+        "name_zh": "总体设计范围临时约束",
+        "name_en": "Overall Design Area Provisional Constraint",
         "official_boundary": false,
-        "constraint_type": "data_uncertainty",
-        "design_note": "official site/key-area polygons、控规、道路红线、建筑现状、权属、市政、消防及文保控制线缺失；所有精细落位需替换资料后复算。"
+        "boundary_precision": "provisional_rough",
+        "source_id": "DATA-SRC-PROVISIONAL-BOUNDARIES-20260605",
+        "usage_note": "Repository provisional SITE_BOUNDARY restated only as a submission constraint. No new REGULATORY_CONTROL / heritage / road-redline geometry is invented.",
+        "area_sqm_declared": 11412825.386
       },
       "geometry": {
         "type": "Polygon",

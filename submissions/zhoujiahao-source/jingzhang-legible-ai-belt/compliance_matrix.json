@@ -7,25 +7,17 @@
       "mandatory": true,
       "report_sections": [
         "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
-        "重点区域详细设计"
+        "总体设计范围城市更新与控规深度城市设计"
       ],
       "geojson_layers": [
         "geometry/site_boundary.geojson",
         "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
-        "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/land_use.geojson"
       ],
       "metrics": [
         "site_area_sqm",
         "green_ratio",
-        "public_space_ratio",
-        "key_area_count",
-        "scenario_card_count"
+        "public_space_ratio"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -33,28 +25,19 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
         "OFFICIAL-ANNOUNCEMENT",
-        "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
-        "KEY-AREA-SOURCE"
+        "AGENT-TASKBOOK"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-BOUNDARY-001",
+        "A-CONTROLS-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -64,25 +47,17 @@
       "mandatory": true,
       "report_sections": [
         "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
-        "重点区域详细设计"
+        "总体设计范围城市更新与控规深度城市设计"
       ],
       "geojson_layers": [
         "geometry/site_boundary.geojson",
         "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
-        "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/land_use.geojson"
       ],
       "metrics": [
         "site_area_sqm",
         "green_ratio",
-        "public_space_ratio",
-        "key_area_count",
-        "scenario_card_count"
+        "public_space_ratio"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -90,28 +65,19 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
         "OFFICIAL-ANNOUNCEMENT",
-        "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
-        "KEY-AREA-SOURCE"
+        "AGENT-TASKBOOK"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-BOUNDARY-001",
+        "A-CONTROLS-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -121,25 +87,17 @@
       "mandatory": true,
       "report_sections": [
         "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
-        "重点区域详细设计"
+        "总体设计范围城市更新与控规深度城市设计"
       ],
       "geojson_layers": [
         "geometry/site_boundary.geojson",
         "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
-        "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/land_use.geojson"
       ],
       "metrics": [
         "site_area_sqm",
         "green_ratio",
-        "public_space_ratio",
-        "key_area_count",
-        "scenario_card_count"
+        "public_space_ratio"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -147,28 +105,19 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
         "OFFICIAL-ANNOUNCEMENT",
-        "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
-        "KEY-AREA-SOURCE"
+        "AGENT-TASKBOOK"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-BOUNDARY-001",
+        "A-CONTROLS-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -178,25 +127,17 @@
       "mandatory": true,
       "report_sections": [
         "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
-        "重点区域详细设计"
+        "总体设计范围城市更新与控规深度城市设计"
       ],
       "geojson_layers": [
         "geometry/site_boundary.geojson",
         "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
-        "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/land_use.geojson"
       ],
       "metrics": [
         "site_area_sqm",
         "green_ratio",
-        "public_space_ratio",
-        "key_area_count",
-        "scenario_card_count"
+        "public_space_ratio"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -204,28 +145,19 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
         "OFFICIAL-ANNOUNCEMENT",
-        "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
-        "KEY-AREA-SOURCE"
+        "AGENT-TASKBOOK"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-BOUNDARY-001",
+        "A-CONTROLS-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -235,25 +167,17 @@
       "mandatory": true,
       "report_sections": [
         "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
-        "重点区域详细设计"
+        "总体设计范围城市更新与控规深度城市设计"
       ],
       "geojson_layers": [
         "geometry/site_boundary.geojson",
         "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
-        "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/land_use.geojson"
       ],
       "metrics": [
         "site_area_sqm",
         "green_ratio",
-        "public_space_ratio",
-        "key_area_count",
-        "scenario_card_count"
+        "public_space_ratio"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -261,28 +185,19 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
         "OFFICIAL-ANNOUNCEMENT",
-        "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
-        "KEY-AREA-SOURCE"
+        "AGENT-TASKBOOK"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-BOUNDARY-001",
+        "A-CONTROLS-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -292,25 +207,17 @@
       "mandatory": true,
       "report_sections": [
         "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
-        "重点区域详细设计"
+        "总体设计范围城市更新与控规深度城市设计"
       ],
       "geojson_layers": [
         "geometry/site_boundary.geojson",
         "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
-        "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/land_use.geojson"
       ],
       "metrics": [
         "site_area_sqm",
         "green_ratio",
-        "public_space_ratio",
-        "key_area_count",
-        "scenario_card_count"
+        "public_space_ratio"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -318,28 +225,19 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
         "OFFICIAL-ANNOUNCEMENT",
-        "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
-        "KEY-AREA-SOURCE"
+        "AGENT-TASKBOOK"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-BOUNDARY-001",
+        "A-CONTROLS-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -349,25 +247,17 @@
       "mandatory": true,
       "report_sections": [
         "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
-        "重点区域详细设计"
+        "总体设计范围城市更新与控规深度城市设计"
       ],
       "geojson_layers": [
         "geometry/site_boundary.geojson",
         "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
-        "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/land_use.geojson"
       ],
       "metrics": [
         "site_area_sqm",
         "green_ratio",
-        "public_space_ratio",
-        "key_area_count",
-        "scenario_card_count"
+        "public_space_ratio"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -375,28 +265,19 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
         "OFFICIAL-ANNOUNCEMENT",
-        "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
-        "KEY-AREA-SOURCE"
+        "AGENT-TASKBOOK"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-BOUNDARY-001",
+        "A-CONTROLS-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -406,25 +287,17 @@
       "mandatory": true,
       "report_sections": [
         "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
-        "重点区域详细设计"
+        "总体设计范围城市更新与控规深度城市设计"
       ],
       "geojson_layers": [
         "geometry/site_boundary.geojson",
         "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
-        "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/land_use.geojson"
       ],
       "metrics": [
         "site_area_sqm",
         "green_ratio",
-        "public_space_ratio",
-        "key_area_count",
-        "scenario_card_count"
+        "public_space_ratio"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -432,28 +305,19 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
         "OFFICIAL-ANNOUNCEMENT",
-        "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
-        "KEY-AREA-SOURCE"
+        "AGENT-TASKBOOK"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-BOUNDARY-001",
+        "A-CONTROLS-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -463,25 +327,17 @@
       "mandatory": true,
       "report_sections": [
         "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
-        "重点区域详细设计"
+        "总体设计范围城市更新与控规深度城市设计"
       ],
       "geojson_layers": [
         "geometry/site_boundary.geojson",
         "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
-        "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/land_use.geojson"
       ],
       "metrics": [
         "site_area_sqm",
         "green_ratio",
-        "public_space_ratio",
-        "key_area_count",
-        "scenario_card_count"
+        "public_space_ratio"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -489,28 +345,19 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
         "OFFICIAL-ANNOUNCEMENT",
-        "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
-        "KEY-AREA-SOURCE"
+        "AGENT-TASKBOOK"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-BOUNDARY-001",
+        "A-CONTROLS-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -520,25 +367,17 @@
       "mandatory": true,
       "report_sections": [
         "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
-        "重点区域详细设计"
+        "总体设计范围城市更新与控规深度城市设计"
       ],
       "geojson_layers": [
         "geometry/site_boundary.geojson",
         "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
-        "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/land_use.geojson"
       ],
       "metrics": [
         "site_area_sqm",
         "green_ratio",
-        "public_space_ratio",
-        "key_area_count",
-        "scenario_card_count"
+        "public_space_ratio"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -546,28 +385,19 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
         "OFFICIAL-ANNOUNCEMENT",
-        "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
-        "KEY-AREA-SOURCE"
+        "AGENT-TASKBOOK"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-BOUNDARY-001",
+        "A-CONTROLS-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -576,26 +406,15 @@
       "title_zh": "总体设计范围：交通轨道市政配套设施",
       "mandatory": true,
       "report_sections": [
-        "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
-        "重点区域详细设计"
+        "交通、轨道、市政与公共服务设施"
       ],
       "geojson_layers": [
-        "geometry/site_boundary.geojson",
-        "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
         "geometry/roads.geojson",
-        "geometry/green_space.geojson",
-        "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/constraints.geojson"
       ],
       "metrics": [
-        "site_area_sqm",
-        "green_ratio",
-        "public_space_ratio",
-        "key_area_count",
-        "scenario_card_count"
+        "road_centerline_length_m",
+        "road_area_sqm"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -603,28 +422,20 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
         "OFFICIAL-ANNOUNCEMENT",
-        "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
-        "KEY-AREA-SOURCE"
+        "SRC-BJ-DZS-ROAD-20260225",
+        "SRC-BJ-XIAOYUEHE-WORKS-20260121"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-ROAD-001",
+        "A-CONTROLS-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -633,26 +444,16 @@
       "title_zh": "总体设计范围：京张遗址公园活力带",
       "mandatory": true,
       "report_sections": [
-        "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
-        "重点区域详细设计"
+        "蓝绿空间、公共空间与城市风貌"
       ],
       "geojson_layers": [
-        "geometry/site_boundary.geojson",
-        "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
         "geometry/green_space.geojson",
         "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/roads.geojson"
       ],
       "metrics": [
-        "site_area_sqm",
         "green_ratio",
-        "public_space_ratio",
-        "key_area_count",
-        "scenario_card_count"
+        "public_space_ratio"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -660,28 +461,18 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
-        "OFFICIAL-ANNOUNCEMENT",
-        "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
-        "KEY-AREA-SOURCE"
+        "SRC-BJ-JZPARK-CATALOG-20250724",
+        "AGENT-TASKBOOK"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-DESIGN-GEOMETRY-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -691,25 +482,17 @@
       "mandatory": true,
       "report_sections": [
         "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
-        "重点区域详细设计"
+        "总体设计范围城市更新与控规深度城市设计"
       ],
       "geojson_layers": [
         "geometry/site_boundary.geojson",
         "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
-        "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/land_use.geojson"
       ],
       "metrics": [
         "site_area_sqm",
         "green_ratio",
-        "public_space_ratio",
-        "key_area_count",
-        "scenario_card_count"
+        "public_space_ratio"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -717,28 +500,19 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
         "OFFICIAL-ANNOUNCEMENT",
-        "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
-        "KEY-AREA-SOURCE"
+        "AGENT-TASKBOOK"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-BOUNDARY-001",
+        "A-CONTROLS-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -747,26 +521,16 @@
       "title_zh": "重点区域范围详细设计必选项",
       "mandatory": true,
       "report_sections": [
-        "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
         "重点区域详细设计"
       ],
       "geojson_layers": [
-        "geometry/site_boundary.geojson",
         "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
         "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/buildings.geojson"
       ],
       "metrics": [
-        "site_area_sqm",
-        "green_ratio",
-        "public_space_ratio",
         "key_area_count",
-        "scenario_card_count"
+        "public_space_ratio"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -774,28 +538,20 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
         "OFFICIAL-ANNOUNCEMENT",
         "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
         "KEY-AREA-SOURCE"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-KEY-AREA-001",
+        "A-CONTROLS-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -804,26 +560,16 @@
       "title_zh": "众智园AI自主创新加速区",
       "mandatory": true,
       "report_sections": [
-        "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
         "重点区域详细设计"
       ],
       "geojson_layers": [
-        "geometry/site_boundary.geojson",
         "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
         "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/buildings.geojson"
       ],
       "metrics": [
-        "site_area_sqm",
-        "green_ratio",
-        "public_space_ratio",
         "key_area_count",
-        "scenario_card_count"
+        "public_space_ratio"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -831,28 +577,20 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
         "OFFICIAL-ANNOUNCEMENT",
         "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
         "KEY-AREA-SOURCE"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-KEY-AREA-001",
+        "A-CONTROLS-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -861,26 +599,16 @@
       "title_zh": "北京AI原点社区",
       "mandatory": true,
       "report_sections": [
-        "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
         "重点区域详细设计"
       ],
       "geojson_layers": [
-        "geometry/site_boundary.geojson",
         "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
         "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/buildings.geojson"
       ],
       "metrics": [
-        "site_area_sqm",
-        "green_ratio",
-        "public_space_ratio",
         "key_area_count",
-        "scenario_card_count"
+        "public_space_ratio"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -888,28 +616,20 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
         "OFFICIAL-ANNOUNCEMENT",
         "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
         "KEY-AREA-SOURCE"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-KEY-AREA-001",
+        "A-CONTROLS-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -918,26 +638,16 @@
       "title_zh": "大钟寺AI产业聚集区",
       "mandatory": true,
       "report_sections": [
-        "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
         "重点区域详细设计"
       ],
       "geojson_layers": [
-        "geometry/site_boundary.geojson",
         "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
         "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/buildings.geojson"
       ],
       "metrics": [
-        "site_area_sqm",
-        "green_ratio",
-        "public_space_ratio",
         "key_area_count",
-        "scenario_card_count"
+        "public_space_ratio"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -945,28 +655,20 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
         "OFFICIAL-ANNOUNCEMENT",
         "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
         "KEY-AREA-SOURCE"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-KEY-AREA-001",
+        "A-CONTROLS-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -976,25 +678,16 @@
       "mandatory": true,
       "report_sections": [
         "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
-        "重点区域详细设计"
+        "总体设计范围城市更新与控规深度城市设计"
       ],
       "geojson_layers": [
         "geometry/site_boundary.geojson",
         "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
-        "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/roads.geojson"
       ],
       "metrics": [
         "site_area_sqm",
-        "green_ratio",
-        "public_space_ratio",
-        "key_area_count",
-        "scenario_card_count"
+        "capability_backbone_layer_count"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -1002,28 +695,18 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
-        "OFFICIAL-ANNOUNCEMENT",
         "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
-        "KEY-AREA-SOURCE"
+        "OFFICIAL-ANNOUNCEMENT"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-DESIGN-GEOMETRY-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -1032,26 +715,17 @@
       "title_zh": "AI全栈自主创新体系与世界级AI创新生态设计",
       "mandatory": true,
       "report_sections": [
-        "三层范围工作框架",
         "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
         "重点区域详细设计"
       ],
       "geojson_layers": [
-        "geometry/site_boundary.geojson",
         "geometry/key_areas.geojson",
         "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
-        "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/buildings.geojson"
       ],
       "metrics": [
-        "site_area_sqm",
-        "green_ratio",
-        "public_space_ratio",
         "key_area_count",
-        "scenario_card_count"
+        "persona_count"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -1059,28 +733,18 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
-        "OFFICIAL-ANNOUNCEMENT",
         "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
-        "KEY-AREA-SOURCE"
+        "OFFICIAL-ANNOUNCEMENT"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-DESIGN-GEOMETRY-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -1089,26 +753,17 @@
       "title_zh": "AI+场景赋能新范式与智能化AI活力城市设计",
       "mandatory": true,
       "report_sections": [
-        "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
-        "重点区域详细设计"
+        "AI 创新生态、人才画像与 AI+ 场景",
+        "指标体系、面积复算与合规矩阵"
       ],
       "geojson_layers": [
-        "geometry/site_boundary.geojson",
-        "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
         "geometry/public_space.geojson",
         "geometry/phasing.geojson"
       ],
       "metrics": [
-        "site_area_sqm",
-        "green_ratio",
-        "public_space_ratio",
-        "key_area_count",
-        "scenario_card_count"
+        "scenario_card_count",
+        "test_validation_scenario_count",
+        "urban_adaptation_rate"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -1116,28 +771,19 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
-        "OFFICIAL-ANNOUNCEMENT",
         "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
-        "KEY-AREA-SOURCE"
+        "OFFICIAL-ANNOUNCEMENT"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-DESIGN-GEOMETRY-001",
+        "A-GOV-OPS-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -1146,26 +792,17 @@
       "title_zh": "AI公共空间、智能原生新业态与朝圣地标设计",
       "mandatory": true,
       "report_sections": [
-        "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
+        "蓝绿空间、公共空间与城市风貌",
         "重点区域详细设计"
       ],
       "geojson_layers": [
-        "geometry/site_boundary.geojson",
-        "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
         "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/green_space.geojson",
+        "geometry/roads.geojson"
       ],
       "metrics": [
-        "site_area_sqm",
-        "green_ratio",
         "public_space_ratio",
-        "key_area_count",
-        "scenario_card_count"
+        "public_capability_node_type_count"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -1173,28 +810,18 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
-        "OFFICIAL-ANNOUNCEMENT",
         "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
-        "KEY-AREA-SOURCE"
+        "OFFICIAL-ANNOUNCEMENT"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-DESIGN-GEOMETRY-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -1203,26 +830,16 @@
       "title_zh": "百年京张文化、中关村文化与AI新文化融合叙事设计",
       "mandatory": true,
       "report_sections": [
-        "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
-        "重点区域详细设计"
+        "蓝绿空间、公共空间与城市风貌",
+        "总体设计范围城市更新与控规深度城市设计"
       ],
       "geojson_layers": [
-        "geometry/site_boundary.geojson",
-        "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
         "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/green_space.geojson"
       ],
       "metrics": [
-        "site_area_sqm",
-        "green_ratio",
-        "public_space_ratio",
-        "key_area_count",
-        "scenario_card_count"
+        "public_capability_node_type_count",
+        "green_ratio"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -1230,28 +847,18 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
-        "OFFICIAL-ANNOUNCEMENT",
         "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
-        "KEY-AREA-SOURCE"
+        "OFFICIAL-ANNOUNCEMENT"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-DESIGN-GEOMETRY-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     },
@@ -1260,26 +867,17 @@
       "title_zh": "一带全球AI创新活动体系与长期运营设计",
       "mandatory": true,
       "report_sections": [
-        "三层范围工作框架",
-        "统筹研究范围产业与未来城市研究",
-        "总体设计范围城市更新与控规深度城市设计",
-        "重点区域详细设计"
+        "更新项目清单、实施政策与分期计划",
+        "指标体系、面积复算与合规矩阵"
       ],
       "geojson_layers": [
-        "geometry/site_boundary.geojson",
-        "geometry/key_areas.geojson",
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
-        "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
+        "geometry/phasing.geojson",
+        "geometry/public_space.geojson"
       ],
       "metrics": [
-        "site_area_sqm",
-        "green_ratio",
-        "public_space_ratio",
-        "key_area_count",
-        "scenario_card_count"
+        "urban_adaptation_rate",
+        "responsible_stop_rate",
+        "capability_transfer_revalidation_rate"
       ],
       "drawings": [
         "drawings/a3-booklet.pdf",
@@ -1287,28 +885,19 @@
       ],
       "visual_sections": [
         "总览地图",
-        "任务覆盖",
         "核心指标",
-        "AI可读性分级"
+        "任务覆盖"
       ],
       "source_ids": [
-        "SITE-PACKAGE",
-        "SOURCE-REGISTRY",
-        "PROCESSED-FACT-PACK",
-        "OFFICIAL-ANNOUNCEMENT",
         "AGENT-TASKBOOK",
-        "BOUNDARY-SOURCE",
-        "KEY-AREA-SOURCE"
+        "OFFICIAL-ANNOUNCEMENT"
       ],
       "assumption_ids": [
-        "A-CONTROLS-001",
-        "A-GOVERNANCE-001"
+        "A-DESIGN-GEOMETRY-001",
+        "A-GOV-OPS-001"
       ],
       "self_check_ids": [
         "BOUNDARY_TRUST",
-        "KEY_AREAS_TRUST",
-        "LAND_USE_TOPOLOGY",
-        "VISUAL_STATIC",
         "PROFESSIONAL_EVIDENCE"
       ]
     }

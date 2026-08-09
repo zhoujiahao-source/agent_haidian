@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "name": "jingzhang_legible_ai_mobility",
+  "name": "jingzhang_city_os_mobility_study_axes",
   "features": [
     {
       "type": "Feature",
@@ -8,12 +8,16 @@
       "properties": {
         "id": "ROAD-001",
         "layer": "ROAD_CENTERLINE",
-        "source_type": "agent_generated_design",
-        "confidence": "medium",
+        "source_type": "agent_reuse_design_from_existing_submission",
+        "confidence": "low",
         "geometry_role": "design_proposal",
-        "name_zh": "京张连续无障碍慢行与AI透明主脊",
-        "road_class": "greenway",
-        "design_note": "概念性步行/骑行/辅助移动主线，与遗址公园关系须经文保和工程复核。"
+        "name_zh": "Capability Backbone 城市能力交换骨干候选连续轴",
+        "candidate_status": "study_axis_not_verified_route",
+        "evidence_status": "Derived",
+        "drawing_status": "Proposed",
+        "host_verification_required": true,
+        "implementation_layer": "mixed",
+        "usage_note": "不是已核验道路、桥隧或法定通道；最终需依真实道路/铁路/水系/文保/无障碍条件重建。"
       },
       "geometry": {
         "type": "LineString",
@@ -55,23 +59,26 @@
       "properties": {
         "id": "ROAD-002",
         "layer": "ROAD_CENTERLINE",
-        "source_type": "agent_generated_design",
+        "source_type": "agent_design_proposal",
         "confidence": "low",
         "geometry_role": "design_proposal",
-        "name_zh": "东西向可达性缝合支线 1",
-        "road_class": "pedestrian",
-        "design_note": "概念性慢行与轨道/街区联系，待道路红线、交通量、市政、消防及权属验证。"
+        "name_zh": "大钟寺市场服务横向联调轴",
+        "candidate_status": "Class_C_concept_study_axis",
+        "evidence_status": "Derived",
+        "drawing_status": "Proposed",
+        "host_verification_required": true,
+        "usage_note": "仅表示需要核验的东西向连接关系，不代表新建道路或工程 crossing。"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            116.34047777777778,
-            39.947
+            116.3405,
+            39.9468
           ],
           [
-            116.3553,
-            39.947
+            116.3545,
+            39.9468
           ]
         ]
       }
@@ -82,23 +89,26 @@
       "properties": {
         "id": "ROAD-003",
         "layer": "ROAD_CENTERLINE",
-        "source_type": "agent_generated_design",
+        "source_type": "agent_design_proposal",
         "confidence": "low",
         "geometry_role": "design_proposal",
-        "name_zh": "东西向可达性缝合支线 2",
-        "road_class": "transit_connection",
-        "design_note": "概念性慢行与轨道/街区联系，待道路红线、交通量、市政、消防及权属验证。"
+        "name_zh": "城市学习档案横向联调轴",
+        "candidate_status": "Class_C_concept_study_axis",
+        "evidence_status": "Derived",
+        "drawing_status": "Proposed",
+        "host_verification_required": true,
+        "usage_note": "仅表示需要核验的东西向连接关系，不代表新建道路或工程 crossing。"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            116.34008888888889,
-            39.961
+            116.3405,
+            39.962
           ],
           [
-            116.3553,
-            39.961
+            116.3545,
+            39.962
           ]
         ]
       }
@@ -109,18 +119,21 @@
       "properties": {
         "id": "ROAD-004",
         "layer": "ROAD_CENTERLINE",
-        "source_type": "agent_generated_design",
+        "source_type": "agent_design_proposal",
         "confidence": "low",
         "geometry_role": "design_proposal",
-        "name_zh": "东西向可达性缝合支线 3",
-        "road_class": "pedestrian",
-        "design_note": "概念性慢行与轨道/街区联系，待道路红线、交通量、市政、消防及权属验证。"
+        "name_zh": "小月河蓝绿能力横向联调轴",
+        "candidate_status": "Class_C_concept_study_axis",
+        "evidence_status": "Derived",
+        "drawing_status": "Proposed",
+        "host_verification_required": true,
+        "usage_note": "仅表示需要核验的东西向连接关系，不代表新建道路或工程 crossing。"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            116.3397,
+            116.3405,
             39.975
           ],
           [
@@ -136,23 +149,26 @@
       "properties": {
         "id": "ROAD-005",
         "layer": "ROAD_CENTERLINE",
-        "source_type": "agent_generated_design",
+        "source_type": "agent_design_proposal",
         "confidence": "low",
         "geometry_role": "design_proposal",
-        "name_zh": "东西向可达性缝合支线 4",
-        "road_class": "transit_connection",
-        "design_note": "概念性慢行与轨道/街区联系，待道路红线、交通量、市政、消防及权属验证。"
+        "name_zh": "AI原点社区横向联调轴",
+        "candidate_status": "Class_C_concept_study_axis",
+        "evidence_status": "Derived",
+        "drawing_status": "Proposed",
+        "host_verification_required": true,
+        "usage_note": "仅表示需要核验的东西向连接关系，不代表新建道路或工程 crossing。"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            116.34060322580645,
-            39.989
+            116.34057096774194,
+            39.9885
           ],
           [
-            116.35338,
-            39.989
+            116.35342,
+            39.9885
           ]
         ]
       }
@@ -163,23 +179,26 @@
       "properties": {
         "id": "ROAD-006",
         "layer": "ROAD_CENTERLINE",
-        "source_type": "agent_generated_design",
+        "source_type": "agent_design_proposal",
         "confidence": "low",
         "geometry_role": "design_proposal",
-        "name_zh": "东西向可达性缝合支线 5",
-        "road_class": "pedestrian",
-        "design_note": "概念性慢行与轨道/街区联系，待道路红线、交通量、市政、消防及权属验证。"
+        "name_zh": "众智园验证横向联调轴",
+        "candidate_status": "Class_C_concept_study_axis",
+        "evidence_status": "Derived",
+        "drawing_status": "Proposed",
+        "host_verification_required": true,
+        "usage_note": "仅表示需要核验的东西向连接关系，不代表新建道路或工程 crossing。"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            116.34218780487805,
-            40.016
+            116.34223658536585,
+            40.017
           ],
           [
-            116.35472465753425,
-            40.016
+            116.3545,
+            40.017
           ]
         ]
       }

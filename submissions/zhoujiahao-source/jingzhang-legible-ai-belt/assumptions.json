@@ -3,81 +3,57 @@
   "assumptions": [
     {
       "id": "A-BOUNDARY-001",
-      "status": "provisional_constraint",
-      "statement": "Submitted site boundary is the repository provisional rough polygon, not an official redline.",
-      "impact": "All geometry-derived areas and ratios are intake-grade and must be recalculated after official polygons are supplied."
+      "status": "active",
+      "statement_zh": "总体 SITE_BOUNDARY 仍为仓库 provisional rough geometry；非官方红线，官方坐标到位后全部 geometry→metrics→figures 必须重算。",
+      "trigger": "official SITE_BOUNDARY received"
     },
     {
       "id": "A-KEY-AREA-001",
-      "status": "provisional_constraint",
-      "statement": "All three key-area polygons are rough placeholders derived from public task materials.",
-      "impact": "Detailed-design moves are transferable concepts, not parcel, ownership or road-boundary conclusions."
+      "status": "active",
+      "statement_zh": "三处 KEY_AREA polygon 为临时约束；比赛参考面积与 polygon 复算值分开。",
+      "trigger": "official KEY_AREA polygons received"
     },
     {
       "id": "A-CONTROLS-001",
-      "status": "pending_professional_confirmation",
-      "statement": "FAR, height, coverage, setbacks, road redlines and statutory controls are missing.",
-      "impact": "Development intensity remains unknown; no approved control values are asserted."
-    },
-    {
-      "id": "A-BUILDING-001",
-      "status": "conceptual_only",
-      "statement": "Complete existing building footprints, uses, heights, ages, condition and ownership are unavailable in authoritative current form.",
-      "impact": "Submitted building polygons are program envelopes only and do not decide demolition, retention or construction."
+      "status": "active",
+      "statement_zh": "FAR、建筑高度、密度、绿地率、退界、道路红线、权属、文保、市政消防等法定/工程条件缺失，不以 schema sanity bounds 代替。",
+      "trigger": "official planning/control/engineering data received"
     },
     {
       "id": "A-ROAD-001",
-      "status": "conceptual_only",
-      "statement": "Road redlines, sections, verified crossing feasibility, traffic volumes, station interfaces, utilities and fire access are incomplete or unavailable.",
-      "impact": "Mobility and stitch lines express desired relationships or study axes only and require transport and engineering verification."
+      "status": "active",
+      "statement_zh": "ROAD-001~006 仅为连续性/缝合研究轴；不代表已核验道路、桥、隧、通道或红线。",
+      "trigger": "verified mobility/ROW/crossing evidence received"
     },
     {
-      "id": "A-HERITAGE-001",
-      "status": "pending_official_data",
-      "statement": "Detailed heritage protection GIS and intervention permissions for Jing-Zhang Railway Heritage Park and related sites are unavailable.",
-      "impact": "Public-space, crossing and landmark concepts require heritage review before siting or material intervention."
+      "id": "A-DESIGN-GEOMETRY-001",
+      "status": "active",
+      "statement_zh": "LAND_USE、GREEN_SPACE、PUBLIC_SPACE、BUILDING_FOOTPRINT、PHASE 为概念设计图层，面积可复算但不是法定规划指标。",
+      "trigger": "professional design deepening / official controls"
     },
     {
-      "id": "A-PUBLIC-001",
-      "status": "conceptual_only",
-      "statement": "Public-space ownership, operating permissions, universal-design audit, fire/egress conditions and maintenance responsibilities are incomplete.",
-      "impact": "Capability nodes and landmarks are reference components, not approved projects or fixed footprints."
-    },
-    {
-      "id": "A-MUNICIPAL-001",
-      "status": "pending_official_data",
-      "statement": "Utilities, drainage, flood, energy, fire, structural and municipal capacity data are unavailable at sufficient design depth.",
-      "impact": "Edge-compute, robotics, active environmental systems and adaptive public-space services require later infrastructure and safety review."
-    },
-    {
-      "id": "A-GOVERNANCE-001",
-      "status": "conceptual_only",
-      "statement": "Risk-tier authorization, Public Capability Interface, STOP/MODIFY/CONTINUE/SCALE and capability-transfer rules are design-governance proposals, not enacted regulation.",
-      "impact": "Implementation requires fact-specific legal, privacy, accessibility, cybersecurity, sector, public-participation and institutional review."
-    },
-    {
-      "id": "A-UAR-001",
-      "status": "conceptual_only",
-      "statement": "Urban Adaptation Rate and companion governance metrics are formula-ready proposals, but no adopted live eligible-issue, experiment or public-value outcome registry currently exists.",
-      "impact": "UAR-90, UAR-365, Responsible STOP Rate and related operational metric values remain unknown/null until real governed records exist."
-    },
-    {
-      "id": "A-INSTITUTION-001",
-      "status": "conceptual_only",
-      "statement": "Public Stewardship describes functional accountability; no named government institution, university, company, community body or operator is asserted to have accepted these roles.",
-      "impact": "All institutional names, budgets, staffing, procurement, authorization and service-level commitments remain future implementation decisions."
+      "id": "A-GOV-OPS-001",
+      "status": "active",
+      "statement_zh": "UAR 与治理指标只有定义，没有真实运营记录；数值保持 unknown/null。",
+      "trigger": "live eligible issue / experiment / outcome registry exists"
     },
     {
       "id": "A-NONAI-001",
-      "status": "design_principle",
-      "statement": "AI-enhanced public services must retain a safe, usable non-AI or human alternative appropriate to the service and affected population.",
-      "impact": "AI capability failure, refusal, lack of device/account access or withdrawal of consent must not remove the basic public service or ordinary public-space function."
+      "status": "active",
+      "statement_zh": "所有公共服务保持非AI/人工等价路径；AI离线、拒绝授权或试验停止时普通城市功能仍可使用。",
+      "trigger": "scenario implementation design"
     },
     {
-      "id": "A-EVIDENCE-001",
-      "status": "methodological",
-      "statement": "Open-data basemap candidates and public project sources are cross-validation inputs with different authority; successful retrieval does not make a feature Verified or Official.",
-      "impact": "OSM, ML building footprints, public pages, imagery and field audit must retain provenance, date, license and uncertainty; conflicts remain visible rather than silently overwritten."
+      "id": "A-BASEMAP-001",
+      "status": "active",
+      "statement_zh": "OSM/Microsoft 现状底图脚本已完成且数据源许可已登记；本次执行环境无法访问公网进行 materialization，因此未把未下载数据伪装成 Verified existing conditions。",
+      "trigger": "networked checkout executes acquisition + validation + cross-check"
+    },
+    {
+      "id": "A-INSTITUTION-001",
+      "status": "active",
+      "statement_zh": "Public Stewardship 是功能性制度设计，不声称某个现实机构已接受预算、法律授权或运营责任。",
+      "trigger": "formal operator/authorization source exists"
     }
   ]
 }
