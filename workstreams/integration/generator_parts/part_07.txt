@@ -1,0 +1,77 @@
+ ('traffic_rail_slow_parking','交通轨道慢行停车','交通','data_gap',['交通、轨道、市政与公共服务设施'],['geometry/roads.geojson'],['road_centerline_length_m','road_area_sqm'],['SRC-BJ-DZS-ROAD-20260225'],['A-ROAD-001'],'慢行/连接结构已提出，但 crossing/道路红线/停车供需未核验。'),
+ ('municipal_new_infrastructure','市政与新型基础设施','市政','data_gap',['交通、轨道、市政与公共服务设施'],['geometry/constraints.geojson'],['non_ai_service_parity'],['SRC-BJ-XIAOYUEHE-WORKS-20260121'],['A-CONTROLS-001'],'提出非AI底线、接口与退出规则；真实市政容量/管线仍缺。'),
+ ('blue_green_public_space','蓝绿与公共空间','景观/公共空间','complete',['蓝绿空间、公共空间与城市风貌'],['geometry/green_space.geojson','geometry/public_space.geojson'],['green_ratio','public_space_ratio'],['SRC-BJ-JZPARK-CATALOG-20250724','SRC-BJ-XIAOYUEHE-WATER-20260112'],['A-DESIGN-GEOMETRY-001'],'公共空间网络、PCI、全天候场景与蓝绿结构已形成可复算设计图层。'),
+ ('three_key_area_detailed_design','三处重点区域详细设计','城市设计','complete',['重点区域详细设计'],['geometry/key_areas.geojson','geometry/public_space.geojson','geometry/buildings.geojson'],['key_area_count','public_capability_node_type_count'],['AGENT-TASKBOOK'],['A-KEY-AREA-001','A-CONTROLS-001'],'三处重点区形成差异化原型、剖面与节点逻辑；具体 host 仍待官方/现场数据。'),
+ ('renewal_project_list','更新项目清单','实施','complete',['更新项目清单、实施政策与分期计划'],['geometry/public_space.geojson','geometry/buildings.geojson'],['public_capability_node_type_count'],['SRC-BJ-CITYUPDATE-ZZY-20260713','SRC-BJ-CITYUPDATE-DZS-20260713'],['A-INSTITUTION-001'],'以能力接口、档案、验证站和公共空间组件形成可分步项目包。'),
+ ('phasing_implementation','分期与实施','实施','complete',['更新项目清单、实施政策与分期计划'],['geometry/phasing.geojson'],['phase_area_sqm'],['AGENT-TASKBOOK'],['A-INSTITUTION-001'],'采用 Permanent/Adaptive/Experimental 组件级可逆分期与年度学习周期。'),
+ ('metrics_recalculation','指标复算','指标','complete',['指标体系、面积复算与合规矩阵'],['geometry/site_boundary.geojson','geometry/green_space.geojson','geometry/public_space.geojson'],['site_area_sqm','green_ratio','public_space_ratio','urban_adaptation_rate'],['SITE-PACKAGE'],['A-BOUNDARY-001','A-GOV-OPS-001'],'几何指标可复算；运营指标无真实记录时保持 unknown/null。'),
+ ('risk_missing_data','风险与资料缺口','风险','complete',['风险、版权与合规说明'],['geometry/constraints.geojson'],['far','road_area_sqm','urban_adaptation_rate'],['SOURCE-REGISTRY'],['A-CONTROLS-001','A-BASEMAP-001'],'主要缺口、证据等级、法律/运营/工程边界均公开，不用推测伪装事实。')]
+depth_rows=[]
+for iid,title,dim,status,secs,geos,mets,srcs,ass,summary in depth_info:
+    depth_rows.append({'item_id':iid,'title_zh':title,'professional_dimension':dim,'required':True,'status':status,'proposal_sections':secs,'drawing_refs':['drawings/a3-booklet.pdf','drawings/a0-boards.pdf'],'geometry_refs':geos,'metric_refs':mets,'source_ids':srcs,'assumption_ids':ass,'self_check_ids':['PROFESSIONAL_EVIDENCE'],'evidence_summary_zh':summary})
+dumpj(OUT/'design_depth_matrix.json',{'schema_version':'0.1.0','items':depth_rows})
+
+# ---------- visual identity assets (SVG) ----------
+open_node_svg='''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Open Node mark"><g fill="none" stroke="#15324A" stroke-width="8" stroke-linecap="round"><path d="M24 20v80"/><path d="M96 20v34"/><path d="M96 76v24"/><path d="M24 60h48"/><path d="M72 60l24-16"/></g><circle cx="72" cy="60" r="8" fill="#F2A541"/></svg>'''
+(OUT/'assets/open-node.svg').write_text(open_node_svg,encoding='utf-8')
+(OUT/'assets/design-tokens.css').write_text(':root{--ink:#15324A;--paper:#F5F4EE;--muted:#6B7280;--accent:#F2A541;--green:#5B8E67;--blue:#447FA3;--risk:#B95C4B;} body{font-family:Arial,"Microsoft YaHei",sans-serif;color:var(--ink);background:var(--paper)}',encoding='utf-8')
+
+# ---------- figures ----------
+COLORS={'ink':'#15324A','paper':'#F7F6F1','accent':'#F2A541','green':'#6C9A72','blue':'#4B89B0','red':'#B95C4B','purple':'#8B6AA9','gray':'#98A2B3','light':'#E8ECEF','darkgray':'#5B6573'}
+def savefig(fig,path):
+    fig.savefig(path,dpi=160,bbox_inches='tight',facecolor=COLORS['paper']); plt.close(fig)
+    from PIL import Image
+    im=Image.open(path).convert('RGB')
+    q=im.quantize(colors=64,method=Image.Quantize.MEDIANCUT,dither=Image.Dither.NONE)
+    q.save(path,optimize=True,compress_level=9)
+def poly_xy(g):
+    if g.geom_type=='Polygon': return list(g.exterior.coords)
+    return list(max(g.geoms,key=lambda x:x.area).exterior.coords)
+def draw_site(ax, show_land=False):
+    xys=poly_xy(site); ax.add_patch(MplPolygon(xys,closed=True,facecolor='white',edgecolor=COLORS['ink'],linestyle='--',linewidth=1.6,zorder=1))
+    if show_land:
+        pals=['#F2E7D5','#E5ECF2','#E5EFE3','#EFE6F4','#F1E2DE','#E7E2D5','#DCE8EE','#EDE8D9','#E3EAE4','#F2EAE0']
+        for i,f in enumerate(land_feats):
+            g=Polygon(f['geometry']['coordinates'][0]); ax.add_patch(MplPolygon(poly_xy(g),closed=True,facecolor=pals[i%len(pals)],edgecolor='white',linewidth=.8,zorder=1.2))
+    for fid,aid,zh,en,p,ref in key_polys:
+        ax.add_patch(MplPolygon(poly_xy(p),closed=True,fill=False,edgecolor=COLORS['accent'],linewidth=1.8,zorder=3))
+    bx,by=backbone.xy; ax.plot(bx,by,color=COLORS['blue'],lw=4,zorder=4)
+    ax.set_aspect(1.35); ax.set_xlim(116.337,116.358); ax.set_ylim(39.935,40.03); ax.axis('off')
+
+def fig_site(lang='zh'):
+    fig=plt.figure(figsize=(12,7),facecolor=COLORS['paper']); ax=fig.add_axes([.05,.08,.48,.82]); draw_site(ax,True)
+    labels=[('众智园 / Verification Campus','Zhongzhiyuan / Verification Campus',(116.3475,40.018),COLORS['green']),('AI原点 / Learning Neighborhood','AI Origin / Learning Neighborhood',(116.3475,39.9885),COLORS['accent']),('大钟寺 / Market & Service Commons','Dazhongsi / Market & Service Commons',(116.348,39.947),COLORS['red'])]
+    for zh,en,xy,c in labels:
+        ax.scatter(*xy,s=80,color=c,zorder=5); ax.text(xy[0]+.001,xy[1],zh if lang=='zh' else en,fontproperties=FP if lang=='zh' else None,fontsize=10,va='center')
+    ax2=fig.add_axes([.58,.10,.37,.77]); ax2.axis('off')
+    title='京张·城市能力交换带｜总体结构与证据边界' if lang=='zh' else 'Jing-Zhang Urban Capability Exchange | Structure & Evidence'
+    fig.text(.05,.94,title,fontproperties=FPB if lang=='zh' else None,fontsize=22,weight='bold')
+    fig.text(.05,.90,'City OS / Capability Backbone / Public Value',fontsize=10,color=COLORS['darkgray'])
+    steps=['真实问题','资格门','风险授权','可逆试验','公共价值评审','STOP / MODIFY / CONTINUE / SCALE','能力交换','版本发布 / 退役'] if lang=='zh' else ['Urban problem','Eligibility gate','Risk authorization','Reversible test','Public-value review','STOP / MODIFY / CONTINUE / SCALE','Capability exchange','Version release / retirement']
+    ax2.text(0,1.0,'CITY OS 核心闭环' if lang=='zh' else 'CITY OS CORE LOOP',fontproperties=FPB if lang=='zh' else None,fontsize=16,va='top')
+    for i,s in enumerate(steps):
+        y=.90-i*.09; ax2.text(.02,y,f'{i+1:02d}',fontsize=9,color=COLORS['accent']); ax2.text(.11,y,s,fontproperties=FP if lang=='zh' else None,fontsize=11); 
+        if i<len(steps)-1: ax2.annotate('',xy=(.07,y-.065),xytext=(.07,y-.02),arrowprops=dict(arrowstyle='->',lw=1,color=COLORS['gray']))
+    note=('PROVISIONAL CONSTRAINT — 非官方红线\n所有 crossing / host / 控规指标待真实数据复核' if lang=='zh' else 'PROVISIONAL CONSTRAINT — NOT OFFICIAL REDLINE\nAll crossings, hosts and statutory controls require verification')
+    ax2.text(0,.12,note,fontproperties=FP if lang=='zh' else None,fontsize=10,bbox=dict(boxstyle='round,pad=.6',fc='#FFF8E8',ec=COLORS['accent']))
+    return fig
+
+def fig_land(lang='zh'):
+    fig=plt.figure(figsize=(12,7),facecolor=COLORS['paper']); ax=fig.add_axes([.04,.12,.52,.75]); draw_site(ax,True)
+    fig.text(.04,.94,'用地结构｜从“四色条带”到能力城市 mosaic' if lang=='zh' else 'Land-use Structure | From Stripes to a Capability Mosaic',fontproperties=FPB if lang=='zh' else None,fontsize=22,weight='bold')
+    ax2=fig.add_axes([.60,.12,.35,.72]); ax2.axis('off')
+    items=[('05','商业 / Market & service'),('0702','社区服务 / Community service'),('0803','文化 / Culture-memory'),('1401','公园绿地 / Park-green'),('0701','居住 / Living'),('0804','教育 / Education'),('0802','科研 / Research'),('16','留白 / Reversible reserve')]
+    ax2.text(0,1,'概念用地，不是 statutory zoning' if lang=='zh' else 'Conceptual land-use — not statutory zoning',fontproperties=FPB if lang=='zh' else None,fontsize=14,va='top')
+    for i,(code,name) in enumerate(items):
+        y=.9-i*.085; ax2.add_patch(Rectangle((0,y-.025),.07,.05,facecolor=['#F2E7D5','#E5ECF2','#EFE6F4','#E5EFE3','#F1E2DE','#DCE8EE','#EDE8D9','#E3EAE4'][i],edgecolor='none')); ax2.text(.1,y,f'{code}  {name}',fontproperties=FP if lang=='zh' else None,fontsize=10,va='center')
+    ax2.text(0,.18,'实施层' if lang=='zh' else 'Implementation layers',fontproperties=FPB if lang=='zh' else None,fontsize=13)
+    layers=[('Permanent','ordinary walking / shade / accessibility / safety'),('Adaptive','replaceable signs / furniture / interfaces'),('Experimental','bounded test / bypass / human stop / removal')]
+    for i,(a,b) in enumerate(layers): ax2.text(.02,.13-i*.06,f'{a}: {b}',fontsize=9)
+    return fig
+
+def fig_keys(lang='zh'):
+    fig=plt.figure(figsize=(12,7),facecolor=COLORS['paper']); fig.text(.04,.94,'三区差异化详细设计' if lang=='zh' else 'Three Key Areas — Differentiated Detailed Design',fontproperties=FPB if lang=='zh' else None,fontsize=22,weight='bold')
+    specs=[('众智园','Verification Campus','技术生产 + 高风险验证','Technology production + higher-risk validation',COLORS['green']),('AI原点','Learning Neighborhood','社会学习 + 公共服务','Social learning + public service',COLORS['accent']),('大钟寺','Market & Service Commons','市场 + AI-native 服务验证','Market + AI-native service validation',COLORS['red'])]
+    for i,(zh,en,rolezh,roleen,c) in enumerate(specs):
+        ax=fig.add_axes([.04+i*.32,.12,.28,.74]); ax.axis('off'); ax.add_patch(Rectangle((0,.55),1,.3,facecolor='white',edgecolor=c,lw=2));
+        ax.plot([.08,.92],[.63,.63],color=COLORS['ink'],lw=2); ax.add_patch(Rectangle((.12,.63),.18,.13,facecolor='#E8ECEF',edgecolor=COLORS['ink'])); ax.add_patch(Rectangle((.70,.63),.18,.10,facecolor='#E8ECEF',edgecolor=COLORS['ink']));
