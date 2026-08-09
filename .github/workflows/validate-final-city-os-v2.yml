@@ -8,7 +8,10 @@ on:
       - '.github/workflows/validate-final-city-os-v2.yml'
       - 'workstreams/integration/repair_v2.py'
       - 'workstreams/integration/post_repair_v2.py'
+      - 'workstreams/integration/adopt_live_basemap.py'
       - 'workstreams/integration/refresh_manifest_v2.py'
+      - 'workstreams/evidence_basemap/live_2026-08-09/crosscheck_summary.json'
+      - 'workstreams/evidence_basemap/live_2026-08-09/ms_index_probe.json'
       - 'workstreams/integration/validation-trigger/**'
 
 permissions:
@@ -19,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Checkout repair tools
+      - name: Checkout repair tools and live evidence
         uses: actions/checkout@v4
         with:
           ref: integration/final-city-os-v2
@@ -28,7 +31,10 @@ jobs:
           sparse-checkout: |
             workstreams/integration/repair_v2.py
             workstreams/integration/post_repair_v2.py
+            workstreams/integration/adopt_live_basemap.py
             workstreams/integration/refresh_manifest_v2.py
+            workstreams/evidence_basemap/live_2026-08-09/crosscheck_summary.json
+            workstreams/evidence_basemap/live_2026-08-09/ms_index_probe.json
           path: tools
 
       - name: Checkout clean submission workspace
@@ -55,6 +61,7 @@ jobs:
         run: |
           git remote add upstream https://github.com/open-city-ai/haidian.git || true
           git fetch --filter=blob:none upstream main
+          echo "upstream_main=$(git rev-parse upstream/main)"
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -67,10 +74,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements-review.txt
 
-      - name: Repair canonical package to current contract
+      - name: Repair canonical package and adopt live basemap evidence
         run: |
-          python3 tools/workstreams/integration/repair_v2.py workspace/submissions/zhoujiahao-source/jingzhang-legible-ai-belt
-          python3 tools/workstreams/integration/post_repair_v2.py workspace/submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+          SUB=workspace/submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+          EVID=tools/workstreams/evidence_basemap/live_2026-08-09
+          python3 tools/workstreams/integration/repair_v2.py "$SUB"
+          python3 tools/workstreams/integration/post_repair_v2.py "$SUB"
+          python3 tools/workstreams/integration/adopt_live_basemap.py "$SUB" "$EVID"
 
       - name: Render canonical bilingual HTML
         working-directory: workspace
@@ -95,7 +105,7 @@ jobs:
           git config user.name 'City OS v2 Validator'
           git config user.email 'actions@users.noreply.github.com'
           git add -A submissions/zhoujiahao-source/jingzhang-legible-ai-belt
-          git commit -m 'fix(submission): align City OS v2 with latest deterministic validator'
+          git commit -m 'data(submission): adopt live OSM and Microsoft coverage audit'
           git push origin HEAD:submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v2
 
       - name: Run participant preflight
