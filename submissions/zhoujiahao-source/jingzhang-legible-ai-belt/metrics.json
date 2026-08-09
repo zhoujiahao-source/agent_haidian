@@ -1,0 +1,420 @@
+{
+  "schema_version": "0.1.0",
+  "units": {
+    "length": "m",
+    "area": "sqm"
+  },
+  "metrics": {
+    "site_area_sqm": {
+      "status": "known",
+      "value": 11412825.386,
+      "unit": "sqm",
+      "source_files": [
+        "geometry/site_boundary.geojson"
+      ],
+      "formula": "Area(SITE-001) in EPSG:4548",
+      "confidence": "medium",
+      "assumptions": [
+        "A-BOUNDARY-001"
+      ]
+    },
+    "land_use_area_sqm": {
+      "status": "known",
+      "value": 11412850.288,
+      "unit": "sqm",
+      "source_files": [
+        "geometry/land_use.geojson"
+      ],
+      "formula": "sum proposed LAND_USE polygon areas",
+      "confidence": "low",
+      "assumptions": [
+        "A-DESIGN-GEOMETRY-001"
+      ]
+    },
+    "total_floor_area_sqm": {
+      "status": "unknown",
+      "value": null,
+      "unit": "sqm",
+      "source_files": [
+        "geometry/buildings.geojson"
+      ],
+      "formula": "requires verified building floors or adopted design intensity",
+      "confidence": "unknown",
+      "assumptions": [
+        "A-CONTROLS-001"
+      ],
+      "reason": "Official planning controls and existing building floors/heights remain unavailable; proposed pavilion footprints do not establish floor area."
+    },
+    "far": {
+      "status": "unknown",
+      "value": null,
+      "unit": "ratio",
+      "source_files": [
+        "geometry/buildings.geojson"
+      ],
+      "formula": "total_floor_area/site_area",
+      "confidence": "unknown",
+      "assumptions": [
+        "A-CONTROLS-001"
+      ],
+      "reason": "No adopted FAR or verified total floor area."
+    },
+    "building_footprint_area_sqm": {
+      "status": "known",
+      "value": 2352.0,
+      "unit": "sqm",
+      "source_files": [
+        "geometry/buildings.geojson"
+      ],
+      "formula": "union area of proposed reversible pavilions only",
+      "confidence": "low",
+      "assumptions": [
+        "A-DESIGN-GEOMETRY-001"
+      ]
+    },
+    "building_density": {
+      "status": "known",
+      "value": 0.00020608,
+      "unit": "ratio",
+      "source_files": [
+        "geometry/buildings.geojson",
+        "geometry/site_boundary.geojson"
+      ],
+      "formula": "proposed pavilion footprint union/site area",
+      "confidence": "low",
+      "assumptions": [
+        "A-DESIGN-GEOMETRY-001"
+      ]
+    },
+    "green_area_sqm": {
+      "status": "known",
+      "value": 1183330.989,
+      "unit": "sqm",
+      "source_files": [
+        "geometry/green_space.geojson"
+      ],
+      "formula": "union proposed GREEN_SPACE",
+      "confidence": "low",
+      "assumptions": [
+        "A-DESIGN-GEOMETRY-001"
+      ]
+    },
+    "green_ratio": {
+      "status": "known",
+      "value": 0.10368432,
+      "unit": "ratio",
+      "source_files": [
+        "geometry/green_space.geojson",
+        "geometry/site_boundary.geojson"
+      ],
+      "formula": "proposed green union/site area",
+      "confidence": "low",
+      "assumptions": [
+        "A-DESIGN-GEOMETRY-001"
+      ]
+    },
+    "public_space_area_sqm": {
+      "status": "known",
+      "value": 50812.086,
+      "unit": "sqm",
+      "source_files": [
+        "geometry/public_space.geojson"
+      ],
+      "formula": "union proposed PCI/landmark envelopes",
+      "confidence": "low",
+      "assumptions": [
+        "A-DESIGN-GEOMETRY-001"
+      ]
+    },
+    "public_space_ratio": {
+      "status": "known",
+      "value": 0.00445219,
+      "unit": "ratio",
+      "source_files": [
+        "geometry/public_space.geojson",
+        "geometry/site_boundary.geojson"
+      ],
+      "formula": "proposed public-space union/site area",
+      "confidence": "low",
+      "assumptions": [
+        "A-DESIGN-GEOMETRY-001"
+      ]
+    },
+    "road_centerline_length_m": {
+      "status": "known",
+      "value": 15096.048,
+      "unit": "m",
+      "source_files": [
+        "geometry/roads.geojson"
+      ],
+      "formula": "sum study-axis line lengths",
+      "confidence": "low",
+      "assumptions": [
+        "A-ROAD-001"
+      ]
+    },
+    "road_area_sqm": {
+      "status": "unknown",
+      "value": null,
+      "unit": "sqm",
+      "source_files": [
+        "geometry/roads.geojson"
+      ],
+      "formula": "requires verified road widths/redlines",
+      "confidence": "unknown",
+      "assumptions": [
+        "A-ROAD-001"
+      ],
+      "reason": "Study axes do not establish road redlines or widths."
+    },
+    "road_ratio": {
+      "status": "unknown",
+      "value": null,
+      "unit": "ratio",
+      "source_files": [
+        "geometry/roads.geojson"
+      ],
+      "formula": "road_area/site_area",
+      "confidence": "unknown",
+      "assumptions": [
+        "A-ROAD-001"
+      ],
+      "reason": "Road area is unknown because widths/redlines are not verified."
+    },
+    "phase_area_sqm": {
+      "status": "known",
+      "value": 50812.086,
+      "unit": "sqm",
+      "source_files": [
+        "geometry/phasing.geojson"
+      ],
+      "formula": "sum component-level phase envelopes; overlaps possible",
+      "confidence": "low",
+      "assumptions": [
+        "A-DESIGN-GEOMETRY-001"
+      ]
+    },
+    "key_area_count": {
+      "status": "known",
+      "value": 3,
+      "unit": "count",
+      "source_files": [
+        "geometry/key_areas.geojson"
+      ],
+      "formula": "count(KEY_AREA)",
+      "confidence": "high",
+      "assumptions": [
+        "A-KEY-AREA-001"
+      ]
+    },
+    "key_area_reference_total_sqm": {
+      "status": "known",
+      "value": 3684000,
+      "unit": "sqm",
+      "source_files": [
+        "brief/site-package/design_brief.json"
+      ],
+      "formula": "task-text reference: 192.1+104.3+72.0 ha",
+      "confidence": "high",
+      "assumptions": [
+        "A-KEY-AREA-001"
+      ]
+    },
+    "scenario_card_count": {
+      "status": "known",
+      "value": 12,
+      "unit": "count",
+      "source_files": [
+        "proposal.md"
+      ],
+      "formula": "count governed scenario cards",
+      "confidence": "high",
+      "assumptions": []
+    },
+    "test_validation_scenario_count": {
+      "status": "known",
+      "value": 4,
+      "unit": "count",
+      "source_files": [
+        "proposal.md"
+      ],
+      "formula": "count scenarios explicitly marked bounded test/validation",
+      "confidence": "high",
+      "assumptions": []
+    },
+    "persona_count": {
+      "status": "known",
+      "value": 8,
+      "unit": "count",
+      "source_files": [
+        "proposal.md"
+      ],
+      "formula": "count evaluation personas",
+      "confidence": "high",
+      "assumptions": []
+    },
+    "public_capability_node_type_count": {
+      "status": "known",
+      "value": 8,
+      "unit": "count",
+      "source_files": [
+        "geometry/public_space.geojson",
+        "proposal.md"
+      ],
+      "formula": "count node families in PCI library",
+      "confidence": "high",
+      "assumptions": []
+    },
+    "capability_backbone_layer_count": {
+      "status": "known",
+      "value": 6,
+      "unit": "count",
+      "source_files": [
+        "proposal.md"
+      ],
+      "formula": "memory+mobility+public realm+blue-green+capability nodes+event operations",
+      "confidence": "high",
+      "assumptions": []
+    },
+    "urban_adaptation_rate": {
+      "status": "unknown",
+      "value": null,
+      "unit": "ratio",
+      "source_files": [
+        "proposal.md"
+      ],
+      "formula": "verified_improved_eligible_issue_records / evaluable_qualified_issue_records",
+      "confidence": "unknown",
+      "assumptions": [
+        "A-GOV-OPS-001"
+      ],
+      "reason": "No live eligible-issue / experiment / outcome registry exists; formula readiness is not measured city performance."
+    },
+    "responsible_stop_rate": {
+      "status": "unknown",
+      "value": null,
+      "unit": "ratio",
+      "source_files": [
+        "proposal.md"
+      ],
+      "formula": "responsible_stop_records / evaluable_experiment_records",
+      "confidence": "unknown",
+      "assumptions": [
+        "A-GOV-OPS-001"
+      ],
+      "reason": "Requires real operating records."
+    },
+    "human_override_success_rate": {
+      "status": "unknown",
+      "value": null,
+      "unit": "ratio",
+      "source_files": [
+        "proposal.md"
+      ],
+      "formula": "successful_manual_takeovers / attempted_manual_takeovers",
+      "confidence": "unknown",
+      "assumptions": [
+        "A-GOV-OPS-001"
+      ],
+      "reason": "Requires live operation/incident data."
+    },
+    "capability_transfer_revalidation_rate": {
+      "status": "unknown",
+      "value": null,
+      "unit": "ratio",
+      "source_files": [
+        "proposal.md"
+      ],
+      "formula": "target-context_revalidated_transfers / transfer_attempts",
+      "confidence": "unknown",
+      "assumptions": [
+        "A-GOV-OPS-001"
+      ],
+      "reason": "Requires Capability Registry and transfer logs."
+    },
+    "non_ai_service_parity": {
+      "status": "unknown",
+      "value": null,
+      "unit": "index",
+      "source_files": [
+        "proposal.md"
+      ],
+      "formula": "scenario-defined parity check of essential service when AI unavailable/declined",
+      "confidence": "unknown",
+      "assumptions": [
+        "A-NONAI-001"
+      ],
+      "reason": "Requires service-specific baseline and field measurement."
+    },
+    "ai_innovation_index": {
+      "status": "unknown",
+      "value": null,
+      "confidence": "unknown",
+      "source_files": [
+        "proposal.md"
+      ],
+      "assumptions": [
+        "A-INDUSTRY-DATA-001"
+      ],
+      "unit": "index",
+      "formula": "weighted composite of verified innovation inputs + transfer outcomes + open collaboration + validated public-capability outputs; weights require client/professional agreement",
+      "reason": "No adopted weighting scheme or complete underlying enterprise/innovation dataset."
+    },
+    "ai_talent_density_per_sqkm": {
+      "status": "unknown",
+      "value": null,
+      "confidence": "unknown",
+      "source_files": [
+        "proposal.md"
+      ],
+      "assumptions": [
+        "A-INDUSTRY-DATA-001"
+      ],
+      "unit": "persons_per_sqkm",
+      "formula": "verified_AI_talent_persons / official_statistical_area_sqkm",
+      "reason": "No verified AI talent roster/statistical boundary with consistent date and definition."
+    },
+    "ai_output_value_cny": {
+      "status": "unknown",
+      "value": null,
+      "confidence": "unknown",
+      "source_files": [
+        "proposal.md"
+      ],
+      "assumptions": [
+        "A-INDUSTRY-DATA-001"
+      ],
+      "unit": "CNY",
+      "formula": "sum verified AI-related output value within declared industry definition and statistical year",
+      "reason": "No complete verified enterprise output dataset under a consistent statistical definition."
+    },
+    "ai_industry_space_scale_sqm": {
+      "status": "unknown",
+      "value": null,
+      "confidence": "unknown",
+      "source_files": [
+        "proposal.md"
+      ],
+      "assumptions": [
+        "A-INDUSTRY-DATA-001"
+      ],
+      "unit": "sqm",
+      "formula": "sum verified gross floor area assigned to AI-industry functions within official scope",
+      "reason": "Complete existing/design GFA and verified AI-industry occupancy are unavailable."
+    },
+    "industry_function_mix_ratio": {
+      "status": "unknown",
+      "value": null,
+      "confidence": "unknown",
+      "source_files": [
+        "proposal.md"
+      ],
+      "assumptions": [
+        "A-INDUSTRY-DATA-001"
+      ],
+      "unit": "ratio_by_function",
+      "formula": "verified GFA or land area by industry/research/service/public function / verified total",
+      "reason": "Complete function attribution and verified GFA/land inventory are unavailable."
+    }
+  }
+}

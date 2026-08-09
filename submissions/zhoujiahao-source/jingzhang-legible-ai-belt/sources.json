@@ -1,0 +1,199 @@
+{
+  "schema_version": "0.1.0",
+  "sources": [
+    {
+      "id": "SITE-PACKAGE",
+      "path": "brief/site-package/",
+      "source_type": "official_public",
+      "usage": "Project brief, rules, enums, standards, schemas and provisional geometry."
+    },
+    {
+      "id": "SOURCE-REGISTRY",
+      "path": "data/source_registry.json",
+      "source_type": "repository_public_registry",
+      "usage": "Authority for formal/background/provisional source use."
+    },
+    {
+      "id": "PROCESSED-FACT-PACK",
+      "path": "data/processed/agent_fact_pack.md",
+      "source_type": "repository_processed_reference",
+      "usage": "Navigation for scope/tasks/source gaps; does not replace original sources."
+    },
+    {
+      "id": "BOUNDARY-SOURCE",
+      "path": "brief/site-package/geometry/provisional_boundaries.geojson",
+      "source_type": "agent_inferred_from_public_data",
+      "usage": "Temporary overall design constraint only.",
+      "limitation": "Not official redline or precision scoring geometry. Current repository basis also records a maintainer-reviewed OSM background mismatch (0% park intersection; ~412.5 m nearest distance) without changing the polygon; wait for organizer polygon before formal recalculation."
+    },
+    {
+      "id": "KEY-AREA-SOURCE",
+      "path": "brief/site-package/geometry/provisional_boundaries.geojson",
+      "source_type": "agent_inferred_from_public_data",
+      "usage": "Temporary three key-area constraints only.",
+      "limitation": "Not official key-area polygons."
+    },
+    {
+      "id": "OFFICIAL-ANNOUNCEMENT",
+      "publisher": "北京市规划和自然资源委员会海淀分局",
+      "url": "https://ghzrzyw.beijing.gov.cn/zhengwuxinxi/tzgg/hd/202605/t20260509_4643047.html",
+      "retrieved_date": "2026-08-09",
+      "source_type": "official_public",
+      "usage": "Project scope/goals/reference areas/design tasks.",
+      "limitation": "No exact coordinate-bearing polygons/statutory controls."
+    },
+    {
+      "id": "AGENT-TASKBOOK",
+      "path": "brief/site-package/agent_taskbook.json",
+      "source_type": "user_provided_cleared",
+      "usage": "Three positions, five functions, three areas/two wings, six Agent tasks, co-creation rules."
+    },
+    {
+      "id": "JINGZHANG-THREE-AREAS-TWO-WINGS",
+      "publisher": "北京市人民政府",
+      "url": "https://www.beijing.gov.cn/ywdt/gzdt/202604/t20260403_4049515.html",
+      "retrieved_date": "2026-08-09",
+      "source_type": "official_public_background",
+      "usage": "Three-areas/two-wings development context.",
+      "limitation": "Broader narrative, not competition polygon."
+    },
+    {
+      "id": "SRC-BJ-CITYUPDATE-ZZY-20260713",
+      "publisher": "北京市城市更新服务平台 / 北京市人民政府",
+      "url": "https://www.beijing.gov.cn/fuwu/lqfw/ztzl/bjchshgx/xmgsh/202607/t20260714_4762585.html",
+      "retrieved_date": "2026-08-09",
+      "source_type": "official_public_background",
+      "usage": "Current Zhongzhiyuan renewal context.",
+      "limitation": "Not competition KEY_AREA or statutory control."
+    },
+    {
+      "id": "SRC-BJ-CITYUPDATE-DZS-20260713",
+      "publisher": "北京市城市更新服务平台 / 北京市人民政府",
+      "url": "https://www.beijing.gov.cn/fuwu/lqfw/ztzl/bjchshgx/xmgsh/202607/t20260714_4762615.html",
+      "retrieved_date": "2026-08-09",
+      "source_type": "official_public_background",
+      "usage": "Current Dazhongsi renewal context.",
+      "limitation": "Not competition KEY_AREA or statutory control."
+    },
+    {
+      "id": "SRC-BJ-AIORIGIN-TALENT-20260720",
+      "publisher": "海淀区人力资源和社会保障局",
+      "url": "https://zyk.bjhd.gov.cn/jbdt/auto4496_51791/auto4496_52699/auto4496/auto4496/202607/t20260722_4822818_hd.shtml",
+      "retrieved_date": "2026-08-09",
+      "source_type": "official_public_background",
+      "usage": "AI Origin public-service context.",
+      "limitation": "No coverage/population inference."
+    },
+    {
+      "id": "SRC-BJ-DZS-ROAD-20260225",
+      "publisher": "北京市海淀区推进世界领先科技园区建设办公室",
+      "url": "https://zyk.bjhd.gov.cn/jbdt/auto4512_51818/auto4512_54872/auto4512/auto4512/202602/t20260225_4806108.shtml",
+      "retrieved_date": "2026-08-09",
+      "source_type": "official_public_background",
+      "usage": "Named road micro-circulation context.",
+      "limitation": "Not area-wide road redline/performance."
+    },
+    {
+      "id": "SRC-BJ-XIAOYUEHE-WATER-20260112",
+      "publisher": "海淀区水务局",
+      "url": "https://zyk.bjhd.gov.cn/jbdt/auto4508_51796/auto4508_53101/auto4508/auto4508/202601/t20260112_4801412.shtml",
+      "retrieved_date": "2026-08-09",
+      "source_type": "official_public_background",
+      "usage": "Xiaoyuehe waterfront program context.",
+      "limitation": "Not final as-built geometry."
+    },
+    {
+      "id": "SRC-BJ-XIAOYUEHE-WORKS-20260121",
+      "publisher": "北京市公共资源交易服务平台",
+      "url": "https://ggzyfw.beijing.gov.cn/jyxxggjtbyqs/20260121/5412587.html",
+      "retrieved_date": "2026-08-09",
+      "source_type": "official_public_background",
+      "usage": "Utility relocation / works context.",
+      "limitation": "Not full wing polygon/completion."
+    },
+    {
+      "id": "SRC-BJ-JZPARK-CATALOG-20250724",
+      "publisher": "北京市园林绿化局",
+      "url": "https://yllhj.beijing.gov.cn/ggfw/bjsggml/zhgy/hdq/202507/t20250724_4156668.shtml",
+      "retrieved_date": "2026-08-09",
+      "source_type": "official_public_background",
+      "usage": "Jing-Zhang Railway Heritage Park public-space/history context.",
+      "limitation": "Not exact GIS."
+    },
+    {
+      "id": "SRC-OSM-OVERPASS-LIVE",
+      "publisher": "OpenStreetMap contributors",
+      "url": "https://www.openstreetmap.org/copyright",
+      "retrieved_date": "2026-08-09",
+      "source_type": "open_data_candidate",
+      "license": "ODbL-1.0",
+      "usage": "Live Overpass candidate existing-condition audit within the provisional envelope: 5532 usable OSM features including 1898 building polygons; used for context and named-anchor cross-checks, not as statutory survey evidence.",
+      "limitation": "Community-maintained OSM data are candidate context only; they do not establish official redlines, ownership, complete as-built inventory, statutory controls, or guaranteed current conditions. Re-run after organizer geometry arrives."
+    },
+    {
+      "id": "SRC-MS-GLOBAL-BUILDINGS-20260724",
+      "publisher": "Microsoft / Bing Maps",
+      "url": "https://github.com/microsoft/GlobalMLBuildingFootprints",
+      "retrieved_date": "2026-08-09",
+      "source_type": "open_data_candidate",
+      "license": "CDLA-Permissive-2.0",
+      "usage": "Live query of Microsoft 2026-07-24 dataset-links.csv for project L9 quadkey 132100103; index HTTP 200, 30340 rows, exact target partitions 0, China rows 0.",
+      "limitation": "The current published Microsoft index contains no target/China partition for this site, so no Microsoft building footprints were available for site-level OSM↔Microsoft IoU comparison. This is a coverage result, not evidence that buildings are absent."
+    },
+    {
+      "id": "GLOBAL-PUNGGOL",
+      "publisher": "JTC Singapore",
+      "url": "https://www.jtc.gov.sg/find-space/punggol-digital-district",
+      "retrieved_date": "2026-08-09",
+      "source_type": "official_public_background",
+      "usage": "Living lab + district platform + academia-industry collaboration."
+    },
+    {
+      "id": "GLOBAL-SEOUL-INCLUSION",
+      "publisher": "Seoul Metropolitan Government",
+      "url": "https://english.seoul.go.kr/policy/smart-city/digital-inclusion/",
+      "retrieved_date": "2026-08-09",
+      "source_type": "official_public_background",
+      "usage": "Digital inclusion / assisted access precedent."
+    },
+    {
+      "id": "GLOBAL-ENABLING-VILLAGE",
+      "publisher": "SG Enable",
+      "url": "https://www.sgenable.sg/your-first-stop/community-integration",
+      "retrieved_date": "2026-08-09",
+      "source_type": "official_public_background",
+      "usage": "Universal design / assistive technology precedent."
+    },
+    {
+      "id": "GLOBAL-WOVEN-CITY",
+      "publisher": "Woven by Toyota",
+      "url": "https://woven-city.global/",
+      "retrieved_date": "2026-08-09",
+      "source_type": "official_public_background",
+      "usage": "Real-world bounded testing precedent."
+    },
+    {
+      "id": "GLOBAL-DECIDIM",
+      "publisher": "Barcelona City Council",
+      "url": "https://ajuntament.barcelona.cat/digital/en/digital-empowerment/democracy-and-digital-rights/decidim-barcelona",
+      "retrieved_date": "2026-08-09",
+      "source_type": "official_public_background",
+      "usage": "Traceable public participation precedent."
+    },
+    {
+      "id": "GLOBAL-KALASATAMA",
+      "publisher": "City of Helsinki",
+      "url": "https://www.hel.fi/en/urban-environment-and-traffic/urban-planning-and-construction/urban-development/kalasatama",
+      "retrieved_date": "2026-08-09",
+      "source_type": "official_public_background",
+      "usage": "Mixed everyday district / waterfront continuity precedent."
+    },
+    {
+      "id": "PROVISIONAL-BOUNDARY-BASIS",
+      "path": "brief/site-package/geometry/provisional_boundaries_basis.md",
+      "source_type": "repository_processed_reference",
+      "usage": "Maintainer-reviewed background audit of provisional boundary uncertainty, including the 2026-08-08 OSM comparison recorded through Issue #846.",
+      "limitation": "Background audit only; does not change PROV-SITE-001 into an official boundary and must not support formal redline/scoring claims."
+    }
+  ]
+}
