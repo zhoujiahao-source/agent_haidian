@@ -1,0 +1,76 @@
+name: Validate final City OS v2 with latest upstream tools
+
+on:
+  push:
+    branches:
+      - integration/final-city-os-v2
+    paths:
+      - '.github/workflows/validate-final-city-os-v2.yml'
+      - 'workstreams/integration/validation-trigger/**'
+
+permissions:
+  contents: write
+
+jobs:
+  validate-final:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout clean submission branch
+        uses: actions/checkout@v4
+        with:
+          ref: submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v2
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: |
+            scripts
+            brief
+            data
+            docs
+            skills
+            submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+            requirements-review.txt
+            pyproject.toml
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install review dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-review.txt
+
+      - name: Render canonical HTML with upstream renderer
+        run: |
+          python3 scripts/render_proposal_html.py submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+
+      - name: Finalize canonical package
+        run: |
+          python3 scripts/finalize_submission.py submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+
+      - name: Run contributor self-check
+        run: |
+          python3 scripts/self_check_submission.py submissions/zhoujiahao-source/jingzhang-legible-ai-belt --pr-author zhoujiahao-source | tee /tmp/self-check.log
+
+      - name: Commit official-tool refresh
+        run: |
+          git config user.name 'City OS v2 Validator'
+          git config user.email 'actions@users.noreply.github.com'
+          git add -A submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+          if git diff --cached --quiet; then
+            echo 'No official-tool refresh changes.'
+          else
+            git commit -m 'chore(submission): refresh manifest and self-check with latest upstream tools'
+            git push origin HEAD:submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v2
+          fi
+
+      - name: Run participant preflight
+        run: |
+          python3 scripts/participant_preflight.py submissions/zhoujiahao-source/jingzhang-legible-ai-belt --pr-author zhoujiahao-source --check-push | tee /tmp/preflight.log
+
+      - name: Print final branch head
+        run: |
+          git rev-parse HEAD
+          git status --short
