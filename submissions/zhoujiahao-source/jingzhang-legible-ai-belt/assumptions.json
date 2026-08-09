@@ -1,0 +1,59 @@
+{
+  "schema_version": "0.1.0",
+  "assumptions": [
+    {
+      "id": "A-BOUNDARY-001",
+      "status": "active",
+      "statement_zh": "总体 SITE_BOUNDARY 仍为仓库 provisional rough geometry；非官方红线，官方坐标到位后全部 geometry→metrics→figures 必须重算。",
+      "trigger": "official SITE_BOUNDARY received"
+    },
+    {
+      "id": "A-KEY-AREA-001",
+      "status": "active",
+      "statement_zh": "三处 KEY_AREA polygon 为临时约束；比赛参考面积与 polygon 复算值分开。",
+      "trigger": "official KEY_AREA polygons received"
+    },
+    {
+      "id": "A-CONTROLS-001",
+      "status": "active",
+      "statement_zh": "FAR、建筑高度、密度、绿地率、退界、道路红线、权属、文保、市政消防等法定/工程条件缺失，不以 schema sanity bounds 代替。",
+      "trigger": "official planning/control/engineering data received"
+    },
+    {
+      "id": "A-ROAD-001",
+      "status": "active",
+      "statement_zh": "ROAD-001~006 仅为连续性/缝合研究轴；不代表已核验道路、桥、隧、通道或红线。",
+      "trigger": "verified mobility/ROW/crossing evidence received"
+    },
+    {
+      "id": "A-DESIGN-GEOMETRY-001",
+      "status": "active",
+      "statement_zh": "LAND_USE、GREEN_SPACE、PUBLIC_SPACE、BUILDING_FOOTPRINT、PHASE 为概念设计图层，面积可复算但不是法定规划指标。",
+      "trigger": "professional design deepening / official controls"
+    },
+    {
+      "id": "A-GOV-OPS-001",
+      "status": "active",
+      "statement_zh": "UAR 与治理指标只有定义，没有真实运营记录；数值保持 unknown/null。",
+      "trigger": "live eligible issue / experiment / outcome registry exists"
+    },
+    {
+      "id": "A-NONAI-001",
+      "status": "active",
+      "statement_zh": "所有公共服务保持非AI/人工等价路径；AI离线、拒绝授权或试验停止时普通城市功能仍可使用。",
+      "trigger": "scenario implementation design"
+    },
+    {
+      "id": "A-BASEMAP-001",
+      "status": "active",
+      "statement_zh": "OSM/Microsoft 现状底图脚本已完成且数据源许可已登记；本次执行环境无法访问公网进行 materialization，因此未把未下载数据伪装成 Verified existing conditions。",
+      "trigger": "networked checkout executes acquisition + validation + cross-check"
+    },
+    {
+      "id": "A-INSTITUTION-001",
+      "status": "active",
+      "statement_zh": "Public Stewardship 是功能性制度设计，不声称某个现实机构已接受预算、法律授权或运营责任。",
+      "trigger": "formal operator/authorization source exists"
+    }
+  ]
+}
