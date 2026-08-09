@@ -1,0 +1,50 @@
+def make_pdf(path,size,lang='zh',kind='a3'):
+    c=canvas.Canvas(str(path),pagesize=landscape(size)); W,H=landscape(size); suf='.en' if lang=='en' else ''
+    if kind=='a3':
+        pages=[
+          (('封面｜城市级公共能力操作系统' if lang=='zh' else 'Cover | A City-scale Public Capability OS'),['site-overview'], 'City OS / Capability Backbone / Public Value'),
+          (('证据与总体结构' if lang=='zh' else 'Evidence & Overall Structure'),['site-overview','land-use-structure'], 'PROVISIONAL CONSTRAINT — NOT OFFICIAL REDLINE'),
+          (('三区差异化详细设计' if lang=='zh' else 'Three Key Areas'),['key-areas'], 'Verification Campus / Learning Neighborhood / Market & Service Commons'),
+          (('公共空间｜城市优先，AI退到后台' if lang=='zh' else 'Public Space | City First, AI Backstage'),['pci-prototypes','mobility-bluegreen'], 'Public Capability Interface'),
+          (('治理与指标' if lang=='zh' else 'Governance & Metrics'),['metrics-evidence','city-version-dashboard'], 'UAR / Responsible STOP / Public Stewardship'),
+          (('1909→2026→Future→Retired' if lang=='zh' else '1909→2026→Future→Retired'),['landmarks-memory'], 'Landmark as Memory'),
+          (('长期运营与技术替换' if lang=='zh' else 'Long-term Operation & Technology Replacement'),['twenty-year-legacy','city-version-dashboard'], 'Persistent Protocol, Disposable Technology'),
+          (('实施与风险边界' if lang=='zh' else 'Implementation & Risk Boundaries'),['land-use-structure','metrics-evidence'], 'Permanent / Adaptive / Experimental · Known / Estimated / Proposed / Unknown')]
+    else:
+        pages=[
+          (('A0-01 总体概念与空间结构' if lang=='zh' else 'A0-01 Concept & Spatial Structure'),['site-overview','land-use-structure'],'City OS / Capability Backbone / Three Areas & Two Wings'),
+          (('A0-02 重点区、公共空间与地标' if lang=='zh' else 'A0-02 Key Areas, Public Space & Landmarks'),['key-areas','pci-prototypes','mobility-bluegreen','landmarks-memory'],'City first, AI backstage'),
+          (('A0-03 城市学习、年度发布与20年遗产' if lang=='zh' else 'A0-03 Urban Learning, Version Release & 20-year Legacy'),['metrics-evidence','city-version-dashboard','twenty-year-legacy'],'UAR / Public Stewardship / Retirement')]
+    for title,names,sub in pages:
+        fps=[OUT/f'assets/figures/{n}{suf}.png' for n in names]; draw_pdf_page(c,(W,H),title,fps,lang,sub,'Open co-creation proposal · provisional geometry · human final judgment'); c.showPage()
+    c.save()
+for lang in ['zh','en']:
+    suf='.en' if lang=='en' else ''
+    make_pdf(OUT/f'drawings/a3-booklet{suf}.pdf',A3,lang,'a3'); make_pdf(OUT/f'drawings/a0-boards{suf}.pdf',A0,lang,'a0')
+
+# ---------- manifest ----------
+# Required + bilingual human-facing assets. Include extra figures as proposal_figure.
+files=[]
+def add(path,role,required=True,language=None,translation_of=None):
+    ent={'path':path,'role':role,'required':required}
+    if path!='manifest.json': ent['sha256']=hashlib.sha256((OUT/path).read_bytes()).hexdigest()
+    if language: ent['language']=language
+    if translation_of: ent['translation_of']=translation_of
+    files.append(ent)
+add('manifest.json','manifest',True)
+add('proposal.md','narrative',True,'zh'); add('proposal.en.md','narrative',True,'en','proposal.md')
+for p,r in [('agent.json','agent_card'),('metrics.json','metrics'),('assumptions.json','assumptions'),('sources.json','sources'),('self_check.json','self_check'),('compliance_matrix.json','compliance_matrix'),('standard_matrix.json','standard_matrix'),('design_depth_matrix.json','design_depth_matrix')]: add(p,r,True)
+for p in ['site_boundary.geojson','key_areas.geojson','land_use.geojson','buildings.geojson','roads.geojson','green_space.geojson','public_space.geojson','constraints.geojson','phasing.geojson']: add('geometry/'+p,'geometry',True)
+for name in figure_funcs:
+    zh='assets/figures/'+name+'.png'; en='assets/figures/'+name+'.en.png'; req=name in ['site-overview','land-use-structure','key-areas','mobility-bluegreen','metrics-evidence']; add(zh,'proposal_figure',req,'zh'); add(en,'proposal_figure',req,'en',zh)
+add('drawings/a3-booklet.pdf','drawing',True,'zh'); add('drawings/a3-booklet.en.pdf','drawing',True,'en','drawings/a3-booklet.pdf')
+add('drawings/a0-boards.pdf','drawing',True,'zh'); add('drawings/a0-boards.en.pdf','drawing',True,'en','drawings/a0-boards.pdf')
+add('report/proposal.html','rendered_proposal_html',True,'zh'); add('report/proposal.en.html','rendered_proposal_html',True,'en','report/proposal.html')
+add('report/copyright_statement.md','copyright_statement',True)
+add('visual/index.html','visualization',True,'zh'); add('visual/index.en.html','visualization',True,'en','visual/index.html')
+manifest={'schema_version':'0.1.0','package_id':'jingzhang-legible-ai-belt','project_id':'centennial-jingzhang-ai-belt','site_package_version':'0.1.0','package_type':'professional_design_package','package_state':'ready_for_review','submission_stage':'formal','submission_type':'ai_agent','agent':{'agent_id':'zhoujiahao-source','agent_name':'ChatGPT (GPT-5.6 Sol)','model':'GPT-5.6 Sol'},'generated_at':datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00','Z'),'files':files,'validation_claim':{'self_checked':False,'known_blockers':['Live OSM/Microsoft basemap materialization could not run in the current no-network execution container; candidate sources remain unpromoted and explicit.'],'data_confidence':'medium'}}
+dumpj(OUT/'manifest.json',manifest)
+
+print('Generated',OUT)
+print('site_area',site_area,'green_ratio',metrics['green_ratio']['value'],'public_ratio',metrics['public_space_ratio']['value'])
+print('files',sum(1 for p in OUT.rglob('*') if p.is_file()))
