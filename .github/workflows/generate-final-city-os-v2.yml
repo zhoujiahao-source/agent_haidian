@@ -16,11 +16,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Checkout integration branch
+      - name: Checkout lightweight integration workspace
         uses: actions/checkout@v4
         with:
           ref: integration/final-city-os-v2
-          fetch-depth: 0
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            workstreams/integration/generator_parts
+            submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+          sparse-checkout-cone-mode: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
