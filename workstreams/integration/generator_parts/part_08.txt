@@ -1,0 +1,80 @@
+        for tx in [.38,.48,.58]: ax.plot([tx,tx],[.63,.78],color=COLORS['green'],lw=3); ax.scatter([tx],[.80],s=120,color=COLORS['green'])
+        ax.add_patch(Rectangle((.40,.58),.20,.05,facecolor=c,alpha=.35,edgecolor=c)); ax.text(.50,.605,'PCI',ha='center',va='center',fontsize=9)
+        ax.text(0,.47,zh if lang=='zh' else en,fontproperties=FPB if lang=='zh' else None,fontsize=16,color=c); ax.text(0,.40,rolezh if lang=='zh' else roleen,fontproperties=FP if lang=='zh' else None,fontsize=10)
+        bullets=([['普通城市先成立','AI测试有旁路','失败可STOP/撤除'],['公共服务有人工作为等价路径','个人化进入Consent Layer','弱势群体结果单列'],['通勤/商户/骑手/居民混合','服务验证进入真实日常','不封闭成技术园']][i] if lang=='zh' else [['Ordinary city first','Tests include bypass','STOP/removal designed in'],['Staffed/non-AI parity','Personalization requires consent','Vulnerable outcomes separate'],['Mixed commuters/merchants/couriers/residents','Validate in daily life','Not a closed tech park']][i])
+        for j,b in enumerate(bullets): ax.text(.03,.30-j*.08,'• '+b,fontproperties=FP if lang=='zh' else None,fontsize=9)
+    return fig
+
+def fig_mob(lang='zh'):
+    fig=plt.figure(figsize=(12,7),facecolor=COLORS['paper']); ax=fig.add_axes([.05,.10,.58,.8]); draw_site(ax,False)
+    for f in green_feats:
+        g=Polygon(f['geometry']['coordinates'][0]); ax.add_patch(MplPolygon(poly_xy(g),closed=True,facecolor=COLORS['green'],edgecolor='none',alpha=.25,zorder=1.5))
+    for f in road_feats[1:]:
+        g=LineString(f['geometry']['coordinates']); x,y=g.xy; ax.plot(x,y,color=COLORS['gray'],lw=1.4,ls=':',zorder=3)
+    for f in public_feats:
+        g=Polygon(f['geometry']['coordinates'][0]); c=g.centroid; ax.scatter(c.x,c.y,s=35,color=COLORS['accent'],zorder=5)
+    fig.text(.05,.94,'慢行 × 蓝绿 × PCI｜连续性不是“画一条路”' if lang=='zh' else 'Mobility × Blue-Green × PCI | Continuity Is Not “Draw a Road”',fontproperties=FPB if lang=='zh' else None,fontsize=22,weight='bold')
+    ax2=fig.add_axes([.68,.12,.28,.72]); ax2.axis('off')
+    lines=(['北—南：京张公共生活连续骨干','东—西：5 条 evidence-gated stitch relations','蓝绿：树荫/热舒适/雨洪优先','节点：调用能力，但普通城市功能先成立','Crossing 未核验时只画“关系”，不画桥隧'] if lang=='zh' else ['North–south: public-life continuity backbone','East–west: 5 evidence-gated stitch relations','Blue-green: shade/thermal/stormwater first','Nodes call capabilities; ordinary city works first','Unverified crossings remain relationships, not invented structures'])
+    ax2.text(0,1,'空间原则' if lang=='zh' else 'Spatial principles',fontproperties=FPB if lang=='zh' else None,fontsize=15,va='top')
+    for i,s in enumerate(lines): ax2.text(.02,.88-i*.14,'• '+s,fontproperties=FP if lang=='zh' else None,fontsize=10,wrap=True)
+    return fig
+
+def fig_metrics(lang='zh'):
+    fig=plt.figure(figsize=(12,7),facecolor=COLORS['paper']); fig.text(.04,.94,'Urban Adaptation Rate｜城市学习不是部署计数' if lang=='zh' else 'Urban Adaptation Rate | Learning Is Not Deployment Counting',fontproperties=FPB if lang=='zh' else None,fontsize=22,weight='bold')
+    ax=fig.add_axes([.04,.12,.58,.75]); ax.axis('off')
+    steps=['Agent detects','Eligible Issue Gate','Risk + baseline','Bounded test','Public-value review','STOP / MODIFY / CONTINUE / SCALE','Transfer revalidation','City Version Release']
+    for i,s in enumerate(steps):
+        x=.08+(i%4)*.23; y=.78-(i//4)*.35
+        ax.add_patch(Rectangle((x,y),.18,.16,facecolor='white',edgecolor=COLORS['ink'],lw=1.5)); ax.text(x+.09,y+.08,s,ha='center',va='center',fontsize=8,wrap=True)
+        if i<7:
+            nx=.08+((i+1)%4)*.23; ny=.78-((i+1)//4)*.35
+            if i%4!=3: ax.add_patch(FancyArrowPatch((x+.18,y+.08),(nx,ny+.08),arrowstyle='->',mutation_scale=10,color=COLORS['gray']))
+    ax.text(.08,.28,'UAR = verified improved eligible issues / evaluable qualified issues',fontsize=12,weight='bold',color=COLORS['blue'])
+    ax.text(.08,.20,'Responsible STOP = learning/safety outcome, not automatic adaptation credit',fontsize=9,color=COLORS['red'])
+    ax2=fig.add_axes([.67,.12,.29,.75]); ax2.axis('off'); ax2.text(0,1,'公开 Dashboard' if lang=='zh' else 'Public Dashboard',fontproperties=FPB if lang=='zh' else None,fontsize=15,va='top')
+    k=[('UAR','Unknown','真实运营前保持 null'),('STOP rate','Unknown','公开停止而非隐藏失败'),('Override','Unknown','人工接管必须可测'),('Transfer','Unknown','跨区迁移先重验证'),('Non-AI parity','Unknown','AI拒绝/离线仍可用')]
+    for i,(a,b,c) in enumerate(k):
+        y=.88-i*.15; ax2.add_patch(Rectangle((0,y-.07),1,.11,facecolor='white',edgecolor=COLORS['light'])); ax2.text(.04,y,a,fontsize=10,weight='bold'); ax2.text(.45,y,b,fontsize=9,color=COLORS['red']); ax2.text(.04,y-.045,c if lang=='zh' else {'真实运营前保持 null':'Null until real operation','公开停止而非隐藏失败':'Publish stops, not hide failures','人工接管必须可测':'Human takeover must be measurable','跨区迁移先重验证':'Revalidate before transfer credit','AI拒绝/离线仍可用':'Usable when AI declined/offline'}[c],fontproperties=FP if lang=='zh' else None,fontsize=8,color=COLORS['darkgray'])
+    return fig
+
+def fig_pci(lang='zh'):
+    fig=plt.figure(figsize=(12,7),facecolor=COLORS['paper']); fig.text(.04,.94,'Public Capability Interface｜城市优先，AI退到后台' if lang=='zh' else 'Public Capability Interface | City First, AI Backstage',fontproperties=FPB if lang=='zh' else None,fontsize=22,weight='bold')
+    names=[('社区服务接口','Neighborhood Service'),('高温避难接口','Heat Refuge'),('市场服务接口','Market Service'),('验证接口','Validation Interface'),('学习档案','Learning Archive')]
+    for i,(zh,en) in enumerate(names):
+        ax=fig.add_axes([.04+i*.19,.16,.17,.68]); ax.axis('off'); ax.add_patch(Rectangle((.05,.52),.9,.28,facecolor='white',edgecolor=COLORS['ink']));
+        ax.plot([.10,.90],[.56,.56],color=COLORS['ink'],lw=2); ax.add_patch(Rectangle((.18,.56),.26,.06,facecolor='#D8C7A5',edgecolor=COLORS['ink'])); ax.plot([.65,.65],[.56,.74],color=COLORS['green'],lw=3); ax.scatter([.65],[.77],s=180,color=COLORS['green']); ax.add_patch(Rectangle((.78,.56),.08,.13,facecolor=COLORS['accent'],alpha=.6));
+        ax.text(.05,.43,zh if lang=='zh' else en,fontproperties=FPB if lang=='zh' else None,fontsize=11)
+        states=(['非AI底线','Ambient','Consent','Human Override','Failure-safe','Learning record'] if lang=='zh' else ['Non-AI baseline','Ambient','Consent','Human override','Failure-safe','Learning record'])
+        for j,s in enumerate(states): ax.text(.06,.34-j*.055,'• '+s,fontproperties=FP if lang=='zh' else None,fontsize=7.5)
+    return fig
+
+def fig_landmarks(lang='zh'):
+    fig=plt.figure(figsize=(12,7),facecolor=COLORS['paper'])
+    fig.text(.04,.93,'Landmark as Memory｜1909 → 2026 → Future → Retired' if lang=='zh' else 'Landmark as Memory | 1909 → 2026 → Future → Retired',fontproperties=FPB if lang=='zh' else None,fontsize=21,weight='bold',color=COLORS['ink'])
+    ax=fig.add_axes([.04,.13,.92,.70]); ax.axis('off'); ax.set_xlim(0,1); ax.set_ylim(0,1)
+    nodes=[
+      ('1909','Railway Memory Ground','铁路轨迹 / 材料 / 工程精神','rail traces / material / engineering spirit',COLORS['gray']),
+      ('2026','City Learning Archive','年度版本 / STOP / unresolved','annual release / STOP / unresolved',COLORS['accent']),
+      ('Future','Open Test Station','可拆 / 可换 / 可复位试验','demountable / replaceable / resettable tests',COLORS['blue']),
+      ('Retired','Capability Archive','连续服务 / 凭证清理 / 数据处置','service continuity / credentials / data disposition',COLORS['purple'])]
+    xs=[.12,.38,.64,.88]
+    ax.plot([xs[0],xs[-1]],[.55,.55],color=COLORS['ink'],lw=3)
+    for i,(yr,name,zh,en,col) in enumerate(nodes):
+        x=xs[i]; ax.scatter([x],[.55],s=280,color=col,zorder=3,edgecolors='white',linewidths=2)
+        ax.text(x,.79,yr,ha='center',fontsize=16,weight='bold',color=COLORS['ink']); ax.text(x,.70,name,ha='center',fontsize=9.5,weight='bold',color=COLORS['ink'])
+        ax.add_patch(Rectangle((x-.10,.27),.20,.24,facecolor='white',edgecolor=col,lw=1.5)); desc=zh if lang=='zh' else en
+        ax.text(x,.39,desc,ha='center',va='center',fontproperties=FP if lang=='zh' else None,fontsize=8.5,wrap=True,color=COLORS['ink'])
+        ax.plot([x-.065,x-.065],[.30,.48],color=COLORS['ink'],lw=2); ax.plot([x-.045,x-.045],[.30,.48],color=COLORS['ink'],lw=2); ax.plot([x-.065,x-.045],[.34,.34],color=col,lw=2); ax.plot([x-.065,x-.045],[.42,.42],color=col,lw=2)
+    footer='地标记录城市如何学习，包括“停止”和“退役”；铁路 DNA 是轨道、道岔、站点与里程标的物理语言，而不是复古装饰。' if lang=='zh' else 'Landmarks record learning, including stopping and retirement. Railway DNA appears as tracks, switches, stations and mileposts - not nostalgic decoration.'
+    ax.text(.02,.08,footer,fontproperties=FP if lang=='zh' else None,fontsize=10,color=COLORS['ink'])
+    return fig
+
+def fig_dashboard(lang='zh'):
+    fig=plt.figure(figsize=(12,7),facecolor=COLORS['paper']); fig.text(.04,.94,'Jing-Zhang City Version Release｜公开责任，不做排行榜' if lang=='zh' else 'Jing-Zhang City Version Release | Accountability, Not a Leaderboard',fontproperties=FPB if lang=='zh' else None,fontsize=22,weight='bold')
+    ax=fig.add_axes([.04,.12,.92,.72]); ax.axis('off')
+    cols=[('ADDED',4,COLORS['green']),('MODIFIED',7,COLORS['blue']),('SCALED',2,COLORS['accent']),('RESPONSIBLE STOP',3,COLORS['red']),('RETIRED',1,COLORS['purple']),('UNRESOLVED',8,COLORS['gray'])]
+    for i,(name,n,c) in enumerate(cols):
+        x=.01+i*.16; ax.add_patch(Rectangle((x,.62),.14,.20,facecolor='white',edgecolor=c,lw=2)); ax.text(x+.07,.73,name,ha='center',fontsize=8,weight='bold'); ax.text(x+.07,.65,'—' if n else '—',ha='center',fontsize=22,color=c)
+    ax.text(.01,.50,'Illustrative structure only — no live operating counts are claimed.' if lang=='en' else '仅展示发布结构，不虚构真实运营数量。',fontproperties=FP if lang=='zh' else None,fontsize=10,color=COLORS['red'])
+    rows=(['问题与基线','授权与试验记录','公共价值结果','投诉/人工接管/事故','跨区迁移与重验证','退役与数据处置','下一年度未解决问题'] if lang=='zh' else ['Problem + baseline','Authorization + experiment record','Public-value outcomes','Complaints / override / incidents','Transfer + revalidation','Retirement + data disposition','Next-year unresolved problems'])
