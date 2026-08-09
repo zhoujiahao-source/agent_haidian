@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1.0",
+  "checks": [
+    {
+      "check_id": "BOUNDARY_TRUST",
+      "result": "pass",
+      "severity": "major",
+      "target": "geometry/site_boundary.geojson",
+      "message": "Provisional boundary is explicit and never called official."
+    },
+    {
+      "check_id": "KEY_AREAS_TRUST",
+      "result": "pass",
+      "severity": "major",
+      "target": "geometry/key_areas.geojson",
+      "message": "Three key areas remain provisional and reference areas are separated."
+    },
+    {
+      "check_id": "LAND_USE_TOPOLOGY",
+      "result": "pass",
+      "severity": "major",
+      "target": "geometry/land_use.geojson",
+      "message": "Proposed land-use mosaic is clipped to and covers the provisional site without intentional overlaps."
+    },
+    {
+      "check_id": "NON_AI_PARITY",
+      "result": "pass",
+      "severity": "major",
+      "target": "proposal.md",
+      "message": "All PCI scenarios preserve non-AI baseline/human alternative and degraded-mode city use."
+    },
+    {
+      "check_id": "GOV_METRIC_DISCIPLINE",
+      "result": "pass",
+      "severity": "major",
+      "target": "metrics.json",
+      "message": "UAR and live governance metrics remain unknown/null until real operating records exist."
+    },
+    {
+      "check_id": "VISUAL_STATIC",
+      "result": "pass",
+      "severity": "info",
+      "target": "visual/index.html",
+      "message": "Offline visual is local-only and declares the three required data-metrics."
+    },
+    {
+      "check_id": "BILINGUAL_CONTRACT",
+      "result": "pass",
+      "severity": "major",
+      "target": "proposal.en.md",
+      "message": "Primary and English companion are present; figures/HTML/PDF counterparts generated in matching positions."
+    },
+    {
+      "check_id": "PROFESSIONAL_EVIDENCE",
+      "result": "pass",
+      "severity": "major",
+      "target": "proposal.md",
+      "message": "13 required chapters, 12 scenarios, 8 personas, 4 test scenarios, key-area logic, PCI, landmarks and operations are present."
+    },
+    {
+      "check_id": "BASEMAP_EXECUTION",
+      "result": "unknown",
+      "severity": "major",
+      "target": "assumptions.json",
+      "message": "OSM/Microsoft acquisition workflow is adopted but live materialization remains blocked by the current no-network execution environment; no unverified data is promoted."
+    },
+    {
+      "check_id": "OFFICIAL_METRICS_CONTRACT",
+      "result": "pass",
+      "severity": "major",
+      "target": "metrics.json",
+      "message": "Organizer-named AI innovation index, talent density, output value, AI-industry-space scale and function mix are defined as auditable unknown/null metrics rather than fabricated values."
+    },
+    {
+      "check_id": "OFFICIAL_KEY_AREA_COVERAGE",
+      "result": "pass",
+      "severity": "major",
+      "target": "proposal.md",
+      "message": "Zhongzhiyuan, AI Origin and Dazhongsi explicitly cover organizer-named mobility, renewal, culture/green-space and AI-industry deepening tasks as conceptual/professional follow-up items."
+    },
+    {
+      "check_id": "AGENT6_OPERATIONS_COVERAGE",
+      "result": "pass",
+      "severity": "major",
+      "target": "proposal.md",
+      "message": "Annual activities, developer community operations, scenario opening, public experience route, international communication and attraction/conversion are explicitly addressed without claiming government commitments."
+    }
+  ]
+}

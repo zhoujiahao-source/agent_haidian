@@ -1,0 +1,468 @@
+{
+  "type": "FeatureCollection",
+  "name": "jingzhang_city_os_land_use",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "LU-001",
+      "properties": {
+        "id": "LU-001",
+        "layer": "LAND_USE",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "land_use_code": "05",
+        "name_zh": "商业服务业用地",
+        "design_role": "AI-native market/service",
+        "drawing_status": "Proposed",
+        "evidence_status": "Derived",
+        "usage_note": "概念城市设计用途，不替代法定用地分类或控规。",
+        "area_sqm_declared": 929258.637
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.3407,
+              39.939
+            ],
+            [
+              116.3403111111111,
+              39.953
+            ],
+            [
+              116.3475,
+              39.953
+            ],
+            [
+              116.3475,
+              39.939
+            ],
+            [
+              116.3407,
+              39.939
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "LU-002",
+      "properties": {
+        "id": "LU-002",
+        "layer": "LAND_USE",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "land_use_code": "0702",
+        "name_zh": "城镇社区服务设施用地",
+        "design_role": "public-service interface",
+        "drawing_status": "Proposed",
+        "evidence_status": "Derived",
+        "usage_note": "概念城市设计用途，不替代法定用地分类或控规。",
+        "area_sqm_declared": 1036282.775
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.3475,
+              39.939
+            ],
+            [
+              116.3475,
+              39.953
+            ],
+            [
+              116.3553,
+              39.953
+            ],
+            [
+              116.3553,
+              39.939
+            ],
+            [
+              116.3475,
+              39.939
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "LU-003",
+      "properties": {
+        "id": "LU-003",
+        "layer": "LAND_USE",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "land_use_code": "0803",
+        "name_zh": "文化用地",
+        "design_role": "railway culture + learning archive",
+        "drawing_status": "Proposed",
+        "evidence_status": "Derived",
+        "usage_note": "概念城市设计用途，不替代法定用地分类或控规。",
+        "area_sqm_declared": 1564239.977
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.3397,
+              39.975
+            ],
+            [
+              116.3475,
+              39.975
+            ],
+            [
+              116.3475,
+              39.953
+            ],
+            [
+              116.3403111111111,
+              39.953
+            ],
+            [
+              116.3397,
+              39.975
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "LU-004",
+      "properties": {
+        "id": "LU-004",
+        "layer": "LAND_USE",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "land_use_code": "1401",
+        "name_zh": "公园绿地",
+        "design_role": "heritage/blue-green public realm",
+        "drawing_status": "Proposed",
+        "evidence_status": "Derived",
+        "usage_note": "概念城市设计用途，不替代法定用地分类或控规。",
+        "area_sqm_declared": 1590077.218
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.3553,
+              39.965
+            ],
+            [
+              116.3553,
+              39.953
+            ],
+            [
+              116.3475,
+              39.953
+            ],
+            [
+              116.3475,
+              39.975
+            ],
+            [
+              116.3545,
+              39.975
+            ],
+            [
+              116.3553,
+              39.965
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "LU-005",
+      "properties": {
+        "id": "LU-005",
+        "layer": "LAND_USE",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "land_use_code": "0701",
+        "name_zh": "城镇住宅用地",
+        "design_role": "learning neighborhood",
+        "drawing_status": "Proposed",
+        "evidence_status": "Derived",
+        "usage_note": "概念城市设计用途，不替代法定用地分类或控规。",
+        "area_sqm_declared": 1418639.204
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.34105483870968,
+              39.996
+            ],
+            [
+              116.3475,
+              39.996
+            ],
+            [
+              116.3475,
+              39.975
+            ],
+            [
+              116.3397,
+              39.975
+            ],
+            [
+              116.34105483870968,
+              39.996
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "LU-006",
+      "properties": {
+        "id": "LU-006",
+        "layer": "LAND_USE",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "land_use_code": "0702",
+        "name_zh": "城镇社区服务设施用地",
+        "design_role": "community capability interface",
+        "drawing_status": "Proposed",
+        "evidence_status": "Derived",
+        "usage_note": "概念城市设计用途，不替代法定用地分类或控规。",
+        "area_sqm_declared": 1249920.643
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.3533,
+              39.99
+            ],
+            [
+              116.3545,
+              39.975
+            ],
+            [
+              116.3475,
+              39.975
+            ],
+            [
+              116.3475,
+              39.996
+            ],
+            [
+              116.3536287671233,
+              39.996
+            ],
+            [
+              116.3533,
+              39.99
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "LU-007",
+      "properties": {
+        "id": "LU-007",
+        "layer": "LAND_USE",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "land_use_code": "0804",
+        "name_zh": "教育用地",
+        "design_role": "education/developer exchange",
+        "drawing_status": "Proposed",
+        "evidence_status": "Derived",
+        "usage_note": "概念城市设计用途，不替代法定用地分类或控规。",
+        "area_sqm_declared": 689621.226
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.3417,
+              40.006
+            ],
+            [
+              116.3417975609756,
+              40.008
+            ],
+            [
+              116.3475,
+              40.008
+            ],
+            [
+              116.3475,
+              39.996
+            ],
+            [
+              116.34105483870968,
+              39.996
+            ],
+            [
+              116.3417,
+              40.006
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "LU-008",
+      "properties": {
+        "id": "LU-008",
+        "layer": "LAND_USE",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "land_use_code": "0802",
+        "name_zh": "科研用地",
+        "design_role": "research/professional services",
+        "drawing_status": "Proposed",
+        "evidence_status": "Derived",
+        "usage_note": "概念城市设计用途，不替代法定用地分类或控规。",
+        "area_sqm_declared": 734770.615
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.3536287671233,
+              39.996
+            ],
+            [
+              116.3475,
+              39.996
+            ],
+            [
+              116.3475,
+              40.008
+            ],
+            [
+              116.35428630136987,
+              40.008
+            ],
+            [
+              116.3536287671233,
+              39.996
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "LU-009",
+      "properties": {
+        "id": "LU-009",
+        "layer": "LAND_USE",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "land_use_code": "0802",
+        "name_zh": "科研用地",
+        "design_role": "verification and R&D",
+        "drawing_status": "Proposed",
+        "evidence_status": "Derived",
+        "usage_note": "概念城市设计用途，不替代法定用地分类或控规。",
+        "area_sqm_declared": 920973.641
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.3475,
+              40.0265
+            ],
+            [
+              116.3475,
+              40.008
+            ],
+            [
+              116.3417975609756,
+              40.008
+            ],
+            [
+              116.3427,
+              40.0265
+            ],
+            [
+              116.3475,
+              40.0265
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "LU-010",
+      "properties": {
+        "id": "LU-010",
+        "layer": "LAND_USE",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "land_use_code": "16",
+        "name_zh": "留白用地",
+        "design_role": "reversible test reserve",
+        "drawing_status": "Proposed",
+        "evidence_status": "Derived",
+        "usage_note": "概念城市设计用途，不替代法定用地分类或控规。",
+        "area_sqm_declared": 1279066.351
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.35428630136987,
+              40.008
+            ],
+            [
+              116.3475,
+              40.008
+            ],
+            [
+              116.3475,
+              40.0265
+            ],
+            [
+              116.3553,
+              40.0265
+            ],
+            [
+              116.35428630136987,
+              40.008
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

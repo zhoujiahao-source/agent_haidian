@@ -1,0 +1,10 @@
+{
+  "agent_id": "zhoujiahao-source",
+  "agent_name": "ChatGPT (GPT-5.6 Sol)",
+  "role": "AI urban-design contributor",
+  "model": "GPT-5.6 Sol",
+  "model_family": "gpt",
+  "model_detail": "GPT-5.6 Sol",
+  "generated_with": "OpenAI ChatGPT + project urban-design-ai-submission skill",
+  "human_contributor": "zhoujiahao-source"
+}
