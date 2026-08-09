@@ -1,0 +1,86 @@
+{
+  "generated_at": "2026-08-09T11:29:47.117956Z",
+  "bbox_wgs84": {
+    "west": 116.3397,
+    "south": 39.939,
+    "east": 116.3553,
+    "north": 40.0265
+  },
+  "status": "live_executed",
+  "promotion_rule": "candidate evidence only; never official redline/statutory survey without independent authority",
+  "osm": {
+    "endpoint": "https://overpass-api.de/api/interpreter",
+    "http_status": 200,
+    "license": "ODbL-1.0",
+    "element_count": 5543,
+    "feature_count": 5532,
+    "building_polygon_count": 1898,
+    "context_feature_count": 3634
+  },
+  "microsoft": {
+    "dataset_links_url": "https://bfppub.blob.core.windows.net/$web/2026-07-24/dataset-links.csv",
+    "dataset_links_http_status": 200,
+    "license": "CDLA-Permissive-2.0",
+    "l9_quadkey": "132100103",
+    "partition_found": false,
+    "location": null,
+    "partition_url": null,
+    "downloaded_compressed_bytes": 0,
+    "building_polygon_count_in_bbox": 0
+  },
+  "building_crosscheck": {
+    "method": "max polygon IoU in EPSG:32650; match if IoU>=0.25",
+    "osm_buildings_compared": 1898,
+    "microsoft_buildings_compared": 0,
+    "matched_osm_buildings": 0,
+    "osm_match_rate": 0.0,
+    "median_best_iou": null,
+    "osm_total_footprint_area_sqm": 2404855.6867996072,
+    "microsoft_total_footprint_area_sqm": 0
+  },
+  "official_named_anchor_check": {
+    "大钟寺南小街": [],
+    "小月河": [
+      "osm-way-27065953",
+      "osm-way-29235353",
+      "osm-way-29235355",
+      "osm-way-121510284",
+      "osm-way-142101069",
+      "osm-way-366924967",
+      "osm-way-374385905",
+      "osm-way-919970121",
+      "osm-way-929728763",
+      "osm-way-930935494",
+      "osm-way-1298909441",
+      "osm-way-1307978780"
+    ],
+    "京张铁路遗址公园": [],
+    "大钟寺": [],
+    "清河": [
+      "osm-way-30705564",
+      "osm-way-42346328",
+      "osm-way-42353068",
+      "osm-way-42365239",
+      "osm-way-55814490",
+      "osm-way-55814581",
+      "osm-way-367173781",
+      "osm-way-374385905",
+      "osm-way-441941023",
+      "osm-way-514568104",
+      "osm-way-653499487",
+      "osm-way-994926042",
+      "osm-way-1006226776",
+      "osm-way-1091268423",
+      "osm-way-1091268427",
+      "osm-way-1091268429",
+      "osm-way-1147863145"
+    ]
+  },
+  "limitations": [
+    "competition SITE_BOUNDARY / KEY_AREA remain provisional",
+    "OSM is community-maintained and not a statutory survey",
+    "Microsoft footprints are ML-derived from imagery and may be stale/false-positive/false-negative",
+    "named-anchor absence in OSM is not evidence of real-world absence",
+    "candidate data are clipped to the provisional envelope and must be re-run when organizer geometry arrives"
+  ]
+}
