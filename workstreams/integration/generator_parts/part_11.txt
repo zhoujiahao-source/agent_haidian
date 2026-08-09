@@ -1,0 +1,86 @@
+# ---- final-city-os v2 postprocess: sections + regional network + richer PCI ----
+from pathlib import Path
+import os, json, hashlib
+from datetime import datetime, timezone
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle, Circle, FancyArrowPatch
+from matplotlib.font_manager import FontProperties
+from PIL import Image
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import landscape, A3, A0
+from reportlab.lib.units import mm
+from reportlab.lib.utils import ImageReader
+from reportlab.lib.colors import HexColor
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.cidfonts import UnicodeCIDFont
+import mistune
+
+OUT=Path(os.environ.get('JZ_OUT','submissions/zhoujiahao-source/jingzhang-legible-ai-belt'))
+C={'ink':'#15324A','paper':'#F7F6F1','accent':'#F2A541','green':'#6C9A72','blue':'#4B89B0','red':'#B95C4B','purple':'#8B6AA9','gray':'#98A2B3','light':'#E8ECEF','darkgray':'#5B6573'}
+font_path=next((p for p in ['/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc','/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.otf','/usr/share/fonts/truetype/arphic-gbsn00lp/gbsn00lp.ttf'] if Path(p).exists()),None)
+bold_path=next((p for p in ['/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc','/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.otf',font_path] if p and Path(p).exists()),font_path)
+FP=FontProperties(fname=font_path) if font_path else None
+FPB=FontProperties(fname=bold_path) if bold_path else None
+if font_path: plt.rcParams['font.family']=FP.get_name()
+try: pdfmetrics.registerFont(UnicodeCIDFont('STSong-Light'))
+except Exception: pass
+
+def savefig(fig,path):
+    fig.savefig(path,dpi=160,bbox_inches='tight',facecolor=C['paper']); plt.close(fig)
+    im=Image.open(path).convert('RGB'); im.quantize(colors=64,method=Image.Quantize.MEDIANCUT,dither=Image.Dither.NONE).save(path,optimize=True,compress_level=9)
+
+def draw_tree(ax,x,y,s=.08):
+    ax.plot([x,x],[y,y+s*.6],color=C['ink'],lw=2); ax.add_patch(Circle((x,y+s*.82),s*.32,facecolor=C['green'],edgecolor=C['ink'],lw=1))
+
+def fig_pci(lang='zh'):
+    zh=lang=='zh'; fig=plt.figure(figsize=(12,7),facecolor=C['paper']); fig.text(.04,.94,'Public Capability Interface｜城市优先，AI退到后台' if zh else 'Public Capability Interface | City First, AI Backstage',fontproperties=FPB if zh else None,fontsize=22,weight='bold')
+    labels=[('社区服务接口','Neighborhood service'),('高温避难接口','Heat refuge'),('市场服务接口','Market service'),('验证接口','Validation interface'),('学习档案','Learning archive')]
+    for i,(a,b) in enumerate(labels):
+        ax=fig.add_axes([.025+i*.195,.16,.18,.68]); ax.axis('off'); ax.set_xlim(0,1); ax.set_ylim(0,1)
+        ax.plot([.04,.96],[.48,.48],color=C['ink'],lw=2)
+        if i==0:
+            draw_tree(ax,.18,.48,.14); ax.add_patch(Rectangle((.38,.48),.34,.13,facecolor='white',edgecolor=C['ink'])); ax.text(.55,.545,'STAFF',ha='center',fontsize=7); ax.plot([.05,.35],[.48,.54],color=C['blue'],lw=3); ax.text(.08,.56,'1:12',fontsize=7,color=C['blue'])
+        elif i==1:
+            draw_tree(ax,.15,.48,.16); draw_tree(ax,.84,.48,.16); ax.add_patch(Rectangle((.28,.57),.45,.05,facecolor='#D8C7A5',edgecolor=C['ink'])); ax.plot([.32,.32,.69,.69],[.48,.57,.57,.48],color=C['ink'],lw=1.5); ax.add_patch(Rectangle((.38,.49),.25,.035,facecolor='#D8C7A5',edgecolor=C['ink'])); ax.scatter([.74],[.50],s=35,color=C['blue'])
+        elif i==2:
+            for x in [.10,.39,.68]: ax.add_patch(Rectangle((x,.48),.22,.16,facecolor='white',edgecolor=C['ink'])); ax.plot([x,x+.22],[.64,.64],color=C['red'],lw=4); ax.scatter([x+.11],[.44],s=18,color=C['darkgray'])
+        elif i==3:
+            ax.add_patch(Rectangle((.10,.48),.34,.16,facecolor='#F1E2DE',edgecolor=C['red'],lw=1.5)); ax.text(.27,.56,'TEST',ha='center',fontsize=8); ax.plot([.50,.92],[.48,.48],color=C['blue'],lw=5); ax.text(.69,.42,'BYPASS',ha='center',fontsize=7,color=C['blue']); ax.add_patch(Rectangle((.78,.63),.12,.08,facecolor=C['red'],edgecolor=C['ink'])); ax.text(.84,.67,'STOP',ha='center',va='center',fontsize=6,color='white')
+        else:
+            ax.plot([.08,.42],[.49,.49],color=C['ink'],lw=3); ax.plot([.08,.42],[.54,.54],color=C['ink'],lw=3)
+            for x in [.12,.18,.24,.30,.36]: ax.plot([x,x],[.475,.555],color=C['gray'],lw=1)
+            ax.add_patch(Rectangle((.53,.48),.34,.25,facecolor='white',edgecolor=C['accent'],lw=2)); ax.text(.70,.64,'v2027',ha='center',fontsize=10,weight='bold'); ax.text(.70,.56,'STOP / + / Δ',ha='center',fontsize=7)
+        ax.add_patch(Rectangle((.86,.48),.055,.105,facecolor=C['accent'],edgecolor=C['ink'],lw=.8))
+        ax.text(.05,.34,a if zh else b,fontproperties=FPB if zh else None,fontsize=10.5)
+        notes=([['人工服务 + 无障碍坡道','AI可拒绝/离线'],['树荫 + 廊架 + 座椅 + 饮水','热响应只是增强'],['商户 + 骑手 + 居民混合','AI不占据公共空间'],['测试区 + 普通旁路 + Human STOP','失败可撤除'],['双轨 + 里程标 + 年度版本','记录 STOP/退役']][i] if zh else [['Staffed service + accessible ramp','AI may be declined/offline'],['Shade + canopy + seating + water','Heat response is enhancement'],['Merchants + couriers + residents','AI does not occupy the commons'],['Test zone + bypass + Human STOP','Failure can be removed'],['Twin tracks + milepost + annual version','Records STOP/retirement']][i])
+        for j,n in enumerate(notes): ax.text(.05,.25-j*.065,'• '+n,fontproperties=FP if zh else None,fontsize=7.3)
+    footer='橙色设备只是可替换接口；树荫、座椅、人工服务、无障碍、旁路与记忆空间才是长期城市资产。' if zh else 'Orange devices are replaceable interfaces; shade, seating, staffed service, accessibility, bypasses and civic memory are long-term urban assets.'
+    fig.text(.04,.08,footer,fontproperties=FP if zh else None,fontsize=10,color=C['darkgray'])
+    return fig
+
+def fig_sections(lang='zh'):
+    zh=lang=='zh'; fig=plt.figure(figsize=(12,7),facecolor=C['paper']); fig.text(.04,.94,'五条城市剖面｜AI不是剖面的主角' if zh else 'Five Urban Sections | AI Is Not the Main Character',fontproperties=FPB if zh else None,fontsize=22,weight='bold')
+    ax=fig.add_axes([.04,.08,.92,.82]); ax.axis('off'); ax.set_xlim(0,1); ax.set_ylim(0,1)
+    rows=[('S1 众智园验证庭院','S1 Zhongzhiyuan verification court','test'),('S2 AI原点学习社区街','S2 AI Origin learning street','community'),('S3 大钟寺市场—轨道界面','S3 Dazhongsi market-transit interface','market'),('S4 小月河蓝绿公共界面','S4 Xiaoyuehe blue-green interface','blue'),('S5 京张记忆慢行骨干','S5 Jing-Zhang memory walking spine','rail')]
+    for i,(az,en,kind) in enumerate(rows):
+        y=.82-i*.16; ax.text(.01,y+.07,az if zh else en,fontproperties=FPB if zh else None,fontsize=10,color=C['ink']); ax.plot([.25,.96],[y,y],color=C['ink'],lw=1.8)
+        if kind=='test': ax.add_patch(Rectangle((.31,y),.18,.075,facecolor='#F1E2DE',edgecolor=C['red'])); ax.plot([.56,.85],[y,y],color=C['blue'],lw=4); ax.text(.405,y+.037,'TEST',ha='center',fontsize=7)
+        if kind=='community': draw_tree(ax,.34,y,.08); ax.add_patch(Rectangle((.46,y),.16,.07,facecolor='white',edgecolor=C['ink'])); ax.add_patch(Rectangle((.68,y),.13,.055,facecolor='#D8C7A5',edgecolor=C['ink']))
+        if kind=='market':
+            for x in [.31,.47,.63]: ax.add_patch(Rectangle((x,y),.12,.07,facecolor='white',edgecolor=C['ink'])); ax.plot([.31,.75],[y+.075,y+.075],color=C['red'],lw=3)
+        if kind=='blue': draw_tree(ax,.33,y,.08); draw_tree(ax,.74,y,.08); ax.plot([.45,.65],[y+.012,y+.012],color=C['blue'],lw=6); ax.add_patch(Rectangle((.50,y),.10,.045,facecolor='#D8C7A5',edgecolor=C['ink']))
+        if kind=='rail': ax.plot([.32,.78],[y+.012,y+.012],color=C['ink'],lw=3); ax.plot([.32,.78],[y+.045,y+.045],color=C['ink'],lw=3); [ax.plot([x,x],[y,y+.055],color=C['gray'],lw=1) for x in [.36,.43,.50,.57,.64,.71,.76]]
+        ax.add_patch(Rectangle((.87,y),.025,.055,facecolor=C['accent'],edgecolor=C['ink'],lw=.7))
+        ax.text(.73,y+.07,'conceptual design envelope / host verification required',fontsize=6.5,color=C['darkgray'])
+    ax.text(.01,.03,'Permanent city space + Adaptive interface + Experimental layer; exact dimensions are not statutory controls.' if not zh else '永久城市底盘 + 可更换接口 + 可逆试验层；图示尺寸均不是法定控制值。',fontproperties=FP if zh else None,fontsize=9,color=C['darkgray'])
+    return fig
+
+def fig_region(lang='zh'):
+    zh=lang=='zh'; fig=plt.figure(figsize=(12,7),facecolor=C['paper']); fig.text(.04,.94,'区域协同｜交换能力、证据与协议，不制造“已合作”' if zh else 'Regional Coordination | Exchange Capabilities, Evidence and Protocols - Not Claimed Partnerships',fontproperties=FPB if zh else None,fontsize=21,weight='bold')
+    ax=fig.add_axes([.06,.12,.88,.74]); ax.axis('off'); ax.set_xlim(0,1); ax.set_ylim(0,1)
+    center=(.50,.50); ax.add_patch(Circle(center,.105,facecolor='white',edgecolor=C['accent'],lw=3)); ax.text(*center,'京张\nJing-Zhang',ha='center',va='center',fontproperties=FPB if zh else None,fontsize=12)
+    nodes=[('中关村','Zhongguancun',(.18,.70)),('未来科学城','Future Science City',(.80,.75)),('怀柔科学城','Huairou Science City',(.86,.36)),('经开区','Beijing E-Town',(.60,.15)),('京津冀高校/科研/产业','BTH universities / research / industry',(.19,.25))]
+    for z,e,(x,y) in nodes:
+        ax.add_patch(Circle((x,y),.08,facecolor='white',edgecolor=C['blue'],lw=1.5)); ax.text(x,y,z if zh else e,ha='center',va='center',fontproperties=FP if zh else None,fontsize=8,wrap=True)
+        ax.add_patch(FancyArrowPatch(center,(x,y),arrowstyle='<->',mutation_scale=11,color=C['gray'],lw=1.2))
+    legend=['Capability','Evidence','Test protocol','Talent/service']
