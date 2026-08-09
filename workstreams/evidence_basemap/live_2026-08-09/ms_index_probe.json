@@ -1,0 +1,21 @@
+{
+  "dataset_links_url": "https://bfppub.blob.core.windows.net/$web/2026-07-24/dataset-links.csv",
+  "http_status": 200,
+  "row_count": 30340,
+  "columns": [
+    "Location",
+    "QuadKey",
+    "Url",
+    "Size",
+    "UploadDate"
+  ],
+  "target_quadkey": "132100103",
+  "exact_quadkey_count": 0,
+  "china_location_row_count": 0,
+  "beijing_location_row_count": 0,
+  "target_prefix_count": 0,
+  "exact_examples": [],
+  "china_examples": [],
+  "prefix_examples": [],
+  "conclusion": "no_published_target_partition_in_current_index"
+}
