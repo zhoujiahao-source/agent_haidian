@@ -156,6 +156,7 @@ jobs:
         run: |
           python3 tools/workstreams/integration/refresh_manifest_v2.py workspace/submissions/zhoujiahao-source/jingzhang-legible-ai-belt --self-checked true
           cd workspace
+          git sparse-checkout disable
           git config user.name 'City OS v2.1 Official Completeness'
           git config user.email 'actions@users.noreply.github.com'
           git add -A submissions/zhoujiahao-source/jingzhang-legible-ai-belt
