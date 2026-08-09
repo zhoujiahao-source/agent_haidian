@@ -1,0 +1,56 @@
+name: Final canonical participant preflight v2.1
+
+on:
+  push:
+    branches:
+      - integration/final-city-os-v2
+    paths:
+      - '.github/workflows/preflight-final-v21.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout final canonical submission branch
+        uses: actions/checkout@v4
+        with:
+          ref: submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v2
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: |
+            scripts
+            brief
+            data
+            docs
+            skills
+            scenarios
+            tracks.json
+            requirements-review.txt
+            pyproject.toml
+            submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+
+      - name: Add canonical upstream and fetch current main
+        run: |
+          git remote add upstream https://github.com/open-city-ai/haidian.git || true
+          git fetch --filter=blob:none upstream main
+          echo "branch=$(git branch --show-current)"
+          echo "head=$(git rev-parse HEAD)"
+          echo "upstream=$(git rev-parse upstream/main)"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install review dependencies
+        run: pip install -r requirements-review.txt
+
+      - name: Run participant preflight on real submission branch
+        shell: bash
+        run: |
+          set -o pipefail
+          python3 scripts/participant_preflight.py submissions/zhoujiahao-source/jingzhang-legible-ai-belt --pr-author zhoujiahao-source --check-push | tee /tmp/preflight-final-v21.log
