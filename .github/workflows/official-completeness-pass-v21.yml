@@ -1,0 +1,177 @@
+name: Official completeness pass v2.1
+
+on:
+  push:
+    branches:
+      - integration/final-city-os-v2
+    paths:
+      - 'workstreams/integration/official_completeness_pass.py'
+      - 'workstreams/integration/generate_official_drawings.py'
+      - '.github/workflows/official-completeness-pass-v21.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  complete-official-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout completion tools
+        uses: actions/checkout@v4
+        with:
+          ref: integration/final-city-os-v2
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            workstreams/integration/official_completeness_pass.py
+            workstreams/integration/generate_official_drawings.py
+            workstreams/integration/refresh_manifest_v2.py
+          path: tools
+
+      - name: Checkout current canonical submission payload
+        uses: actions/checkout@v4
+        with:
+          ref: submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v2
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+          path: source
+
+      - name: Checkout latest official upstream main
+        uses: actions/checkout@v4
+        with:
+          repository: open-city-ai/haidian
+          ref: main
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: |
+            scripts
+            brief
+            data
+            docs
+            skills
+            scenarios
+            tracks.json
+            submissions
+            requirements-review.txt
+            pyproject.toml
+          path: workspace
+
+      - name: Re-anchor workspace to fork and overlay canonical package
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euxo pipefail
+          rm -rf workspace/submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+          mkdir -p workspace/submissions/zhoujiahao-source
+          cp -a source/submissions/zhoujiahao-source/jingzhang-legible-ai-belt workspace/submissions/zhoujiahao-source/
+          cd workspace
+          UPSTREAM_SHA=$(git rev-parse HEAD)
+          echo "UPSTREAM_SHA=$UPSTREAM_SHA" >> "$GITHUB_ENV"
+          git remote rename origin upstream
+          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/zhoujiahao-source/agent_haidian.git"
+          git fetch origin submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v2
+          echo "OLD_CANONICAL_SHA=$(git rev-parse origin/submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v2)" >> "$GITHUB_ENV"
+          echo "latest upstream=$UPSTREAM_SHA"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install review and drawing dependencies
+        working-directory: workspace
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-review.txt reportlab pypdf
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq poppler-utils
+
+      - name: Apply official completeness content pass
+        run: |
+          python3 tools/workstreams/integration/official_completeness_pass.py workspace/submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+
+      - name: Regenerate bilingual A3 and A0 drawings
+        run: |
+          python3 tools/workstreams/integration/generate_official_drawings.py workspace/submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+
+      - name: Render-verify generated PDFs
+        working-directory: workspace
+        run: |
+          set -euxo pipefail
+          mkdir -p /tmp/pdfcheck
+          for f in \
+            submissions/zhoujiahao-source/jingzhang-legible-ai-belt/drawings/a3-booklet.pdf \
+            submissions/zhoujiahao-source/jingzhang-legible-ai-belt/drawings/a3-booklet.en.pdf \
+            submissions/zhoujiahao-source/jingzhang-legible-ai-belt/drawings/a0-boards.pdf \
+            submissions/zhoujiahao-source/jingzhang-legible-ai-belt/drawings/a0-boards.en.pdf; do
+            pdfinfo "$f" | grep -E 'Pages|Page size'
+            stem=$(basename "$f" .pdf | tr '.' '-')
+            pdftoppm -f 1 -singlefile -r 72 -png "$f" "/tmp/pdfcheck/$stem"
+          done
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageStat
+          for p in Path('/tmp/pdfcheck').glob('*.png'):
+              im=Image.open(p).convert('RGB')
+              stat=ImageStat.Stat(im)
+              assert im.width > 500 and im.height > 300, (p, im.size)
+              assert max(stat.var) > 50, (p, stat.var)
+              print(p.name, im.size, max(stat.var))
+          assert len(list(Path('/tmp/pdfcheck').glob('*.png'))) == 4
+          PY
+          python3 - <<'PY'
+          from pypdf import PdfReader
+          base='submissions/zhoujiahao-source/jingzhang-legible-ai-belt/drawings/'
+          a3=PdfReader(base+'a3-booklet.en.pdf'); a0=PdfReader(base+'a0-boards.en.pdf')
+          assert len(a3.pages)==8, len(a3.pages)
+          assert len(a0.pages)==3, len(a0.pages)
+          text='\n'.join((p.extract_text() or '') for p in a3.pages)
+          for token in ['Developer Commons','Scenario Open Days','AI Innovation Index','Zhongzhiyuan','Dazhongsi']:
+              assert token in text, token
+          print('English drawing semantic smoke-check passed')
+          PY
+
+      - name: Render canonical bilingual HTML
+        working-directory: workspace
+        run: |
+          python3 scripts/render_proposal_html.py submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+
+      - name: Refresh manifest hashes before self-check
+        run: |
+          python3 tools/workstreams/integration/refresh_manifest_v2.py workspace/submissions/zhoujiahao-source/jingzhang-legible-ai-belt --self-checked false
+
+      - name: Run contributor self-check
+        working-directory: workspace
+        shell: bash
+        run: |
+          set -o pipefail
+          python3 scripts/self_check_submission.py submissions/zhoujiahao-source/jingzhang-legible-ai-belt --pr-author zhoujiahao-source --json | tee /tmp/self-check-v21.json
+
+      - name: Mark self-check successful and commit latest-upstream canonical package
+        run: |
+          python3 tools/workstreams/integration/refresh_manifest_v2.py workspace/submissions/zhoujiahao-source/jingzhang-legible-ai-belt --self-checked true
+          cd workspace
+          git config user.name 'City OS v2.1 Official Completeness'
+          git config user.email 'actions@users.noreply.github.com'
+          git add -A submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+          git commit -m 'feat(submission): complete official task contract v2.1'
+          FINAL_SHA=$(git rev-parse HEAD)
+          echo "FINAL_SHA=$FINAL_SHA" >> "$GITHUB_ENV"
+          git push --force-with-lease=refs/heads/submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v2:${OLD_CANONICAL_SHA} origin HEAD:refs/heads/submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v2
+
+      - name: Run participant preflight against latest upstream parent
+        working-directory: workspace
+        shell: bash
+        run: |
+          set -o pipefail
+          git status --short
+          python3 scripts/participant_preflight.py submissions/zhoujiahao-source/jingzhang-legible-ai-belt --pr-author zhoujiahao-source --check-push | tee /tmp/preflight-v21.log
+
+      - name: Print completion coordinates
+        run: |
+          echo "upstream=$UPSTREAM_SHA"
+          echo "old_canonical=$OLD_CANONICAL_SHA"
+          echo "final=$FINAL_SHA"
