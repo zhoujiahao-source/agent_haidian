@@ -1,0 +1,71 @@
+    for i,s in enumerate(legend): ax.add_patch(Rectangle((.11+i*.20,.02),.018,.018,facecolor=[C['green'],C['blue'],C['purple'],C['accent']][i],edgecolor='none')); ax.text(.135+i*.20,.03,s,va='center',fontsize=8)
+    note='概念区域接口：任何跨区能力都需目标情境重验证；不声称已签署合作、资源或预算承诺。' if zh else 'Conceptual regional interface: every transferred capability needs target-context revalidation; no signed partnership, resource or budget commitment is claimed.'
+    ax.text(.05,.91,note,fontproperties=FP if zh else None,fontsize=9,color=C['red'])
+    return fig
+
+for name,fn in [('pci-prototypes',fig_pci),('spatial-sections',fig_sections),('regional-capability-network',fig_region)]:
+    for lang,suf in [('zh',''),('en','.en')]: savefig(fn(lang),OUT/f'assets/figures/{name}{suf}.png')
+
+zhp=(OUT/'proposal.md').read_text(encoding='utf-8')
+regional_zh='''\n\n区域协同不是“机构名单”，而是一套**能力交换接口**：京张可以与中关村、未来科学城、怀柔科学城、经开区及更广义京津冀高校/科研/产业网络交换经过验证的城市能力、测试协议、证据与人才服务，但每一次跨区迁移都必须重新做目标情境验证；本方案不声称任何外部机构已经签署合作或资源承诺。[source:AGENT-TASKBOOK]\n'''
+if '区域协同不是“机构名单”' not in zhp: zhp=zhp.replace('\n## 总体设计范围城市更新与控规深度城市设计',regional_zh+'\n## 总体设计范围城市更新与控规深度城市设计')
+ops_zh='''\n\n长期运营至少维护四本资源台账：①非 AI 基线公共服务与普通公共空间；② challenge / sandbox / 小规模试验资源；③维护、人工替代、迁移与退出储备；④独立审计、受影响群体参与和年度版本发布资源。这些都是机制建议，不代表已经存在的政府预算、采购或运营主体。[assumption:A-INSTITUTION-001]\n'''
+if '长期运营至少维护四本资源台账' not in zhp: zhp=zhp.replace('\n## 指标体系、面积复算与合规矩阵',ops_zh+'\n## 指标体系、面积复算与合规矩阵')
+(OUT/'proposal.md').write_text(zhp,encoding='utf-8')
+
+enp=(OUT/'proposal.en.md').read_text(encoding='utf-8')
+regional_en='''\n\nRegional coordination is a **capability-exchange interface**, not an institution list. Jing-Zhang may exchange validated urban capabilities, test protocols, evidence and talent/service mechanisms with Zhongguancun, Future Science City, Huairou Science City, Beijing E-Town and the wider Beijing-Tianjin-Hebei university/research/industry network, but every transfer requires target-context revalidation. No signed partnership or resource commitment is claimed. [source:AGENT-TASKBOOK]\n'''
+if 'Regional coordination is a **capability-exchange interface**' not in enp: enp=enp.replace('\n## Overall Design Area: Urban Renewal and Regulatory-Plan-Level Urban Design',regional_en+'\n## Overall Design Area: Urban Renewal and Regulatory-Plan-Level Urban Design')
+ops_en='''\n\nLong-term operation should maintain four resource ledgers: (1) non-AI baseline services and ordinary public realm; (2) challenge, sandbox and small-pilot resources; (3) maintenance, human alternative, migration and exit reserve; and (4) independent audit, affected-group participation and annual version-release resources. These are governance proposals, not claims of existing budgets, procurement or operators. [assumption:A-INSTITUTION-001]\n'''
+if 'Long-term operation should maintain four resource ledgers' not in enp: enp=enp.replace('\n## Metrics, Area Recalculation, and Compliance Matrix',ops_en+'\n## Metrics, Area Recalculation, and Compliance Matrix')
+(OUT/'proposal.en.md').write_text(enp,encoding='utf-8')
+
+css='''*{box-sizing:border-box}body{margin:0;background:#f5f4ee;color:#15324a;font-family:Arial,"Microsoft YaHei",sans-serif;line-height:1.65}article{max-width:1000px;margin:auto;background:white;padding:44px}h1{font-size:38px}h2{margin-top:34px;border-top:1px solid #dde2e5;padding-top:18px}blockquote{border-left:4px solid #f2a541;margin:16px 0;padding:8px 18px;background:#fff8e8}code{background:#eef2f4;padding:2px 4px}'''
+md=mistune.create_markdown()
+for fn,lang in [('proposal.md','zh-CN'),('proposal.en.md','en')]:
+    text=(OUT/fn).read_text(encoding='utf-8'); body=md(text); outname='proposal.en.html' if fn.endswith('.en.md') else 'proposal.html'; (OUT/'report'/outname).write_text(f'<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><title>Jing-Zhang Urban Capability Exchange</title><style>{css}</style></head><body><article>{body}</article></body></html>',encoding='utf-8')
+
+for fn,suf in [('index.html',''),('index.en.html','.en')]:
+    p=OUT/'visual'/fn; text=p.read_text(encoding='utf-8')
+    if 'spatial-sections' not in text:
+        cards=f'''<section class="card wide"><h2>{'五条城市剖面' if not suf else 'Five Urban Sections'}</h2><img src="../assets/figures/spatial-sections{suf}.png"></section><section class="card wide"><h2>{'区域能力交换' if not suf else 'Regional Capability Exchange'}</h2><img src="../assets/figures/regional-capability-network{suf}.png"></section>'''
+        text=text.replace('</main>',cards+'</main>')
+    p.write_text(text,encoding='utf-8')
+
+def pdf_page(c,size,title,figs,lang='zh',sub=''):
+    W,H=size; c.setFillColor(HexColor(C['paper'])); c.rect(0,0,W,H,fill=1,stroke=0); c.setFillColor(HexColor(C['ink'])); c.setFont('STSong-Light' if lang=='zh' else 'Helvetica-Bold',22 if W<1000 else 32); c.drawString(22*mm,H-22*mm,title)
+    if sub: c.setFont('STSong-Light' if lang=='zh' else 'Helvetica',9 if W<1000 else 13); c.setFillColor(HexColor(C['darkgray'])); c.drawString(22*mm,H-31*mm,sub)
+    margin=20*mm; gap=6*mm; top=H-40*mm; bottom=20*mm
+    n=len(figs); cols=1 if n==1 else 2; rows=1 if n<=2 else 2; w=(W-2*margin-gap*(cols-1))/cols; h=(top-bottom-gap*(rows-1))/rows
+    for i,fp in enumerate(figs):
+        col=i%cols; row=i//cols; x=margin+col*(w+gap); y=top-(row+1)*h-row*gap; im=ImageReader(str(fp)); iw,ih=im.getSize(); sc=min(w/iw,h/ih); dw,dh=iw*sc,ih*sc; c.drawImage(im,x+(w-dw)/2,y+(h-dh)/2,dw,dh,preserveAspectRatio=True,mask='auto')
+    c.setFillColor(HexColor(C['darkgray'])); c.setFont('STSong-Light' if lang=='zh' else 'Helvetica',7 if W<1000 else 9); c.drawRightString(W-20*mm,9*mm,'Open co-creation proposal · provisional geometry · human final judgment')
+
+def build_pdf(path,page_size,lang,kind):
+    size=landscape(page_size); c=canvas.Canvas(str(path),pagesize=size); suf='.en' if lang=='en' else ''
+    if kind=='a3':
+        pages=[
+          (('封面｜城市级公共能力操作系统' if lang=='zh' else 'Cover | City-scale Public Capability OS'),['site-overview'],'City OS / Capability Backbone / Public Value'),
+          (('证据、总体结构与区域协同' if lang=='zh' else 'Evidence, Structure & Regional Coordination'),['site-overview','regional-capability-network'],'PROVISIONAL CONSTRAINT — NOT OFFICIAL REDLINE'),
+          (('三区差异化与用地结构' if lang=='zh' else 'Three Key Areas & Land-use Structure'),['key-areas','land-use-structure'],'Verification Campus / Learning Neighborhood / Market & Service Commons'),
+          (('公共空间与五条城市剖面' if lang=='zh' else 'Public Space & Five Urban Sections'),['pci-prototypes','spatial-sections'],'City first, AI backstage'),
+          (('慢行、蓝绿与地标记忆' if lang=='zh' else 'Mobility, Blue-Green & Landmark Memory'),['mobility-bluegreen','landmarks-memory'],'Railway DNA as tracks / switches / stations / mileposts'),
+          (('治理与指标' if lang=='zh' else 'Governance & Metrics'),['metrics-evidence','city-version-dashboard'],'UAR / Responsible STOP / Public Stewardship'),
+          (('长期遗产与区域交换' if lang=='zh' else 'Long-term Legacy & Regional Exchange'),['twenty-year-legacy','regional-capability-network'],'Persistent Protocol, Disposable Technology'),
+          (('实施与风险边界' if lang=='zh' else 'Implementation & Risk Boundaries'),['land-use-structure','metrics-evidence'],'Permanent / Adaptive / Experimental · Known / Estimated / Proposed / Unknown')]
+    else:
+        pages=[
+          (('A0-01 总体概念、空间结构与区域协同' if lang=='zh' else 'A0-01 Concept, Spatial Structure & Regional Coordination'),['site-overview','land-use-structure','regional-capability-network'],'City OS / Capability Backbone / Three Areas & Two Wings'),
+          (('A0-02 重点区、公共空间、五剖面与地标' if lang=='zh' else 'A0-02 Key Areas, Public Space, Five Sections & Landmarks'),['key-areas','pci-prototypes','spatial-sections','landmarks-memory'],'City first, AI backstage'),
+          (('A0-03 城市学习、年度发布与20年遗产' if lang=='zh' else 'A0-03 Urban Learning, Version Release & 20-year Legacy'),['metrics-evidence','city-version-dashboard','twenty-year-legacy','mobility-bluegreen'],'UAR / Public Stewardship / Retirement')]
+    for title,names,sub in pages:
+        pdf_page(c,size,title,[OUT/f'assets/figures/{n}{suf}.png' for n in names],lang,sub); c.showPage()
+    c.save()
+for lang in ['zh','en']:
+    suf='.en' if lang=='en' else ''; build_pdf(OUT/f'drawings/a3-booklet{suf}.pdf',A3,lang,'a3'); build_pdf(OUT/f'drawings/a0-boards{suf}.pdf',A0,lang,'a0')
+
+mp=OUT/'manifest.json'; man=json.loads(mp.read_text(encoding='utf-8')); existing={f['path'] for f in man['files']}
+for name in ['spatial-sections','regional-capability-network']:
+    zh=f'assets/figures/{name}.png'; en=f'assets/figures/{name}.en.png'
+    if zh not in existing: man['files'].append({'path':zh,'role':'proposal_figure','required':False,'language':'zh'})
+    if en not in existing: man['files'].append({'path':en,'role':'proposal_figure','required':False,'language':'en','translation_of':zh})
