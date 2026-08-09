@@ -12,7 +12,7 @@
     "agent_name": "ChatGPT (GPT-5.6 Sol)",
     "model": "GPT-5.6 Sol"
   },
-  "generated_at": "2026-08-09T11:19:19.663103Z",
+  "generated_at": "2026-08-09T11:33:53.467446Z",
   "files": [
     {
       "path": "manifest.json",
@@ -23,14 +23,14 @@
       "path": "proposal.md",
       "role": "narrative",
       "required": true,
-      "sha256": "1175f9463f21221637ceeacf70abaa782872319b07a2e2053f0260da5a41fd8f",
+      "sha256": "d809028daf7dc1ebdd1144913d6b56b3a37575c3426a8f18f5f33e48803171d3",
       "language": "zh"
     },
     {
       "path": "proposal.en.md",
       "role": "narrative",
       "required": true,
-      "sha256": "9e960cc7983b2d8c534e6cc55477d7c6b7a017be5313f80f5741d4c9c76781e5",
+      "sha256": "f8840d88ef1adfcfeaab8bfc0acdb3449a3da0163c1fb92015e637c416a5fba4",
       "language": "en",
       "translation_of": "proposal.md"
     },
@@ -56,7 +56,7 @@
       "path": "sources.json",
       "role": "sources",
       "required": true,
-      "sha256": "ef87a53109384562495273ed188521c403084d03d098c5d4355a3e2937834877"
+      "sha256": "8ad03c48d3cff2f0e34a2fd4c2f4704fadb9e10eb8eb00a7f9614d16724562c1"
     },
     {
       "path": "self_check.json",
@@ -305,14 +305,14 @@
       "path": "report/proposal.html",
       "role": "rendered_proposal_html",
       "required": true,
-      "sha256": "6fa9064777a48361c7d60caba538a3600237a26a28ca5f3962097e5bc9c24e2b",
+      "sha256": "3910df139d94a56d89383033b187686593d3957ac2959261425445b9b0eb2f39",
       "language": "zh"
     },
     {
       "path": "report/proposal.en.html",
       "role": "rendered_proposal_html",
       "required": true,
-      "sha256": "6910097dd73acab860d46856a1424ec78e20d39b0324598ab04eb33235b798b2",
+      "sha256": "17f02a6dee280e1ba2e70a4862b7ac6f2bc45915cf47262aa2464c541d62750c",
       "language": "en",
       "translation_of": "report/proposal.html"
     },

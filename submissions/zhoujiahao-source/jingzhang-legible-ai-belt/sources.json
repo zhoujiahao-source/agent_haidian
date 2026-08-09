@@ -127,8 +127,8 @@
       "retrieved_date": "2026-08-09",
       "source_type": "open_data_candidate",
       "license": "ODbL-1.0",
-      "usage": "Candidate roads/rail/water/green/POI/buildings via Overpass.",
-      "limitation": "Live materialization blocked in this execution environment; not promoted to Verified/Official."
+      "usage": "Live Overpass candidate existing-condition audit within the provisional envelope: 5532 usable OSM features including 1898 building polygons; used for context and named-anchor cross-checks, not as statutory survey evidence.",
+      "limitation": "Community-maintained OSM data are candidate context only; they do not establish official redlines, ownership, complete as-built inventory, statutory controls, or guaranteed current conditions. Re-run after organizer geometry arrives."
     },
     {
       "id": "SRC-MS-GLOBAL-BUILDINGS-20260724",
@@ -137,8 +137,8 @@
       "retrieved_date": "2026-08-09",
       "source_type": "open_data_candidate",
       "license": "CDLA-Permissive-2.0",
-      "usage": "Independent ML building-footprint candidate.",
-      "limitation": "Live materialization blocked here; no building height/use/ownership inference."
+      "usage": "Live query of Microsoft 2026-07-24 dataset-links.csv for project L9 quadkey 132100103; index HTTP 200, 30340 rows, exact target partitions 0, China rows 0.",
+      "limitation": "The current published Microsoft index contains no target/China partition for this site, so no Microsoft building footprints were available for site-level OSM↔Microsoft IoU comparison. This is a coverage result, not evidence that buildings are absent."
     },
     {
       "id": "GLOBAL-PUNGGOL",
