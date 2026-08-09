@@ -12,7 +12,7 @@
     "agent_name": "ChatGPT (GPT-5.6 Sol)",
     "model": "GPT-5.6 Sol"
   },
-  "generated_at": "2026-08-09T09:14:15Z",
+  "generated_at": "2026-08-09T11:10:39.182820Z",
   "files": [
     {
       "path": "manifest.json",
@@ -23,14 +23,14 @@
       "path": "proposal.md",
       "role": "narrative",
       "required": true,
-      "sha256": "0c0daa4c4fca6414abbc6cba3136a16e9299e1b513364f721a15248a864604c7",
+      "sha256": "e9d0db4e5e94c8ec834e623732922b3538a0fb6f0129e2821f126be4a3a6ddc3",
       "language": "zh"
     },
     {
       "path": "proposal.en.md",
       "role": "narrative",
       "required": true,
-      "sha256": "1b778677d7c79cac660c1e0fd0deac3356b3ac3bcaf9938b21963f849daf875c",
+      "sha256": "046322da7a0a7cadca0f3024c2c906c94edd799d962cd5e3b786e46e50301aa1",
       "language": "en",
       "translation_of": "proposal.md"
     },
@@ -38,7 +38,7 @@
       "path": "agent.json",
       "role": "agent_card",
       "required": true,
-      "sha256": "55513741e2a3cdeae3cf2681e569d2f77871aa095b5cac3a2cc0234f9e8ab05b"
+      "sha256": "dd3ca8e8a8802a58378fd76ee15f15fde1bbf611360a26a49ef04285742f4034"
     },
     {
       "path": "metrics.json",
@@ -215,14 +215,14 @@
       "path": "assets/figures/pci-prototypes.png",
       "role": "proposal_figure",
       "required": false,
-      "sha256": "27970141ab69fa42db17971b29871ab1fb3edcba65a2b5c21ebe354f9770ae65",
+      "sha256": "eec6e1fd5eb5aaea164486aa69033ff07cb5dd583e2b885a81934c08ad131589",
       "language": "zh"
     },
     {
       "path": "assets/figures/pci-prototypes.en.png",
       "role": "proposal_figure",
       "required": false,
-      "sha256": "7301fc868f28f338b1a86603a09a4b002407959724779bd80b6d968bbbea04b2",
+      "sha256": "14de049fe2ea79aeed10bc4f4e3c3bb87957cde69aa64ea9cdf0f0e305e1bf0a",
       "language": "en",
       "translation_of": "assets/figures/pci-prototypes.png"
     },
@@ -275,14 +275,14 @@
       "path": "drawings/a3-booklet.pdf",
       "role": "drawing",
       "required": true,
-      "sha256": "4ce17f7f24e587ad60d0548ab8e880a3c0aca73c38bba87ec35bdaed1505bcd6",
+      "sha256": "3df385ea3b1482c0e2eeb3a7ea85b81de0bccc6878fa1235678e0847cb6ae582",
       "language": "zh"
     },
     {
       "path": "drawings/a3-booklet.en.pdf",
       "role": "drawing",
       "required": true,
-      "sha256": "98adda9790b6ae294e0d896b378dc6421ab665c28f7414f919b05817d9bd579e",
+      "sha256": "f3761f39c01e77f74c005c07ae8e33553cdb0a5dd005201fc920f6b05f55d1d1",
       "language": "en",
       "translation_of": "drawings/a3-booklet.pdf"
     },
@@ -290,14 +290,14 @@
       "path": "drawings/a0-boards.pdf",
       "role": "drawing",
       "required": true,
-      "sha256": "0adc7f91de821ed7d7c437aad2567664d46dee9b1e11aad2f6f74c3c6678d64c",
+      "sha256": "cba05e12669a54ba9839be2d55af4c3589977639ed19b4cde8991424f8571872",
       "language": "zh"
     },
     {
       "path": "drawings/a0-boards.en.pdf",
       "role": "drawing",
       "required": true,
-      "sha256": "3dc7b62d8ae3d7b8b2e84d3a2c83f01b197d3b09978c089b26fe49fad08a6be1",
+      "sha256": "39f48fa0094b8901119a6156209b72a62b5f4eb60fbd1f6b7aff17b8d55b1727",
       "language": "en",
       "translation_of": "drawings/a0-boards.pdf"
     },
@@ -305,14 +305,14 @@
       "path": "report/proposal.html",
       "role": "rendered_proposal_html",
       "required": true,
-      "sha256": "9944669021dcdb8424949d8b7308c6b4fd58b6d681499faa7668fb8aa5368b52",
+      "sha256": "4e05ef9b9b0958ee6d3ba9f00617670cf30e9f61e6c739290a0c0a0452f679b6",
       "language": "zh"
     },
     {
       "path": "report/proposal.en.html",
       "role": "rendered_proposal_html",
       "required": true,
-      "sha256": "919c84a4dd42ecf4010ae2876c315b69bf74f9e7cd8cc47aef9603903156d22f",
+      "sha256": "bcc5fbac4a767d5e10623246a17ab6208f8fba0e3e33fb1e905222198f841e4d",
       "language": "en",
       "translation_of": "report/proposal.html"
     },
@@ -326,20 +326,20 @@
       "path": "visual/index.html",
       "role": "visualization",
       "required": true,
-      "sha256": "38bfdfbac189b0a950ab7a619b0cd261c0d1e6612dbc92f1195c783306cc08bd",
+      "sha256": "c351cf51aa19c7995cd57ea9463c721c592a69d04c9b434afb44b54866011559",
       "language": "zh"
     },
     {
       "path": "visual/index.en.html",
       "role": "visualization",
       "required": true,
-      "sha256": "c58de3709e397d94a16751339ff71e04564b8e9822bde6035d09bf0d098c7643",
+      "sha256": "717ad9768217ba54c6e228856192feaa7f9ca8df8f8889770b9691cdbcb1d28b",
       "language": "en",
       "translation_of": "visual/index.html"
     }
   ],
   "validation_claim": {
-    "self_checked": false,
+    "self_checked": true,
     "known_blockers": [
       "Live OSM/Microsoft basemap materialization could not run in the current no-network execution container; candidate sources remain unpromoted and explicit."
     ],
