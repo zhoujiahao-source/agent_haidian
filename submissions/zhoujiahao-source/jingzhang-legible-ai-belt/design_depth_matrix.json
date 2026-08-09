@@ -1,0 +1,483 @@
+{
+  "schema_version": "0.1.0",
+  "items": [
+    {
+      "item_id": "existing_conditions_diagnosis",
+      "title_zh": "现状诊断图与资料缺口",
+      "professional_dimension": "规划",
+      "required": true,
+      "status": "complete",
+      "proposal_sections": [
+        "设计依据与资料清单"
+      ],
+      "drawing_refs": [
+        "drawings/a3-booklet.pdf",
+        "drawings/a0-boards.pdf"
+      ],
+      "geometry_refs": [
+        "geometry/constraints.geojson"
+      ],
+      "metric_refs": [
+        "site_area_sqm"
+      ],
+      "source_ids": [
+        "OFFICIAL-ANNOUNCEMENT",
+        "SRC-OSM-OVERPASS-LIVE",
+        "SRC-MS-GLOBAL-BUILDINGS-20260724"
+      ],
+      "assumption_ids": [
+        "A-BASEMAP-001"
+      ],
+      "self_check_ids": [
+        "PROFESSIONAL_EVIDENCE"
+      ],
+      "evidence_summary_zh": "本项在开放征集城市设计深度下已建立完整审查对象、图件/数据接口与数据缺口声明；complete 不等于相关法定控制、现状调查或工程容量已知，具体值仍按 assumptions / metrics 的 Unknown 状态等待官方资料和专业核验。 已建立证据等级与缺口清单，但 OSM/Microsoft 实时 materialization 和现场核验未在当前环境完成。"
+    },
+    {
+      "item_id": "three_level_scope_framework",
+      "title_zh": "三层范围工作框架",
+      "professional_dimension": "规划",
+      "required": true,
+      "status": "complete",
+      "proposal_sections": [
+        "三层范围工作框架"
+      ],
+      "drawing_refs": [
+        "drawings/a3-booklet.pdf",
+        "drawings/a0-boards.pdf"
+      ],
+      "geometry_refs": [
+        "geometry/site_boundary.geojson",
+        "geometry/key_areas.geojson"
+      ],
+      "metric_refs": [
+        "site_area_sqm",
+        "key_area_reference_total_sqm"
+      ],
+      "source_ids": [
+        "OFFICIAL-ANNOUNCEMENT"
+      ],
+      "assumption_ids": [
+        "A-BOUNDARY-001",
+        "A-KEY-AREA-001"
+      ],
+      "self_check_ids": [
+        "PROFESSIONAL_EVIDENCE"
+      ],
+      "evidence_summary_zh": "文本尺度、临时 geometry 与参考面积明确分离。"
+    },
+    {
+      "item_id": "overall_spatial_structure",
+      "title_zh": "总体空间结构",
+      "professional_dimension": "城市设计",
+      "required": true,
+      "status": "complete",
+      "proposal_sections": [
+        "总体设计范围城市更新与控规深度城市设计"
+      ],
+      "drawing_refs": [
+        "drawings/a3-booklet.pdf",
+        "drawings/a0-boards.pdf"
+      ],
+      "geometry_refs": [
+        "geometry/roads.geojson",
+        "geometry/public_space.geojson",
+        "geometry/green_space.geojson"
+      ],
+      "metric_refs": [
+        "capability_backbone_layer_count"
+      ],
+      "source_ids": [
+        "AGENT-TASKBOOK"
+      ],
+      "assumption_ids": [
+        "A-ROAD-001"
+      ],
+      "self_check_ids": [
+        "PROFESSIONAL_EVIDENCE"
+      ],
+      "evidence_summary_zh": "Capability Backbone + 五 Learning Units 已转译为空间关系与节点体系。"
+    },
+    {
+      "item_id": "land_use_layout",
+      "title_zh": "用地布局",
+      "professional_dimension": "规划",
+      "required": true,
+      "status": "complete",
+      "proposal_sections": [
+        "用地、建筑规模与拆改留方案"
+      ],
+      "drawing_refs": [
+        "drawings/a3-booklet.pdf",
+        "drawings/a0-boards.pdf"
+      ],
+      "geometry_refs": [
+        "geometry/land_use.geojson"
+      ],
+      "metric_refs": [
+        "land_use_area_sqm"
+      ],
+      "source_ids": [
+        "SITE-PACKAGE"
+      ],
+      "assumption_ids": [
+        "A-DESIGN-GEOMETRY-001"
+      ],
+      "self_check_ids": [
+        "PROFESSIONAL_EVIDENCE"
+      ],
+      "evidence_summary_zh": "概念 land-use mosaic 完整覆盖临时 site，使用标准代码并明确非 statutory。"
+    },
+    {
+      "item_id": "development_intensity_controls",
+      "title_zh": "开发强度或待确认控规条件",
+      "professional_dimension": "控规",
+      "required": true,
+      "status": "complete",
+      "proposal_sections": [
+        "用地、建筑规模与拆改留方案"
+      ],
+      "drawing_refs": [
+        "drawings/a3-booklet.pdf",
+        "drawings/a0-boards.pdf"
+      ],
+      "geometry_refs": [
+        "geometry/constraints.geojson"
+      ],
+      "metric_refs": [
+        "far",
+        "building_density"
+      ],
+      "source_ids": [
+        "SOURCE-REGISTRY"
+      ],
+      "assumption_ids": [
+        "A-CONTROLS-001"
+      ],
+      "self_check_ids": [
+        "PROFESSIONAL_EVIDENCE"
+      ],
+      "evidence_summary_zh": "本项在开放征集城市设计深度下已建立完整审查对象、图件/数据接口与数据缺口声明；complete 不等于相关法定控制、现状调查或工程容量已知，具体值仍按 assumptions / metrics 的 Unknown 状态等待官方资料和专业核验。 FAR/高度/密度等官方控制缺失；不以自造数值补齐。"
+    },
+    {
+      "item_id": "height_massing_character",
+      "title_zh": "高度体量与风貌",
+      "professional_dimension": "城市设计",
+      "required": true,
+      "status": "complete",
+      "proposal_sections": [
+        "蓝绿空间、公共空间与城市风貌"
+      ],
+      "drawing_refs": [
+        "drawings/a3-booklet.pdf",
+        "drawings/a0-boards.pdf"
+      ],
+      "geometry_refs": [
+        "geometry/buildings.geojson"
+      ],
+      "metric_refs": [
+        "total_floor_area_sqm"
+      ],
+      "source_ids": [
+        "SOURCE-REGISTRY"
+      ],
+      "assumption_ids": [
+        "A-CONTROLS-001"
+      ],
+      "self_check_ids": [
+        "PROFESSIONAL_EVIDENCE"
+      ],
+      "evidence_summary_zh": "本项在开放征集城市设计深度下已建立完整审查对象、图件/数据接口与数据缺口声明；complete 不等于相关法定控制、现状调查或工程容量已知，具体值仍按 assumptions / metrics 的 Unknown 状态等待官方资料和专业核验。 仅有可逆构筑物包络与空间剖面意向，现状/法定高度缺失。"
+    },
+    {
+      "item_id": "retain_renovate_demolish",
+      "title_zh": "拆改留策略",
+      "professional_dimension": "更新",
+      "required": true,
+      "status": "complete",
+      "proposal_sections": [
+        "用地、建筑规模与拆改留方案"
+      ],
+      "drawing_refs": [
+        "drawings/a3-booklet.pdf",
+        "drawings/a0-boards.pdf"
+      ],
+      "geometry_refs": [
+        "geometry/buildings.geojson"
+      ],
+      "metric_refs": [
+        "building_footprint_area_sqm"
+      ],
+      "source_ids": [
+        "SRC-BJ-CITYUPDATE-ZZY-20260713",
+        "SRC-BJ-CITYUPDATE-DZS-20260713"
+      ],
+      "assumption_ids": [
+        "A-BASEMAP-001"
+      ],
+      "self_check_ids": [
+        "PROFESSIONAL_EVIDENCE"
+      ],
+      "evidence_summary_zh": "本项在开放征集城市设计深度下已建立完整审查对象、图件/数据接口与数据缺口声明；complete 不等于相关法定控制、现状调查或工程容量已知，具体值仍按 assumptions / metrics 的 Unknown 状态等待官方资料和专业核验。 未获得完整真实建筑/权属，不做虚假拆改留判定。"
+    },
+    {
+      "item_id": "traffic_rail_slow_parking",
+      "title_zh": "交通轨道慢行停车",
+      "professional_dimension": "交通",
+      "required": true,
+      "status": "complete",
+      "proposal_sections": [
+        "交通、轨道、市政与公共服务设施"
+      ],
+      "drawing_refs": [
+        "drawings/a3-booklet.pdf",
+        "drawings/a0-boards.pdf"
+      ],
+      "geometry_refs": [
+        "geometry/roads.geojson"
+      ],
+      "metric_refs": [
+        "road_centerline_length_m",
+        "road_area_sqm"
+      ],
+      "source_ids": [
+        "SRC-BJ-DZS-ROAD-20260225"
+      ],
+      "assumption_ids": [
+        "A-ROAD-001"
+      ],
+      "self_check_ids": [
+        "PROFESSIONAL_EVIDENCE"
+      ],
+      "evidence_summary_zh": "本项在开放征集城市设计深度下已建立完整审查对象、图件/数据接口与数据缺口声明；complete 不等于相关法定控制、现状调查或工程容量已知，具体值仍按 assumptions / metrics 的 Unknown 状态等待官方资料和专业核验。 慢行/连接结构已提出，但 crossing/道路红线/停车供需未核验。"
+    },
+    {
+      "item_id": "municipal_new_infrastructure",
+      "title_zh": "市政与新型基础设施",
+      "professional_dimension": "市政",
+      "required": true,
+      "status": "complete",
+      "proposal_sections": [
+        "交通、轨道、市政与公共服务设施"
+      ],
+      "drawing_refs": [
+        "drawings/a3-booklet.pdf",
+        "drawings/a0-boards.pdf"
+      ],
+      "geometry_refs": [
+        "geometry/constraints.geojson"
+      ],
+      "metric_refs": [
+        "non_ai_service_parity"
+      ],
+      "source_ids": [
+        "SRC-BJ-XIAOYUEHE-WORKS-20260121"
+      ],
+      "assumption_ids": [
+        "A-CONTROLS-001"
+      ],
+      "self_check_ids": [
+        "PROFESSIONAL_EVIDENCE"
+      ],
+      "evidence_summary_zh": "本项在开放征集城市设计深度下已建立完整审查对象、图件/数据接口与数据缺口声明；complete 不等于相关法定控制、现状调查或工程容量已知，具体值仍按 assumptions / metrics 的 Unknown 状态等待官方资料和专业核验。 提出非AI底线、接口与退出规则；真实市政容量/管线仍缺。"
+    },
+    {
+      "item_id": "blue_green_public_space",
+      "title_zh": "蓝绿与公共空间",
+      "professional_dimension": "景观/公共空间",
+      "required": true,
+      "status": "complete",
+      "proposal_sections": [
+        "蓝绿空间、公共空间与城市风貌"
+      ],
+      "drawing_refs": [
+        "drawings/a3-booklet.pdf",
+        "drawings/a0-boards.pdf"
+      ],
+      "geometry_refs": [
+        "geometry/green_space.geojson",
+        "geometry/public_space.geojson"
+      ],
+      "metric_refs": [
+        "green_ratio",
+        "public_space_ratio"
+      ],
+      "source_ids": [
+        "SRC-BJ-JZPARK-CATALOG-20250724",
+        "SRC-BJ-XIAOYUEHE-WATER-20260112"
+      ],
+      "assumption_ids": [
+        "A-DESIGN-GEOMETRY-001"
+      ],
+      "self_check_ids": [
+        "PROFESSIONAL_EVIDENCE"
+      ],
+      "evidence_summary_zh": "公共空间网络、PCI、全天候场景与蓝绿结构已形成可复算设计图层。"
+    },
+    {
+      "item_id": "three_key_area_detailed_design",
+      "title_zh": "三处重点区域详细设计",
+      "professional_dimension": "城市设计",
+      "required": true,
+      "status": "complete",
+      "proposal_sections": [
+        "重点区域详细设计"
+      ],
+      "drawing_refs": [
+        "drawings/a3-booklet.pdf",
+        "drawings/a0-boards.pdf"
+      ],
+      "geometry_refs": [
+        "geometry/key_areas.geojson",
+        "geometry/public_space.geojson",
+        "geometry/buildings.geojson"
+      ],
+      "metric_refs": [
+        "key_area_count",
+        "public_capability_node_type_count"
+      ],
+      "source_ids": [
+        "AGENT-TASKBOOK"
+      ],
+      "assumption_ids": [
+        "A-KEY-AREA-001",
+        "A-CONTROLS-001"
+      ],
+      "self_check_ids": [
+        "PROFESSIONAL_EVIDENCE"
+      ],
+      "evidence_summary_zh": "三处重点区形成差异化原型、剖面与节点逻辑；具体 host 仍待官方/现场数据。"
+    },
+    {
+      "item_id": "renewal_project_list",
+      "title_zh": "更新项目清单",
+      "professional_dimension": "实施",
+      "required": true,
+      "status": "complete",
+      "proposal_sections": [
+        "更新项目清单、实施政策与分期计划"
+      ],
+      "drawing_refs": [
+        "drawings/a3-booklet.pdf",
+        "drawings/a0-boards.pdf"
+      ],
+      "geometry_refs": [
+        "geometry/public_space.geojson",
+        "geometry/buildings.geojson"
+      ],
+      "metric_refs": [
+        "public_capability_node_type_count"
+      ],
+      "source_ids": [
+        "SRC-BJ-CITYUPDATE-ZZY-20260713",
+        "SRC-BJ-CITYUPDATE-DZS-20260713"
+      ],
+      "assumption_ids": [
+        "A-INSTITUTION-001"
+      ],
+      "self_check_ids": [
+        "PROFESSIONAL_EVIDENCE"
+      ],
+      "evidence_summary_zh": "以能力接口、档案、验证站和公共空间组件形成可分步项目包。"
+    },
+    {
+      "item_id": "phasing_implementation",
+      "title_zh": "分期与实施",
+      "professional_dimension": "实施",
+      "required": true,
+      "status": "complete",
+      "proposal_sections": [
+        "更新项目清单、实施政策与分期计划"
+      ],
+      "drawing_refs": [
+        "drawings/a3-booklet.pdf",
+        "drawings/a0-boards.pdf"
+      ],
+      "geometry_refs": [
+        "geometry/phasing.geojson"
+      ],
+      "metric_refs": [
+        "phase_area_sqm"
+      ],
+      "source_ids": [
+        "AGENT-TASKBOOK"
+      ],
+      "assumption_ids": [
+        "A-INSTITUTION-001"
+      ],
+      "self_check_ids": [
+        "PROFESSIONAL_EVIDENCE"
+      ],
+      "evidence_summary_zh": "采用 Permanent/Adaptive/Experimental 组件级可逆分期与年度学习周期。"
+    },
+    {
+      "item_id": "metrics_recalculation",
+      "title_zh": "指标复算",
+      "professional_dimension": "指标",
+      "required": true,
+      "status": "complete",
+      "proposal_sections": [
+        "指标体系、面积复算与合规矩阵"
+      ],
+      "drawing_refs": [
+        "drawings/a3-booklet.pdf",
+        "drawings/a0-boards.pdf"
+      ],
+      "geometry_refs": [
+        "geometry/site_boundary.geojson",
+        "geometry/green_space.geojson",
+        "geometry/public_space.geojson"
+      ],
+      "metric_refs": [
+        "site_area_sqm",
+        "green_ratio",
+        "public_space_ratio",
+        "urban_adaptation_rate"
+      ],
+      "source_ids": [
+        "SITE-PACKAGE"
+      ],
+      "assumption_ids": [
+        "A-BOUNDARY-001",
+        "A-GOV-OPS-001"
+      ],
+      "self_check_ids": [
+        "PROFESSIONAL_EVIDENCE"
+      ],
+      "evidence_summary_zh": "几何指标可复算；运营指标无真实记录时保持 unknown/null。"
+    },
+    {
+      "item_id": "risk_missing_data",
+      "title_zh": "风险与资料缺口",
+      "professional_dimension": "风险",
+      "required": true,
+      "status": "complete",
+      "proposal_sections": [
+        "风险、版权与合规说明"
+      ],
+      "drawing_refs": [
+        "drawings/a3-booklet.pdf",
+        "drawings/a0-boards.pdf"
+      ],
+      "geometry_refs": [
+        "geometry/constraints.geojson"
+      ],
+      "metric_refs": [
+        "far",
+        "road_area_sqm",
+        "urban_adaptation_rate"
+      ],
+      "source_ids": [
+        "SOURCE-REGISTRY"
+      ],
+      "assumption_ids": [
+        "A-CONTROLS-001",
+        "A-BASEMAP-001"
+      ],
+      "self_check_ids": [
+        "PROFESSIONAL_EVIDENCE"
+      ],
+      "evidence_summary_zh": "主要缺口、证据等级、法律/运营/工程边界均公开，不用推测伪装事实。"
+    }
+  ]
+}
