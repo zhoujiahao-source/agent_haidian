@@ -54,7 +54,6 @@ jobs:
             skills
             scenarios
             tracks.json
-            submissions
             requirements-review.txt
             pyproject.toml
           path: workspace
@@ -64,7 +63,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euxo pipefail
-          rm -rf workspace/submissions/zhoujiahao-source/jingzhang-legible-ai-belt
           mkdir -p workspace/submissions/zhoujiahao-source
           cp -a source/submissions/zhoujiahao-source/jingzhang-legible-ai-belt workspace/submissions/zhoujiahao-source/
           cd workspace
