@@ -1,0 +1,264 @@
+{
+  "type": "FeatureCollection",
+  "name": "jingzhang_legible_ai_building_program_envelopes",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "BLDG-11",
+      "properties": {
+        "id": "BLDG-11",
+        "layer": "BUILDING_FOOTPRINT",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "众智园AI自主创新加速区开放研发/测试大厅",
+        "building_type": "lab",
+        "planning_action": "adaptive_reuse_or_infill",
+        "design_note": "非现状建筑测绘，不代表拆除、新建或产权判断；仅表达后续建筑更新/嵌入的功能包络。",
+        "area_sqm_declared": 25466.495
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.34608,
+              40.014992500000005
+            ],
+            [
+              116.3474,
+              40.014992500000005
+            ],
+            [
+              116.3474,
+              40.0129575
+            ],
+            [
+              116.34608,
+              40.0129575
+            ],
+            [
+              116.34608,
+              40.014992500000005
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BLDG-12",
+      "properties": {
+        "id": "BLDG-12",
+        "layer": "BUILDING_FOOTPRINT",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "众智园AI自主创新加速区公共服务/共创节点",
+        "building_type": "community_service",
+        "planning_action": "adaptive_reuse_or_infill",
+        "design_note": "非现状建筑测绘，不代表拆除、新建或产权判断；仅表达后续建筑更新/嵌入的功能包络。",
+        "area_sqm_declared": 25464.435
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.34960000000001,
+              40.020542500000005
+            ],
+            [
+              116.35092,
+              40.020542500000005
+            ],
+            [
+              116.35092,
+              40.0185075
+            ],
+            [
+              116.34960000000001,
+              40.0185075
+            ],
+            [
+              116.34960000000001,
+              40.020542500000005
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BLDG-21",
+      "properties": {
+        "id": "BLDG-21",
+        "layer": "BUILDING_FOOTPRINT",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "北京AI原点社区开放研发/测试大厅",
+        "building_type": "incubator",
+        "planning_action": "adaptive_reuse_or_infill",
+        "design_note": "非现状建筑测绘，不代表拆除、新建或产权判断；仅表达后续建筑更新/嵌入的功能包络。",
+        "area_sqm_declared": 13771.031
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.34508,
+              39.98755
+            ],
+            [
+              116.34639999999999,
+              39.98755
+            ],
+            [
+              116.34639999999999,
+              39.986450000000005
+            ],
+            [
+              116.34508,
+              39.986450000000005
+            ],
+            [
+              116.34508,
+              39.98755
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BLDG-22",
+      "properties": {
+        "id": "BLDG-22",
+        "layer": "BUILDING_FOOTPRINT",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "北京AI原点社区公共服务/共创节点",
+        "building_type": "mixed_use",
+        "planning_action": "adaptive_reuse_or_infill",
+        "design_note": "非现状建筑测绘，不代表拆除、新建或产权判断；仅表达后续建筑更新/嵌入的功能包络。",
+        "area_sqm_declared": 13770.424
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.3486,
+              39.99054999999999
+            ],
+            [
+              116.34992,
+              39.99054999999999
+            ],
+            [
+              116.34992,
+              39.98945
+            ],
+            [
+              116.3486,
+              39.98945
+            ],
+            [
+              116.3486,
+              39.99054999999999
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BLDG-31",
+      "properties": {
+        "id": "BLDG-31",
+        "layer": "BUILDING_FOOTPRINT",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "大钟寺AI产业聚集区开放研发/测试大厅",
+        "building_type": "ai_r_and_d",
+        "planning_action": "adaptive_reuse_or_infill",
+        "design_note": "非现状建筑测绘，不代表拆除、新建或产权判断；仅表达后续建筑更新/嵌入的功能包络。",
+        "area_sqm_declared": 9510.12
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.34563999999999,
+              39.9463652
+            ],
+            [
+              116.3472,
+              39.9463652
+            ],
+            [
+              116.3472,
+              39.9457228
+            ],
+            [
+              116.34563999999999,
+              39.9457228
+            ],
+            [
+              116.34563999999999,
+              39.9463652
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BLDG-32",
+      "properties": {
+        "id": "BLDG-32",
+        "layer": "BUILDING_FOOTPRINT",
+        "source_type": "agent_generated_design",
+        "confidence": "low",
+        "geometry_role": "design_proposal",
+        "name_zh": "大钟寺AI产业聚集区公共服务/共创节点",
+        "building_type": "retail",
+        "planning_action": "adaptive_reuse_or_infill",
+        "design_note": "非现状建筑测绘，不代表拆除、新建或产权判断；仅表达后续建筑更新/嵌入的功能包络。",
+        "area_sqm_declared": 9509.871
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.3498,
+              39.948117200000006
+            ],
+            [
+              116.35136000000001,
+              39.948117200000006
+            ],
+            [
+              116.35136000000001,
+              39.9474748
+            ],
+            [
+              116.3498,
+              39.9474748
+            ],
+            [
+              116.3498,
+              39.948117200000006
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
