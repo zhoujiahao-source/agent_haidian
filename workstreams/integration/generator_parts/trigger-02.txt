@@ -1,0 +1,1 @@
+Trigger lightweight sparse-generation run after workflow optimization.
