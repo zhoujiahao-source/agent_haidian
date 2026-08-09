@@ -8,7 +8,7 @@ on:
       - '.github/workflows/preflight-final-v21.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   preflight:
