@@ -23,14 +23,14 @@
       "path": "proposal.md",
       "role": "narrative",
       "required": true,
-      "sha256": "7a8a691fc353780a24bc4b267917312b8bb216f649c78c24a7881ea9eb73d358",
+      "sha256": "6c6de8c63be250d7ccfee52868fb7d0fa530767fb9ba4b19f26835a79a58b24e",
       "language": "zh"
     },
     {
       "path": "proposal.en.md",
       "role": "narrative",
       "required": true,
-      "sha256": "6467929840ca181bae43a89e68899d917cc325e01c9a5b00748bc3089ba0c2cf",
+      "sha256": "a0d82afec5fc9d31604020110f41de107b08a1723912a22902a1662440e2c843",
       "language": "en",
       "translation_of": "proposal.md"
     },
@@ -305,14 +305,14 @@
       "path": "report/proposal.html",
       "role": "rendered_proposal_html",
       "required": true,
-      "sha256": "181df236ee6a776a4dd962deb78f46e13eb4b39eb655742c0ca6b060d698056e",
+      "sha256": "97ffabe309ed3a60f765c31be835d85fa8797855262dc856655cfdf4b15e6b73",
       "language": "zh"
     },
     {
       "path": "report/proposal.en.html",
       "role": "rendered_proposal_html",
       "required": true,
-      "sha256": "e64657a6400efb334270726b7d54cfa41ba87dba8d10a13afd933f2b64246ddf",
+      "sha256": "5e9eb9e1a6bfe1b826ec309808455f855e6ba260b2565220c2fdbc9320a0de04",
       "language": "en",
       "translation_of": "report/proposal.html"
     },
@@ -366,6 +366,21 @@
       "language": "en",
       "translation_of": "assets/figures/spatial-sections.png",
       "sha256": "4f0301aa28672a299db42a14f9a01df844ca6955a7fcb5587a68c7a4188e1b43"
+    },
+    {
+      "path": "assets/figures/reviewer-spatial-depth.svg",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "zh",
+      "sha256": "ef4412ee270e1ede15360a9ca5e9b2e6445ad9ff887386eb606d2166f6f2cc44"
+    },
+    {
+      "path": "assets/figures/reviewer-spatial-depth.en.svg",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "en",
+      "translation_of": "assets/figures/reviewer-spatial-depth.svg",
+      "sha256": "c83206f5a3d70c5b9d752e406170e2f5e93a20299f4024100e2842de6a8fbfaa"
     }
   ],
   "validation_claim": {

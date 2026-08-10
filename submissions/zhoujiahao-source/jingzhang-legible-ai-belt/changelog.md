@@ -27,3 +27,9 @@ Official-completeness pass against the current organizer repository contract:
 - regenerated bilingual A3/A0 drawings so these official responses are visible in drawing outputs.
 
 No new government approval, statutory control, ownership, procurement commitment, official polygon or verified construction condition is claimed.
+
+## v2.2.0 — Reviewer spatial deepening
+
+- Added bilingual reviewer-facing Spatial Proof Rooms atlas for Zhongzhiyuan, AI Origin and Dazhongsi.
+- Deepened key-area movement, public-space, ground-floor, blue-green, Non-AI baseline and AI-backstage logic without inventing statutory controls.
+- Kept all new spatial rooms Derived / Not yet canonicalized pending professional review and official geometry.

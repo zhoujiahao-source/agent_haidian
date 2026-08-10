@@ -9,7 +9,7 @@ license: "COMMUNITY-DISPLAY-ONLY"
 summary: "把百年京张建设为一套让城市持续发现问题、可逆试验、评估公共价值、交换能力并主动退役失效技术的城市级操作系统；以 Capability Backbone 连接三区两翼，以 Public Capability Interface 服务日常公共生活，以 Urban Adaptation Rate 衡量真实改善，以年度 City Version Release 形成长期公共治理与城市记忆。"
 tracks: ["civic-agent-governance", "ai-traffic-walkability", "enterprise-services-ecosystem"]
 scenarios: ["public-safety-operations-review", "ai-traffic-walkability", "enterprise-service-copilot"]
-iteration: "v2.1.0"
+iteration: "v2.2.0"
 ---
 
 # 京张·城市能力交换带
@@ -78,6 +78,28 @@ Capability Backbone 沿百年京张的连续公共空间关系组织，但所有
 <!-- OFFICIAL-COMPLETENESS:KEY-AREAS -->
 
 ![众智园、AI 原点社区与大钟寺三处重点区放大及能力分工](assets/figures/key-areas.png)
+
+<!-- REVIEWER-SPATIAL-DEEPENING:V4 -->
+### 评委视角：三区空间证据房间 / Spatial Proof Rooms
+
+为了让重点区不只停留在“任务清单”，本轮把三处 KEY_AREA 统一深化为**可在 30 秒内审查的空间证据房间**。每一区都必须同时回答：**空间角色是什么、普通人怎么走、核心公共空间在哪里、首层如何工作、蓝绿如何进入、AI 在哪里退到后台、失败时如何旁路、哪些条件仍待核验**。以下深化属于 **Derived / Not yet canonicalized**；正式 `KEY_AREA` 仍为 provisional，法定 FAR/高度、权属、道路红线、绿地法定属性和工程容量仍保持 Unknown。
+
+| 重点区 | 第一空间问题 | 核心空间房间 | 普通城市基线 | AI 后台位置 |
+|---|---|---|---|---|
+| 众智园 / Verification Campus | 高风险能力如何不打断普通城市生活地被验证？ | 验证共享庭院 / 有界测试院 / 治理评测厅 / 普通通行旁路 | 连续步行、标识、树荫、照明、人工安全控制、物理停机 | 受控测试与评测层；公共边界保持普通城市可读性 |
+| AI 原点 / Learning Neighborhood | 高校、人才与社区如何共享低扰动公共服务空间？ | 校社学习客厅 / 包容服务庭院 / TOD慢行门廊 / 低扰动更新界面 | 物理无障碍、普通导视、人工帮助、固定服务信息 | Ambient 只承载低风险支持；个性化/识别进入 Consent Layer |
+| 大钟寺 / Market & Service Commons | AI-native 服务如何在真实商业与夜间生活中被检验？ | 四象限慢行缝合 / 市场服务街 / 夜间城市客厅 / 绿地复合庭院 | 普通商业、可见导视、人工帮助、安全步行与照明 | 服务编排支持商户与使用者，但不替代普通交易/导航/求助 |
+
+![评委视角三区空间证据房间：角色、公共空间、普通旁路、AI后台与证据状态](assets/figures/reviewer-spatial-depth.svg)
+
+**众智园空间深化。** 公共边界采用开放研发共享空间与治理评测界面，受控实验向内部退让；有界测试院必须同时具有安全缓冲、Human Stop、普通通行旁路和应急进入条件。五环联系、清河文化资源、建筑—绿地—水系一体化继续作为专项 evidence gate，不在图中预设工程 crossing。
+
+**AI 原点空间深化。** 以细颗粒校社缝合、包容服务庭院和低扰动更新界面替代“大拆大建式 AI 园区”。五道口站、清华东路西口站相关 TOD 只作为 walkshed 与公共生活衔接的研究任务；无障碍和人工服务属于 Permanent baseline，个人化 AI 服务不得替代物理公共服务。
+
+**大钟寺空间深化。** 把四象限步行连续、市场服务街、夜间城市客厅和绿地复合庭院作为四个可审查空间房间；装卸、骑行、静态交通与夜间使用被放进同一公共空间逻辑。任何跨路连接、规划绿地复合利用和停车组织都先验证红线、绿地属性、消防和运营条件。
+
+这组 Spatial Proof Rooms 是评委快速读取方案的**空间说明层**，不改变 canonical GeoJSON 的权威顺序；若后续专业审查认可，再把道路断面、公共空间组件和场景节点逐项反写为正式可验证 geometry。
+
 
 ## AI 创新生态、人才画像与 AI+ 场景
 

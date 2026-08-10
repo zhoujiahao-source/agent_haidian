@@ -9,7 +9,7 @@ license: "COMMUNITY-DISPLAY-ONLY"
 summary: "A city-scale operating system that lets Jing-Zhang continuously diagnose urban problems, run reversible tests, evaluate public value, exchange validated capabilities, and retire obsolete technology through a Capability Backbone, Public Capability Interfaces, Urban Adaptation Rate, and an annual City Version Release."
 tracks: ["civic-agent-governance", "ai-traffic-walkability", "enterprise-services-ecosystem"]
 scenarios: ["public-safety-operations-review", "ai-traffic-walkability", "enterprise-service-copilot"]
-iteration: "v2.1.0"
+iteration: "v2.2.0"
 ---
 
 # Jing-Zhang Urban Capability Exchange
@@ -78,6 +78,28 @@ This converts organizer requirements into **urban-design questions that must be 
 <!-- OFFICIAL-COMPLETENESS:KEY-AREAS -->
 
 ![Enlarged logic for Zhongzhiyuan, AI Origin and Dazhongsi](assets/figures/key-areas.en.png)
+
+<!-- REVIEWER-SPATIAL-DEEPENING:V4 -->
+### Reviewer Lens: Three Key-Area Spatial Proof Rooms
+
+To move the three key areas beyond a task checklist, this iteration turns each KEY_AREA into a **30-second spatial proof**. Every area must make eight things immediately legible: **its urban role, ordinary movement, core public room, ground-floor relationship, blue-green function, where AI moves backstage, the non-participant bypass, and what evidence is still missing**. The following deepening is **Derived / Not yet canonicalized**. The formal `KEY_AREA` geometry remains provisional, while statutory FAR/height, ownership, road redlines, legal green-space status and engineering capacity remain Unknown.
+
+| Key area | First spatial question | Core spatial rooms | Ordinary-city baseline | AI backstage position |
+|---|---|---|---|---|
+| Zhongzhiyuan / Verification Campus | How can higher-risk capabilities be tested without interrupting ordinary urban life? | Verification Commons Court / Bounded Test Yard / Governance Review Hall / Ordinary Bypass | continuous walking, signage, shade, lighting, manual safety control and physical stop | controlled test/review layers; public edge remains readable without AI |
+| AI Origin / Learning Neighborhood | How can universities, talent and neighborhoods share low-disturbance public-service space? | Campus-Neighborhood Learning Commons / Inclusive Service Court / TOD Walking Gate / Low-disturbance Renewal Edge | physical accessibility, ordinary wayfinding, manual help and fixed service information | low-risk Ambient support only by default; personalization/recognition enters Consent Layer |
+| Dazhongsi / Market & Service Commons | How can AI-native services be tested in real commerce and night-time public life? | Four-Quadrant Walking Stitch / Market Service Street / Night Urban Living Room / Green Mobility Court | ordinary commerce, visible wayfinding, staffed help, safe walking and lighting | service orchestration supports users/merchants but never replaces ordinary transaction, navigation or help |
+
+![Reviewer spatial proof rooms for the three key areas: role, public realm, ordinary bypass, AI backstage and evidence status](assets/figures/reviewer-spatial-depth.en.svg)
+
+**Zhongzhiyuan deepening.** Public-facing research commons and governance-review interfaces sit on the public edge, while controlled experiments move inward. Every bounded test yard must pair its safety buffer and Human Stop with an ordinary bypass and emergency access. Fifth Ring links, Qinghe cultural resources and building-green-water integration remain evidence-gated specialist tasks rather than assumed engineering crossings.
+
+**AI Origin deepening.** Fine-grain campus-neighborhood stitches, inclusive service courts and low-disturbance renewal replace the image of a sealed AI park. Wudaokou and Qinghuadongluxikou station relationships remain walkshed/public-life research tasks. Physical accessibility and staffed/manual service are Permanent baselines; personalized AI cannot replace ordinary civic service.
+
+**Dazhongsi deepening.** Four spatial proofs organize the review: four-quadrant walking continuity, a market-service street, a night urban living room and a green mobility court. Loading, cycling, static transport and night-time public life are reviewed together. Any crossing, planned-green multifunction use or parking arrangement remains conditional on verified road, green-space, fire-safety and operating constraints.
+
+These Spatial Proof Rooms are a **reviewer-facing explanatory layer**. They do not override canonical GeoJSON. Only after professional review should approved road sections, public-space components and scenario nodes be written back into canonical geometry.
+
 
 ## AI Innovation Ecosystem, Personas, and AI+ Scenarios
 
