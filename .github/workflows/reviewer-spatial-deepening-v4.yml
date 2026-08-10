@@ -41,7 +41,7 @@ jobs:
           m=re.search(r'<script type="module">(.*?)</script>',html,re.S)
           assert m, 'module script missing'
           Path('/tmp/keyarea-reviewer.mjs').write_text(m.group(1),encoding='utf-8')
-          for token in ['WebGPURenderer','OrbitControls','mergeGeometries','ExtrudeGeometry','InstancedMesh','Overpass','Not yet canonicalized','ODbL','KEY-001','KEY-002','KEY-003']:
+          for token in ['WebGPURenderer','OrbitControls','mergeGeometries','ExtrudeGeometry','InstancedMesh','overpass-api','Not yet canonicalized','ODbL','KEY-001','KEY-002','KEY-003']:
               assert token in html, token
           print('spatial spec and Three.js static contract: PASS')
           PY
