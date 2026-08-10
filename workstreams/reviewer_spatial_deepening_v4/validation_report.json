@@ -1,0 +1,19 @@
+{
+  "schema_version": "1",
+  "status": "PASS",
+  "validated_upstream_sha": "c2d1ac43467bf335d47f8f32beee1eae88926080",
+  "validated_formal_sha": "22fda5fc42006eee6c4a853279b10fd7ea1cfcbf",
+  "checks": [
+    "threejs_static_contract",
+    "proposal_patch_bilingual",
+    "official_render_proposal_html",
+    "official_self_check_submission",
+    "official_participant_preflight"
+  ],
+  "truth_boundary": [
+    "KEY_AREA remains provisional",
+    "Spatial Proof Rooms are Derived / Not yet canonicalized",
+    "OSM remains candidate context",
+    "no statutory FAR/height/ownership/road-redline claim"
+  ]
+}
