@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
-import json, os, sys
+import json, os, sys, subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-data = json.loads((ROOT / "acceptance_matrix.json").read_text(encoding="utf-8"))
+matrix = ROOT / "acceptance_matrix.json"
+if not matrix.exists():
+    subprocess.run([sys.executable, str(ROOT / "build_acceptance_matrix.py")], check=True)
+
+data = json.loads(matrix.read_text(encoding="utf-8"))
 items = data["items"]
 
 errors = []
