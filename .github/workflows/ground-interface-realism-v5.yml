@@ -1,0 +1,293 @@
+name: Ground Interface Realism v5
+
+on:
+  push:
+    branches:
+      - integration/ground-interface-realism-v5
+    paths:
+      - '.github/workflows/ground-interface-realism-v5.yml'
+      - 'workstreams/ground_interface_realism_v5/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deepen-and-validate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout v5 workstream
+        uses: actions/checkout@v4
+        with:
+          ref: integration/ground-interface-realism-v5
+          fetch-depth: 1
+          sparse-checkout: |
+            workstreams/ground_interface_realism_v5
+            .github/workflows/ground-interface-realism-v5.yml
+
+      - name: Static QA for ground-interface spec and Three.js twin
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile workstreams/ground_interface_realism_v5/apply_ground_interface_v5.py
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          root=Path('workstreams/ground_interface_realism_v5')
+          spec=json.loads((root/'ground_interface_spec.json').read_text(encoding='utf-8'))
+          assert spec['status']=='Derived / Not yet canonicalized'
+          assert len(spec['areas'])==3
+          for area in spec['areas']:
+              assert len(area['edge_types'])==4
+              assert len(area['detail_components'])>=10
+              assert len(area['human_scenes'])>=5
+              assert sum(area['section_ratio'].values())>0
+          html=(root/'threejs/keyarea_ground_interface_twin.html').read_text(encoding='utf-8')
+          m=re.search(r'<script type="module">(.*?)</script>',html,re.S)
+          assert m,'module script missing'
+          Path('/tmp/keyarea-ground-v5.mjs').write_text(m.group(1),encoding='utf-8')
+          required=['WebGPURenderer','OrbitControls','mergeGeometries','ExtrudeGeometry','InstancedMesh','overpass-api','osmLandscape','canonicalBuildings','pointInPoly','Ground Interface','Not yet canonicalized','ODbL','Human Stop','Rider / loading pocket','__FORMAL_REF__']
+          for token in required: assert token in html,token
+          print('ground-interface spec and Three.js static contract: PASS')
+          PY
+          node --check /tmp/keyarea-ground-v5.mjs
+
+      - name: Resolve exact upstream head and guard audited rules
+        id: upstream
+        shell: bash
+        run: |
+          set -euo pipefail
+          AUDITED="fd1bf351cd02b6ee65a0f6b506e6d126745f08b0"
+          LATEST="$(git ls-remote https://github.com/open-city-ai/haidian.git refs/heads/main | cut -f1)"
+          echo "audited=$AUDITED"
+          echo "latest=$LATEST"
+          if [ "$LATEST" != "$AUDITED" ]; then
+            rm -rf /tmp/upstream-guard && git init -q /tmp/upstream-guard
+            git -C /tmp/upstream-guard remote add origin https://github.com/open-city-ai/haidian.git
+            git -C /tmp/upstream-guard -c protocol.version=2 fetch -q --no-tags --filter=blob:none origin "$AUDITED" "$LATEST"
+            git -C /tmp/upstream-guard diff --name-only "$AUDITED" "$LATEST" > /tmp/upstream-changed.txt
+            python - <<'PY'
+          from pathlib import Path
+          files=[x.strip() for x in Path('/tmp/upstream-changed.txt').read_text().splitlines() if x.strip()]
+          non=[f for f in files if not (f.startswith('submissions/') or f=='submissions-data.js')]
+          print(f'Changed paths since audited v5 baseline: {len(files)}')
+          if non:
+              print('Rule/tool/source changes require re-audit:')
+              print('\n'.join(non))
+              raise SystemExit(1)
+          print('Changes since baseline are peer submissions/gallery only.')
+          PY
+          fi
+          echo "sha=$LATEST" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout v5 formal branch
+        uses: actions/checkout@v4
+        with:
+          ref: submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v5-ground-interface
+          path: formal
+          fetch-depth: 0
+          sparse-checkout: |
+            submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+
+      - name: Apply v5 ground-interface deepening
+        env:
+          SUBMISSION_ROOT: ${{ github.workspace }}/formal/submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+        run: python workstreams/ground_interface_realism_v5/apply_ground_interface_v5.py
+
+      - name: Checkout exact upstream validation workspace
+        uses: actions/checkout@v4
+        with:
+          repository: open-city-ai/haidian
+          ref: ${{ steps.upstream.outputs.sha }}
+          path: upstream
+          fetch-depth: 1
+          sparse-checkout: |
+            scripts
+            skills/urban-design-ai-submission
+            requirements-review.txt
+            brief/site-package
+            data/source_registry.json
+            docs/data-workflow.md
+            scenarios
+            tracks
+
+      - name: Install current review requirements
+        run: python -m pip install -r upstream/requirements-review.txt
+
+      - name: Materialize v5 submission and participant-style refs
+        shell: bash
+        env:
+          UPSTREAM_SHA: ${{ steps.upstream.outputs.sha }}
+        run: |
+          set -euo pipefail
+          SRC="$GITHUB_WORKSPACE/formal/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
+          DST="$GITHUB_WORKSPACE/upstream/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
+          mkdir -p "$(dirname "$DST")"
+          cp -a "$SRC" "$DST"
+          git -C upstream switch -c validation/ground-interface-v5
+          git -C upstream remote rename origin upstream
+          git -C upstream remote add origin https://github.com/zhoujiahao-source/agent_haidian.git
+          git -C upstream config remote.origin.partialclonefilter blob:none
+          git -C upstream update-ref refs/remotes/upstream/main "$UPSTREAM_SHA"
+          echo "origin=$(git -C upstream remote get-url origin)"
+          echo "upstream=$(git -C upstream remote get-url upstream)"
+          git -C upstream rev-parse upstream/main
+
+      - name: Render bilingual proposal HTML and refresh manifest hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          SUB="$GITHUB_WORKSPACE/upstream/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
+          python upstream/scripts/render_proposal_html.py "$SUB"
+          SUB="$SUB" python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          root=Path(os.environ['SUB']); p=root/'manifest.json'; m=json.loads(p.read_text(encoding='utf-8'))
+          for item in m.get('files',[]):
+              if not isinstance(item,dict): continue
+              rel=item.get('path')
+              if not rel or rel=='manifest.json': continue
+              f=root/rel
+              if f.is_file(): item['sha256']=hashlib.sha256(f.read_bytes()).hexdigest()
+          claim=m.get('validation_claim')
+          if isinstance(claim,dict): claim['self_checked']=True
+          p.write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+
+      - name: Run exact-head contributor self-check
+        shell: bash
+        working-directory: upstream
+        run: |
+          set +e
+          python scripts/self_check_submission.py submissions/zhoujiahao-source/jingzhang-legible-ai-belt --pr-author zhoujiahao-source --json > /tmp/ground-self.json 2>/tmp/ground-self.err
+          RC=$?
+          set -e
+          cat /tmp/ground-self.json || true
+          cat /tmp/ground-self.err || true
+          if [ "$RC" -ne 0 ]; then
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          msgs=[]; p=Path('/tmp/ground-self.json')
+          if p.exists() and p.read_text(encoding='utf-8').strip():
+              d=json.loads(p.read_text(encoding='utf-8')); msgs.extend(d.get('next_actions') or [])
+              for section in ['deterministic_validation','spatial_review','visual_review','professional_review']:
+                  s=d.get(section) or {}; err=str(s.get('stderr') or '').strip()
+                  if err: msgs.append(f'{section}: {err}')
+                  out=s.get('stdout')
+                  if isinstance(out,dict):
+                      msgs.extend(f"{section}: {x}" for x in (out.get('errors') or []))
+                      for issue in out.get('issues') or []:
+                          if isinstance(issue,dict) and issue.get('severity') in {'blocking','major'}:
+                              msgs.append(f"{section} {issue.get('check_id','ISSUE')}: {issue.get('message','')}")
+          e=Path('/tmp/ground-self.err')
+          if e.exists() and e.read_text(encoding='utf-8').strip(): msgs.append(e.read_text(encoding='utf-8').strip())
+          for msg in dict.fromkeys(' '.join(str(x).split()) for x in (msgs or ['self check failed'])):
+              print(f'::error title=Exact-head self-check::{msg}')
+          PY
+            exit "$RC"
+          fi
+
+      - name: Run exact-head participant preflight
+        shell: bash
+        working-directory: upstream
+        run: |
+          set +e
+          python scripts/participant_preflight.py submissions/zhoujiahao-source/jingzhang-legible-ai-belt --pr-author zhoujiahao-source --json > /tmp/ground-preflight.json 2>/tmp/ground-preflight.err
+          RC=$?
+          set -e
+          cat /tmp/ground-preflight.json || true
+          cat /tmp/ground-preflight.err || true
+          if [ "$RC" -ne 0 ]; then
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          msgs=[]; p=Path('/tmp/ground-preflight.json')
+          if p.exists() and p.read_text(encoding='utf-8').strip():
+              d=json.loads(p.read_text(encoding='utf-8')); msgs.extend(d.get('blockers') or []); msgs.extend(d.get('warnings') or [])
+          e=Path('/tmp/ground-preflight.err')
+          if e.exists() and e.read_text(encoding='utf-8').strip(): msgs.append(e.read_text(encoding='utf-8').strip())
+          for msg in dict.fromkeys(' '.join(str(x).split()) for x in (msgs or ['preflight failed'])):
+              print(f'::error title=Exact-head preflight::{msg}')
+          PY
+            exit "$RC"
+          fi
+
+      - name: Copy validated generated files back to formal branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          SRC="$GITHUB_WORKSPACE/upstream/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
+          DST="$GITHUB_WORKSPACE/formal/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
+          cp -a "$SRC/report/proposal.html" "$DST/report/proposal.html"
+          cp -a "$SRC/report/proposal.en.html" "$DST/report/proposal.en.html"
+          cp -a "$SRC/manifest.json" "$DST/manifest.json"
+
+      - name: Commit validated v5 formal package
+        id: formalcommit
+        shell: bash
+        working-directory: formal
+        env:
+          UPSTREAM_SHA: ${{ steps.upstream.outputs.sha }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+          if git diff --cached --quiet; then
+            echo "No formal changes."
+          else
+            git commit -m "Deepen ground interface against upstream ${UPSTREAM_SHA:0:8}"
+            git push origin HEAD:submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v5-ground-interface
+          fi
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Freeze reviewer twin to validated formal SHA and record evidence
+        env:
+          UPSTREAM_SHA: ${{ steps.upstream.outputs.sha }}
+          FORMAL_SHA: ${{ steps.formalcommit.outputs.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p workstreams/ground_interface_realism_v5/validation
+          cp /tmp/ground-self.json workstreams/ground_interface_realism_v5/validation/self_check_exact.json
+          cp /tmp/ground-preflight.json workstreams/ground_interface_realism_v5/validation/preflight_exact.json
+          python - <<'PY'
+          import json,os,re
+          from pathlib import Path
+          root=Path('workstreams/ground_interface_realism_v5')
+          twin=root/'threejs/keyarea_ground_interface_twin.html'
+          text=twin.read_text(encoding='utf-8')
+          text=re.sub(r"DEFAULT_REF='[^']+'",f"DEFAULT_REF='{os.environ['FORMAL_SHA']}'",text,count=1)
+          twin.write_text(text,encoding='utf-8')
+          d={
+            'schema_version':'1',
+            'status':'PASS',
+            'validated_upstream_sha':os.environ['UPSTREAM_SHA'],
+            'validated_formal_sha':os.environ['FORMAL_SHA'],
+            'checks':['ground_interface_spec_contract','threejs_node_syntax','bilingual_proposal_patch','official_render_proposal_html','official_self_check_submission','official_participant_preflight'],
+            'spatial_deepening':['ground-floor edge sequence','ordinary accessible route','blue-green comfort','human-help baseline','operations separation','AI-off review floor','OSM water/green context','per-building OSM height evidence'],
+            'truth_boundary':['KEY_AREA remains provisional','ground-interface placements are Derived / Not yet canonicalized','section proportions are diagrammatic only','OSM remains candidate existing context','no statutory FAR/height/ownership/road-redline/approved-engineering claim']
+          }
+          (root/'validation_report.json').write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          html=Path('workstreams/ground_interface_realism_v5/threejs/keyarea_ground_interface_twin.html').read_text(encoding='utf-8')
+          m=re.search(r'<script type="module">(.*?)</script>',html,re.S)
+          Path('/tmp/keyarea-ground-v5-final.mjs').write_text(m.group(1),encoding='utf-8')
+          assert '__FORMAL_REF__' not in html
+          PY
+          node --check /tmp/keyarea-ground-v5-final.mjs
+
+      - name: Commit v5 validation record and frozen twin
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workstreams/ground_interface_realism_v5
+          git commit -m "Record exact-head ground-interface v5 validation"
+          git push origin HEAD:integration/ground-interface-realism-v5
