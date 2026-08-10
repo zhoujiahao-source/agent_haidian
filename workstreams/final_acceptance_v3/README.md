@@ -27,8 +27,8 @@ Priority split:
 
 Current state after the v3 standard-matrix alignment:
 
-- COMPLETE: 86
-- IN_PROGRESS: 1 (`EX-013`: latest-upstream render/finalize/self-check/preflight)
+- COMPLETE: 87
+- IN_PROGRESS: 0
 - BLOCKED_OFFICIAL_DATA: 3
 - HUMAN_REQUIRED: 10
 
@@ -57,3 +57,9 @@ Current state after the v3 standard-matrix alignment:
 - `.github/workflows/final-acceptance-v3.yml` — validates the formal branch using the latest upstream scripts and updates generated formal artifacts on success.
 
 The workflow deliberately keeps orchestration files outside the formal submission branch so an eventual upstream PR can remain submission-directory-only.
+
+## Latest successful validation
+
+- Upstream: `d444c44b8252bf6f7e558443924717bafade90e6`
+- Formal branch SHA: `3fde1ebe2e125414ab38e5b3c83f1f0516b00c15`
+- Agent-executable acceptance items remaining: **0**

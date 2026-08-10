@@ -1,0 +1,1410 @@
+{
+  "schema_version": "1",
+  "generated_at": "2026-08-10",
+  "upstream_sha": "6405afe0ce1f23e1b7056e30c0fe12fe3c59ecab",
+  "canonical_base_sha": "815f21207e72ffdcd3caf2bc2943c853b032cfda",
+  "formal_branch": "submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v3-final",
+  "target_maturity": "L3 high-fidelity integrated prototype / L4-ready",
+  "total_items": 100,
+  "priority_counts": {
+    "P0": 50,
+    "P1": 34,
+    "P2": 16
+  },
+  "status_counts": {
+    "COMPLETE": 87,
+    "IN_PROGRESS": 0,
+    "BLOCKED_OFFICIAL_DATA": 3,
+    "HUMAN_REQUIRED": 10
+  },
+  "items": [
+    {
+      "id": "UD-001",
+      "priority": "P0",
+      "category": "城市设计完整",
+      "requirement": "总体空间结构采用一条 Capability Backbone + 五个 Learning Units 且前后一致",
+      "acceptance_test": "proposal、总图、A3/A0、roads.geojson均能识别同一结构",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "geometry/roads.geojson",
+        "assets/figures/land-use-structure.png"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-002",
+      "priority": "P0",
+      "category": "城市设计完整",
+      "requirement": "三区两翼角色与官方任务书一致",
+      "acceptance_test": "五个单元均有明确空间/功能角色且不混同",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "assets/figures/regional-capability-network.png"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-003",
+      "priority": "P0",
+      "category": "城市设计完整",
+      "requirement": "众智园形成 Verification Campus 差异化空间原型",
+      "acceptance_test": "重点区章节、图纸、公共空间/建筑原型明确 Research/Test/Governance",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "assets/figures/key-areas.png",
+        "drawings/a3-booklet.pdf"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-004",
+      "priority": "P0",
+      "category": "城市设计完整",
+      "requirement": "AI原点形成 Learning Neighborhood 差异化空间原型",
+      "acceptance_test": "重点区章节、图纸明确 Community/Talent/Public Service 逻辑",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "assets/figures/key-areas.png",
+        "drawings/a3-booklet.pdf"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-005",
+      "priority": "P0",
+      "category": "城市设计完整",
+      "requirement": "大钟寺形成 Market & Service Commons 差异化空间原型",
+      "acceptance_test": "重点区章节、图纸明确 Market/Service/Night Life 逻辑",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "assets/figures/key-areas.png",
+        "drawings/a3-booklet.pdf"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-006",
+      "priority": "P0",
+      "category": "城市设计完整",
+      "requirement": "LAND_USE采用canonical真实设计几何而非纯概念色带",
+      "acceptance_test": "land_use.geojson通过validator且与总图表达一致",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "geometry/land_use.geojson",
+        "assets/figures/land-use-structure.png"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-007",
+      "priority": "P0",
+      "category": "城市设计完整",
+      "requirement": "BUILDING_FOOTPRINT严格区分现状候选与规划提案",
+      "acceptance_test": "正式geometry仅含规划原型；OSM只在候选现状证据中出现",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "geometry/buildings.geojson",
+        "sources.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-008",
+      "priority": "P0",
+      "category": "城市设计完整",
+      "requirement": "ROAD_CENTERLINE与现状道路语义分离",
+      "acceptance_test": "roads.geojson为设计关系，不冒充EXISTING_PRIMARY_ROAD",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "geometry/roads.geojson",
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-009",
+      "priority": "P0",
+      "category": "城市设计完整",
+      "requirement": "GREEN_SPACE承担蓝绿连续、遮阴、热/雨洪能力",
+      "acceptance_test": "方案、图纸、场景至少同时体现蓝绿与公共能力",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "geometry/green_space.geojson",
+        "assets/figures/mobility-bluegreen.png",
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-010",
+      "priority": "P0",
+      "category": "城市设计完整",
+      "requirement": "PUBLIC_SPACE首先作为公共空间成立，AI退到后台",
+      "acceptance_test": "PCI必须包含Non-AI baseline、公共生活和人工替代",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "geometry/public_space.geojson",
+        "assets/figures/pci-prototypes.png",
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-011",
+      "priority": "P0",
+      "category": "城市设计完整",
+      "requirement": "PHASE按Permanent/Adaptive/Experimental组织",
+      "acceptance_test": "phasing.geojson与proposal一致，不以粗暴时间色块替代组件逻辑",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "geometry/phasing.geojson",
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-012",
+      "priority": "P0",
+      "category": "城市设计完整",
+      "requirement": "三处KEY_AREA的参考面积与临时polygon面积严格分离",
+      "acceptance_test": "proposal明确192.1/104.3/72.0ha为参考面积，非当前polygon精确面积",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "metrics.json",
+        "assumptions.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-013",
+      "priority": "P0",
+      "category": "城市设计完整",
+      "requirement": "SITE_BOUNDARY不被表现为官方红线",
+      "acceptance_test": "所有正式文件均标provisional且说明禁用场景",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "geometry/site_boundary.geojson",
+        "proposal.md",
+        "sources.json",
+        "self_check.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-014",
+      "priority": "P1",
+      "category": "城市设计完整",
+      "requirement": "Capability Backbone包含慢行、公共空间、蓝绿、记忆、能力节点多层关系",
+      "acceptance_test": "至少6层空间/运营关系在proposal和图中可读",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "assets/figures/land-use-structure.png"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-015",
+      "priority": "P1",
+      "category": "城市设计完整",
+      "requirement": "五条代表性城市剖面成立",
+      "acceptance_test": "至少5条剖面覆盖Backbone、众智园、AI原点、小月河、大钟寺",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "assets/figures/spatial-sections.png",
+        "drawings/a3-booklet.pdf"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-016",
+      "priority": "P1",
+      "category": "城市设计完整",
+      "requirement": "PCI形成至少6类公共能力接口原型",
+      "acceptance_test": "原型数≥6并包含空间、用户、服务、非AI基线",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "assets/figures/pci-prototypes.png",
+        "proposal.md",
+        "metrics.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-017",
+      "priority": "P1",
+      "category": "城市设计完整",
+      "requirement": "至少3个时间地标+Retired Capability Archive成立",
+      "acceptance_test": "1909/2026/Future/Retired均有物理优先表达",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "assets/figures/landmarks-memory.png",
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-018",
+      "priority": "P1",
+      "category": "城市设计完整",
+      "requirement": "交通策略覆盖步行、骑行、公共交通联系与关键stitch",
+      "acceptance_test": "mobility-bluegreen图与proposal均可审查",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "assets/figures/mobility-bluegreen.png",
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-019",
+      "priority": "P1",
+      "category": "城市设计完整",
+      "requirement": "中关村科技服务翼空间角色不是机构清单",
+      "acceptance_test": "表达IP/资本/法律/标准/专业服务交换机制",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "assets/figures/regional-capability-network.png"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-020",
+      "priority": "P1",
+      "category": "城市设计完整",
+      "requirement": "小月河场景赋能翼以真实公共生活和蓝绿测试为主",
+      "acceptance_test": "方案强调河道、公园、社区、低风险真实场景",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "assets/figures/mobility-bluegreen.png"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-021",
+      "priority": "P1",
+      "category": "城市设计完整",
+      "requirement": "建筑规划导则保持定性，不伪造法定高度/FAR",
+      "acceptance_test": "proposal对众智园/AI原点/大钟寺提供非数值导则并标明非statutory",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "metrics.json",
+        "assumptions.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-022",
+      "priority": "P1",
+      "category": "城市设计完整",
+      "requirement": "道路断面深化不被写成已核准ROAD_AREA/红线",
+      "acceptance_test": "剖面/Three.js可作为Derived设计细化，但正式ROAD_AREA若无证据保持缺失",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "assets/figures/spatial-sections.png",
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-023",
+      "priority": "P1",
+      "category": "城市设计完整",
+      "requirement": "公共空间支持8AM–MIDNIGHT与极端天气/应急模式",
+      "acceptance_test": "proposal与PCI逻辑包含全天候与应急/季节切换",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "assets/figures/pci-prototypes.png"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-024",
+      "priority": "P1",
+      "category": "城市设计完整",
+      "requirement": "普通城市服务在AI离线时仍可运行",
+      "acceptance_test": "步行、树荫、照明、无障碍、人工/固定程序有Non-AI baseline",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "geometry/phasing.geojson"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-025",
+      "priority": "P2",
+      "category": "城市设计完整",
+      "requirement": "真实现状建筑与规划体量在交互数字孪生中视觉分离",
+      "acceptance_test": "Three.js中Existing candidate与Proposed/Derived使用不同图层和Inspector身份",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "supplementary Three.js digital twin"
+      ],
+      "owner": "AGENT",
+      "notes": "补充交互原型，不是正式离线visual"
+    },
+    {
+      "id": "UD-026",
+      "priority": "P2",
+      "category": "城市设计完整",
+      "requirement": "Three.js提供重点区近景、道路断面、PCI、地标审查视角",
+      "acceptance_test": "交互原型具备相机预设与图层切换",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "supplementary Three.js digital twin"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-027",
+      "priority": "P2",
+      "category": "城市设计完整",
+      "requirement": "Three.js中的扩展建筑/街区形态不得反向冒充canonical",
+      "acceptance_test": "所有3D detail标Derived/Not yet canonicalized",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "supplementary Three.js digital twin"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "UD-028",
+      "priority": "P2",
+      "category": "城市设计完整",
+      "requirement": "官方精确SITE_BOUNDARY到位后重算所有空间关系",
+      "acceptance_test": "官方polygon到位后能重新裁剪用地、道路、指标、图纸",
+      "status": "BLOCKED_OFFICIAL_DATA",
+      "evidence_refs": [
+        "assumptions.json",
+        "sources.json"
+      ],
+      "owner": "ORGANIZER",
+      "notes": "当前官方精确polygon缺失"
+    },
+    {
+      "id": "UD-029",
+      "priority": "P2",
+      "category": "城市设计完整",
+      "requirement": "官方精确KEY_AREA polygons到位后重算三区落位",
+      "acceptance_test": "三处重点区需用官方polygon复核host、面积与设计对象",
+      "status": "BLOCKED_OFFICIAL_DATA",
+      "evidence_refs": [
+        "assumptions.json",
+        "sources.json"
+      ],
+      "owner": "ORGANIZER",
+      "notes": "当前精确polygon缺失"
+    },
+    {
+      "id": "UD-030",
+      "priority": "P2",
+      "category": "城市设计完整",
+      "requirement": "最终人类城市设计审查确认空间合理性",
+      "acceptance_test": "人类/专业团队打开A0/A3/Three.js并签署最终设计判断",
+      "status": "HUMAN_REQUIRED",
+      "evidence_refs": [
+        "drawings/a0-boards.pdf",
+        "drawings/a3-booklet.pdf"
+      ],
+      "owner": "HUMAN",
+      "notes": "AI不能替代最终专业判断"
+    },
+    {
+      "id": "LM-001",
+      "priority": "P0",
+      "category": "城市学习机制完整",
+      "requirement": "Detect机制明确为问题发现而非自动裁决",
+      "acceptance_test": "proposal定义City Agent诊断且问题需过Evidence Gate",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "LM-002",
+      "priority": "P0",
+      "category": "城市学习机制完整",
+      "requirement": "Evidence Gate判断问题真实性、公共性与是否需要AI",
+      "acceptance_test": "流程包含证据不足/非AI更优时不进入试验",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "assets/figures/metrics-evidence.png"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "LM-003",
+      "priority": "P0",
+      "category": "城市学习机制完整",
+      "requirement": "风险分级依据现实后果而非模型复杂度",
+      "acceptance_test": "Low/Medium/High授权路径在proposal可读",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "LM-004",
+      "priority": "P0",
+      "category": "城市学习机制完整",
+      "requirement": "Authorization定义AI不可拥有最终批准权",
+      "acceptance_test": "公共机构/专业人员/公众讨论的授权边界明确",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "LM-005",
+      "priority": "P0",
+      "category": "城市学习机制完整",
+      "requirement": "Bounded Experiment具有时间、空间、旁路、人工停机、退出条件",
+      "acceptance_test": "至少4个测试场景满足有界试验契约",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "metrics.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "LM-006",
+      "priority": "P0",
+      "category": "城市学习机制完整",
+      "requirement": "Public Value Review用真实公共改善而非部署量",
+      "acceptance_test": "UAR定义不以AI部署数为分子",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "metrics.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "LM-007",
+      "priority": "P0",
+      "category": "城市学习机制完整",
+      "requirement": "STOP/MODIFY/CONTINUE/SCALE四种决策完整",
+      "acceptance_test": "流程与Dashboard同时体现四决策",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "assets/figures/city-version-dashboard.png"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "LM-008",
+      "priority": "P0",
+      "category": "城市学习机制完整",
+      "requirement": "STOP计入学习但不计入UAR改善分子",
+      "acceptance_test": "指标规则显式区分learning与improvement",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "metrics.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "LM-009",
+      "priority": "P0",
+      "category": "城市学习机制完整",
+      "requirement": "Capability Registry数据结构逻辑完整",
+      "acceptance_test": "记录问题、证据、用户、风险、试验、指标、失败、人工接管等",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "LM-010",
+      "priority": "P0",
+      "category": "城市学习机制完整",
+      "requirement": "Transfer不允许未经复核直接复制",
+      "acceptance_test": "区域协同明确每次迁移重新验证",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "assets/figures/regional-capability-network.png"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "LM-011",
+      "priority": "P1",
+      "category": "城市学习机制完整",
+      "requirement": "Revalidation覆盖新人群、新空间、新风险、新机构",
+      "acceptance_test": "迁移逻辑明确重新验证公平性、风险和公共价值",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "LM-012",
+      "priority": "P1",
+      "category": "城市学习机制完整",
+      "requirement": "City Version Release形成年度迭代机制",
+      "acceptance_test": "年度版本发布、城市学习大会、版本状态图存在",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "assets/figures/city-version-dashboard.png"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "LM-013",
+      "priority": "P1",
+      "category": "城市学习机制完整",
+      "requirement": "Retirement是一等流程而非附录",
+      "acceptance_test": "退役原因、替代系统、失败/副作用进入城市记忆",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "assets/figures/landmarks-memory.png"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "LM-014",
+      "priority": "P1",
+      "category": "城市学习机制完整",
+      "requirement": "12个场景可映射到统一学习闭环",
+      "acceptance_test": "场景数≥10且每类具备问题/能力/风险/人工/指标/停止逻辑",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "metrics.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "LM-015",
+      "priority": "P1",
+      "category": "城市学习机制完整",
+      "requirement": "至少3个产业/技术测试验证场景成立",
+      "acceptance_test": "正式自检记录4个test/validation scenarios",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "self_check.json",
+        "metrics.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "LM-016",
+      "priority": "P1",
+      "category": "城市学习机制完整",
+      "requirement": "Problem Track与Capability Track双入口成立",
+      "acceptance_test": "长期运营机制允许问题驱动和能力驱动进入试验",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "LM-017",
+      "priority": "P1",
+      "category": "城市学习机制完整",
+      "requirement": "Capability Exchange与区域协同避免机构承诺伪造",
+      "acceptance_test": "外部机构只作为目标情境，不声称已签约",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "LM-018",
+      "priority": "P2",
+      "category": "城市学习机制完整",
+      "requirement": "真实运行后能够计算第一条UAR记录",
+      "acceptance_test": "需要真实eligible issue、试验结果和公共价值数据",
+      "status": "HUMAN_REQUIRED",
+      "evidence_refs": [
+        "metrics.json"
+      ],
+      "owner": "HUMAN/OPERATOR",
+      "notes": "竞赛原型目标为L4-ready，不伪装已运行"
+    },
+    {
+      "id": "LM-019",
+      "priority": "P2",
+      "category": "城市学习机制完整",
+      "requirement": "真实运行后记录首次STOP/MODIFY/CONTINUE/SCALE决策",
+      "acceptance_test": "需真实pilot与治理记录",
+      "status": "HUMAN_REQUIRED",
+      "evidence_refs": [
+        "metrics.json"
+      ],
+      "owner": "HUMAN/OPERATOR",
+      "notes": ""
+    },
+    {
+      "id": "LM-020",
+      "priority": "P2",
+      "category": "城市学习机制完整",
+      "requirement": "真实跨区Transfer完成一次重新验证",
+      "acceptance_test": "需真实公共机构/运营方与新场景数据",
+      "status": "HUMAN_REQUIRED",
+      "evidence_refs": [
+        "metrics.json"
+      ],
+      "owner": "HUMAN/OPERATOR",
+      "notes": ""
+    },
+    {
+      "id": "GV-001",
+      "priority": "P0",
+      "category": "AI治理完整",
+      "requirement": "风险等级与授权等级一一对应",
+      "acceptance_test": "Low/Medium/High分别具有自动可逆/专业审批/公众或严格授权路径",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "GV-002",
+      "priority": "P0",
+      "category": "AI治理完整",
+      "requirement": "Human Override覆盖影响现实行为的AI能力",
+      "acceptance_test": "PCI与测试场景有人工接管/停机",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "assets/figures/pci-prototypes.png"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "GV-003",
+      "priority": "P0",
+      "category": "AI治理完整",
+      "requirement": "Non-AI Baseline在重要公共服务中保留",
+      "acceptance_test": "普通标识、通行、人工或固定程序不依赖AI",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "self_check.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "GV-004",
+      "priority": "P0",
+      "category": "AI治理完整",
+      "requirement": "Consent Layer与Ambient Layer分离",
+      "acceptance_test": "个人化/识别/推荐进入主动同意层",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "GV-005",
+      "priority": "P0",
+      "category": "AI治理完整",
+      "requirement": "AI离线或失败时具有Failure-Safe Mode",
+      "acceptance_test": "方案定义降级运行与普通城市服务连续性",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "GV-006",
+      "priority": "P0",
+      "category": "AI治理完整",
+      "requirement": "弱势群体至少覆盖老人、残障、低数字能力等",
+      "acceptance_test": "8类Persona包含老人、残障、居民、运营者等",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "metrics.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "GV-007",
+      "priority": "P0",
+      "category": "AI治理完整",
+      "requirement": "公平性评估不只看平均值",
+      "acceptance_test": "指标体系要求vulnerable groups/extremes/complaints/manual override",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "assets/figures/metrics-evidence.png"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "GV-008",
+      "priority": "P0",
+      "category": "AI治理完整",
+      "requirement": "隐私遵循最小必要原则",
+      "acceptance_test": "proposal将高敏感/个人化功能置于Consent与更高授权",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "GV-009",
+      "priority": "P0",
+      "category": "AI治理完整",
+      "requirement": "公共机构保留最终责任",
+      "acceptance_test": "Public Stewardship为长期治理主结构",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "GV-010",
+      "priority": "P0",
+      "category": "AI治理完整",
+      "requirement": "企业/AI不被描述为最终公共责任主体",
+      "acceptance_test": "责任链与运营逻辑保留公共机构最终问责",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "GV-011",
+      "priority": "P1",
+      "category": "AI治理完整",
+      "requirement": "投诉与申诉入口被纳入公共治理设计",
+      "acceptance_test": "公众提案追踪/人工服务/投诉处理被纳入场景与治理",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "GV-012",
+      "priority": "P1",
+      "category": "AI治理完整",
+      "requirement": "高风险自治测试具备非参与者旁路",
+      "acceptance_test": "低速自治/机器人测试包含普通通行bypass与Human Stop",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "GV-013",
+      "priority": "P1",
+      "category": "AI治理完整",
+      "requirement": "健康类AI限定为非诊断导航",
+      "acceptance_test": "健康场景明确非诊断并需人工/机构服务基线",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "GV-014",
+      "priority": "P1",
+      "category": "AI治理完整",
+      "requirement": "无障碍设计不把AI当作物理无障碍替代品",
+      "acceptance_test": "物理无障碍/普通导视为Permanent baseline",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "geometry/phasing.geojson"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "GV-015",
+      "priority": "P1",
+      "category": "AI治理完整",
+      "requirement": "生成式AI政策边界作为补充治理参考",
+      "acceptance_test": "latest standard纳入矩阵且不把第14/15/17条泛化",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "standard_matrix.json"
+      ],
+      "owner": "AGENT",
+      "notes": "已在 v3 final branch 的 standard_matrix.json 对齐最新 upstream references。"
+    },
+    {
+      "id": "GV-016",
+      "priority": "P1",
+      "category": "AI治理完整",
+      "requirement": "无障碍环境建设法边界作为补充参考",
+      "acceptance_test": "第39条仅按列举公共服务场景理解，不泛化为所有公共空间",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "standard_matrix.json"
+      ],
+      "owner": "AGENT",
+      "notes": "已在 v3 final branch 的 standard_matrix.json 对齐最新 upstream references。"
+    },
+    {
+      "id": "GV-017",
+      "priority": "P1",
+      "category": "AI治理完整",
+      "requirement": "老年人智能技术政策作为补充参考",
+      "acceptance_test": "传统/智能服务并行但不把历史阶段目标写成本地2026强制指标",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "standard_matrix.json"
+      ],
+      "owner": "AGENT",
+      "notes": "已在 v3 final branch 的 standard_matrix.json 对齐最新 upstream references。"
+    },
+    {
+      "id": "GV-018",
+      "priority": "P2",
+      "category": "AI治理完整",
+      "requirement": "真实公众参与对风险授权和场景退出条件进行反馈",
+      "acceptance_test": "至少一轮真实居民/运营者/弱势群体反馈并记录采纳与否",
+      "status": "HUMAN_REQUIRED",
+      "evidence_refs": [
+        "GitHub Issues / fieldwork"
+      ],
+      "owner": "HUMAN",
+      "notes": ""
+    },
+    {
+      "id": "GV-019",
+      "priority": "P2",
+      "category": "AI治理完整",
+      "requirement": "专业法律/规划/无障碍复核关键治理条款",
+      "acceptance_test": "人类专业人员复核责任、合规边界和关键公共服务设计",
+      "status": "HUMAN_REQUIRED",
+      "evidence_refs": [
+        "standard_matrix.json",
+        "proposal.md"
+      ],
+      "owner": "HUMAN/PROFESSIONAL",
+      "notes": ""
+    },
+    {
+      "id": "GV-020",
+      "priority": "P2",
+      "category": "AI治理完整",
+      "requirement": "真实运营责任主体、预算和SLA在落地前确认",
+      "acceptance_test": "需公共机构/运营者正式承担，不在竞赛方案中伪造",
+      "status": "HUMAN_REQUIRED",
+      "evidence_refs": [
+        "proposal.md"
+      ],
+      "owner": "HUMAN/OPERATOR",
+      "notes": ""
+    },
+    {
+      "id": "EV-001",
+      "priority": "P0",
+      "category": "证据体系完整",
+      "requirement": "Official/Verified/Derived/Proposed/Unknown证据等级分离",
+      "acceptance_test": "proposal、sources、assumptions和图例一致",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "sources.json",
+        "assumptions.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EV-002",
+      "priority": "P0",
+      "category": "证据体系完整",
+      "requirement": "Known/Estimated/Proposed/Unknown绘图状态分离",
+      "acceptance_test": "geometry属性和图纸不把估计数据冒充事实",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "geometry/*.geojson",
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EV-003",
+      "priority": "P0",
+      "category": "证据体系完整",
+      "requirement": "官方精确边界缺失被明确记录",
+      "acceptance_test": "任何面积/控规结论不依赖provisional polygon作为法定依据",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "sources.json",
+        "assumptions.json",
+        "self_check.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EV-004",
+      "priority": "P0",
+      "category": "证据体系完整",
+      "requirement": "官方KEY_AREA精确polygon缺失被明确记录",
+      "acceptance_test": "三处参考面积与临时geometry分离",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "sources.json",
+        "assumptions.json",
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EV-005",
+      "priority": "P0",
+      "category": "证据体系完整",
+      "requirement": "FAR、法定高度、密度、退界等缺失保持Unknown",
+      "acceptance_test": "metrics/constraints不自造数值",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "metrics.json",
+        "geometry/constraints.geojson",
+        "assumptions.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EV-006",
+      "priority": "P0",
+      "category": "证据体系完整",
+      "requirement": "权属与工程红线不被推断",
+      "acceptance_test": "proposal与sources明确不声称final ownership/exact road redline",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "sources.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EV-007",
+      "priority": "P0",
+      "category": "证据体系完整",
+      "requirement": "OSM只作为open-data candidate context",
+      "acceptance_test": "ODbL attribution、用途和局限完整",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "sources.json",
+        "self_check.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EV-008",
+      "priority": "P0",
+      "category": "证据体系完整",
+      "requirement": "Microsoft建筑数据覆盖缺失被如实记录",
+      "acceptance_test": "记录当前index无China/target partition，不伪造IoU",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "sources.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EV-009",
+      "priority": "P1",
+      "category": "证据体系完整",
+      "requirement": "重要空间事实采用多源交叉验证逻辑",
+      "acceptance_test": "政府/OSM/遥感/研究的冲突记录而非覆盖",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md",
+        "sources.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EV-010",
+      "priority": "P1",
+      "category": "证据体系完整",
+      "requirement": "UAR等运营指标无真实记录时保持Unknown/null",
+      "acceptance_test": "metrics不填模拟成绩",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "metrics.json",
+        "self_check.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EV-011",
+      "priority": "P1",
+      "category": "证据体系完整",
+      "requirement": "组织方命名产业指标无可靠数据时保持Unknown/null",
+      "acceptance_test": "AI创新指数、人才密度、产值等均不编造",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "metrics.json",
+        "self_check.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EV-012",
+      "priority": "P1",
+      "category": "证据体系完整",
+      "requirement": "每个关键外部来源记录publisher/url/date/usage/limitation",
+      "acceptance_test": "sources.json具备可追踪字段",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "sources.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EV-013",
+      "priority": "P1",
+      "category": "证据体系完整",
+      "requirement": "AI生成方法和人工最终判断被披露",
+      "acceptance_test": "agent/proposal声明AI参与且最终判断归人类/专业机构",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "agent.json",
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EV-014",
+      "priority": "P2",
+      "category": "证据体系完整",
+      "requirement": "现场观察可转化为cleared/user-provided evidence",
+      "acceptance_test": "需人类走访并记录日期、地点、方法、隐私处理",
+      "status": "HUMAN_REQUIRED",
+      "evidence_refs": [
+        "future fieldwork register"
+      ],
+      "owner": "HUMAN",
+      "notes": ""
+    },
+    {
+      "id": "EV-015",
+      "priority": "P2",
+      "category": "证据体系完整",
+      "requirement": "官方polygon到位后重新计算所有依赖指标和图件",
+      "acceptance_test": "需组织方提供精确geometry后执行重算",
+      "status": "BLOCKED_OFFICIAL_DATA",
+      "evidence_refs": [
+        "assumptions.json",
+        "metrics.json"
+      ],
+      "owner": "ORGANIZER",
+      "notes": ""
+    },
+    {
+      "id": "EX-001",
+      "priority": "P0",
+      "category": "竞赛表达完整",
+      "requirement": "proposal.md为主语言权威叙事并采用v2格式",
+      "acceptance_test": "front matter含proposal_format_version 2",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.md"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EX-002",
+      "priority": "P0",
+      "category": "竞赛表达完整",
+      "requirement": "proposal.en.md为完整对等翻译",
+      "acceptance_test": "bilingual contract存在并通过self-check",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "proposal.en.md",
+        "self_check.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EX-003",
+      "priority": "P0",
+      "category": "竞赛表达完整",
+      "requirement": "8个Required Layers全部存在且可解析",
+      "acceptance_test": "SITE_BOUNDARY/KEY_AREA/LAND_USE/BUILDING/ROAD/GREEN/PUBLIC/PHASE齐全",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "geometry/*.geojson"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EX-004",
+      "priority": "P0",
+      "category": "竞赛表达完整",
+      "requirement": "metrics、assumptions、sources、三矩阵与self_check齐全",
+      "acceptance_test": "机器可读包具备所有正式字段",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "metrics.json",
+        "assumptions.json",
+        "sources.json",
+        "compliance_matrix.json",
+        "standard_matrix.json",
+        "design_depth_matrix.json",
+        "self_check.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EX-005",
+      "priority": "P0",
+      "category": "竞赛表达完整",
+      "requirement": "五张必需核心图不是占位符",
+      "acceptance_test": "site overview/land use/key areas/mobility-bluegreen/metrics-evidence可读",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "assets/figures/site-overview.png",
+        "assets/figures/land-use-structure.png",
+        "assets/figures/key-areas.png",
+        "assets/figures/mobility-bluegreen.png",
+        "assets/figures/metrics-evidence.png"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EX-006",
+      "priority": "P0",
+      "category": "竞赛表达完整",
+      "requirement": "A3 booklet为完整多页成果",
+      "acceptance_test": "A3包含总体、三区、剖面、PCI、治理、运营等",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "drawings/a3-booklet.pdf"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EX-007",
+      "priority": "P0",
+      "category": "竞赛表达完整",
+      "requirement": "A0 boards为完整展示成果",
+      "acceptance_test": "A0核心图与方案叙事一致且无占位",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "drawings/a0-boards.pdf"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EX-008",
+      "priority": "P0",
+      "category": "竞赛表达完整",
+      "requirement": "offline visual/index.html不依赖远程脚本/API/字体",
+      "acceptance_test": "self_check VISUAL_STATIC pass",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "visual/index.html",
+        "self_check.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EX-009",
+      "priority": "P0",
+      "category": "竞赛表达完整",
+      "requirement": "manifest哈希与正式文件一致",
+      "acceptance_test": "finalize/self-check后manifest validation_claim可确认",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "manifest.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EX-010",
+      "priority": "P1",
+      "category": "竞赛表达完整",
+      "requirement": "所有主要图纸/HTML具有中英对应关系",
+      "acceptance_test": "关键text-bearing figures、proposal HTML、A3/A0均有英文伙伴",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "manifest.json",
+        "self_check.json"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EX-011",
+      "priority": "P1",
+      "category": "竞赛表达完整",
+      "requirement": "Three.js仅作为Supplementary Interactive Design Prototype",
+      "acceptance_test": "不替代offline visual或canonical证据",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "supplementary Three.js digital twin"
+      ],
+      "owner": "AGENT",
+      "notes": ""
+    },
+    {
+      "id": "EX-012",
+      "priority": "P1",
+      "category": "竞赛表达完整",
+      "requirement": "最新upstream新增的三项政策参考进入standard_matrix",
+      "acceptance_test": "9项标准矩阵与当前standards.json对齐",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "standard_matrix.json"
+      ],
+      "owner": "AGENT",
+      "notes": "已在 v3 final branch 的 standard_matrix.json 对齐最新 upstream references。"
+    },
+    {
+      "id": "EX-013",
+      "priority": "P1",
+      "category": "竞赛表达完整",
+      "requirement": "最新upstream脚本重新跑render/finalize/self-check/preflight",
+      "acceptance_test": "基于6405afe0最新main通过最新验证",
+      "status": "COMPLETE",
+      "evidence_refs": [
+        "GitHub Actions final-acceptance-v3",
+        "manifest.json",
+        "self_check.json"
+      ],
+      "owner": "AGENT",
+      "notes": "Latest upstream render/self-check/preflight completed successfully in GitHub Actions; ready-for-review package hashes were refreshed without re-running scaffold-only finalization."
+    },
+    {
+      "id": "EX-014",
+      "priority": "P2",
+      "category": "竞赛表达完整",
+      "requirement": "正式上游投稿PR仅修改submission目录",
+      "acceptance_test": "实际向open-city-ai/haidian提交PR且CI通过",
+      "status": "HUMAN_REQUIRED",
+      "evidence_refs": [
+        "future upstream PR"
+      ],
+      "owner": "HUMAN",
+      "notes": "跨仓库正式投稿需要用户授权/最终确认"
+    },
+    {
+      "id": "EX-015",
+      "priority": "P2",
+      "category": "竞赛表达完整",
+      "requirement": "最终A0/A3/视觉表达由人类完成最后审阅",
+      "acceptance_test": "人类确认无误导、无空白、第一眼可理解主张",
+      "status": "HUMAN_REQUIRED",
+      "evidence_refs": [
+        "drawings/a0-boards.pdf",
+        "drawings/a3-booklet.pdf"
+      ],
+      "owner": "HUMAN",
+      "notes": ""
+    }
+  ],
+  "validated_upstream_sha": "d444c44b8252bf6f7e558443924717bafade90e6",
+  "validated_formal_sha": "3fde1ebe2e125414ab38e5b3c83f1f0516b00c15"
+}
