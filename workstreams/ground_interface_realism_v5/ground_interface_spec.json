@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "status": "Derived / Not yet canonicalized",
   "purpose": "Reviewer-facing ground-interface and close-range urban-design deepening for the three provisional KEY_AREA polygons without asserting statutory dimensions, ownership, FAR, height controls, road redlines or approved engineering conditions.",
   "truth_contract": {
@@ -8,6 +8,12 @@
     "detail_geometry": "Derived reviewer detail; not canonicalized",
     "section_dimensions": "diagrammatic visualization proportions only; not road-redline or engineering dimensions",
     "unknowns_preserved": ["statutory FAR", "statutory height", "ownership", "road redline", "legal green-space boundary", "utility capacity", "fire-engineering clearance", "approved crossings"]
+  },
+  "human_stop_contract": {
+    "name": "Human Stop / Human Override",
+    "principle": "A person with defined operational authority can stop, bypass, revert or hand over an AI-assisted service or bounded test without requiring the AI system itself to authorize the stop.",
+    "spatial_expression": ["staffed or clearly assigned human-help point", "visible test/service status", "ordinary non-participant bypass", "physical or operational separation from the bounded test", "emergency and service access"],
+    "not_a_gadget": "Human Stop is represented as an operational-spatial contract, not as a decorative emergency button."
   },
   "review_questions": [
     "Can a non-participant move through the area without using AI?",
@@ -23,6 +29,7 @@
       "name_zh": "众智园 / Verification Campus",
       "ground_interface_thesis_zh": "把高风险验证从普通城市生活中分层，而不是把整个园区变成试验场。",
       "ground_interface_thesis_en": "Layer high-risk validation away from ordinary city life instead of turning the whole campus into a test field.",
+      "human_stop_role": "Test authority: staffed safety/governance desk can stop the bounded test; ordinary bypass and emergency access remain usable during stop or failure.",
       "edge_types": [
         {"id":"public_research_frontage","zh":"开放研发首层","en":"Open research frontage","baseline":"共享门厅、可见人工服务、普通步行界面","ai_role":"成果解释与低风险信息辅助"},
         {"id":"governance_frontage","zh":"治理评测界面","en":"Governance review frontage","baseline":"人工安全台、公告、退出与申诉入口","ai_role":"试验记录与状态展示，不替代人工停机"},
@@ -42,6 +49,7 @@
       "name_zh": "AI 原点社区 / Learning Neighborhood",
       "ground_interface_thesis_zh": "先把校社之间做成可坐、可走、可问人的学习街区，再让 AI 作为可选择的服务层出现。",
       "ground_interface_thesis_en": "First make the university-community seam walkable, sittable and human-helpful; AI then appears as an optional service layer.",
+      "human_stop_role": "Service override: staffed public service remains available and can revert personalized/recognition-based assistance to ordinary non-AI service without blocking access.",
       "edge_types": [
         {"id":"learning_frontage","zh":"学习共享首层","en":"Learning commons frontage","baseline":"开放座席、普通公告、人工活动台","ai_role":"课程、机会与活动信息辅助"},
         {"id":"inclusive_service_frontage","zh":"包容服务首层","en":"Inclusive service frontage","baseline":"人工帮助、无障碍设施、固定公共服务信息","ai_role":"多语/无障碍辅助需遵守 Consent 与 Human Override"},
@@ -61,6 +69,7 @@
       "name_zh": "大钟寺 / Market & Service Commons",
       "ground_interface_thesis_zh": "把交易、骑手、通勤和夜间生活放进同一条可管理的城市首层，而不是用 AI 设施占领街道。",
       "ground_interface_thesis_en": "Place trade, riders, commuting and night life in one manageable urban ground floor instead of letting AI equipment occupy the street.",
+      "human_stop_role": "Operations override: merchants, stewards and site operators can suspend AI dispatch or night-service orchestration while ordinary payment, navigation, loading rules and staffed help continue.",
       "edge_types": [
         {"id":"market_frontage","zh":"市场服务首层","en":"Market-service frontage","baseline":"普通交易、可见门店、人工问询","ai_role":"商户服务编排与多语辅助可选"},
         {"id":"rider_loading_edge","zh":"骑手/装卸口袋","en":"Rider and loading pocket","baseline":"不占主步行线、明确停靠与等待","ai_role":"调度建议不能取消人工管理与现场规则"},
