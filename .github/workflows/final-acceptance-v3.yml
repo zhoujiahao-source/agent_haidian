@@ -48,7 +48,7 @@ jobs:
             curl -fsSL \
               -H "Accept: application/vnd.github+json" \
               -H "Authorization: Bearer $GH_TOKEN" \
-              "https://api.github.com/repos/open-city-ai/haidian/compare/${AUDITED}...${LATEST}" \
+              "https://api.github.com/repos/open-city-ai/haidian/compare/${AUDITED}...${LATEST}?per_page=100" \
               > /tmp/compare.json
             python - <<'PY'
           import json, sys
@@ -61,16 +61,24 @@ jobs:
               print('Rule/tool/source changes require re-audit:', file=sys.stderr)
               print('\n'.join(non), file=sys.stderr)
               raise SystemExit(1)
-          print('Only peer submissions/gallery changed; audited rules remain valid.')
+          print('Returned changes are peer submissions/gallery only; audited rules remain valid.')
           PY
           fi
-          git clone --depth=1 --filter=blob:none https://github.com/open-city-ai/haidian.git upstream
-          ACTUAL="$(git -C upstream rev-parse HEAD)"
-          if [ "$ACTUAL" != "$LATEST" ]; then
-            echo "::error::Upstream moved during resolution; rerun for a consistent snapshot."
-            exit 1
-          fi
           echo "sha=$LATEST" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout latest upstream review toolchain
+        uses: actions/checkout@v4
+        with:
+          repository: open-city-ai/haidian
+          ref: ${{ steps.upstream.outputs.sha }}
+          path: upstream
+          fetch-depth: 1
+          sparse-checkout: |
+            scripts
+            requirements-review.txt
+            brief/site-package
+            data/source_registry.json
+            docs/data-workflow.md
 
       - name: Checkout formal submission branch
         uses: actions/checkout@v4
