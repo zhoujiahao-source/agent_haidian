@@ -1,0 +1,20 @@
+{
+  "category":"证据体系完整",
+  "items":[
+    {"id":"EV-001","priority":"P0","category":"证据体系完整","requirement":"Official/Verified/Derived/Proposed/Unknown证据等级分离","acceptance_test":"proposal、sources、assumptions和图例一致","status":"COMPLETE","evidence_refs":["proposal.md","sources.json","assumptions.json"],"owner":"AGENT","notes":""},
+    {"id":"EV-002","priority":"P0","category":"证据体系完整","requirement":"Known/Estimated/Proposed/Unknown绘图状态分离","acceptance_test":"geometry属性和图纸不把估计数据冒充事实","status":"COMPLETE","evidence_refs":["geometry/*.geojson","proposal.md"],"owner":"AGENT","notes":""},
+    {"id":"EV-003","priority":"P0","category":"证据体系完整","requirement":"官方精确边界缺失被明确记录","acceptance_test":"任何面积/控规结论不依赖provisional polygon作为法定依据","status":"COMPLETE","evidence_refs":["sources.json","assumptions.json","self_check.json"],"owner":"AGENT","notes":""},
+    {"id":"EV-004","priority":"P0","category":"证据体系完整","requirement":"官方KEY_AREA精确polygon缺失被明确记录","acceptance_test":"三处参考面积与临时geometry分离","status":"COMPLETE","evidence_refs":["sources.json","assumptions.json","proposal.md"],"owner":"AGENT","notes":""},
+    {"id":"EV-005","priority":"P0","category":"证据体系完整","requirement":"FAR、法定高度、密度、退界等缺失保持Unknown","acceptance_test":"metrics/constraints不自造数值","status":"COMPLETE","evidence_refs":["metrics.json","geometry/constraints.geojson","assumptions.json"],"owner":"AGENT","notes":""},
+    {"id":"EV-006","priority":"P0","category":"证据体系完整","requirement":"权属与工程红线不被推断","acceptance_test":"proposal与sources明确不声称final ownership/exact road redline","status":"COMPLETE","evidence_refs":["proposal.md","sources.json"],"owner":"AGENT","notes":""},
+    {"id":"EV-007","priority":"P0","category":"证据体系完整","requirement":"OSM只作为open-data candidate context","acceptance_test":"ODbL attribution、用途和局限完整","status":"COMPLETE","evidence_refs":["sources.json","self_check.json"],"owner":"AGENT","notes":""},
+    {"id":"EV-008","priority":"P0","category":"证据体系完整","requirement":"Microsoft建筑数据覆盖缺失被如实记录","acceptance_test":"记录当前index无China/target partition，不伪造IoU","status":"COMPLETE","evidence_refs":["sources.json"],"owner":"AGENT","notes":""},
+    {"id":"EV-009","priority":"P1","category":"证据体系完整","requirement":"重要空间事实采用多源交叉验证逻辑","acceptance_test":"政府/OSM/遥感/研究的冲突记录而非覆盖","status":"COMPLETE","evidence_refs":["proposal.md","sources.json"],"owner":"AGENT","notes":""},
+    {"id":"EV-010","priority":"P1","category":"证据体系完整","requirement":"UAR等运营指标无真实记录时保持Unknown/null","acceptance_test":"metrics不填模拟成绩","status":"COMPLETE","evidence_refs":["metrics.json","self_check.json"],"owner":"AGENT","notes":""},
+    {"id":"EV-011","priority":"P1","category":"证据体系完整","requirement":"组织方命名产业指标无可靠数据时保持Unknown/null","acceptance_test":"AI创新指数、人才密度、产值等均不编造","status":"COMPLETE","evidence_refs":["metrics.json","self_check.json"],"owner":"AGENT","notes":""},
+    {"id":"EV-012","priority":"P1","category":"证据体系完整","requirement":"每个关键外部来源记录publisher/url/date/usage/limitation","acceptance_test":"sources.json具备可追踪字段","status":"COMPLETE","evidence_refs":["sources.json"],"owner":"AGENT","notes":""},
+    {"id":"EV-013","priority":"P1","category":"证据体系完整","requirement":"AI生成方法和人工最终判断被披露","acceptance_test":"agent/proposal声明AI参与且最终判断归人类/专业机构","status":"COMPLETE","evidence_refs":["agent.json","proposal.md"],"owner":"AGENT","notes":""},
+    {"id":"EV-014","priority":"P2","category":"证据体系完整","requirement":"现场观察可转化为cleared/user-provided evidence","acceptance_test":"需人类走访并记录日期、地点、方法、隐私处理","status":"HUMAN_REQUIRED","evidence_refs":["future fieldwork register"],"owner":"HUMAN","notes":""},
+    {"id":"EV-015","priority":"P2","category":"证据体系完整","requirement":"官方polygon到位后重新计算所有依赖指标和图件","acceptance_test":"需组织方提供精确geometry后执行重算","status":"BLOCKED_OFFICIAL_DATA","evidence_refs":["assumptions.json","metrics.json"],"owner":"ORGANIZER","notes":""}
+  ]
+}
