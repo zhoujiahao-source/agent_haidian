@@ -7,33 +7,14 @@
       "professional_dimension": "规划统筹",
       "mandatory": true,
       "review_status": "addressed",
-      "proposal_sections": [
-        "设计依据与资料清单",
-        "三层范围工作框架"
-      ],
-      "drawing_refs": [
-        "drawings/a3-booklet.pdf",
-        "drawings/a0-boards.pdf"
-      ],
-      "geometry_refs": [
-        "geometry/site_boundary.geojson",
-        "geometry/key_areas.geojson"
-      ],
-      "metric_refs": [
-        "site_area_sqm",
-        "key_area_count"
-      ],
-      "source_ids": [
-        "OFFICIAL-ANNOUNCEMENT"
-      ],
-      "assumption_ids": [
-        "A-BOUNDARY-001",
-        "A-KEY-AREA-001"
-      ],
-      "self_check_ids": [
-        "PROFESSIONAL_EVIDENCE"
-      ],
-      "evidence_summary_zh": "文本范围和参考面积已响应；精确 polygon 缺失被明确降级。"
+      "proposal_sections": ["设计依据与资料清单", "三层范围工作框架"],
+      "drawing_refs": ["drawings/a3-booklet.pdf", "drawings/a0-boards.pdf"],
+      "geometry_refs": ["geometry/site_boundary.geojson", "geometry/key_areas.geojson"],
+      "metric_refs": ["site_area_sqm", "key_area_count"],
+      "source_ids": ["OFFICIAL-ANNOUNCEMENT"],
+      "assumption_ids": ["A-BOUNDARY-001", "A-KEY-AREA-001"],
+      "self_check_ids": ["PROFESSIONAL_EVIDENCE"],
+      "evidence_summary_zh": "文本范围和参考面积已响应；精确 polygon 缺失被明确降级，未被解释为官方红线。"
     },
     {
       "standard_id": "PROJECT-AGENT-OPEN-CALL-TASKBOOK",
@@ -41,34 +22,14 @@
       "professional_dimension": "AI共创与运营",
       "mandatory": true,
       "review_status": "addressed",
-      "proposal_sections": [
-        "统筹研究范围产业与未来城市研究",
-        "AI 创新生态、人才画像与 AI+ 场景",
-        "更新项目清单、实施政策与分期计划"
-      ],
-      "drawing_refs": [
-        "drawings/a3-booklet.pdf",
-        "drawings/a0-boards.pdf"
-      ],
-      "geometry_refs": [
-        "geometry/public_space.geojson",
-        "geometry/phasing.geojson"
-      ],
-      "metric_refs": [
-        "scenario_card_count",
-        "persona_count",
-        "urban_adaptation_rate"
-      ],
-      "source_ids": [
-        "AGENT-TASKBOOK"
-      ],
-      "assumption_ids": [
-        "A-GOV-OPS-001"
-      ],
-      "self_check_ids": [
-        "PROFESSIONAL_EVIDENCE"
-      ],
-      "evidence_summary_zh": "六项 Agent 任务以空间、场景、治理、文化和运营闭环响应。"
+      "proposal_sections": ["统筹研究范围产业与未来城市研究", "AI 创新生态、人才画像与 AI+ 场景", "更新项目清单、实施政策与分期计划"],
+      "drawing_refs": ["drawings/a3-booklet.pdf", "drawings/a0-boards.pdf"],
+      "geometry_refs": ["geometry/public_space.geojson", "geometry/phasing.geojson"],
+      "metric_refs": ["scenario_card_count", "persona_count", "urban_adaptation_rate"],
+      "source_ids": ["AGENT-TASKBOOK"],
+      "assumption_ids": ["A-GOV-OPS-001"],
+      "self_check_ids": ["PROFESSIONAL_EVIDENCE"],
+      "evidence_summary_zh": "六项 Agent 任务以空间、场景、治理、文化和运营闭环响应，持续参与与人类最终判断保持明确。"
     },
     {
       "standard_id": "MOHURD-URBAN-DESIGN-MEASURES",
@@ -76,34 +37,14 @@
       "professional_dimension": "城市设计",
       "mandatory": true,
       "review_status": "addressed",
-      "proposal_sections": [
-        "总体设计范围城市更新与控规深度城市设计",
-        "蓝绿空间、公共空间与城市风貌"
-      ],
-      "drawing_refs": [
-        "drawings/a3-booklet.pdf",
-        "drawings/a0-boards.pdf"
-      ],
-      "geometry_refs": [
-        "geometry/land_use.geojson",
-        "geometry/roads.geojson",
-        "geometry/green_space.geojson",
-        "geometry/public_space.geojson"
-      ],
-      "metric_refs": [
-        "green_ratio",
-        "public_space_ratio"
-      ],
-      "source_ids": [
-        "SITE-PACKAGE"
-      ],
-      "assumption_ids": [
-        "A-DESIGN-GEOMETRY-001"
-      ],
-      "self_check_ids": [
-        "PROFESSIONAL_EVIDENCE"
-      ],
-      "evidence_summary_zh": "已形成空间结构、公共空间、剖面与风貌方法；法定控制不被虚构。"
+      "proposal_sections": ["总体设计范围城市更新与控规深度城市设计", "蓝绿空间、公共空间与城市风貌"],
+      "drawing_refs": ["drawings/a3-booklet.pdf", "drawings/a0-boards.pdf"],
+      "geometry_refs": ["geometry/land_use.geojson", "geometry/roads.geojson", "geometry/green_space.geojson", "geometry/public_space.geojson"],
+      "metric_refs": ["green_ratio", "public_space_ratio"],
+      "source_ids": ["SITE-PACKAGE"],
+      "assumption_ids": ["A-DESIGN-GEOMETRY-001"],
+      "self_check_ids": ["PROFESSIONAL_EVIDENCE"],
+      "evidence_summary_zh": "已形成空间结构、公共空间、剖面与风貌方法；建筑高度、体量和工程条件仅作定性城市设计导则，不虚构法定控制。"
     },
     {
       "standard_id": "MOHURD-CONTROL-DETAILED-PLANNING",
@@ -111,95 +52,89 @@
       "professional_dimension": "控规实施",
       "mandatory": true,
       "review_status": "addressed",
-      "proposal_sections": [
-        "用地、建筑规模与拆改留方案",
-        "风险、版权与合规说明"
-      ],
-      "drawing_refs": [
-        "drawings/a3-booklet.pdf",
-        "drawings/a0-boards.pdf"
-      ],
-      "geometry_refs": [
-        "geometry/constraints.geojson",
-        "geometry/buildings.geojson"
-      ],
-      "metric_refs": [
-        "far",
-        "road_area_sqm"
-      ],
-      "source_ids": [
-        "SITE-PACKAGE"
-      ],
-      "assumption_ids": [
-        "A-CONTROLS-001"
-      ],
-      "self_check_ids": [
-        "PROFESSIONAL_EVIDENCE"
-      ],
-      "evidence_summary_zh": "本标准的审查响应已完整建立：缺失的法定或工程参数继续以 Unknown / assumption 明示，不以自造数值补齐；addressed 仅表示本次开放征集所需的响应对象、证据边界和后续专业确认路径均已提交。 缺少 FAR/高度/密度/退界/道路红线等官方控制，保持 data_gap 而不是写成已满足。"
+      "proposal_sections": ["用地、建筑规模与拆改留方案", "风险、版权与合规说明"],
+      "drawing_refs": ["drawings/a3-booklet.pdf", "drawings/a0-boards.pdf"],
+      "geometry_refs": ["geometry/constraints.geojson", "geometry/buildings.geojson"],
+      "metric_refs": ["far", "road_area_sqm"],
+      "source_ids": ["SITE-PACKAGE"],
+      "assumption_ids": ["A-CONTROLS-001"],
+      "self_check_ids": ["PROFESSIONAL_EVIDENCE"],
+      "evidence_summary_zh": "缺失的法定或工程参数继续以 Unknown / assumption 明示；addressed 仅表示开放征集所需响应对象、证据边界和后续专业确认路径已提交。"
     },
     {
       "standard_id": "MNR-LAND-USE-CLASSIFICATION-GUIDE",
-      "requirement_zh": "用地表达采用可校验 land_use_code。",
+      "requirement_zh": "用地表达采用可校验 land_use_code，并区分概念城市设计与法定用途管制。",
       "professional_dimension": "用地分类",
       "mandatory": true,
       "review_status": "addressed",
-      "proposal_sections": [
-        "用地、建筑规模与拆改留方案"
-      ],
-      "drawing_refs": [
-        "drawings/a3-booklet.pdf",
-        "drawings/a0-boards.pdf"
-      ],
-      "geometry_refs": [
-        "geometry/land_use.geojson"
-      ],
-      "metric_refs": [
-        "land_use_area_sqm"
-      ],
-      "source_ids": [
-        "SITE-PACKAGE"
-      ],
-      "assumption_ids": [
-        "A-DESIGN-GEOMETRY-001"
-      ],
-      "self_check_ids": [
-        "PROFESSIONAL_EVIDENCE"
-      ],
-      "evidence_summary_zh": "概念用地使用项目子集代码并明确非 statutory zoning。"
+      "proposal_sections": ["用地、建筑规模与拆改留方案"],
+      "drawing_refs": ["drawings/a3-booklet.pdf", "drawings/a0-boards.pdf"],
+      "geometry_refs": ["geometry/land_use.geojson"],
+      "metric_refs": ["land_use_area_sqm"],
+      "source_ids": ["SITE-PACKAGE"],
+      "assumption_ids": ["A-DESIGN-GEOMETRY-001"],
+      "self_check_ids": ["PROFESSIONAL_EVIDENCE"],
+      "evidence_summary_zh": "概念用地使用项目允许的可校验分类字段并明确非 statutory zoning，不以自造分类替代法定分类。"
     },
     {
       "standard_id": "MOHURD-ARCH-DESIGN-DEPTH-2016",
-      "requirement_zh": "建筑/工程设计深度需以正式专业资料和阶段成果支撑。",
+      "requirement_zh": "建筑/工程设计深度仅作非强制专业参照；取得官方文件和工程条件前不得升级为 formal 权威控制。",
       "professional_dimension": "建筑与工程深度",
-      "mandatory": true,
+      "mandatory": false,
+      "review_status": "data_gap",
+      "proposal_sections": ["重点区域详细设计", "交通、轨道、市政与公共服务设施"],
+      "drawing_refs": ["drawings/a3-booklet.pdf", "drawings/a0-boards.pdf"],
+      "geometry_refs": ["geometry/buildings.geojson", "geometry/constraints.geojson"],
+      "metric_refs": ["total_floor_area_sqm", "far"],
+      "source_ids": ["SOURCE-REGISTRY"],
+      "assumption_ids": ["A-CONTROLS-001"],
+      "self_check_ids": ["PROFESSIONAL_EVIDENCE"],
+      "evidence_summary_zh": "最新 standards.json 将该项标为非强制且 needs_official_file；当前只提供城市设计包络、剖面和定性导则，正式建筑/工程条件继续保持 data_gap。"
+    },
+    {
+      "standard_id": "GENERATIVE-AI-INTERIM-MEASURES",
+      "requirement_zh": "涉及面向公众的生成式AI服务时，按办法真实适用边界处理内容安全、投诉举报及特定服务的评估/备案要求，不泛化为所有城市AI能力。",
+      "professional_dimension": "AI治理与公共服务",
+      "mandatory": false,
       "review_status": "addressed",
-      "proposal_sections": [
-        "重点区域详细设计",
-        "交通、轨道、市政与公共服务设施"
-      ],
-      "drawing_refs": [
-        "drawings/a3-booklet.pdf",
-        "drawings/a0-boards.pdf"
-      ],
-      "geometry_refs": [
-        "geometry/buildings.geojson",
-        "geometry/constraints.geojson"
-      ],
-      "metric_refs": [
-        "total_floor_area_sqm",
-        "far"
-      ],
-      "source_ids": [
-        "SOURCE-REGISTRY"
-      ],
-      "assumption_ids": [
-        "A-CONTROLS-001"
-      ],
-      "self_check_ids": [
-        "PROFESSIONAL_EVIDENCE"
-      ],
-      "evidence_summary_zh": "本标准的审查响应已完整建立：缺失的法定或工程参数继续以 Unknown / assumption 明示，不以自造数值补齐；addressed 仅表示本次开放征集所需的响应对象、证据边界和后续专业确认路径均已提交。 缺少正式建筑/工程条件，当前只提供城市设计包络与剖面意向，保持 data_gap。"
+      "proposal_sections": ["AI 创新生态、人才画像与 AI+ 场景", "风险、版权与合规说明"],
+      "drawing_refs": ["drawings/a3-booklet.pdf", "drawings/a0-boards.pdf"],
+      "geometry_refs": ["geometry/public_space.geojson", "geometry/phasing.geojson"],
+      "metric_refs": ["human_override_success_rate", "responsible_stop_rate"],
+      "source_ids": ["SITE-PACKAGE"],
+      "assumption_ids": ["A-GOV-OPS-001", "A-NONAI-001"],
+      "self_check_ids": ["NON_AI_PARITY", "GOV_METRIC_DISCIPLINE"],
+      "evidence_summary_zh": "作为非强制治理参考纳入：仅在面向公众提供生成内容的适用边界内理解相关条款，不把违法内容处置、投诉机制或特定备案条件误写为所有AI城市服务的一般法定义务。"
+    },
+    {
+      "standard_id": "BARRIER-FREE-ENVIRONMENT-LAW",
+      "requirement_zh": "无障碍设计遵循法定无障碍环境原则；第39条人工办理要求严格按医疗、社保、金融、生活缴费等列举公共服务事项理解，不泛化至全部公共空间。",
+      "professional_dimension": "无障碍与公共服务",
+      "mandatory": false,
+      "review_status": "addressed",
+      "proposal_sections": ["总体设计范围城市更新与控规深度城市设计", "AI 创新生态、人才画像与 AI+ 场景", "风险、版权与合规说明"],
+      "drawing_refs": ["drawings/a3-booklet.pdf", "drawings/a0-boards.pdf"],
+      "geometry_refs": ["geometry/public_space.geojson", "geometry/phasing.geojson"],
+      "metric_refs": ["persona_count", "public_space_ratio"],
+      "source_ids": ["SITE-PACKAGE"],
+      "assumption_ids": ["A-NONAI-001"],
+      "self_check_ids": ["NON_AI_PARITY", "PROFESSIONAL_EVIDENCE"],
+      "evidence_summary_zh": "无障碍被作为Permanent公共空间基线和人本治理要求；人工服务义务不被泛化为所有公共空间，AI路线/界面不能替代物理无障碍。"
+    },
+    {
+      "standard_id": "ELDERLY-SMART-TECH-PLAN-2020-45",
+      "requirement_zh": "老年人使用智能技术困难的政策背景用于支持传统服务与智能服务并行、数字包容与人工协助，不把历史阶段目标改写为2026本项目强制绩效。",
+      "professional_dimension": "适老化与数字包容",
+      "mandatory": false,
+      "review_status": "addressed",
+      "proposal_sections": ["AI 创新生态、人才画像与 AI+ 场景", "风险、版权与合规说明"],
+      "drawing_refs": ["drawings/a3-booklet.pdf", "drawings/a0-boards.pdf"],
+      "geometry_refs": ["geometry/public_space.geojson", "geometry/phasing.geojson"],
+      "metric_refs": ["persona_count", "human_override_success_rate"],
+      "source_ids": ["SITE-PACKAGE"],
+      "assumption_ids": ["A-NONAI-001"],
+      "self_check_ids": ["NON_AI_PARITY"],
+      "evidence_summary_zh": "将适老化、非AI服务基线和人工协助作为设计原则；不把2020政策中的阶段性工作目标表述为本项目当前的法定数值承诺。"
     }
   ]
 }
