@@ -1,0 +1,28 @@
+name: Ground Interface Realism v5 Runner
+
+on:
+  push:
+    branches: [integration/ground-interface-realism-v5]
+    paths:
+      - '.github/workflows/ground-interface-realism-v5-runner.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: integration/ground-interface-realism-v5
+          fetch-depth: 1
+          sparse-checkout: |
+            workstreams/ground_interface_realism_v5
+            .github/workflows/ground-interface-realism-v5-runner.yml
+      - name: Run exact-head v5 validation
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: bash workstreams/ground_interface_realism_v5/run_exact_validation.sh
