@@ -120,6 +120,21 @@ jobs:
           cp -a "$SRC" "$DST"
           git -C upstream switch -c validation/reviewer-v4
 
+      - name: Configure participant-style fork and upstream refs
+        env:
+          UPSTREAM_SHA: ${{ steps.upstream.outputs.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -C upstream remote rename origin upstream
+          git -C upstream remote add origin https://github.com/zhoujiahao-source/agent_haidian.git
+          git -C upstream config remote.origin.partialclonefilter blob:none
+          git -C upstream update-ref refs/remotes/upstream/main "$UPSTREAM_SHA"
+          test "$(git -C upstream rev-parse upstream/main)" = "$UPSTREAM_SHA"
+          echo "origin=$(git -C upstream remote get-url origin)"
+          echo "upstream=$(git -C upstream remote get-url upstream)"
+          echo "base=$(git -C upstream rev-parse upstream/main)"
+
       - name: Render bilingual proposal HTML and refresh manifest
         shell: bash
         run: |
