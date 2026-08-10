@@ -41,7 +41,7 @@ import * as THREE from 'three/webgpu';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 
-const REPO='zhoujiahao-source/agent_haidian', DEFAULT_REF='__FORMAL_REF__', PKG='submissions/zhoujiahao-source/jingzhang-legible-ai-belt';
+const REPO='zhoujiahao-source/agent_haidian', DEFAULT_REF='55c56d9cec2c420fbbc5c9b23990511fccd280fd', PKG='submissions/zhoujiahao-source/jingzhang-legible-ai-belt';
 const REF=new URLSearchParams(location.search).get('ref')||DEFAULT_REF;
 const raw=p=>`https://raw.githubusercontent.com/${REPO}/${REF}/${PKG}/${p}`;
 const AREAS=[

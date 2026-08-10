@@ -1,0 +1,32 @@
+{
+  "schema_version": "1",
+  "status": "PASS",
+  "validated_upstream_sha": "6063d44a00a5072b8d71091d4e1ff81246c8b51c",
+  "validated_formal_sha": "55c56d9cec2c420fbbc5c9b23990511fccd280fd",
+  "checks": [
+    "ground_interface_spec",
+    "threejs_node_syntax",
+    "bilingual_proposal_patch",
+    "official_render_proposal_html",
+    "official_self_check_submission",
+    "official_participant_preflight"
+  ],
+  "spatial_deepening": [
+    "ground-floor edge sequence",
+    "ordinary accessible route",
+    "blue-green comfort",
+    "human-help baseline",
+    "Human Stop / Human Override contract",
+    "test/service separation",
+    "AI-off review floor",
+    "OSM water/green context",
+    "per-building OSM height evidence"
+  ],
+  "truth_boundary": [
+    "KEY_AREA remains provisional",
+    "ground-interface placements are Derived / Not yet canonicalized",
+    "section proportions are diagrammatic only",
+    "OSM remains candidate existing context",
+    "no statutory FAR/height/ownership/road-redline/approved-engineering claim"
+  ]
+}
