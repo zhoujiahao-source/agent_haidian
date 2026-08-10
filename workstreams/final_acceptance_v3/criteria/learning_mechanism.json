@@ -1,0 +1,25 @@
+{
+  "category":"城市学习机制完整",
+  "items":[
+    {"id":"LM-001","priority":"P0","category":"城市学习机制完整","requirement":"Detect机制明确为问题发现而非自动裁决","acceptance_test":"proposal定义City Agent诊断且问题需过Evidence Gate","status":"COMPLETE","evidence_refs":["proposal.md"],"owner":"AGENT","notes":""},
+    {"id":"LM-002","priority":"P0","category":"城市学习机制完整","requirement":"Evidence Gate判断问题真实性、公共性与是否需要AI","acceptance_test":"流程包含证据不足/非AI更优时不进入试验","status":"COMPLETE","evidence_refs":["proposal.md","assets/figures/metrics-evidence.png"],"owner":"AGENT","notes":""},
+    {"id":"LM-003","priority":"P0","category":"城市学习机制完整","requirement":"风险分级依据现实后果而非模型复杂度","acceptance_test":"Low/Medium/High授权路径在proposal可读","status":"COMPLETE","evidence_refs":["proposal.md"],"owner":"AGENT","notes":""},
+    {"id":"LM-004","priority":"P0","category":"城市学习机制完整","requirement":"Authorization定义AI不可拥有最终批准权","acceptance_test":"公共机构/专业人员/公众讨论的授权边界明确","status":"COMPLETE","evidence_refs":["proposal.md"],"owner":"AGENT","notes":""},
+    {"id":"LM-005","priority":"P0","category":"城市学习机制完整","requirement":"Bounded Experiment具有时间、空间、旁路、人工停机、退出条件","acceptance_test":"至少4个测试场景满足有界试验契约","status":"COMPLETE","evidence_refs":["proposal.md","metrics.json"],"owner":"AGENT","notes":""},
+    {"id":"LM-006","priority":"P0","category":"城市学习机制完整","requirement":"Public Value Review用真实公共改善而非部署量","acceptance_test":"UAR定义不以AI部署数为分子","status":"COMPLETE","evidence_refs":["proposal.md","metrics.json"],"owner":"AGENT","notes":""},
+    {"id":"LM-007","priority":"P0","category":"城市学习机制完整","requirement":"STOP/MODIFY/CONTINUE/SCALE四种决策完整","acceptance_test":"流程与Dashboard同时体现四决策","status":"COMPLETE","evidence_refs":["proposal.md","assets/figures/city-version-dashboard.png"],"owner":"AGENT","notes":""},
+    {"id":"LM-008","priority":"P0","category":"城市学习机制完整","requirement":"STOP计入学习但不计入UAR改善分子","acceptance_test":"指标规则显式区分learning与improvement","status":"COMPLETE","evidence_refs":["proposal.md","metrics.json"],"owner":"AGENT","notes":""},
+    {"id":"LM-009","priority":"P0","category":"城市学习机制完整","requirement":"Capability Registry数据结构逻辑完整","acceptance_test":"记录问题、证据、用户、风险、试验、指标、失败、人工接管等","status":"COMPLETE","evidence_refs":["proposal.md"],"owner":"AGENT","notes":""},
+    {"id":"LM-010","priority":"P0","category":"城市学习机制完整","requirement":"Transfer不允许未经复核直接复制","acceptance_test":"区域协同明确每次迁移重新验证","status":"COMPLETE","evidence_refs":["proposal.md","assets/figures/regional-capability-network.png"],"owner":"AGENT","notes":""},
+    {"id":"LM-011","priority":"P1","category":"城市学习机制完整","requirement":"Revalidation覆盖新人群、新空间、新风险、新机构","acceptance_test":"迁移逻辑明确重新验证公平性、风险和公共价值","status":"COMPLETE","evidence_refs":["proposal.md"],"owner":"AGENT","notes":""},
+    {"id":"LM-012","priority":"P1","category":"城市学习机制完整","requirement":"City Version Release形成年度迭代机制","acceptance_test":"年度版本发布、城市学习大会、版本状态图存在","status":"COMPLETE","evidence_refs":["proposal.md","assets/figures/city-version-dashboard.png"],"owner":"AGENT","notes":""},
+    {"id":"LM-013","priority":"P1","category":"城市学习机制完整","requirement":"Retirement是一等流程而非附录","acceptance_test":"退役原因、替代系统、失败/副作用进入城市记忆","status":"COMPLETE","evidence_refs":["proposal.md","assets/figures/landmarks-memory.png"],"owner":"AGENT","notes":""},
+    {"id":"LM-014","priority":"P1","category":"城市学习机制完整","requirement":"12个场景可映射到统一学习闭环","acceptance_test":"场景数≥10且每类具备问题/能力/风险/人工/指标/停止逻辑","status":"COMPLETE","evidence_refs":["proposal.md","metrics.json"],"owner":"AGENT","notes":""},
+    {"id":"LM-015","priority":"P1","category":"城市学习机制完整","requirement":"至少3个产业/技术测试验证场景成立","acceptance_test":"正式自检记录4个test/validation scenarios","status":"COMPLETE","evidence_refs":["self_check.json","metrics.json"],"owner":"AGENT","notes":""},
+    {"id":"LM-016","priority":"P1","category":"城市学习机制完整","requirement":"Problem Track与Capability Track双入口成立","acceptance_test":"长期运营机制允许问题驱动和能力驱动进入试验","status":"COMPLETE","evidence_refs":["proposal.md"],"owner":"AGENT","notes":""},
+    {"id":"LM-017","priority":"P1","category":"城市学习机制完整","requirement":"Capability Exchange与区域协同避免机构承诺伪造","acceptance_test":"外部机构只作为目标情境，不声称已签约","status":"COMPLETE","evidence_refs":["proposal.md"],"owner":"AGENT","notes":""},
+    {"id":"LM-018","priority":"P2","category":"城市学习机制完整","requirement":"真实运行后能够计算第一条UAR记录","acceptance_test":"需要真实eligible issue、试验结果和公共价值数据","status":"HUMAN_REQUIRED","evidence_refs":["metrics.json"],"owner":"HUMAN/OPERATOR","notes":"竞赛原型目标为L4-ready，不伪装已运行"},
+    {"id":"LM-019","priority":"P2","category":"城市学习机制完整","requirement":"真实运行后记录首次STOP/MODIFY/CONTINUE/SCALE决策","acceptance_test":"需真实pilot与治理记录","status":"HUMAN_REQUIRED","evidence_refs":["metrics.json"],"owner":"HUMAN/OPERATOR","notes":""},
+    {"id":"LM-020","priority":"P2","category":"城市学习机制完整","requirement":"真实跨区Transfer完成一次重新验证","acceptance_test":"需真实公共机构/运营方与新场景数据","status":"HUMAN_REQUIRED","evidence_refs":["metrics.json"],"owner":"HUMAN/OPERATOR","notes":""}
+  ]
+}
