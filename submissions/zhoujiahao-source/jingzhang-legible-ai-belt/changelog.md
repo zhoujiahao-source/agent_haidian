@@ -33,3 +33,10 @@ No new government approval, statutory control, ownership, procurement commitment
 - Added bilingual reviewer-facing Spatial Proof Rooms atlas for Zhongzhiyuan, AI Origin and Dazhongsi.
 - Deepened key-area movement, public-space, ground-floor, blue-green, Non-AI baseline and AI-backstage logic without inventing statutory controls.
 - Kept all new spatial rooms Derived / Not yet canonicalized pending professional review and official geometry.
+
+## v2.3.0 — Ground Interface Realism
+<!-- GROUND-INTERFACE-REALISM-V5 -->
+- Added reviewer-facing ground-floor/edge sequences for the three key areas.
+- Added ordinary + accessible route, blue-green comfort, human-help baseline, operations separation and AI-off review floor.
+- Added bilingual `ground-interface-proof.svg`; all detailed placements remain Derived / Not yet canonicalized.
+- No canonical GeoJSON geometry, statutory FAR/height, ownership, road-redline or approved-engineering claim was added.

@@ -23,14 +23,14 @@
       "path": "proposal.md",
       "role": "narrative",
       "required": true,
-      "sha256": "6c6de8c63be250d7ccfee52868fb7d0fa530767fb9ba4b19f26835a79a58b24e",
+      "sha256": "33ee0aa734d570b1e16ed0b300cfac58e36515d1ee78028d62776329bd088821",
       "language": "zh"
     },
     {
       "path": "proposal.en.md",
       "role": "narrative",
       "required": true,
-      "sha256": "a0d82afec5fc9d31604020110f41de107b08a1723912a22902a1662440e2c843",
+      "sha256": "b03134e88ac6da95983f3c00e52a6f912cdc1105d48e45c01d3fe954a727bed5",
       "language": "en",
       "translation_of": "proposal.md"
     },
@@ -305,14 +305,14 @@
       "path": "report/proposal.html",
       "role": "rendered_proposal_html",
       "required": true,
-      "sha256": "97ffabe309ed3a60f765c31be835d85fa8797855262dc856655cfdf4b15e6b73",
+      "sha256": "767178a0563ae511ab0db7b407f793f86815779c6527e1330887d7e5dac0db57",
       "language": "zh"
     },
     {
       "path": "report/proposal.en.html",
       "role": "rendered_proposal_html",
       "required": true,
-      "sha256": "5e9eb9e1a6bfe1b826ec309808455f855e6ba260b2565220c2fdbc9320a0de04",
+      "sha256": "b83608cefd0eb30477f6e347af87e6c13f9840d810bafbb561414389642823e2",
       "language": "en",
       "translation_of": "report/proposal.html"
     },
@@ -381,6 +381,21 @@
       "language": "en",
       "translation_of": "assets/figures/reviewer-spatial-depth.svg",
       "sha256": "c83206f5a3d70c5b9d752e406170e2f5e93a20299f4024100e2842de6a8fbfaa"
+    },
+    {
+      "path": "assets/figures/ground-interface-proof.svg",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "zh",
+      "sha256": "20fc2705b42c8306a583ba04c3f101266691e88f21609651be94c190e37ece7b"
+    },
+    {
+      "path": "assets/figures/ground-interface-proof.en.svg",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "en",
+      "translation_of": "assets/figures/ground-interface-proof.svg",
+      "sha256": "7e0c622479f0caedeaf707ade257093b23d148db69eb4db540b4b756d186b981"
     }
   ],
   "validation_claim": {

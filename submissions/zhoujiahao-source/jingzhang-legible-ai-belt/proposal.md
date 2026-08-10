@@ -9,7 +9,7 @@ license: "COMMUNITY-DISPLAY-ONLY"
 summary: "把百年京张建设为一套让城市持续发现问题、可逆试验、评估公共价值、交换能力并主动退役失效技术的城市级操作系统；以 Capability Backbone 连接三区两翼，以 Public Capability Interface 服务日常公共生活，以 Urban Adaptation Rate 衡量真实改善，以年度 City Version Release 形成长期公共治理与城市记忆。"
 tracks: ["civic-agent-governance", "ai-traffic-walkability", "enterprise-services-ecosystem"]
 scenarios: ["public-safety-operations-review", "ai-traffic-walkability", "enterprise-service-copilot"]
-iteration: "v2.2.0"
+iteration: "v2.3.0"
 ---
 
 # 京张·城市能力交换带
@@ -100,6 +100,27 @@ Capability Backbone 沿百年京张的连续公共空间关系组织，但所有
 
 这组 Spatial Proof Rooms 是评委快速读取方案的**空间说明层**，不改变 canonical GeoJSON 的权威顺序；若后续专业审查认可，再把道路断面、公共空间组件和场景节点逐项反写为正式可验证 geometry。
 
+
+<!-- GROUND-INTERFACE-PROOF:V5 -->
+### 首层与街道真实性：Ground Interface Proof
+
+上一轮 Spatial Proof Rooms 回答“三区为什么不同”；本轮进一步回答**人在一层究竟如何走、坐、问人、避雨、绕开试验、进入商店或学习空间，以及 AI 关闭后城市是否仍然成立**。以下内容是 **Derived / Not yet canonicalized** 的近景城市设计证据层，不改变 canonical GeoJSON；示意剖面使用的是空间比例而非法定道路宽度。KEY_AREA 仍为 provisional，FAR、法定高度、权属、道路红线、绿地法定属性、地下管线与工程容量继续保持 Unknown。[data:geometry/key_areas.geojson#KEY-001] [assumption:A-CONTROLS-001]
+
+| 重点区 | 首层/边缘组织 | 普通人主线 | 蓝绿与舒适 | AI / 测试后台边界 |
+|---|---|---|---|---|
+| 众智园 | 开放研发首层 → 治理评测界面 → 有界测试内缘 → 后勤设备边缘 | 公共门厅—林荫共享庭院—普通旁路—人工安全台，无需 AI 许可 | 树荫共享庭院、雨水花园、可坐边缘 | 高风险测试向内退让；Human Stop、应急入口和非参与者旁路同时存在 |
+| AI 原点 | 学习共享首层 → 包容服务首层 → 慢行门廊 → 低扰动生活边缘 | 社区入口—校社学习客厅—包容庭院—慢行门廊；普通导视与人工帮助持续可用 | 可坐树荫庭院、透水/雨水边缘、避热节点 | Ambient 仅做低风险支持；个性化/识别性服务进入 Consent Layer |
+| 大钟寺 | 市场服务首层 → 骑手/装卸口袋 → 夜间城市客厅 → 绿地复合庭院 | 站城方向—市场服务街—夜间客厅—绿地庭院；支付、导航、求助保留非 AI 方式 | 树池/雨水花园、遮荫座席、夜间停留 | 主步行线与骑手/装卸/后勤分层；AI 调度不取消人工管理与普通交易 |
+
+![三区首层界面、无障碍普通路线、蓝绿舒适、运营边界与人的真实使用](assets/figures/ground-interface-proof.svg)
+
+**众智园的真实感来自“边界分层”。** 面向城市的一侧先是共享门厅、研发展示与人工安全台；验证越高风险，空间越向内部后退。主要公共庭院不承担设备堆放或试验等待，保洁、安保、访客和轮椅用户都保留一条连续普通路径。有界测试只在安全缓冲、应急进入、人工停机和非参与者旁路同时成立时才具有空间资格。
+
+**AI 原点的真实感来自“生活混合”。** 学生、老人、儿童、低视力用户和开发者共享同一套首层公共空间，而不是分成“AI 用户”和“普通用户”。最直接的无障碍路线与主要公共空间重合；人工服务点、固定公共信息、树荫座席和普通导视属于 Permanent baseline。Consent 不是弹窗，而是个性化服务从普通公共空间进入识别/个人数据层之前的空间与操作门槛。
+
+**大钟寺的真实感来自“运营共存”。** 市场首层、骑手短停、补货装卸、通勤穿行、老人停留和夜间公共生活被放在同一张地面运营图里。骑手和装卸使用口袋空间而不是侵占主步行线；主要入口、座席、无障碍线和人工问询位于同一可达层。夜间安全依靠照明、可见人流、人工帮助和普通导航先成立，AI 只是辅助。
+
+三处近景均采用同一条评审底线：**AI 全部关闭时，普通步行、无障碍、树荫/避雨、座席、人工帮助、基本交易/导航、应急和后勤仍然工作。** 只有通过这一底线的数字能力才进入 Ambient / Consent / bounded-test 层。所有门厅、树阵、雨水花园、骑手口袋、测试缓冲和首层界面位置目前均是 reviewer detail，后续必须结合真实建筑、道路、水务、消防、权属与现场测绘再决定是否 canonicalize。
 
 ## AI 创新生态、人才画像与 AI+ 场景
 

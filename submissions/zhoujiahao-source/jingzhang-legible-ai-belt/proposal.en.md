@@ -9,7 +9,7 @@ license: "COMMUNITY-DISPLAY-ONLY"
 summary: "A city-scale operating system that lets Jing-Zhang continuously diagnose urban problems, run reversible tests, evaluate public value, exchange validated capabilities, and retire obsolete technology through a Capability Backbone, Public Capability Interfaces, Urban Adaptation Rate, and an annual City Version Release."
 tracks: ["civic-agent-governance", "ai-traffic-walkability", "enterprise-services-ecosystem"]
 scenarios: ["public-safety-operations-review", "ai-traffic-walkability", "enterprise-service-copilot"]
-iteration: "v2.2.0"
+iteration: "v2.3.0"
 ---
 
 # Jing-Zhang Urban Capability Exchange
@@ -100,6 +100,27 @@ To move the three key areas beyond a task checklist, this iteration turns each K
 
 These Spatial Proof Rooms are a **reviewer-facing explanatory layer**. They do not override canonical GeoJSON. Only after professional review should approved road sections, public-space components and scenario nodes be written back into canonical geometry.
 
+
+<!-- GROUND-INTERFACE-PROOF:V5 -->
+### Ground Interface Proof: Street and Ground-Floor Realism
+
+The previous Spatial Proof Rooms established **why the three areas are different**. This pass asks what a person actually experiences at ground level: **walking, sitting, asking a human for help, finding shade, bypassing a test, entering a shop or learning space, and continuing when AI is offline**. The following is **Derived / Not yet canonicalized** reviewer-detail design and does not alter canonical GeoJSON. Section graphics use spatial proportions rather than statutory road widths. KEY_AREA remains provisional; FAR, statutory height, ownership, road redlines, legal green-space status, underground utilities and engineering capacity remain Unknown. [data:geometry/key_areas.geojson#KEY-001] [assumption:A-CONTROLS-001]
+
+| Key area | Ground-floor / edge sequence | Ordinary route | Blue-green comfort | AI / test backstage boundary |
+|---|---|---|---|---|
+| Zhongzhiyuan | open research frontage → governance review frontage → bounded-test inner edge → service/equipment edge | public lobby—shaded commons court—ordinary bypass—staffed safety desk, with no AI permission required | tree-shaded commons, rain-garden strip, sittable edges | higher-risk tests move inward; Human Stop, emergency access and non-participant bypass coexist |
+| AI Origin | learning commons frontage → inclusive service frontage → slow-mobility threshold → low-disturbance living edge | neighborhood entry—learning commons—inclusive court—walking gate; ordinary signs and staffed help remain available | sittable shade court, permeable/rain edge, heat-refuge nodes | Ambient provides low-risk support only; personalization/recognition enters the Consent Layer |
+| Dazhongsi | market-service frontage → rider/loading pocket → night commons → green mixed-use court | station-city direction—market street—night commons—green court; non-AI payment, navigation and help remain available | tree/rain-garden band, shaded seats, night stay | clear walk line is separated from rider/loading/service pockets; AI dispatch never removes human management or ordinary trade |
+
+![Ground-interface proof for the three key areas: accessible ordinary routes, blue-green comfort, operating boundaries and everyday users](assets/figures/ground-interface-proof.en.svg)
+
+**Zhongzhiyuan becomes credible through layered boundaries.** The city-facing edge begins with shared lobbies, visible research exchange and a staffed safety desk; greater test risk moves progressively inward. The main public court is not used as an equipment yard or test queue. Cleaners, security staff, visitors and wheelchair users keep a continuous ordinary route. A bounded test has spatial legitimacy only when safety buffer, emergency access, Human Stop and a non-participant bypass all exist together.
+
+**AI Origin becomes credible through mixed daily life.** Students, older residents, children, low-vision users and developers share the same ground-floor civic spaces rather than being split into “AI users” and “ordinary users.” The most direct accessible route coincides with the main public realm. Staffed help, fixed public information, shade seating and ordinary wayfinding are Permanent baselines. Consent is treated as an operational and spatial threshold before personalized or recognition-based service enters the personal-data layer, not merely as a pop-up.
+
+**Dazhongsi becomes credible through operational coexistence.** Market frontage, short rider stops, loading, commuting, older-user rest and night public life are reviewed on one ground-operations plan. Rider and loading functions use pockets instead of taking over the main walking line. Main entrances, seating, accessible movement and staffed help share the same reachable level. Night safety begins with lighting, visible activity, human help and ordinary navigation; AI remains support.
+
+All three close-range prototypes share one review floor: **if every AI function is switched off, ordinary walking, accessibility, shade/rain protection, seating, staffed help, basic trade/navigation, emergency access and servicing must still work.** Only capabilities that pass this floor can enter Ambient, Consent or bounded-test layers. Locations of lobbies, tree rows, rain gardens, rider pockets, test buffers and ground-floor interfaces remain reviewer detail and require verified buildings, roads, water, fire, ownership and field-survey evidence before canonicalization.
 
 ## AI Innovation Ecosystem, Personas, and AI+ Scenarios
 
