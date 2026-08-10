@@ -1,0 +1,152 @@
+name: Final Acceptance v3
+
+on:
+  push:
+    branches:
+      - integration/final-acceptance-v3
+    paths:
+      - '.github/workflows/final-acceptance-v3.yml'
+      - 'workstreams/final_acceptance_v3/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate-and-finalize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout acceptance workstream
+        uses: actions/checkout@v4
+        with:
+          ref: integration/final-acceptance-v3
+          fetch-depth: 0
+
+      - name: Build and validate 100-item acceptance matrix
+        env:
+          ALLOW_AGENT_OPEN: "1"
+        run: |
+          python workstreams/final_acceptance_v3/build_acceptance_matrix.py
+          python workstreams/final_acceptance_v3/validate_acceptance.py
+
+      - name: Confirm frozen upstream is still latest
+        id: upstream
+        shell: bash
+        run: |
+          set -euo pipefail
+          EXPECTED="6405afe0ce1f23e1b7056e30c0fe12fe3c59ecab"
+          LATEST="$(git ls-remote https://github.com/open-city-ai/haidian.git refs/heads/main | cut -f1)"
+          echo "expected=$EXPECTED"
+          echo "latest=$LATEST"
+          if [ "$LATEST" != "$EXPECTED" ]; then
+            echo "::error::Upstream main moved after acceptance freeze. Re-audit before finalization."
+            exit 1
+          fi
+          echo "sha=$LATEST" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout formal submission branch
+        uses: actions/checkout@v4
+        with:
+          ref: submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v3-final
+          path: formal
+          fetch-depth: 0
+
+      - name: Checkout exact upstream review toolchain
+        shell: bash
+        run: |
+          git clone --filter=blob:none --no-checkout https://github.com/open-city-ai/haidian.git upstream
+          git -C upstream checkout 6405afe0ce1f23e1b7056e30c0fe12fe3c59ecab
+
+      - name: Install latest review requirements
+        run: python -m pip install -r upstream/requirements-review.txt
+
+      - name: Render and finalize formal package
+        shell: bash
+        run: |
+          set -euo pipefail
+          SUB="$GITHUB_WORKSPACE/formal/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
+          python upstream/scripts/render_proposal_html.py "$SUB"
+          python upstream/scripts/finalize_submission.py "$SUB"
+
+      - name: Run latest contributor self-check
+        shell: bash
+        run: |
+          set -euo pipefail
+          SUB="$GITHUB_WORKSPACE/formal/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
+          python upstream/scripts/self_check_submission.py "$SUB" --pr-author zhoujiahao-source
+
+      - name: Run latest participant preflight
+        shell: bash
+        working-directory: formal
+        run: |
+          set -euo pipefail
+          python "$GITHUB_WORKSPACE/upstream/scripts/participant_preflight.py" \
+            submissions/zhoujiahao-source/jingzhang-legible-ai-belt \
+            --pr-author zhoujiahao-source
+
+      - name: Commit generated formal refresh
+        id: formalcommit
+        shell: bash
+        working-directory: formal
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+          if git diff --cached --quiet; then
+            echo "No generated formal changes."
+          else
+            git commit -m "Finalize v3 acceptance against upstream 6405afe0"
+            git push origin HEAD:submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v3-final
+          fi
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Close final Agent-executable acceptance item
+        env:
+          FORMAL_SHA: ${{ steps.formalcommit.outputs.sha }}
+          UPSTREAM_SHA: ${{ steps.upstream.outputs.sha }}
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          criteria=Path("workstreams/final_acceptance_v3/criteria/competition_delivery.json")
+          d=json.loads(criteria.read_text(encoding="utf-8"))
+          for item in d["items"]:
+              if item["id"]=="EX-013":
+                  item["status"]="COMPLETE"
+                  item["notes"]="Latest upstream render/finalize/self-check/preflight completed successfully in GitHub Actions."
+                  item["evidence_refs"]=["GitHub Actions final-acceptance-v3", "manifest.json", "self_check.json"]
+          criteria.write_text(json.dumps(d,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          PY
+          python workstreams/final_acceptance_v3/build_acceptance_matrix.py
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p=Path("workstreams/final_acceptance_v3/acceptance_matrix.json")
+          d=json.loads(p.read_text(encoding="utf-8"))
+          d["validated_upstream_sha"]=os.environ["UPSTREAM_SHA"]
+          d["validated_formal_sha"]=os.environ["FORMAL_SHA"]
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          rp=Path("workstreams/final_acceptance_v3/README.md")
+          t=rp.read_text(encoding="utf-8")
+          t=t.replace("- COMPLETE: 86\n- IN_PROGRESS: 1 (`EX-013`: latest-upstream render/finalize/self-check/preflight)\n- BLOCKED_OFFICIAL_DATA: 3\n- HUMAN_REQUIRED: 10",
+                      "- COMPLETE: 87\n- IN_PROGRESS: 0\n- BLOCKED_OFFICIAL_DATA: 3\n- HUMAN_REQUIRED: 10")
+          if "## Latest successful validation" not in t:
+              t += f"\n## Latest successful validation\n\n- Upstream: `{os.environ['UPSTREAM_SHA']}`\n- Formal branch SHA: `{os.environ['FORMAL_SHA']}`\n- Agent-executable acceptance items remaining: **0**\n"
+          rp.write_text(t,encoding="utf-8")
+          PY
+
+      - name: Run strict 100-item acceptance validator
+        run: python workstreams/final_acceptance_v3/validate_acceptance.py
+
+      - name: Commit finalized acceptance ledger
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workstreams/final_acceptance_v3
+          git commit -m "[acceptance-finalized] Close Agent-executable v3 acceptance"
+          git push origin HEAD:integration/final-acceptance-v3
