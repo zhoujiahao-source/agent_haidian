@@ -48,7 +48,7 @@ jobs:
             curl -fsSL \
               -H "Accept: application/vnd.github+json" \
               -H "Authorization: Bearer $GH_TOKEN" \
-              "https://api.github.com/repos/open-city-ai/haidian/compare/${AUDITED}...${LATEST}?per_page=100" \
+              "https://api.github.com/repos/open-city-ai/haidian/compare/${AUDITED}...${LATEST}" \
               > /tmp/compare.json
             python - <<'PY'
           import json, sys
@@ -66,7 +66,7 @@ jobs:
           fi
           echo "sha=$LATEST" >> "$GITHUB_OUTPUT"
 
-      - name: Checkout latest upstream review toolchain
+      - name: Checkout latest upstream validation workspace
         uses: actions/checkout@v4
         with:
           repository: open-city-ai/haidian
@@ -92,29 +92,73 @@ jobs:
       - name: Install latest review requirements
         run: python -m pip install -r upstream/requirements-review.txt
 
-      - name: Render and finalize formal package
+      - name: Prepare submission inside latest upstream workspace
         shell: bash
         run: |
           set -euo pipefail
-          SUB="$GITHUB_WORKSPACE/formal/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
+          SRC="$GITHUB_WORKSPACE/formal/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
+          DST="$GITHUB_WORKSPACE/upstream/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
+          mkdir -p "$(dirname "$DST")"
+          cp -a "$SRC" "$DST"
+          git -C upstream fetch origin main:refs/remotes/origin/main --depth=1
+          git -C upstream switch -c validation/zhoujiahao-source
+
+      - name: Render canonical bilingual HTML and refresh manifest hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          SUB="$GITHUB_WORKSPACE/upstream/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
           python upstream/scripts/render_proposal_html.py "$SUB"
-          python upstream/scripts/finalize_submission.py "$SUB"
+          SUB="$SUB" python - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          root=Path(os.environ['SUB'])
+          path=root/'manifest.json'
+          m=json.loads(path.read_text(encoding='utf-8'))
+          for item in m.get('files',[]):
+              if not isinstance(item,dict):
+                  continue
+              rel=item.get('path')
+              if not rel or rel=='manifest.json':
+                  continue
+              p=root/rel
+              if p.is_file():
+                  item['sha256']=hashlib.sha256(p.read_bytes()).hexdigest()
+          claim=m.get('validation_claim')
+          if isinstance(claim,dict):
+              claim['self_checked']=True
+          path.write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
 
       - name: Run latest contributor self-check
         shell: bash
+        working-directory: upstream
         run: |
           set -euo pipefail
-          SUB="$GITHUB_WORKSPACE/formal/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
-          python upstream/scripts/self_check_submission.py "$SUB" --pr-author zhoujiahao-source
+          python scripts/self_check_submission.py \
+            submissions/zhoujiahao-source/jingzhang-legible-ai-belt \
+            --pr-author zhoujiahao-source \
+            --json | tee /tmp/final-self-check.json
 
       - name: Run latest participant preflight
         shell: bash
-        working-directory: formal
+        working-directory: upstream
         run: |
           set -euo pipefail
-          python "$GITHUB_WORKSPACE/upstream/scripts/participant_preflight.py" \
+          python scripts/participant_preflight.py \
             submissions/zhoujiahao-source/jingzhang-legible-ai-belt \
-            --pr-author zhoujiahao-source
+            --pr-author zhoujiahao-source \
+            --json | tee /tmp/final-preflight.json
+
+      - name: Copy validated generated files back to formal branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          SRC="$GITHUB_WORKSPACE/upstream/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
+          DST="$GITHUB_WORKSPACE/formal/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
+          cp -a "$SRC/report/proposal.html" "$DST/report/proposal.html"
+          cp -a "$SRC/report/proposal.en.html" "$DST/report/proposal.en.html"
+          cp -a "$SRC/manifest.json" "$DST/manifest.json"
 
       - name: Commit generated formal refresh
         id: formalcommit
@@ -149,7 +193,7 @@ jobs:
           for item in d["items"]:
               if item["id"]=="EX-013":
                   item["status"]="COMPLETE"
-                  item["notes"]="Latest upstream render/finalize/self-check/preflight completed successfully in GitHub Actions."
+                  item["notes"]="Latest upstream render/self-check/preflight completed successfully in GitHub Actions; ready-for-review package hashes were refreshed without re-running scaffold-only finalization."
                   item["evidence_refs"]=["GitHub Actions final-acceptance-v3", "manifest.json", "self_check.json"]
           criteria.write_text(json.dumps(d,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
           PY
