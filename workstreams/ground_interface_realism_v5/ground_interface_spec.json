@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "status": "Derived / Not yet canonicalized",
+  "purpose": "Reviewer-facing ground-interface and close-range urban-design deepening for the three provisional KEY_AREA polygons without asserting statutory dimensions, ownership, FAR, height controls, road redlines or approved engineering conditions.",
+  "truth_contract": {
+    "key_area_geometry": "canonical provisional KEY_AREA only",
+    "existing_context": "OSM candidate context; not a locked-layer substitute",
+    "detail_geometry": "Derived reviewer detail; not canonicalized",
+    "section_dimensions": "diagrammatic visualization proportions only; not road-redline or engineering dimensions",
+    "unknowns_preserved": ["statutory FAR", "statutory height", "ownership", "road redline", "legal green-space boundary", "utility capacity", "fire-engineering clearance", "approved crossings"]
+  },
+  "review_questions": [
+    "Can a non-participant move through the area without using AI?",
+    "Is there an obvious accessible ordinary route?",
+    "Does the ground floor make the area's role legible before any digital overlay?",
+    "Are AI/test functions visibly backstage or bounded?",
+    "Are shade, seating, blue-green comfort and human help part of the permanent baseline?",
+    "Can servicing, emergency access and night operation coexist without dominating public life?"
+  ],
+  "areas": [
+    {
+      "id": "KEY-001",
+      "name_zh": "众智园 / Verification Campus",
+      "ground_interface_thesis_zh": "把高风险验证从普通城市生活中分层，而不是把整个园区变成试验场。",
+      "ground_interface_thesis_en": "Layer high-risk validation away from ordinary city life instead of turning the whole campus into a test field.",
+      "edge_types": [
+        {"id":"public_research_frontage","zh":"开放研发首层","en":"Open research frontage","baseline":"共享门厅、可见人工服务、普通步行界面","ai_role":"成果解释与低风险信息辅助"},
+        {"id":"governance_frontage","zh":"治理评测界面","en":"Governance review frontage","baseline":"人工安全台、公告、退出与申诉入口","ai_role":"试验记录与状态展示，不替代人工停机"},
+        {"id":"bounded_test_edge","zh":"有界测试内缘","en":"Bounded test inner edge","baseline":"物理缓冲、普通人旁路、应急入口","ai_role":"机器人/低速自治/边缘算力等有界测试"},
+        {"id":"service_edge","zh":"后勤与设备边缘","en":"Service and equipment edge","baseline":"后勤不穿越主要公共庭院","ai_role":"设备维护、能源与算力服务"}
+      ],
+      "ordinary_route": "公共门厅 → 林荫共享庭院 → 普通通行旁路 → 人工安全台；全程无需 AI 许可。",
+      "accessible_route": "无台阶主路径 + 连续触觉提示 + 人工问询点 + 与测试边界清晰分离。",
+      "blue_green": "树荫共享庭院 + 雨水花园带 + 可坐边缘；水务与地下条件仍需专业核验。",
+      "operational_separation": "Public / Review / Bounded Test / Service 四级边缘逐步后退。",
+      "human_scenes": ["研究者跨楼协作", "访客到人工前台", "保洁/安保日常作业", "非参与者绕过试验", "轮椅用户连续通过"],
+      "detail_components": ["canopy", "human_help_desk", "ordinary_bypass", "tactile_path", "rain_garden", "seat_edge", "tree_row", "test_buffer", "emergency_gate", "service_yard"],
+      "section_ratio": {"public_walk":1.0,"shade_seating":0.55,"memory_or_green_band":0.45,"mobility_or_service":0.75,"buffer":0.55,"test_or_building_edge":1.0}
+    },
+    {
+      "id": "KEY-002",
+      "name_zh": "AI 原点社区 / Learning Neighborhood",
+      "ground_interface_thesis_zh": "先把校社之间做成可坐、可走、可问人的学习街区，再让 AI 作为可选择的服务层出现。",
+      "ground_interface_thesis_en": "First make the university-community seam walkable, sittable and human-helpful; AI then appears as an optional service layer.",
+      "edge_types": [
+        {"id":"learning_frontage","zh":"学习共享首层","en":"Learning commons frontage","baseline":"开放座席、普通公告、人工活动台","ai_role":"课程、机会与活动信息辅助"},
+        {"id":"inclusive_service_frontage","zh":"包容服务首层","en":"Inclusive service frontage","baseline":"人工帮助、无障碍设施、固定公共服务信息","ai_role":"多语/无障碍辅助需遵守 Consent 与 Human Override"},
+        {"id":"slow_mobility_threshold","zh":"慢行门廊","en":"Slow-mobility threshold","baseline":"步行、自行车、停留有清晰次序","ai_role":"低风险环境感知与路径提示"},
+        {"id":"quiet_residential_edge","zh":"低扰动生活边缘","en":"Low-disturbance living edge","baseline":"安静、夜间照明不过度、隐私优先","ai_role":"不得默认识别或个性化跟踪"}
+      ],
+      "ordinary_route": "社区入口 → 校社学习客厅 → 包容服务庭院 → 慢行门廊；普通标识与人工帮助始终可用。",
+      "accessible_route": "最直接的无障碍线与主要公共空间重合，不把残障用户导向后门或独立系统。",
+      "blue_green": "可坐树荫庭院 + 透水/雨水花园边缘 + 夏季避热节点；所有设施先按非 AI 条件成立。",
+      "operational_separation": "Ambient 低风险支持可在公共层出现；个性化、识别性或敏感数据服务进入明确 Consent Layer。",
+      "human_scenes": ["学生午间学习", "老人到人工服务点", "低视力用户沿触觉主线", "家长与儿童停留", "开发者参加开放活动"],
+      "detail_components": ["learning_arcade", "human_help_desk", "accessible_spine", "tactile_path", "community_court", "rain_garden", "seat_edge", "tree_canopy", "bike_parking", "quiet_edge"],
+      "section_ratio": {"active_frontage":0.75,"public_walk":1.0,"shade_seating":0.6,"cycle_or_threshold":0.45,"green_buffer":0.55,"quiet_edge":0.8}
+    },
+    {
+      "id": "KEY-003",
+      "name_zh": "大钟寺 / Market & Service Commons",
+      "ground_interface_thesis_zh": "把交易、骑手、通勤和夜间生活放进同一条可管理的城市首层，而不是用 AI 设施占领街道。",
+      "ground_interface_thesis_en": "Place trade, riders, commuting and night life in one manageable urban ground floor instead of letting AI equipment occupy the street.",
+      "edge_types": [
+        {"id":"market_frontage","zh":"市场服务首层","en":"Market-service frontage","baseline":"普通交易、可见门店、人工问询","ai_role":"商户服务编排与多语辅助可选"},
+        {"id":"rider_loading_edge","zh":"骑手/装卸口袋","en":"Rider and loading pocket","baseline":"不占主步行线、明确停靠与等待","ai_role":"调度建议不能取消人工管理与现场规则"},
+        {"id":"night_commons_edge","zh":"夜间城市客厅","en":"Night commons edge","baseline":"照明、座椅、厕所/求助信息、普通导航","ai_role":"夜间安全辅助与活动信息，不替代人工安保"},
+        {"id":"green_court_edge","zh":"绿地复合庭院","en":"Green mixed-use court","baseline":"树荫、避雨、儿童/老人停留、慢行连续","ai_role":"热/雨响应与维护提示"}
+      ],
+      "ordinary_route": "站城方向 → 市场服务街 → 夜间城市客厅 → 绿地复合庭院；支付、导航与求助均保留非 AI 方式。",
+      "accessible_route": "连续平顺主线避开骑手等待与装卸口袋；主要入口、座席和人工服务点在同一可达层。",
+      "blue_green": "树池/雨水花园与遮荫座席构成连续微气候带；规划绿地法律属性仍待核验。",
+      "operational_separation": "主步行线 / 活跃首层 / 骑手与装卸口袋 / 夜间停留 / 后勤入口分层并可在不同时段切换。",
+      "human_scenes": ["居民夜间步行", "骑手短暂停靠", "商户补货", "通勤者快速通过", "游客人工问询", "老人树荫停留"],
+      "detail_components": ["market_canopy", "shopfront_band", "ordinary_route", "tactile_path", "rider_pocket", "loading_pocket", "night_seating", "rain_garden", "tree_row", "human_help_point"],
+      "section_ratio": {"shopfront":0.65,"clear_walk":1.0,"shade_seating":0.5,"cycle_or_rider":0.45,"green_band":0.45,"service_pocket":0.55}
+    }
+  ]
+}
