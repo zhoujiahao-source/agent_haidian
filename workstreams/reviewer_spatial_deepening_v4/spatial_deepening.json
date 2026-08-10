@@ -1,0 +1,82 @@
+{
+  "schema_version": "1",
+  "target_maturity": "L3 high-fidelity integrated prototype / L4-ready",
+  "planning_status": "Derived design deepening / not yet canonicalized unless explicitly linked to canonical geometry",
+  "reviewer_rule": "Each key area must explain role, movement, public room, ground floor, blue-green, AI backstage, bypass, evidence status within 30 seconds.",
+  "areas": [
+    {
+      "area_id": "zhongzhiyuan_ai_acceleration_area",
+      "key_area_id": "KEY-001",
+      "name_zh": "众智园 / Verification Campus",
+      "name_en": "Zhongzhiyuan / Verification Campus",
+      "reference_area_ha": 192.1,
+      "review_question_zh": "高风险AI能力如何在不打断普通城市生活的前提下被验证？",
+      "review_question_en": "How can higher-risk AI capabilities be tested without interrupting ordinary urban life?",
+      "urban_form": "Large research clusters + shared verification courtyards + porous public edge + controlled internal test yards",
+      "spatial_rooms": [
+        {"id":"ZZY-R1","name_zh":"验证共享庭院","name_en":"Verification Commons Court","role":"public-facing research commons; non-AI circulation remains open"},
+        {"id":"ZZY-R2","name_zh":"有界测试院","name_en":"Bounded Test Yard","role":"time/space bounded experiments with physical Human Stop and safety buffer"},
+        {"id":"ZZY-R3","name_zh":"治理评测厅","name_en":"Governance Review Hall","role":"professional review, evidence gate, audit and capability registry interface"},
+        {"id":"ZZY-R4","name_zh":"普通通行旁路","name_en":"Ordinary Bypass","role":"continuous pedestrian/service route independent from test operations"}
+      ],
+      "movement": "Capability Backbone + derived cross-axis; ordinary pedestrian/service bypass must remain continuous; Fifth Ring connection remains evidence-required study task.",
+      "ground_floor": "Open commons and shared services on public edge; controlled labs/test interfaces deeper inside; no requirement for universal open ground floor.",
+      "blue_green": "Shared courtyards, shade, stormwater landscape and future building-green-water integration; exact water/engineering interfaces remain unknown.",
+      "ai_backstage": "AI equipment remains inside controlled test/service layers; public realm is readable without AI.",
+      "non_ai_baseline": "ordinary path, signage, shade, lighting, manual safety control, physical stop and emergency access",
+      "evidence_notes": ["KEY_AREA polygon provisional", "ROAD_CENTERLINE derived", "PUBLIC_SPACE proposed", "FAR/height/ownership/engineering capacity unknown"]
+    },
+    {
+      "area_id": "beijing_ai_origin_community",
+      "key_area_id": "KEY-002",
+      "name_zh": "AI原点社区 / Learning Neighborhood",
+      "name_en": "AI Origin / Learning Neighborhood",
+      "reference_area_ha": 104.3,
+      "review_question_zh": "高校、人才与社区如何共享同一套低扰动公共服务空间？",
+      "review_question_en": "How can universities, talent and neighborhoods share low-disturbance public-service space?",
+      "urban_form": "Fine-grain renewal + campus-neighborhood stitches + service courtyards + gradual scale transition",
+      "spatial_rooms": [
+        {"id":"AIO-R1","name_zh":"校社学习客厅","name_en":"Campus-Neighborhood Learning Commons","role":"shared learning, developer community and civic-service interface"},
+        {"id":"AIO-R2","name_zh":"包容服务庭院","name_en":"Inclusive Service Court","role":"accessible routes, manual service baseline, elderly/digital-exclusion support"},
+        {"id":"AIO-R3","name_zh":"TOD慢行门廊","name_en":"TOD Walking Gate","role":"research task connecting station walksheds to neighborhood public life; exact host unverified"},
+        {"id":"AIO-R4","name_zh":"低扰动更新界面","name_en":"Low-disturbance Renewal Edge","role":"small reversible interventions before demolition/reconstruction"}
+      ],
+      "movement": "Walk-first campus/community stitches; Wudaokou and Qinghuadongluxikou TOD links remain research tasks pending official/verified conditions.",
+      "ground_floor": "Frequent entrances, community services, learning spaces and transparent civic edges; retain non-digital/manual service routes.",
+      "blue_green": "Shade, small courtyards, comfortable walking and micro-climate adaptation integrated with daily use.",
+      "ai_backstage": "Ambient low-risk support by default; personalization/recognition only in active Consent Layer.",
+      "non_ai_baseline": "physical accessibility, ordinary wayfinding, manual help, fixed opening/service information, conventional emergency routes",
+      "evidence_notes": ["KEY_AREA polygon provisional", "station/TOD relation requires verification", "building retention/ownership unknown", "no statutory FAR/height"]
+    },
+    {
+      "area_id": "dazhongsi_ai_industry_cluster",
+      "key_area_id": "KEY-003",
+      "name_zh": "大钟寺 / Market & Service Commons",
+      "name_en": "Dazhongsi / Market & Service Commons",
+      "reference_area_ha": 72.0,
+      "review_question_zh": "AI-native服务如何在真实商业、通勤、骑手与夜间公共生活中被检验？",
+      "review_question_en": "How can AI-native services be tested within real commerce, commuting, delivery and night-time public life?",
+      "urban_form": "Small blocks + continuous active frontage + multiple entrances + market-street public rooms + night-friendly edges",
+      "spatial_rooms": [
+        {"id":"DZS-R1","name_zh":"四象限慢行缝合","name_en":"Four-Quadrant Walking Stitch","role":"review frame for cross-station/road pedestrian continuity; not an approved crossing"},
+        {"id":"DZS-R2","name_zh":"市场服务街","name_en":"Market Service Street","role":"mixed commerce, delivery management, public service and AI-native business validation"},
+        {"id":"DZS-R3","name_zh":"夜间城市客厅","name_en":"Night Urban Living Room","role":"safe return, lighting, seating and ordinary social life before digital services"},
+        {"id":"DZS-R4","name_zh":"绿地复合庭院","name_en":"Green Mobility Court","role":"bike parking, static transport, shade and planned-green multifunction study"}
+      ],
+      "movement": "Dense walking network + cycling/static-transport management + derived east-west stitch; exact road redline/crossing remains evidence-required.",
+      "ground_floor": "Continuous but varied active frontage, multiple entries, delivery/service pockets, night-time public lighting and seating.",
+      "blue_green": "Planned-green multifunction study, shade and comfortable market/public-space interfaces; legal green-space status must be verified.",
+      "ai_backstage": "Service orchestration supports merchants/users but never replaces ordinary transactions, navigation, lighting or help channels.",
+      "non_ai_baseline": "ordinary commerce/service, visible wayfinding, staffed help, conventional payment/process where applicable, safe walking and lighting",
+      "evidence_notes": ["KEY_AREA polygon provisional", "four-quadrant connection is a study task", "planned-green legal status unverified", "road/parking/fire controls unknown"]
+    }
+  ],
+  "shared_review_checks": [
+    "AI off: urban design remains legible and usable",
+    "public route never depends on experimental equipment",
+    "each derived spatial room is labeled Not yet canonicalized",
+    "no statutory FAR/height/ownership/road redline claims",
+    "each area has a visible Non-AI baseline and Human Override path",
+    "canonical geometry remains authoritative over the 3D interpretation"
+  ]
+}
