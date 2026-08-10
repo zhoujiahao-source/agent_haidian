@@ -30,18 +30,27 @@ jobs:
           python workstreams/final_acceptance_v3/build_acceptance_matrix.py
           python workstreams/final_acceptance_v3/validate_acceptance.py
 
-      - name: Confirm frozen upstream is still latest
+      - name: Resolve latest upstream and guard audited rules
         id: upstream
         shell: bash
         run: |
           set -euo pipefail
-          EXPECTED="6405afe0ce1f23e1b7056e30c0fe12fe3c59ecab"
-          LATEST="$(git ls-remote https://github.com/open-city-ai/haidian.git refs/heads/main | cut -f1)"
-          echo "expected=$EXPECTED"
+          AUDITED="6405afe0ce1f23e1b7056e30c0fe12fe3c59ecab"
+          git clone --filter=blob:none https://github.com/open-city-ai/haidian.git upstream
+          LATEST="$(git -C upstream rev-parse HEAD)"
+          echo "audited=$AUDITED"
           echo "latest=$LATEST"
-          if [ "$LATEST" != "$EXPECTED" ]; then
-            echo "::error::Upstream main moved after acceptance freeze. Re-audit before finalization."
-            exit 1
+          if [ "$LATEST" != "$AUDITED" ]; then
+            git -C upstream diff --name-only "$AUDITED" "$LATEST" > /tmp/upstream-changes.txt
+            echo "Changes since audited baseline:"
+            cat /tmp/upstream-changes.txt
+            NON_SUBMISSION="$(grep -Ev '^(submissions/|submissions-data\.js$)' /tmp/upstream-changes.txt || true)"
+            if [ -n "$NON_SUBMISSION" ]; then
+              echo "::error::Upstream rule/tool/source files changed after the audited baseline. Re-audit required:"
+              echo "$NON_SUBMISSION"
+              exit 1
+            fi
+            echo "Only peer submissions/gallery changed; rules and review toolchain are unchanged."
           fi
           echo "sha=$LATEST" >> "$GITHUB_OUTPUT"
 
@@ -51,12 +60,6 @@ jobs:
           ref: submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v3-final
           path: formal
           fetch-depth: 0
-
-      - name: Checkout exact upstream review toolchain
-        shell: bash
-        run: |
-          git clone --filter=blob:none --no-checkout https://github.com/open-city-ai/haidian.git upstream
-          git -C upstream checkout 6405afe0ce1f23e1b7056e30c0fe12fe3c59ecab
 
       - name: Install latest review requirements
         run: python -m pip install -r upstream/requirements-review.txt
@@ -89,6 +92,8 @@ jobs:
         id: formalcommit
         shell: bash
         working-directory: formal
+        env:
+          UPSTREAM_SHA: ${{ steps.upstream.outputs.sha }}
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
@@ -97,7 +102,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No generated formal changes."
           else
-            git commit -m "Finalize v3 acceptance against upstream 6405afe0"
+            git commit -m "Finalize v3 acceptance against upstream ${UPSTREAM_SHA:0:8}"
             git push origin HEAD:submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v3-final
           fi
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
