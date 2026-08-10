@@ -1,5 +1,18 @@
 # 方案迭代记录
 
+## v2.2.0 - 2026-08-10
+
+Final acceptance and latest-upstream alignment pass:
+
+- re-read the current upstream rules at `6405afe0ce1f23e1b7056e30c0fe12fe3c59ecab` and confirmed the Required / Editable / Locked layer contract is unchanged from the previously validated design basis;
+- aligned `standard_matrix.json` with the latest repository `standards.json`, including the newly added non-mandatory references for generative-AI governance, barrier-free environment law, and elderly smart-technology inclusion;
+- corrected `MOHURD-ARCH-DESIGN-DEPTH-2016` to the latest upstream status (`mandatory_for_formal=false`, `needs_official_file`) and kept the missing professional source/engineering conditions as a data gap rather than an invented compliance claim;
+- established a 100-item P0/P1/P2 final-acceptance matrix in the integration workstream, covering complete urban design, city-learning loop, AI governance, evidence architecture, and competition delivery consistency;
+- preserved all existing Unknown / provisional states for exact organizer polygons, statutory FAR/height/setback/density, ownership, official road redlines, exact heritage controls, engineering capacity, and live operational governance metrics;
+- kept the project maturity target at a competition-grade high-fidelity integrated design prototype / L4-ready, not an already operating autonomous city system.
+
+This revision does not claim new government approval, statutory control, ownership, procurement commitment, official polygon, verified construction condition, real UAR result, or implemented pilot outcome.
+
 ## v2.1.0 - 2026-08-09
 
 Official-completeness pass against the current organizer repository contract:
