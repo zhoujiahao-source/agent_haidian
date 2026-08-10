@@ -134,21 +134,81 @@ jobs:
         shell: bash
         working-directory: upstream
         run: |
-          set -euo pipefail
+          set +e
           python scripts/self_check_submission.py \
             submissions/zhoujiahao-source/jingzhang-legible-ai-belt \
             --pr-author zhoujiahao-source \
-            --json | tee /tmp/final-self-check.json
+            --json > /tmp/final-self-check.json 2>/tmp/final-self-check.stderr
+          RC=$?
+          set -e
+          cat /tmp/final-self-check.json || true
+          cat /tmp/final-self-check.stderr || true
+          if [ "$RC" -ne 0 ]; then
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('/tmp/final-self-check.json')
+          msgs=[]
+          if p.exists() and p.read_text(encoding='utf-8').strip():
+              d=json.loads(p.read_text(encoding='utf-8'))
+              msgs.extend(d.get('next_actions') or [])
+              for section in ['deterministic_validation','spatial_review','visual_review','professional_review']:
+                  s=d.get(section) or {}
+                  err=str(s.get('stderr') or '').strip()
+                  if err:
+                      msgs.append(f'{section}: {err}')
+                  out=s.get('stdout')
+                  if isinstance(out,dict):
+                      for e in out.get('errors') or []:
+                          msgs.append(f'{section}: {e}')
+                      for issue in out.get('issues') or []:
+                          if isinstance(issue,dict) and issue.get('severity') in {'blocking','major'}:
+                              msgs.append(f"{section} {issue.get('check_id','ISSUE')}: {issue.get('message','')}")
+          stderr=Path('/tmp/final-self-check.stderr')
+          if stderr.exists() and stderr.read_text(encoding='utf-8').strip():
+              msgs.append('self_check stderr: '+stderr.read_text(encoding='utf-8').strip())
+          seen=set()
+          for msg in msgs or ['self_check_submission.py failed without a parsed diagnostic']:
+              msg=' '.join(str(msg).split())
+              if msg in seen:
+                  continue
+              seen.add(msg)
+              print(f'::error title=Latest self-check::{msg}')
+          PY
+            exit "$RC"
+          fi
 
       - name: Run latest participant preflight
         shell: bash
         working-directory: upstream
         run: |
-          set -euo pipefail
+          set +e
           python scripts/participant_preflight.py \
             submissions/zhoujiahao-source/jingzhang-legible-ai-belt \
             --pr-author zhoujiahao-source \
-            --json | tee /tmp/final-preflight.json
+            --json > /tmp/final-preflight.json 2>/tmp/final-preflight.stderr
+          RC=$?
+          set -e
+          cat /tmp/final-preflight.json || true
+          cat /tmp/final-preflight.stderr || true
+          if [ "$RC" -ne 0 ]; then
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          msgs=[]
+          p=Path('/tmp/final-preflight.json')
+          if p.exists() and p.read_text(encoding='utf-8').strip():
+              d=json.loads(p.read_text(encoding='utf-8'))
+              msgs.extend(d.get('blockers') or [])
+              msgs.extend(d.get('warnings') or [])
+          err=Path('/tmp/final-preflight.stderr')
+          if err.exists() and err.read_text(encoding='utf-8').strip():
+              msgs.append(err.read_text(encoding='utf-8').strip())
+          for msg in dict.fromkeys(' '.join(str(x).split()) for x in (msgs or ['participant_preflight.py failed'])):
+              print(f'::error title=Latest preflight::{msg}')
+          PY
+            exit "$RC"
+          fi
 
       - name: Copy validated generated files back to formal branch
         shell: bash
