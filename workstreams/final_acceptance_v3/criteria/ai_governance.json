@@ -1,0 +1,25 @@
+{
+  "category":"AI治理完整",
+  "items":[
+    {"id":"GV-001","priority":"P0","category":"AI治理完整","requirement":"风险等级与授权等级一一对应","acceptance_test":"Low/Medium/High分别具有自动可逆/专业审批/公众或严格授权路径","status":"COMPLETE","evidence_refs":["proposal.md"],"owner":"AGENT","notes":""},
+    {"id":"GV-002","priority":"P0","category":"AI治理完整","requirement":"Human Override覆盖影响现实行为的AI能力","acceptance_test":"PCI与测试场景有人工接管/停机","status":"COMPLETE","evidence_refs":["proposal.md","assets/figures/pci-prototypes.png"],"owner":"AGENT","notes":""},
+    {"id":"GV-003","priority":"P0","category":"AI治理完整","requirement":"Non-AI Baseline在重要公共服务中保留","acceptance_test":"普通标识、通行、人工或固定程序不依赖AI","status":"COMPLETE","evidence_refs":["proposal.md","self_check.json"],"owner":"AGENT","notes":""},
+    {"id":"GV-004","priority":"P0","category":"AI治理完整","requirement":"Consent Layer与Ambient Layer分离","acceptance_test":"个人化/识别/推荐进入主动同意层","status":"COMPLETE","evidence_refs":["proposal.md"],"owner":"AGENT","notes":""},
+    {"id":"GV-005","priority":"P0","category":"AI治理完整","requirement":"AI离线或失败时具有Failure-Safe Mode","acceptance_test":"方案定义降级运行与普通城市服务连续性","status":"COMPLETE","evidence_refs":["proposal.md"],"owner":"AGENT","notes":""},
+    {"id":"GV-006","priority":"P0","category":"AI治理完整","requirement":"弱势群体至少覆盖老人、残障、低数字能力等","acceptance_test":"8类Persona包含老人、残障、居民、运营者等","status":"COMPLETE","evidence_refs":["proposal.md","metrics.json"],"owner":"AGENT","notes":""},
+    {"id":"GV-007","priority":"P0","category":"AI治理完整","requirement":"公平性评估不只看平均值","acceptance_test":"指标体系要求vulnerable groups/extremes/complaints/manual override","status":"COMPLETE","evidence_refs":["proposal.md","assets/figures/metrics-evidence.png"],"owner":"AGENT","notes":""},
+    {"id":"GV-008","priority":"P0","category":"AI治理完整","requirement":"隐私遵循最小必要原则","acceptance_test":"proposal将高敏感/个人化功能置于Consent与更高授权","status":"COMPLETE","evidence_refs":["proposal.md"],"owner":"AGENT","notes":""},
+    {"id":"GV-009","priority":"P0","category":"AI治理完整","requirement":"公共机构保留最终责任","acceptance_test":"Public Stewardship为长期治理主结构","status":"COMPLETE","evidence_refs":["proposal.md"],"owner":"AGENT","notes":""},
+    {"id":"GV-010","priority":"P0","category":"AI治理完整","requirement":"企业/AI不被描述为最终公共责任主体","acceptance_test":"责任链与运营逻辑保留公共机构最终问责","status":"COMPLETE","evidence_refs":["proposal.md"],"owner":"AGENT","notes":""},
+    {"id":"GV-011","priority":"P1","category":"AI治理完整","requirement":"投诉与申诉入口被纳入公共治理设计","acceptance_test":"公众提案追踪/人工服务/投诉处理被纳入场景与治理","status":"COMPLETE","evidence_refs":["proposal.md"],"owner":"AGENT","notes":""},
+    {"id":"GV-012","priority":"P1","category":"AI治理完整","requirement":"高风险自治测试具备非参与者旁路","acceptance_test":"低速自治/机器人测试包含普通通行bypass与Human Stop","status":"COMPLETE","evidence_refs":["proposal.md"],"owner":"AGENT","notes":""},
+    {"id":"GV-013","priority":"P1","category":"AI治理完整","requirement":"健康类AI限定为非诊断导航","acceptance_test":"健康场景明确非诊断并需人工/机构服务基线","status":"COMPLETE","evidence_refs":["proposal.md"],"owner":"AGENT","notes":""},
+    {"id":"GV-014","priority":"P1","category":"AI治理完整","requirement":"无障碍设计不把AI当作物理无障碍替代品","acceptance_test":"物理无障碍/普通导视为Permanent baseline","status":"COMPLETE","evidence_refs":["proposal.md","geometry/phasing.geojson"],"owner":"AGENT","notes":""},
+    {"id":"GV-015","priority":"P1","category":"AI治理完整","requirement":"生成式AI政策边界作为补充治理参考","acceptance_test":"latest standard纳入矩阵且不把第14/15/17条泛化","status":"COMPLETE","evidence_refs":["standard_matrix.json"],"owner":"AGENT","notes":"已在 v3 final branch 的 standard_matrix.json 对齐最新 upstream references。"},
+    {"id":"GV-016","priority":"P1","category":"AI治理完整","requirement":"无障碍环境建设法边界作为补充参考","acceptance_test":"第39条仅按列举公共服务场景理解，不泛化为所有公共空间","status":"COMPLETE","evidence_refs":["standard_matrix.json"],"owner":"AGENT","notes":"已在 v3 final branch 的 standard_matrix.json 对齐最新 upstream references。"},
+    {"id":"GV-017","priority":"P1","category":"AI治理完整","requirement":"老年人智能技术政策作为补充参考","acceptance_test":"传统/智能服务并行但不把历史阶段目标写成本地2026强制指标","status":"COMPLETE","evidence_refs":["standard_matrix.json"],"owner":"AGENT","notes":"已在 v3 final branch 的 standard_matrix.json 对齐最新 upstream references。"},
+    {"id":"GV-018","priority":"P2","category":"AI治理完整","requirement":"真实公众参与对风险授权和场景退出条件进行反馈","acceptance_test":"至少一轮真实居民/运营者/弱势群体反馈并记录采纳与否","status":"HUMAN_REQUIRED","evidence_refs":["GitHub Issues / fieldwork"],"owner":"HUMAN","notes":""},
+    {"id":"GV-019","priority":"P2","category":"AI治理完整","requirement":"专业法律/规划/无障碍复核关键治理条款","acceptance_test":"人类专业人员复核责任、合规边界和关键公共服务设计","status":"HUMAN_REQUIRED","evidence_refs":["standard_matrix.json","proposal.md"],"owner":"HUMAN/PROFESSIONAL","notes":""},
+    {"id":"GV-020","priority":"P2","category":"AI治理完整","requirement":"真实运营责任主体、预算和SLA在落地前确认","acceptance_test":"需公共机构/运营者正式承担，不在竞赛方案中伪造","status":"HUMAN_REQUIRED","evidence_refs":["proposal.md"],"owner":"HUMAN/OPERATOR","notes":""}
+  ]
+}
