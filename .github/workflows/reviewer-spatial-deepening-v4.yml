@@ -1,0 +1,259 @@
+name: Reviewer Spatial Deepening v4
+
+on:
+  push:
+    branches:
+      - integration/reviewer-spatial-deepening-v4
+    paths:
+      - '.github/workflows/reviewer-spatial-deepening-v4.yml'
+      - 'workstreams/reviewer_spatial_deepening_v4/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deepen-and-validate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout reviewer workstream
+        uses: actions/checkout@v4
+        with:
+          ref: integration/reviewer-spatial-deepening-v4
+          fetch-depth: 1
+          sparse-checkout: |
+            workstreams/reviewer_spatial_deepening_v4
+            .github/workflows/reviewer-spatial-deepening-v4.yml
+
+      - name: Static QA for spatial spec and Three.js reviewer twin
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile workstreams/reviewer_spatial_deepening_v4/apply_reviewer_deepening.py
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          spec=json.loads(Path('workstreams/reviewer_spatial_deepening_v4/spatial_deepening.json').read_text(encoding='utf-8'))
+          assert len(spec['areas'])==3
+          assert all(len(x['spatial_rooms'])>=4 for x in spec['areas'])
+          html=Path('workstreams/reviewer_spatial_deepening_v4/threejs/keyarea_reviewer_twin.html').read_text(encoding='utf-8')
+          m=re.search(r'<script type="module">(.*?)</script>',html,re.S)
+          assert m, 'module script missing'
+          Path('/tmp/keyarea-reviewer.mjs').write_text(m.group(1),encoding='utf-8')
+          for token in ['WebGPURenderer','OrbitControls','mergeGeometries','ExtrudeGeometry','InstancedMesh','Overpass','Not yet canonicalized','ODbL','KEY-001','KEY-002','KEY-003']:
+              assert token in html, token
+          print('spatial spec and Three.js static contract: PASS')
+          PY
+          node --check /tmp/keyarea-reviewer.mjs
+
+      - name: Resolve exact upstream head and guard audited rules
+        id: upstream
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          AUDITED="5f4a386bc65d9c09270cc820237fd2b37f65509f"
+          LATEST="$(git ls-remote https://github.com/open-city-ai/haidian.git refs/heads/main | cut -f1)"
+          echo "audited=$AUDITED"
+          echo "latest=$LATEST"
+          if [ "$LATEST" != "$AUDITED" ]; then
+            curl -fsSL -H "Accept: application/vnd.github+json" -H "Authorization: Bearer $GH_TOKEN" \
+              "https://api.github.com/repos/open-city-ai/haidian/compare/${AUDITED}...${LATEST}" > /tmp/compare.json
+            python - <<'PY'
+          import json,sys
+          d=json.load(open('/tmp/compare.json',encoding='utf-8'))
+          files=[x['filename'] for x in d.get('files',[])]
+          non=[f for f in files if not (f.startswith('submissions/') or f=='submissions-data.js')]
+          print('upstream commits since audited reviewer baseline:',d.get('ahead_by'))
+          if non:
+              print('Rule/tool/source changes require re-audit:',file=sys.stderr)
+              print('\n'.join(non),file=sys.stderr)
+              raise SystemExit(1)
+          print('Only peer submissions/gallery changes since reviewer baseline.')
+          PY
+          fi
+          echo "sha=$LATEST" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout v4 formal branch
+        uses: actions/checkout@v4
+        with:
+          ref: submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v4-reviewer
+          path: formal
+          fetch-depth: 0
+          sparse-checkout: |
+            submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+
+      - name: Apply reviewer-facing spatial deepening
+        env:
+          SUBMISSION_ROOT: ${{ github.workspace }}/formal/submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+        run: python workstreams/reviewer_spatial_deepening_v4/apply_reviewer_deepening.py
+
+      - name: Checkout exact upstream validation workspace
+        uses: actions/checkout@v4
+        with:
+          repository: open-city-ai/haidian
+          ref: ${{ steps.upstream.outputs.sha }}
+          path: upstream
+          fetch-depth: 1
+          sparse-checkout: |
+            scripts
+            skills/urban-design-ai-submission
+            requirements-review.txt
+            brief/site-package
+            data/source_registry.json
+            docs/data-workflow.md
+            scenarios
+            tracks
+
+      - name: Install current review requirements
+        run: python -m pip install -r upstream/requirements-review.txt
+
+      - name: Materialize v4 submission in exact upstream workspace
+        shell: bash
+        run: |
+          set -euo pipefail
+          SRC="$GITHUB_WORKSPACE/formal/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
+          DST="$GITHUB_WORKSPACE/upstream/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
+          mkdir -p "$(dirname "$DST")"
+          cp -a "$SRC" "$DST"
+          git -C upstream switch -c validation/reviewer-v4
+
+      - name: Render bilingual proposal HTML and refresh manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          SUB="$GITHUB_WORKSPACE/upstream/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
+          python upstream/scripts/render_proposal_html.py "$SUB"
+          SUB="$SUB" python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          root=Path(os.environ['SUB']); p=root/'manifest.json'; m=json.loads(p.read_text(encoding='utf-8'))
+          for item in m.get('files',[]):
+              if not isinstance(item,dict): continue
+              rel=item.get('path')
+              if not rel or rel=='manifest.json': continue
+              f=root/rel
+              if f.is_file(): item['sha256']=hashlib.sha256(f.read_bytes()).hexdigest()
+          claim=m.get('validation_claim')
+          if isinstance(claim,dict): claim['self_checked']=True
+          p.write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+
+      - name: Run exact-head contributor self-check
+        shell: bash
+        working-directory: upstream
+        run: |
+          set +e
+          python scripts/self_check_submission.py submissions/zhoujiahao-source/jingzhang-legible-ai-belt --pr-author zhoujiahao-source --json > /tmp/reviewer-self.json 2>/tmp/reviewer-self.err
+          RC=$?
+          set -e
+          cat /tmp/reviewer-self.json || true
+          cat /tmp/reviewer-self.err || true
+          if [ "$RC" -ne 0 ]; then
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          msgs=[]; p=Path('/tmp/reviewer-self.json')
+          if p.exists() and p.read_text(encoding='utf-8').strip():
+              d=json.loads(p.read_text(encoding='utf-8')); msgs.extend(d.get('next_actions') or [])
+              for section in ['deterministic_validation','spatial_review','visual_review','professional_review']:
+                  s=d.get(section) or {}; err=str(s.get('stderr') or '').strip()
+                  if err: msgs.append(f'{section}: {err}')
+                  out=s.get('stdout')
+                  if isinstance(out,dict):
+                      msgs.extend(f"{section}: {x}" for x in (out.get('errors') or []))
+                      for issue in out.get('issues') or []:
+                          if isinstance(issue,dict) and issue.get('severity') in {'blocking','major'}:
+                              msgs.append(f"{section} {issue.get('check_id','ISSUE')}: {issue.get('message','')}")
+          e=Path('/tmp/reviewer-self.err')
+          if e.exists() and e.read_text(encoding='utf-8').strip(): msgs.append(e.read_text(encoding='utf-8').strip())
+          for msg in dict.fromkeys(' '.join(str(x).split()) for x in (msgs or ['self check failed'])):
+              print(f'::error title=Exact-head self-check::{msg}')
+          PY
+            exit "$RC"
+          fi
+
+      - name: Run exact-head participant preflight
+        shell: bash
+        working-directory: upstream
+        run: |
+          set +e
+          python scripts/participant_preflight.py submissions/zhoujiahao-source/jingzhang-legible-ai-belt --pr-author zhoujiahao-source --json > /tmp/reviewer-preflight.json 2>/tmp/reviewer-preflight.err
+          RC=$?
+          set -e
+          cat /tmp/reviewer-preflight.json || true
+          cat /tmp/reviewer-preflight.err || true
+          if [ "$RC" -ne 0 ]; then
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          msgs=[]; p=Path('/tmp/reviewer-preflight.json')
+          if p.exists() and p.read_text(encoding='utf-8').strip():
+              d=json.loads(p.read_text(encoding='utf-8')); msgs.extend(d.get('blockers') or []); msgs.extend(d.get('warnings') or [])
+          e=Path('/tmp/reviewer-preflight.err')
+          if e.exists() and e.read_text(encoding='utf-8').strip(): msgs.append(e.read_text(encoding='utf-8').strip())
+          for msg in dict.fromkeys(' '.join(str(x).split()) for x in (msgs or ['preflight failed'])):
+              print(f'::error title=Exact-head preflight::{msg}')
+          PY
+            exit "$RC"
+          fi
+
+      - name: Copy validated generated files back to formal branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          SRC="$GITHUB_WORKSPACE/upstream/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
+          DST="$GITHUB_WORKSPACE/formal/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
+          cp -a "$SRC/report/proposal.html" "$DST/report/proposal.html"
+          cp -a "$SRC/report/proposal.en.html" "$DST/report/proposal.en.html"
+          cp -a "$SRC/manifest.json" "$DST/manifest.json"
+
+      - name: Commit validated reviewer deepening to formal v4
+        id: formalcommit
+        shell: bash
+        working-directory: formal
+        env:
+          UPSTREAM_SHA: ${{ steps.upstream.outputs.sha }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+          if git diff --cached --quiet; then
+            echo "No formal changes."
+          else
+            git commit -m "Deepen reviewer spatial proof against upstream ${UPSTREAM_SHA:0:8}"
+            git push origin HEAD:submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v4-reviewer
+          fi
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Write exact-head validation record
+        env:
+          UPSTREAM_SHA: ${{ steps.upstream.outputs.sha }}
+          FORMAL_SHA: ${{ steps.formalcommit.outputs.sha }}
+        run: |
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          d={
+            'schema_version':'1',
+            'status':'PASS',
+            'validated_upstream_sha':os.environ['UPSTREAM_SHA'],
+            'validated_formal_sha':os.environ['FORMAL_SHA'],
+            'checks':['threejs_static_contract','proposal_patch_bilingual','official_render_proposal_html','official_self_check_submission','official_participant_preflight'],
+            'truth_boundary':['KEY_AREA remains provisional','Spatial Proof Rooms are Derived / Not yet canonicalized','OSM remains candidate context','no statutory FAR/height/ownership/road-redline claim']
+          }
+          Path('workstreams/reviewer_spatial_deepening_v4/validation_report.json').write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+
+      - name: Commit validation record
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workstreams/reviewer_spatial_deepening_v4/validation_report.json
+          git commit -m "Record exact-head reviewer v4 validation"
+          git push origin HEAD:integration/reviewer-spatial-deepening-v4
