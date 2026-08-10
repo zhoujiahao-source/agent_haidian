@@ -21,7 +21,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: integration/final-acceptance-v3
-          fetch-depth: 0
+          fetch-depth: 1
+          sparse-checkout: |
+            workstreams/final_acceptance_v3
+            .github/workflows/final-acceptance-v3.yml
 
       - name: Build and validate 100-item acceptance matrix
         env:
@@ -32,25 +35,40 @@ jobs:
 
       - name: Resolve latest upstream and guard audited rules
         id: upstream
+        env:
+          GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
           AUDITED="6405afe0ce1f23e1b7056e30c0fe12fe3c59ecab"
-          git clone --filter=blob:none https://github.com/open-city-ai/haidian.git upstream
-          LATEST="$(git -C upstream rev-parse HEAD)"
+          LATEST="$(git ls-remote https://github.com/open-city-ai/haidian.git refs/heads/main | cut -f1)"
           echo "audited=$AUDITED"
           echo "latest=$LATEST"
           if [ "$LATEST" != "$AUDITED" ]; then
-            git -C upstream diff --name-only "$AUDITED" "$LATEST" > /tmp/upstream-changes.txt
-            echo "Changes since audited baseline:"
-            cat /tmp/upstream-changes.txt
-            NON_SUBMISSION="$(grep -Ev '^(submissions/|submissions-data\.js$)' /tmp/upstream-changes.txt || true)"
-            if [ -n "$NON_SUBMISSION" ]; then
-              echo "::error::Upstream rule/tool/source files changed after the audited baseline. Re-audit required:"
-              echo "$NON_SUBMISSION"
-              exit 1
-            fi
-            echo "Only peer submissions/gallery changed; rules and review toolchain are unchanged."
+            curl -fsSL \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              "https://api.github.com/repos/open-city-ai/haidian/compare/${AUDITED}...${LATEST}" \
+              > /tmp/compare.json
+            python - <<'PY'
+          import json, sys
+          d=json.load(open('/tmp/compare.json',encoding='utf-8'))
+          files=[x['filename'] for x in d.get('files',[])]
+          non=[f for f in files if not (f.startswith('submissions/') or f=='submissions-data.js')]
+          print(f"Upstream commits since audited baseline: {d.get('ahead_by')}")
+          print(f"Changed files returned by compare API: {len(files)}")
+          if non:
+              print('Rule/tool/source changes require re-audit:', file=sys.stderr)
+              print('\n'.join(non), file=sys.stderr)
+              raise SystemExit(1)
+          print('Only peer submissions/gallery changed; audited rules remain valid.')
+          PY
+          fi
+          git clone --depth=1 --filter=blob:none https://github.com/open-city-ai/haidian.git upstream
+          ACTUAL="$(git -C upstream rev-parse HEAD)"
+          if [ "$ACTUAL" != "$LATEST" ]; then
+            echo "::error::Upstream moved during resolution; rerun for a consistent snapshot."
+            exit 1
           fi
           echo "sha=$LATEST" >> "$GITHUB_OUTPUT"
 
@@ -60,6 +78,8 @@ jobs:
           ref: submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v3-final
           path: formal
           fetch-depth: 0
+          sparse-checkout: |
+            submissions/zhoujiahao-source/jingzhang-legible-ai-belt
 
       - name: Install latest review requirements
         run: python -m pip install -r upstream/requirements-review.txt
