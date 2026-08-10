@@ -74,7 +74,7 @@
       "path": "standard_matrix.json",
       "role": "standard_matrix",
       "required": true,
-      "sha256": "3b665ed5eb37c833d751cd589e7ff13f8c64391c8617587a434030519358556a"
+      "sha256": "f357108259ac6bcbd2a3cea1535fa9e1f4b69d2166958a16740bbf138ceddbf7"
     },
     {
       "path": "design_depth_matrix.json",
