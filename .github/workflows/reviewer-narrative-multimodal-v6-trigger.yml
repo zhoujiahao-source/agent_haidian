@@ -1,0 +1,17 @@
+name: Trigger Reviewer Narrative Multimodal v6
+on:
+  push:
+    branches: [integration/reviewer-narrative-multimodal-v6]
+    paths:
+      - '.github/workflows/reviewer-narrative-multimodal-v6-trigger.yml'
+permissions:
+  actions: write
+  contents: read
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch full v6 validation
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run reviewer-narrative-multimodal-v6.yml --repo zhoujiahao-source/agent_haidian --ref integration/reviewer-narrative-multimodal-v6
