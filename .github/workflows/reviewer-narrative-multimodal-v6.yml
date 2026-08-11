@@ -5,6 +5,7 @@ on:
     branches: [integration/reviewer-narrative-multimodal-v6]
     paths:
       - '.github/workflows/reviewer-narrative-multimodal-v6.yml'
+      - 'workstreams/reviewer_narrative_multimodal_v6/**'
   workflow_dispatch:
 
 permissions:
@@ -12,7 +13,7 @@ permissions:
 
 jobs:
   build-and-validate:
-    if: github.actor != 'github-actions[bot]'
+    if: github.event_name == 'workflow_dispatch' || github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
