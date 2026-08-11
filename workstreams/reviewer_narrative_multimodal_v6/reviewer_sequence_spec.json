@@ -1,0 +1,64 @@
+{
+  "schema_version": "1",
+  "status": "Derived reviewer presentation / no canonical geometry change",
+  "target": "L3+ reviewer-ready spatial prototype / L4-ready",
+  "reviewer_sequence": [
+    "overall structure",
+    "three-area differentiation",
+    "human ground interface",
+    "AI OFF permanent baseline",
+    "AI ON optional Ambient / Consent / Bounded Test capability",
+    "Detect -> Evidence -> Risk -> Authorization -> Bounded Experiment -> Public Value Review -> STOP/MODIFY/CONTINUE/SCALE",
+    "evidence, implementation, memory and retirement"
+  ],
+  "a0_pages": [
+    {"page": 1, "purpose": "why + overall structure", "must_show": ["Capability Backbone", "five Learning Units", "three areas / two wings", "evidence status"]},
+    {"page": 2, "purpose": "30-second key-area comparison", "must_show": ["Zhongzhiyuan close range", "AI Origin close range", "Dazhongsi close range", "Ground Interface Proof", "paired AI OFF / AI ON"]},
+    {"page": 3, "purpose": "learning + governance + long-term value", "must_show": ["PCI", "UAR discipline", "STOP/MODIFY/CONTINUE/SCALE", "City Version Release", "landmark memory", "20-year inheritance"]}
+  ],
+  "a3_pages": [
+    "cover + reviewer route",
+    "overall spatial structure",
+    "Zhongzhiyuan / Verification Campus",
+    "AI Origin / Learning Neighborhood",
+    "Dazhongsi / Market & Service Commons",
+    "AI OFF -> AI ON + PCI",
+    "city-learning loop + public-value decision",
+    "evidence boundary + implementation + long-term memory"
+  ],
+  "ai_off_contract": [
+    "ordinary walking",
+    "physical accessibility",
+    "fixed wayfinding",
+    "shade / weather protection",
+    "seating",
+    "staffed human help",
+    "ordinary transaction / navigation",
+    "emergency access",
+    "servicing and maintenance"
+  ],
+  "ai_on_contract": [
+    "Ambient low-risk support",
+    "Consent-gated personal / recognition functions",
+    "Bounded Test for higher-risk trials",
+    "Human Stop / Human Override retained",
+    "ordinary bypass retained"
+  ],
+  "truth_boundary": [
+    "KEY_AREA remains provisional",
+    "close-range renderings are conceptual / synthetic",
+    "ground-interface placements remain Derived / Not yet canonicalized",
+    "section widths are diagrammatic proportions only",
+    "no statutory FAR, height, ownership, road-redline, legal green-boundary or approved-engineering claim"
+  ],
+  "multimodal_contract": {
+    "cover": "assets/media/cover.webp",
+    "offline_threejs": "visual/reviewer-threejs.html",
+    "bundle": "visual/assets/reviewer-twin.bundle.js",
+    "static_fallback": "visual/assets/reviewer-fallback.png",
+    "network": "none",
+    "keyboard": ["1", "2", "3", "O", "I", "R"],
+    "reduced_motion": true,
+    "autoplay": false
+  }
+}
