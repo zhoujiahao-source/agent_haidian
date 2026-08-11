@@ -31,7 +31,7 @@ jobs:
           cd workstreams/reviewer_narrative_multimodal_v6/threejs
           npm init -y >/dev/null 2>&1
           npm install --silent three@0.184.0 esbuild
-      - name: Run exact-head v6 final validation
+      - name: Run exact-head v6 final validation against manifest 0.2
         env:
           GH_TOKEN: ${{ github.token }}
-        run: bash workstreams/reviewer_narrative_multimodal_v6/run_v6_final.sh
+        run: bash workstreams/reviewer_narrative_multimodal_v6/run_v6_final_r2.sh
