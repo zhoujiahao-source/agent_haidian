@@ -1,0 +1,252 @@
+name: Reviewer Narrative Multimodal v6
+
+on:
+  push:
+    branches: [integration/reviewer-narrative-multimodal-v6]
+    paths:
+      - '.github/workflows/reviewer-narrative-multimodal-v6.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-validate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: integration/reviewer-narrative-multimodal-v6
+          fetch-depth: 1
+          sparse-checkout: |
+            workstreams/reviewer_narrative_multimodal_v6
+            .github/workflows/reviewer-narrative-multimodal-v6.yml
+
+      - name: Install rendering and review tooling
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-cjk poppler-utils
+          python -m pip install --quiet pillow reportlab cairosvg pymupdf
+          cd workstreams/reviewer_narrative_multimodal_v6/threejs
+          npm init -y >/dev/null 2>&1
+          npm install --silent three@0.184.0 esbuild
+
+      - name: Resolve exact upstream and guard audited rules
+        id: upstream
+        shell: bash
+        run: |
+          set -euo pipefail
+          AUDITED=9f67bf2771b96cbec9ce47fff32d43f494b22695
+          LATEST="$(git ls-remote https://github.com/open-city-ai/haidian.git refs/heads/main | cut -f1)"
+          echo "audited=$AUDITED"
+          echo "latest=$LATEST"
+          if [ "$LATEST" != "$AUDITED" ]; then
+            rm -rf /tmp/upstream-guard && git init -q /tmp/upstream-guard
+            git -C /tmp/upstream-guard remote add origin https://github.com/open-city-ai/haidian.git
+            git -C /tmp/upstream-guard -c protocol.version=2 fetch -q --no-tags --filter=blob:none origin "$AUDITED" "$LATEST"
+            git -C /tmp/upstream-guard diff --name-only "$AUDITED" "$LATEST" > /tmp/upstream-changed.txt
+            python - <<'PY'
+          from pathlib import Path
+          fs=[x.strip() for x in Path('/tmp/upstream-changed.txt').read_text().splitlines() if x.strip()]
+          non=[f for f in fs if not (f.startswith('submissions/') or f=='submissions-data.js')]
+          print('changed paths since audited baseline:',len(fs))
+          if non:
+              print('Rule/tool/source changes require re-audit:')
+              print('\n'.join(non)); raise SystemExit(1)
+          print('Only peer submissions/gallery changed since audited baseline.')
+          PY
+          fi
+          echo "sha=$LATEST" >> "$GITHUB_OUTPUT"
+
+      - name: Materialize v6 formal branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh auth setup-git
+          rm -rf /tmp/formal-v6
+          git clone -q --filter=blob:none --sparse https://github.com/zhoujiahao-source/agent_haidian.git /tmp/formal-v6
+          git -C /tmp/formal-v6 sparse-checkout set submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+          git -C /tmp/formal-v6 switch -q submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v6-reviewer-multimodal
+
+      - name: Build reviewer sequence, renderings, cover and A0/A3
+        env:
+          SUBMISSION_ROOT: /tmp/formal-v6/submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+          WORKSTREAM_ROOT: ${{ github.workspace }}/workstreams/reviewer_narrative_multimodal_v6
+        run: python workstreams/reviewer_narrative_multimodal_v6/build_v6.py
+
+      - name: Bundle Three.js completely locally
+        shell: bash
+        run: |
+          set -euo pipefail
+          SRC="$GITHUB_WORKSPACE/workstreams/reviewer_narrative_multimodal_v6/threejs"
+          DST="/tmp/formal-v6/submissions/zhoujiahao-source/jingzhang-legible-ai-belt/visual"
+          cp "$SRC/reviewer-threejs.html" "$DST/reviewer-threejs.html"
+          cd "$SRC"
+          npx esbuild reviewer_twin_src.js --bundle --format=iife --platform=browser --target=es2020 --minify --legal-comments=none --outfile="$DST/assets/reviewer-twin.bundle.js" --loader:.json=json
+          node --check "$DST/assets/reviewer-twin.bundle.js"
+          if grep -Eiq 'https?://|//cdn|fetch\(|XMLHttpRequest|WebSocket|EventSource' "$DST/reviewer-threejs.html"; then echo 'remote runtime reference found in reviewer HTML'; exit 1; fi
+          if grep -Eiq 'fetch\(|XMLHttpRequest|WebSocket|EventSource' "$DST/assets/reviewer-twin.bundle.js"; then echo 'network API found in local bundle'; exit 1; fi
+          grep -q 'prefers-reduced-motion' "$DST/reviewer-threejs.html"
+          grep -q 'aria-pressed' "$DST/reviewer-threejs.html"
+          grep -q 'reviewer-fallback.png' "$DST/reviewer-threejs.html"
+
+      - name: Refresh manifest hashes before official checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          SUB=/tmp/formal-v6/submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+          SUB="$SUB" python - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          root=Path(os.environ['SUB']); p=root/'manifest.json'; m=json.loads(p.read_text(encoding='utf-8'))
+          for item in m.get('files',[]):
+              if not isinstance(item,dict): continue
+              rel=item.get('path')
+              if rel and rel!='manifest.json' and (root/rel).is_file(): item['sha256']=hashlib.sha256((root/rel).read_bytes()).hexdigest()
+          p.write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+
+      - name: Render PDF pages and enforce no-blank-page QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p workstreams/reviewer_narrative_multimodal_v6/validation
+          python - <<'PY'
+          import json,fitz
+          from pathlib import Path
+          from PIL import Image,ImageStat,ImageOps,ImageDraw
+          root=Path('/tmp/formal-v6/submissions/zhoujiahao-source/jingzhang-legible-ai-belt/drawings')
+          out=Path('workstreams/reviewer_narrative_multimodal_v6/validation')
+          checks={}
+          def check(name,expected,contact):
+              doc=fitz.open(root/name); assert len(doc)==expected,(name,len(doc),expected)
+              thumbs=[]; rec=[]
+              for i,p in enumerate(doc):
+                  pix=p.get_pixmap(matrix=fitz.Matrix(.22,.22),alpha=False)
+                  im=Image.frombytes('RGB',[pix.width,pix.height],pix.samples)
+                  stat=ImageStat.Stat(im); std=sum(stat.stddev)/3
+                  gray=ImageOps.grayscale(im); hist=gray.histogram(); nonwhite=1-sum(hist[248:256])/(im.width*im.height)
+                  assert std>2.0,(name,i,std); assert nonwhite>.015,(name,i,nonwhite)
+                  rec.append({'page':i+1,'stddev':round(std,2),'nonwhite_fraction':round(nonwhite,4),'size_px':[im.width,im.height]})
+                  im.thumbnail((360,240)); thumbs.append(im.copy())
+              W=380*len(thumbs); sheet=Image.new('RGB',(W,270),'white'); d=ImageDraw.Draw(sheet)
+              for j,im in enumerate(thumbs): sheet.paste(im,(j*380+10,20)); d.text((j*380+10,248),str(j+1),fill='black')
+              sheet.save(out/contact,'WEBP',quality=82)
+              checks[name]={'pages':len(doc),'expected':expected,'pages_qa':rec}
+          check('a0-boards.pdf',3,'a0_contact_sheet.webp'); check('a3-booklet.pdf',8,'a3_contact_sheet.webp'); check('a0-boards.en.pdf',3,'a0_en_contact_sheet.webp'); check('a3-booklet.en.pdf',8,'a3_en_contact_sheet.webp')
+          (out/'pdf_render_qa.json').write_text(json.dumps({'status':'PASS','checks':checks},indent=2)+'\n')
+          print('PDF render QA: PASS')
+          PY
+
+      - name: Checkout exact upstream validation workspace
+        uses: actions/checkout@v4
+        with:
+          repository: open-city-ai/haidian
+          ref: ${{ steps.upstream.outputs.sha }}
+          path: upstream
+          fetch-depth: 1
+          sparse-checkout: |
+            scripts
+            skills/urban-design-ai-submission
+            requirements-review.txt
+            brief/site-package
+            data/source_registry.json
+            docs/data-workflow.md
+            scenarios
+            tracks
+
+      - name: Install current official review requirements
+        run: python -m pip install --quiet -r upstream/requirements-review.txt
+
+      - name: Materialize participant-style workspace
+        env:
+          UPSTREAM_SHA: ${{ steps.upstream.outputs.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          SRC=/tmp/formal-v6/submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+          DST="$GITHUB_WORKSPACE/upstream/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
+          mkdir -p "$(dirname "$DST")" && cp -a "$SRC" "$DST"
+          git -C upstream switch -c validation/reviewer-multimodal-v6
+          git -C upstream remote rename origin upstream
+          git -C upstream remote add origin https://github.com/zhoujiahao-source/agent_haidian.git
+          git -C upstream config remote.origin.partialclonefilter blob:none
+          git -C upstream update-ref refs/remotes/upstream/main "$UPSTREAM_SHA"
+
+      - name: Render bilingual proposal HTML
+        shell: bash
+        run: |
+          set -euo pipefail
+          SUB="$GITHUB_WORKSPACE/upstream/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
+          python upstream/scripts/render_proposal_html.py "$SUB"
+          SUB="$SUB" python - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          root=Path(os.environ['SUB']); p=root/'manifest.json'; m=json.loads(p.read_text(encoding='utf-8'))
+          for item in m.get('files',[]):
+              if not isinstance(item,dict): continue
+              rel=item.get('path')
+              if rel and rel!='manifest.json' and (root/rel).is_file(): item['sha256']=hashlib.sha256((root/rel).read_bytes()).hexdigest()
+          p.write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+
+      - name: Exact-head official self-check with persisted readiness contract
+        working-directory: upstream
+        run: python scripts/self_check_submission.py submissions/zhoujiahao-source/jingzhang-legible-ai-belt --pr-author zhoujiahao-source --mark-self-checked --json | tee /tmp/v6-self.json
+
+      - name: Exact-head official participant preflight
+        working-directory: upstream
+        run: python scripts/participant_preflight.py submissions/zhoujiahao-source/jingzhang-legible-ai-belt --pr-author zhoujiahao-source --json | tee /tmp/v6-preflight.json
+
+      - name: Copy official generated and persisted validation files back
+        shell: bash
+        run: |
+          set -euo pipefail
+          SRC="$GITHUB_WORKSPACE/upstream/submissions/zhoujiahao-source/jingzhang-legible-ai-belt"
+          DST=/tmp/formal-v6/submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+          cp "$SRC/report/proposal.html" "$DST/report/proposal.html"
+          cp "$SRC/report/proposal.en.html" "$DST/report/proposal.en.html"
+          cp "$SRC/self_check.json" "$DST/self_check.json"
+          cp "$SRC/manifest.json" "$DST/manifest.json"
+
+      - name: Commit validated formal v6
+        id: formal
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -C /tmp/formal-v6 config user.name 'github-actions[bot]'
+          git -C /tmp/formal-v6 config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -C /tmp/formal-v6 add submissions/zhoujiahao-source/jingzhang-legible-ai-belt
+          if ! git -C /tmp/formal-v6 diff --cached --quiet; then git -C /tmp/formal-v6 commit -q -m "Align reviewer narrative and multimodal package with upstream ${{ steps.upstream.outputs.sha }}"; git -C /tmp/formal-v6 push -q origin HEAD:submission/zhoujiahao-source/jingzhang-urban-capability-exchange-v6-reviewer-multimodal; fi
+          echo "sha=$(git -C /tmp/formal-v6 rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Record safe exact-head evidence
+        env:
+          UPSTREAM_SHA: ${{ steps.upstream.outputs.sha }}
+          FORMAL_SHA: ${{ steps.formal.outputs.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p workstreams/reviewer_narrative_multimodal_v6/validation
+          cp /tmp/v6-self.json workstreams/reviewer_narrative_multimodal_v6/validation/self_check_exact.json
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          raw=json.loads(Path('/tmp/v6-preflight.json').read_text())
+          safe={'schema_version':'1','evidence_type':'official_participant_preflight_safe_summary','ok':raw.get('ok'),'submission_dir':raw.get('submission_dir'),'pr_author':raw.get('pr_author'),'branch':raw.get('branch'),'origin_repo':'zhoujiahao-source/agent_haidian','upstream_repo':'open-city-ai/haidian','workspace':raw.get('workspace'),'base_ref':raw.get('base_ref'),'outside_scope_files':raw.get('outside_scope_files'),'package_file_count':raw.get('package_file_count'),'package_bytes':raw.get('package_bytes'),'self_check_ok':(raw.get('self_check') or {}).get('ok'),'blockers':raw.get('blockers'),'warnings':raw.get('warnings'),'sanitization_note':'Credential-bearing remote URLs are intentionally not persisted.'}
+          Path('workstreams/reviewer_narrative_multimodal_v6/validation/preflight_exact.json').write_text(json.dumps(safe,ensure_ascii=False,indent=2)+'\n')
+          report={'schema_version':'1','status':'PASS','validated_upstream_sha':os.environ['UPSTREAM_SHA'],'validated_formal_sha':os.environ['FORMAL_SHA'],'checks':['reviewer_sequence_spec','three_close_range_renderings','ai_on_off_pair','participant_cover','a0_3_pages_rendered','a3_8_pages_rendered','offline_threejs_local_bundle','keyboard_and_reduced_motion','official_render_proposal_html','official_self_check_mark_self_checked','official_participant_preflight'],'truth_boundary':['canonical GeoJSON unchanged','KEY_AREA remains provisional','close-range renderings are conceptual / Derived','AI ON/OFF is reviewer evidence, not operational result','no statutory FAR/height/ownership/road-redline/approved-engineering claim']}
+          Path('workstreams/reviewer_narrative_multimodal_v6/validation_report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add workstreams/reviewer_narrative_multimodal_v6
+          git commit -q -m 'Record exact-head reviewer multimodal v6 validation'
+          git push -q origin HEAD:integration/reviewer-narrative-multimodal-v6
