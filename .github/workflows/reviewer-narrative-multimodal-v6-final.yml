@@ -1,0 +1,37 @@
+name: Reviewer Narrative Multimodal v6 Final
+
+on:
+  push:
+    branches: [integration/reviewer-narrative-multimodal-v6]
+    paths:
+      - '.github/workflows/reviewer-narrative-multimodal-v6-final.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: integration/reviewer-narrative-multimodal-v6
+          fetch-depth: 1
+          sparse-checkout: |
+            workstreams/reviewer_narrative_multimodal_v6
+            .github/workflows/reviewer-narrative-multimodal-v6-final.yml
+      - name: Install local rendering toolchain
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-cjk poppler-utils
+          python -m pip install --quiet pillow reportlab cairosvg pymupdf
+          cd workstreams/reviewer_narrative_multimodal_v6/threejs
+          npm init -y >/dev/null 2>&1
+          npm install --silent three@0.184.0 esbuild
+      - name: Run exact-head v6 final validation
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash workstreams/reviewer_narrative_multimodal_v6/run_v6_final.sh
