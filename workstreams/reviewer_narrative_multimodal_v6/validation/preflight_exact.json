@@ -1,0 +1,23 @@
+{
+  "schema_version": "1",
+  "evidence_type": "official_participant_preflight_safe_summary",
+  "ok": true,
+  "submission_dir": "submissions/zhoujiahao-source/jingzhang-legible-ai-belt",
+  "pr_author": "zhoujiahao-source",
+  "branch": "validation/reviewer-multimodal-v6",
+  "origin_repo": "zhoujiahao-source/agent_haidian",
+  "upstream_repo": "open-city-ai/haidian",
+  "workspace": {
+    "partial_clone_filter": "blob:none",
+    "sparse_checkout": true,
+    "shallow_repository": false
+  },
+  "base_ref": "upstream/main",
+  "outside_scope_files": [],
+  "package_file_count": 68,
+  "package_bytes": 7804766,
+  "self_check_ok": true,
+  "blockers": [],
+  "warnings": [],
+  "sanitization_note": "Credential-bearing remote URLs are intentionally not persisted."
+}

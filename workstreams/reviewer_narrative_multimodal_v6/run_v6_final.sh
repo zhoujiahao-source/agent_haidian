@@ -63,6 +63,8 @@ assert 'assets/reviewer-fallback.png' in t
 print('offline Three.js contract: PASS')
 PY
 
+python workstreams/reviewer_narrative_multimodal_v6/integrate_threejs_into_visual.py "/tmp/formal-v6-final/$PKG"
+
 printf '\n== refresh manifest hashes ==\n'
 SUB="/tmp/formal-v6-final/$PKG" SUB="$SUB" python - <<'PY'
 import os,json,hashlib
@@ -108,8 +110,20 @@ PY
 
 printf '\n== exact official workspace ==\n'
 rm -rf /tmp/upstream-v6-final
-git clone -q --filter=blob:none --sparse https://github.com/open-city-ai/haidian.git /tmp/upstream-v6-final
-git -C /tmp/upstream-v6-final sparse-checkout set scripts skills/urban-design-ai-submission requirements-review.txt brief/site-package data/source_registry.json docs/data-workflow.md scenarios tracks
+git clone -q --filter=blob:none --no-checkout https://github.com/open-city-ai/haidian.git /tmp/upstream-v6-final
+git -C /tmp/upstream-v6-final sparse-checkout init --no-cone
+cat > /tmp/v6-sparse-patterns.txt <<'EOF'
+/scripts/
+/skills/urban-design-ai-submission/
+/requirements-review.txt
+/brief/site-package/
+/data/source_registry.json
+/docs/data-workflow.md
+/scenarios/
+/tracks/
+/tracks.json
+EOF
+git -C /tmp/upstream-v6-final sparse-checkout set --no-cone --stdin < /tmp/v6-sparse-patterns.txt
 git -C /tmp/upstream-v6-final checkout -q "$LATEST"
 cp -a "/tmp/formal-v6-final/$PKG" "/tmp/upstream-v6-final/$PKG"
 git -C /tmp/upstream-v6-final switch -c validation/reviewer-multimodal-v6 >/dev/null

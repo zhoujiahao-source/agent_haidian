@@ -1,0 +1,227 @@
+{
+  "status": "PASS",
+  "checks": {
+    "a0-boards.pdf": {
+      "pages": 3,
+      "expected": 3,
+      "pages_qa": [
+        {
+          "page": 1,
+          "stddev": 21.65,
+          "nonwhite_fraction": 0.4746,
+          "size_px": [
+            742,
+            525
+          ]
+        },
+        {
+          "page": 2,
+          "stddev": 43.76,
+          "nonwhite_fraction": 0.44,
+          "size_px": [
+            742,
+            525
+          ]
+        },
+        {
+          "page": 3,
+          "stddev": 20.68,
+          "nonwhite_fraction": 0.4058,
+          "size_px": [
+            742,
+            525
+          ]
+        }
+      ]
+    },
+    "a0-boards.en.pdf": {
+      "pages": 3,
+      "expected": 3,
+      "pages_qa": [
+        {
+          "page": 1,
+          "stddev": 21.62,
+          "nonwhite_fraction": 0.4493,
+          "size_px": [
+            742,
+            525
+          ]
+        },
+        {
+          "page": 2,
+          "stddev": 44.16,
+          "nonwhite_fraction": 0.4465,
+          "size_px": [
+            742,
+            525
+          ]
+        },
+        {
+          "page": 3,
+          "stddev": 20.97,
+          "nonwhite_fraction": 0.406,
+          "size_px": [
+            742,
+            525
+          ]
+        }
+      ]
+    },
+    "a3-booklet.pdf": {
+      "pages": 8,
+      "expected": 8,
+      "pages_qa": [
+        {
+          "page": 1,
+          "stddev": 48.14,
+          "nonwhite_fraction": 0.5508,
+          "size_px": [
+            262,
+            186
+          ]
+        },
+        {
+          "page": 2,
+          "stddev": 22.09,
+          "nonwhite_fraction": 0.3783,
+          "size_px": [
+            262,
+            186
+          ]
+        },
+        {
+          "page": 3,
+          "stddev": 46.46,
+          "nonwhite_fraction": 0.354,
+          "size_px": [
+            262,
+            186
+          ]
+        },
+        {
+          "page": 4,
+          "stddev": 45.01,
+          "nonwhite_fraction": 0.3631,
+          "size_px": [
+            262,
+            186
+          ]
+        },
+        {
+          "page": 5,
+          "stddev": 45.4,
+          "nonwhite_fraction": 0.3804,
+          "size_px": [
+            262,
+            186
+          ]
+        },
+        {
+          "page": 6,
+          "stddev": 29.44,
+          "nonwhite_fraction": 0.2929,
+          "size_px": [
+            262,
+            186
+          ]
+        },
+        {
+          "page": 7,
+          "stddev": 21.2,
+          "nonwhite_fraction": 0.2855,
+          "size_px": [
+            262,
+            186
+          ]
+        },
+        {
+          "page": 8,
+          "stddev": 20.6,
+          "nonwhite_fraction": 0.3031,
+          "size_px": [
+            262,
+            186
+          ]
+        }
+      ]
+    },
+    "a3-booklet.en.pdf": {
+      "pages": 8,
+      "expected": 8,
+      "pages_qa": [
+        {
+          "page": 1,
+          "stddev": 48.19,
+          "nonwhite_fraction": 0.5507,
+          "size_px": [
+            262,
+            186
+          ]
+        },
+        {
+          "page": 2,
+          "stddev": 22.08,
+          "nonwhite_fraction": 0.3783,
+          "size_px": [
+            262,
+            186
+          ]
+        },
+        {
+          "page": 3,
+          "stddev": 46.66,
+          "nonwhite_fraction": 0.3592,
+          "size_px": [
+            262,
+            186
+          ]
+        },
+        {
+          "page": 4,
+          "stddev": 45.24,
+          "nonwhite_fraction": 0.3694,
+          "size_px": [
+            262,
+            186
+          ]
+        },
+        {
+          "page": 5,
+          "stddev": 45.58,
+          "nonwhite_fraction": 0.377,
+          "size_px": [
+            262,
+            186
+          ]
+        },
+        {
+          "page": 6,
+          "stddev": 29.42,
+          "nonwhite_fraction": 0.296,
+          "size_px": [
+            262,
+            186
+          ]
+        },
+        {
+          "page": 7,
+          "stddev": 21.47,
+          "nonwhite_fraction": 0.2881,
+          "size_px": [
+            262,
+            186
+          ]
+        },
+        {
+          "page": 8,
+          "stddev": 20.9,
+          "nonwhite_fraction": 0.3023,
+          "size_px": [
+            262,
+            186
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "status": "Derived / Not yet canonicalized",
+  "areas": [
+    {
+      "id": "zhong",
+      "zh": "众智园",
+      "en": "Verification Campus",
+      "accent": "blue"
+    },
+    {
+      "id": "origin",
+      "zh": "AI 原点社区",
+      "en": "Learning Neighborhood",
+      "accent": "gold"
+    },
+    {
+      "id": "dazhongsi",
+      "zh": "大钟寺",
+      "en": "Market & Service Commons",
+      "accent": "red"
+    }
+  ]
+}

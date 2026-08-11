@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "status": "PASS",
+  "validated_upstream_sha": "c101ab26d5fa7b31d9ceb83f969d6813dd560f9d",
+  "validated_formal_sha": "cc777729d9ee38af346903852c0da79bc68010c3",
+  "checks": [
+    "strict_manifest_0_2_schema",
+    "reviewer_sequence_spec",
+    "three_close_range_renderings",
+    "ai_on_off_pair",
+    "participant_cover",
+    "a0_3_pages_rendered",
+    "a3_8_pages_rendered",
+    "offline_threejs_local_bundle",
+    "csp_connect_src_none",
+    "keyboard_and_reduced_motion",
+    "official_render_proposal_html",
+    "official_self_check_mark_self_checked",
+    "official_participant_preflight"
+  ],
+  "truth_boundary": [
+    "canonical GeoJSON unchanged",
+    "KEY_AREA remains provisional",
+    "close-range renderings are conceptual / Derived",
+    "AI ON/OFF is reviewer evidence, not operational result",
+    "no statutory FAR/height/ownership/road-redline/approved-engineering claim"
+  ]
+}
