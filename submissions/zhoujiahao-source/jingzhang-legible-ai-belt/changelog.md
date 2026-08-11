@@ -40,3 +40,10 @@ No new government approval, statutory control, ownership, procurement commitment
 - Added ordinary + accessible route, blue-green comfort, human-help baseline, operations separation and AI-off review floor.
 - Added bilingual `ground-interface-proof.svg`; all detailed placements remain Derived / Not yet canonicalized.
 - No canonical GeoJSON geometry, statutory FAR/height, ownership, road-redline or approved-engineering claim was added.
+
+
+## v2.4.0 reviewer narrative + multimodal
+
+- Re-sequenced A0/A3 around structure → key areas → ground interface → AI OFF/ON → learning/governance → evidence/implementation.
+- Added three conceptual close-range key-area renderings, paired AI OFF/AI ON evidence, participant-authored cover, and local offline Three.js reviewer.
+- Preserved canonical GeoJSON and all statutory/ownership/engineering Unknowns.

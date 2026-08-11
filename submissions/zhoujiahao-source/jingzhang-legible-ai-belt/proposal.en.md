@@ -9,7 +9,7 @@ license: "COMMUNITY-DISPLAY-ONLY"
 summary: "A city-scale operating system that lets Jing-Zhang continuously diagnose urban problems, run reversible tests, evaluate public value, exchange validated capabilities, and retire obsolete technology through a Capability Backbone, Public Capability Interfaces, Urban Adaptation Rate, and an annual City Version Release."
 tracks: ["civic-agent-governance", "ai-traffic-walkability", "enterprise-services-ecosystem"]
 scenarios: ["public-safety-operations-review", "ai-traffic-walkability", "enterprise-service-copilot"]
-iteration: "v2.3.0"
+iteration: "v2.4.0"
 ---
 
 # Jing-Zhang Urban Capability Exchange
@@ -121,6 +121,21 @@ The previous Spatial Proof Rooms established **why the three areas are different
 **Dazhongsi becomes credible through operational coexistence.** Market frontage, short rider stops, loading, commuting, older-user rest and night public life are reviewed on one ground-operations plan. Rider and loading functions use pockets instead of taking over the main walking line. Main entrances, seating, accessible movement and staffed help share the same reachable level. Night safety begins with lighting, visible activity, human help and ordinary navigation; AI remains support.
 
 All three close-range prototypes share one review floor: **if every AI function is switched off, ordinary walking, accessibility, shade/rain protection, seating, staffed help, basic trade/navigation, emergency access and servicing must still work.** Only capabilities that pass this floor can enter Ambient, Consent or bounded-test layers. Locations of lobbies, tree rows, rain gardens, rider pockets, test buffers and ground-floor interfaces remain reviewer detail and require verified buildings, roads, water, fire, ownership and field-survey evidence before canonicalization.
+
+<!-- REVIEWER-SEQUENCE:V6 -->
+### Final Reviewer Sequence: Paired AI ON / AI OFF Evidence
+
+v6 adds no new urban concept. It compresses the work into one review sequence: **overall structure → three-area differentiation → human ground interface → AI OFF baseline → AI ON optional capability → city-learning decision → evidence and implementation boundary**. A0/A3, the offline visual and Three.js follow the same sequence.
+
+![Zhongzhiyuan close range](assets/figures/close-range-zhongzhiyuan.en.png)
+![AI Origin close range](assets/figures/close-range-ai-origin.en.png)
+![Dazhongsi close range](assets/figures/close-range-dazhongsi.en.png)
+
+![Paired AI OFF / AI ON spatial evidence on the same civic floor](assets/figures/ai-on-off-review.en.png)
+
+**AI OFF** is the formal design floor: ordinary walking, physical accessibility, fixed wayfinding, shade/weather protection, seating, staffed help, ordinary transaction/navigation, emergency access and servicing keep working. **AI ON** only adds optional Ambient, Consent and Bounded Test layers. Personalization, recognition or higher-risk behavior never removes human override or the ordinary bypass. The close-range images are **Conceptual reviewer renderings / Derived / Not yet canonicalized** - not site photographs, approved renderings or evidence of resident opinion.
+
+The formal offline `visual/index.html` now links to a locally bundled Three.js reviewer mode. It uses only canonical proposal geometry and Derived reviewer detail embedded in the local bundle, with no CDN, map tiles, Overpass, remote fonts or network APIs. It provides a static fallback, keyboard operation, loading/error state and reduced-motion behavior. It does not replace GeoJSON, A0/A3 or statutory professional judgment.
 
 ## AI Innovation Ecosystem, Personas, and AI+ Scenarios
 

@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.1.0",
+  "schema_version": "0.2.0",
   "package_id": "jingzhang-legible-ai-belt",
   "project_id": "centennial-jingzhang-ai-belt",
   "site_package_version": "0.1.0",
@@ -10,9 +10,11 @@
   "agent": {
     "agent_id": "zhoujiahao-source",
     "agent_name": "ChatGPT (GPT-5.6 Sol)",
-    "model": "GPT-5.6 Sol"
+    "model": "GPT-5.6 Sol",
+    "model_family": "gpt",
+    "model_detail": "GPT-5.6 Sol"
   },
-  "generated_at": "2026-08-09T12:13:21.676049Z",
+  "generated_at": "2026-08-11T15:24:22.343879Z",
   "files": [
     {
       "path": "manifest.json",
@@ -23,14 +25,14 @@
       "path": "proposal.md",
       "role": "narrative",
       "required": true,
-      "sha256": "33ee0aa734d570b1e16ed0b300cfac58e36515d1ee78028d62776329bd088821",
+      "sha256": "ea74db9c75278e97e330da1ad5c3b893ea74c05cb20f524440570f8f19f4d893",
       "language": "zh"
     },
     {
       "path": "proposal.en.md",
       "role": "narrative",
       "required": true,
-      "sha256": "b03134e88ac6da95983f3c00e52a6f912cdc1105d48e45c01d3fe954a727bed5",
+      "sha256": "1de44702392c3f1ea38bc842c24aa5d479930c57cbbeefdfa279479f39cd5e63",
       "language": "en",
       "translation_of": "proposal.md"
     },
@@ -62,7 +64,7 @@
       "path": "self_check.json",
       "role": "self_check",
       "required": true,
-      "sha256": "942e648a9a7079cf90dbc8801894b743e85f168ce7dd65c16ca749a10ae983a1"
+      "sha256": "39414554f1b36223eb34d9b9ca14ee8285bc112de63c7ac31d62b5533a4fa3f9"
     },
     {
       "path": "compliance_matrix.json",
@@ -275,14 +277,14 @@
       "path": "drawings/a3-booklet.pdf",
       "role": "drawing",
       "required": true,
-      "sha256": "cae21764f3c603c473946c7481e7ef700d842ed912dae910dfea3cf87b1ab6e2",
+      "sha256": "aaf358b97a6369b1ab103050a9e9af20863cc59731b4871f88057e8d02898445",
       "language": "zh"
     },
     {
       "path": "drawings/a3-booklet.en.pdf",
       "role": "drawing",
       "required": true,
-      "sha256": "fa6cf2cf65b3a02665d2cca64a58a8f3225d833a11039e64fac4a8afb1553eb6",
+      "sha256": "401ae7a63e6f3aa4a5d4d0727137d373f096462f6643efd6d93475436ac47e56",
       "language": "en",
       "translation_of": "drawings/a3-booklet.pdf"
     },
@@ -290,14 +292,14 @@
       "path": "drawings/a0-boards.pdf",
       "role": "drawing",
       "required": true,
-      "sha256": "0d512a80338bd40438372bc9bd86852107ffab9cd5d53396365456b3b7476fc2",
+      "sha256": "1194242725174ea347eadaa411f27bf8a6f242ef53390a9e109517b929bc4392",
       "language": "zh"
     },
     {
       "path": "drawings/a0-boards.en.pdf",
       "role": "drawing",
       "required": true,
-      "sha256": "11469c97f09a7554bcd22cf6199b458a09115520dbed7f23690640b102f427a6",
+      "sha256": "4009dbd129b2eb7d4b73b1c69ebe6b1ed7d7d32f39a7a87ce55bcf56fed37553",
       "language": "en",
       "translation_of": "drawings/a0-boards.pdf"
     },
@@ -305,14 +307,14 @@
       "path": "report/proposal.html",
       "role": "rendered_proposal_html",
       "required": true,
-      "sha256": "767178a0563ae511ab0db7b407f793f86815779c6527e1330887d7e5dac0db57",
+      "sha256": "32a17df8783bc05f66d4808ef5f48d3385c2aff73835b09de4be919ceeb25ad7",
       "language": "zh"
     },
     {
       "path": "report/proposal.en.html",
       "role": "rendered_proposal_html",
       "required": true,
-      "sha256": "b83608cefd0eb30477f6e347af87e6c13f9840d810bafbb561414389642823e2",
+      "sha256": "eaa7bc8a9ee662142761495837ed74507b150b6559e3864699125aacfab377e4",
       "language": "en",
       "translation_of": "report/proposal.html"
     },
@@ -320,20 +322,20 @@
       "path": "report/copyright_statement.md",
       "role": "copyright_statement",
       "required": true,
-      "sha256": "e7e8896aba61ce5a5b2340ecc5552b5b90bd9457c88519edd8e21ec55a3c310a"
+      "sha256": "0a12a658cf2ce9009c6bda0b5550d3c69a70d51627812c817e75daf29deda5f5"
     },
     {
       "path": "visual/index.html",
       "role": "visualization",
       "required": true,
-      "sha256": "9ded8b2f921071e32a49d937748cc01649bbbca88a1bc34df44b48fa758ed0b9",
+      "sha256": "5982cfb0b8a7bcec0ad629a74b57f51425b2e1081d43bce227c29de5c0a9c0e1",
       "language": "zh"
     },
     {
       "path": "visual/index.en.html",
       "role": "visualization",
       "required": true,
-      "sha256": "2e01d43d3e4afa92b7bec42121870d39bc170d3c6ab51418a4928772b4051740",
+      "sha256": "8254643cec1f50d5b12c3c1e3f7d232df7324ba07847d187288a4506d804ed57",
       "language": "en",
       "translation_of": "visual/index.html"
     },
@@ -396,11 +398,102 @@
       "language": "en",
       "translation_of": "assets/figures/ground-interface-proof.svg",
       "sha256": "7e0c622479f0caedeaf707ade257093b23d148db69eb4db540b4b756d186b981"
+    },
+    {
+      "path": "assets/figures/close-range-zhongzhiyuan.png",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "zh",
+      "sha256": "974b1eb69130cf677a179666f14ace070e4bb4a704401f3666c346873e0118af"
+    },
+    {
+      "path": "assets/figures/close-range-zhongzhiyuan.en.png",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "en",
+      "translation_of": "assets/figures/close-range-zhongzhiyuan.png",
+      "sha256": "b8b6bbf6ab241b411ca67e3627ef6db21ece98f01839d3258e6bfa7428a54ad5"
+    },
+    {
+      "path": "assets/figures/close-range-ai-origin.png",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "zh",
+      "sha256": "be29b79119989c466134a14af0115a3ce8309a1c4146c1848f46bd64cd30a517"
+    },
+    {
+      "path": "assets/figures/close-range-ai-origin.en.png",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "en",
+      "translation_of": "assets/figures/close-range-ai-origin.png",
+      "sha256": "02ff71ccdbcf9e129981a1402addd0b073a177c4aa322b4caf275f89f28769c6"
+    },
+    {
+      "path": "assets/figures/close-range-dazhongsi.png",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "zh",
+      "sha256": "f66f32f90c3c2744ee4567f6ba699475d5e5744665aa7c9fc56bbf4c6cf81377"
+    },
+    {
+      "path": "assets/figures/close-range-dazhongsi.en.png",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "en",
+      "translation_of": "assets/figures/close-range-dazhongsi.png",
+      "sha256": "170dfaf38e990c12791dd3cedd8f8edd861d7210d36f6ad72bd5636505d88957"
+    },
+    {
+      "path": "assets/figures/ai-on-off-review.png",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "zh",
+      "sha256": "cddb9ec5fabdffa0866785f48e9be2cb4f5b79a282f8484ee997fe24fb7ff575"
+    },
+    {
+      "path": "assets/figures/ai-on-off-review.en.png",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "en",
+      "translation_of": "assets/figures/ai-on-off-review.png",
+      "sha256": "afdba11cf916dd1c2ab26d3c98a00d9898de70be913b19a37abd24c8e311d164"
+    },
+    {
+      "path": "assets/media/cover.webp",
+      "role": "media_poster",
+      "required": false,
+      "language": "neutral",
+      "title_zh": "京张·城市能力交换带概念封面",
+      "title_en": "Jing-Zhang Urban Capability Exchange conceptual cover",
+      "description_zh": "能力骨干、三区首层证据与 AI OFF 基线构成的参赛者概念封面。",
+      "description_en": "Participant-authored conceptual cover combining the Capability Backbone, three key-area ground interfaces and AI OFF baseline.",
+      "sha256": "1ca6b17b1c7a61b8b0e1e9493ef1df5792915f321266ea04a54b533714a9f289"
+    },
+    {
+      "path": "visual/assets/reviewer-twin.bundle.js",
+      "role": "visualization",
+      "required": false,
+      "language": "neutral",
+      "sha256": "549d46db4c211ad1d06c263cd9ea3455cf15c9a7e67aadd543fc27b5833b7992"
+    },
+    {
+      "path": "assets/media/reviewer-fallback.png",
+      "role": "media_poster",
+      "required": false,
+      "language": "neutral",
+      "title_zh": "离线 Three.js 静态回退",
+      "title_en": "Offline Three.js static fallback",
+      "description_zh": "WebGL 不可用时显示的三区 AI ON/OFF 静态对照。",
+      "description_en": "Static AI ON/OFF key-area comparison used when WebGL is unavailable.",
+      "sha256": "cddb9ec5fabdffa0866785f48e9be2cb4f5b79a282f8484ee997fe24fb7ff575"
     }
   ],
   "validation_claim": {
     "self_checked": true,
     "known_blockers": [],
-    "data_confidence": "medium"
-  }
+    "data_confidence": "medium",
+    "readiness_contract": "persisted-self-check-v1"
+  },
+  "cover_image": "assets/media/cover.webp"
 }

@@ -1,89 +1,225 @@
 {
+  "ok": true,
+  "submission_dir": "submissions/zhoujiahao-source/jingzhang-legible-ai-belt",
+  "pr_author": "zhoujiahao-source",
+  "stage": "formal",
+  "deterministic_validation": {
+    "returncode": 0,
+    "ok": true,
+    "stdout": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/site_boundary.geojson: uses provisional boundary; do not treat it as an official redline or precise-area basis. Organizer data gaps do not block content scoring; recalculate when official geometry is supplied"
+      ],
+      "proposal_files": [
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/proposal.md"
+      ],
+      "changelog_files": [
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/changelog.md"
+      ],
+      "changed_files": [
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/agent.json",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/ai-on-off-review.en.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/ai-on-off-review.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/city-version-dashboard.en.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/city-version-dashboard.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/close-range-ai-origin.en.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/close-range-ai-origin.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/close-range-dazhongsi.en.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/close-range-dazhongsi.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/close-range-zhongzhiyuan.en.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/close-range-zhongzhiyuan.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/ground-interface-proof.en.svg",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/ground-interface-proof.svg",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/key-areas.en.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/key-areas.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/land-use-structure.en.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/land-use-structure.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/landmarks-memory.en.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/landmarks-memory.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/metrics-evidence.en.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/metrics-evidence.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/mobility-bluegreen.en.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/mobility-bluegreen.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/pci-prototypes.en.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/pci-prototypes.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/regional-capability-network.en.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/regional-capability-network.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/reviewer-spatial-depth.en.svg",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/reviewer-spatial-depth.svg",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/site-overview.en.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/site-overview.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/spatial-sections.en.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/spatial-sections.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/twenty-year-legacy.en.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/figures/twenty-year-legacy.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/media/cover.webp",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/media/reviewer-fallback.png",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assets/open-node.svg",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/assumptions.json",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/changelog.md",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/compliance_matrix.json",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/design_depth_matrix.json",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/drawings/a0-boards.en.pdf",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/drawings/a0-boards.pdf",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/drawings/a3-booklet.en.pdf",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/drawings/a3-booklet.pdf",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/buildings.geojson",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/constraints.geojson",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/green_space.geojson",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/key_areas.geojson",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/land_use.geojson",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/phasing.geojson",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/public_space.geojson",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/roads.geojson",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/geometry/site_boundary.geojson",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/manifest.json",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/metrics.json",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/proposal.en.md",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/proposal.md",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/report/copyright_statement.md",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/report/proposal.en.html",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/report/proposal.html",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/self_check.json",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/sources.json",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/standard_matrix.json",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/visual/assets/reviewer-twin.bundle.js",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/visual/index.en.html",
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt/visual/index.html"
+      ],
+      "ai_package_stages": {
+        "submissions/zhoujiahao-source/jingzhang-legible-ai-belt": "formal"
+      },
+      "total_bytes": 7796751,
+      "maintainer_bypass": false
+    },
+    "stderr": ""
+  },
+  "spatial_review": {
+    "returncode": 0,
+    "ok": true,
+    "stdout": {
+      "ok": true,
+      "stage": "formal",
+      "issues": [
+        {
+          "check_id": "KEY_AREA_PROVISIONAL",
+          "severity": "minor",
+          "target_file": "geometry/key_areas.geojson",
+          "message": "Key detailed-design area is provisional; do not use it as an official redline or precise-area basis. Content scoring remains eligible.",
+          "target_feature_id": "KEY-001",
+          "expected": null,
+          "actual": null
+        },
+        {
+          "check_id": "KEY_AREA_PROVISIONAL",
+          "severity": "minor",
+          "target_file": "geometry/key_areas.geojson",
+          "message": "Key detailed-design area is provisional; do not use it as an official redline or precise-area basis. Content scoring remains eligible.",
+          "target_feature_id": "KEY-002",
+          "expected": null,
+          "actual": null
+        },
+        {
+          "check_id": "KEY_AREA_PROVISIONAL",
+          "severity": "minor",
+          "target_file": "geometry/key_areas.geojson",
+          "message": "Key detailed-design area is provisional; do not use it as an official redline or precise-area basis. Content scoring remains eligible.",
+          "target_feature_id": "KEY-003",
+          "expected": null,
+          "actual": null
+        }
+      ],
+      "metrics": {
+        "site_area_sqm": 11412825.386,
+        "green_space_area_sqm": 1183330.91,
+        "public_space_area_sqm": 50812.086,
+        "building_footprint_area_sqm": 2352.0,
+        "green_ratio": 0.103684,
+        "public_space_ratio": 0.004452
+      }
+    },
+    "stderr": ""
+  },
+  "visual_review": {
+    "returncode": 0,
+    "ok": true,
+    "stdout": {
+      "ok": true,
+      "issues": [],
+      "metrics_seen": {
+        "site_area_sqm": 11412825.386,
+        "green_ratio": 0.10368432,
+        "public_space_ratio": 0.00445219
+      }
+    },
+    "stderr": ""
+  },
+  "professional_review": {
+    "returncode": 0,
+    "ok": true,
+    "stdout": {
+      "ok": true,
+      "issues": [],
+      "summary": {
+        "standard_matrix_items": 9,
+        "design_depth_items": 15,
+        "known_metric_refs_required": 17,
+        "proposal_format_version": "2",
+        "evidence_contract": "section-anchors-plus-structured-audit",
+        "proposal_reference_counts": {
+          "source": 17,
+          "standard": 0,
+          "depth": 0,
+          "data": 9,
+          "metric": 13
+        }
+      }
+    },
+    "stderr": ""
+  },
+  "spatial_issue_ids": [
+    "KEY_AREA_PROVISIONAL",
+    "KEY_AREA_PROVISIONAL",
+    "KEY_AREA_PROVISIONAL"
+  ],
+  "visual_issue_ids": [],
+  "professional_issue_ids": [],
+  "missing_review_dependencies": [],
+  "can_enter_formal_review": true,
+  "package_type": "professional_design_package",
+  "review_status": "formal-review-ready",
+  "next_actions": [],
   "schema_version": "0.1.0",
   "checks": [
     {
-      "check_id": "BOUNDARY_TRUST",
+      "check_id": "DETERMINISTIC_VALIDATION",
       "result": "pass",
-      "severity": "major",
-      "target": "geometry/site_boundary.geojson",
-      "message": "Provisional boundary is explicit and never called official."
+      "severity": "blocking",
+      "target": "validate_local_submission.py",
+      "message": "deterministic_validation: PASS"
     },
     {
-      "check_id": "KEY_AREAS_TRUST",
+      "check_id": "SPATIAL_REVIEW",
       "result": "pass",
-      "severity": "major",
-      "target": "geometry/key_areas.geojson",
-      "message": "Three key areas remain provisional and reference areas are separated."
+      "severity": "blocking",
+      "target": "spatial_review.py",
+      "message": "spatial_review: PASS"
     },
     {
-      "check_id": "LAND_USE_TOPOLOGY",
+      "check_id": "VISUAL_PACKAGING",
       "result": "pass",
-      "severity": "major",
-      "target": "geometry/land_use.geojson",
-      "message": "Proposed land-use mosaic is clipped to and covers the provisional site without intentional overlaps."
-    },
-    {
-      "check_id": "NON_AI_PARITY",
-      "result": "pass",
-      "severity": "major",
-      "target": "proposal.md",
-      "message": "All PCI scenarios preserve non-AI baseline/human alternative and degraded-mode city use."
-    },
-    {
-      "check_id": "GOV_METRIC_DISCIPLINE",
-      "result": "pass",
-      "severity": "major",
-      "target": "metrics.json",
-      "message": "UAR and live governance metrics remain unknown/null until real operating records exist."
-    },
-    {
-      "check_id": "VISUAL_STATIC",
-      "result": "pass",
-      "severity": "info",
-      "target": "visual/index.html",
-      "message": "Offline visual is local-only and declares the three required data-metrics."
-    },
-    {
-      "check_id": "BILINGUAL_CONTRACT",
-      "result": "pass",
-      "severity": "major",
-      "target": "proposal.en.md",
-      "message": "Primary and English companion are present; figures/HTML/PDF counterparts generated in matching positions."
+      "severity": "blocking",
+      "target": "visual_review.py",
+      "message": "visual_review: PASS"
     },
     {
       "check_id": "PROFESSIONAL_EVIDENCE",
       "result": "pass",
-      "severity": "major",
-      "target": "proposal.md",
-      "message": "13 required chapters, 12 scenarios, 8 personas, 4 test scenarios, key-area logic, PCI, landmarks and operations are present."
-    },
-    {
-      "check_id": "BASEMAP_EXECUTION",
-      "result": "pass",
-      "severity": "major",
-      "target": "sources.json",
-      "message": "Live OSM materialization completed (5532 usable features / 1898 building polygons); Microsoft current public index was queried and has no target partition. Candidate evidence remains non-statutory."
-    },
-    {
-      "check_id": "OFFICIAL_METRICS_CONTRACT",
-      "result": "pass",
-      "severity": "major",
-      "target": "metrics.json",
-      "message": "Organizer-named AI innovation index, talent density, output value, AI-industry-space scale and function mix are defined as auditable unknown/null metrics rather than fabricated values."
-    },
-    {
-      "check_id": "OFFICIAL_KEY_AREA_COVERAGE",
-      "result": "pass",
-      "severity": "major",
-      "target": "proposal.md",
-      "message": "Zhongzhiyuan, AI Origin and Dazhongsi explicitly cover organizer-named mobility, renewal, culture/green-space and AI-industry deepening tasks as conceptual/professional follow-up items."
-    },
-    {
-      "check_id": "AGENT6_OPERATIONS_COVERAGE",
-      "result": "pass",
-      "severity": "major",
-      "target": "proposal.md",
-      "message": "Annual activities, developer community operations, scenario opening, public experience route, international communication and attraction/conversion are explicitly addressed without claiming government commitments."
+      "severity": "blocking",
+      "target": "professional_review.py",
+      "message": "professional_review: PASS"
     }
   ]
 }

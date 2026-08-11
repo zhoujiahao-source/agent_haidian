@@ -9,7 +9,7 @@ license: "COMMUNITY-DISPLAY-ONLY"
 summary: "把百年京张建设为一套让城市持续发现问题、可逆试验、评估公共价值、交换能力并主动退役失效技术的城市级操作系统；以 Capability Backbone 连接三区两翼，以 Public Capability Interface 服务日常公共生活，以 Urban Adaptation Rate 衡量真实改善，以年度 City Version Release 形成长期公共治理与城市记忆。"
 tracks: ["civic-agent-governance", "ai-traffic-walkability", "enterprise-services-ecosystem"]
 scenarios: ["public-safety-operations-review", "ai-traffic-walkability", "enterprise-service-copilot"]
-iteration: "v2.3.0"
+iteration: "v2.4.0"
 ---
 
 # 京张·城市能力交换带
@@ -121,6 +121,21 @@ Capability Backbone 沿百年京张的连续公共空间关系组织，但所有
 **大钟寺的真实感来自“运营共存”。** 市场首层、骑手短停、补货装卸、通勤穿行、老人停留和夜间公共生活被放在同一张地面运营图里。骑手和装卸使用口袋空间而不是侵占主步行线；主要入口、座席、无障碍线和人工问询位于同一可达层。夜间安全依靠照明、可见人流、人工帮助和普通导航先成立，AI 只是辅助。
 
 三处近景均采用同一条评审底线：**AI 全部关闭时，普通步行、无障碍、树荫/避雨、座席、人工帮助、基本交易/导航、应急和后勤仍然工作。** 只有通过这一底线的数字能力才进入 Ambient / Consent / bounded-test 层。所有门厅、树阵、雨水花园、骑手口袋、测试缓冲和首层界面位置目前均是 reviewer detail，后续必须结合真实建筑、道路、水务、消防、权属与现场测绘再决定是否 canonicalize。
+
+<!-- REVIEWER-SEQUENCE:V6 -->
+### 评委最终阅读路径：AI ON / AI OFF 成对证据
+
+v6 不增加新的城市概念，而把已有成果压缩为一条明确评审顺序：**总体结构 → 三区差异 → 人的地面层 → AI OFF 基线 → AI ON 可选能力 → 城市学习决策 → 证据与实施边界**。A0/A3、offline visual 与 Three.js 均采用同一顺序。
+
+![众智园验证园区首层、普通旁路与有界测试近景示意](assets/figures/close-range-zhongzhiyuan.png)
+![AI 原点近景](assets/figures/close-range-ai-origin.png)
+![大钟寺市场服务街、骑手装卸口袋与夜间公共空间近景示意](assets/figures/close-range-dazhongsi.png)
+
+![同一城市底盘的 AI OFF / AI ON 成对空间证据](assets/figures/ai-on-off-review.png)
+
+**AI OFF** 是正式设计底线：普通步行、物理无障碍、固定导视、树荫避雨、座席、人工帮助、普通交易/导航、应急与后勤持续工作。**AI ON** 只增加 Ambient、Consent 与 Bounded Test 三类可选择能力；个性化、识别或较高风险行为不能取消人工覆盖和普通旁路。三张近景与 AI ON/OFF 图均为 **Conceptual reviewer rendering / Derived / Not yet canonicalized**，不是现场照片、批准效果图或居民意见证据。
+
+正式离线 `visual/index.html` 新增本地 Three.js 评审入口。该模式只使用打包进本地 bundle 的 canonical proposal geometry 与 Derived reviewer detail，不请求 CDN、地图瓦片、Overpass、远程字体或网络 API；提供静态 fallback、键盘操作、loading/error 状态和 reduced-motion 行为。它用于比较空间层级与 AI ON/OFF，不替代 GeoJSON、A0/A3 或法定专业判断。
 
 ## AI 创新生态、人才画像与 AI+ 场景
 
