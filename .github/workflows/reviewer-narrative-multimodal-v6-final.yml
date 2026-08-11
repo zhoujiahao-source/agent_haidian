@@ -34,4 +34,4 @@ jobs:
       - name: Run exact-head v6 final validation against manifest 0.2
         env:
           GH_TOKEN: ${{ github.token }}
-        run: bash workstreams/reviewer_narrative_multimodal_v6/run_v6_final_r2.sh
+        run: bash workstreams/reviewer_narrative_multimodal_v6/run_v6_final_r3.sh
